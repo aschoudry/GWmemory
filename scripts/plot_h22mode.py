@@ -34,13 +34,13 @@ for i in range(len(data_psi)):
 dhSXS_dt_initial_real=np.gradient(h22_real_SXS, time)[0]
 dhSXS_dt_initial_imag=np.gradient(h22_imag_SXS, time)[0]
 
-dh22_real_by_dt=integrate.cumtrapz(d2h22_real_by_dt2, time,initial=dhSXS_dt_initial_real)
-dh22_imag_by_dt=integrate.cumtrapz(d2h22_imag_by_dt2, time, initial=dhSXS_dt_initial_real)
+dh22_real_by_dt=integrate.cumtrapz(d2h22_real_by_dt2, time,initial=0*dhSXS_dt_initial_real)
+dh22_imag_by_dt=integrate.cumtrapz(d2h22_imag_by_dt2, time, initial=0*dhSXS_dt_initial_real)
 
 #integrating the data second time with respect to time
 
-h22_real=integrate.cumtrapz(dh22_real_by_dt, time, initial=h22_real_SXS[0])
-h22_imag=integrate.cumtrapz(dh22_imag_by_dt, time, initial=h22_imag_SXS[0])
+h22_real=integrate.cumtrapz(dh22_real_by_dt, time, initial=0*h22_real_SXS[0])
+h22_imag=integrate.cumtrapz(dh22_imag_by_dt, time, initial=0*h22_imag_SXS[0])
 
 #making plots
 plt.plot(time, h22_real, 'g', label="h22 real")
@@ -51,9 +51,33 @@ plt.legend()
 plt.show()
 
 plt.plot(time, h22_real-h22_real_SXS)
+plt.plot(time, h22_imag-h22_imag_SXS)
 plt.show()
 
 #plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/h22_plot2.pdf")
+
+# Plot Psi4 data
+dh22_real_SXS_by_dt = np.gradient(h22_real_SXS, time)
+dh22_imag_SXS_by_dt = np.gradient(h22_imag_SXS, time)
+
+d2h22_real_SXS_by_dt2=np.gradient(dh22_real_SXS_by_dt, time)
+d2h22_imag_SXS_by_dt2=np.gradient(dh22_imag_SXS_by_dt, time)
+
+plt.plot(time,d2h22_real_SXS_by_dt2,'r--' )
+plt.plot(time,d2h22_real_by_dt2,'k' )
+plt.show()
+
+#Subtract linearfit
+linear_fit_coeff_real = np.polyfit(time, h22_real, 1)
+linear_fit_coeff_imag = np.polyfit(time, h22_imag, 1)
+
+linear_fit_real=linear_fit_coeff_real[0]*time + linear_fit_coeff_real[1]
+plt.plot(time, h22_real-linear_fit_real,'r--', label="linear fit sub from h22")
+plt.plot(time, h22_real_SXS, 'g', label="h22 SXS")
+plt.legend()
+plt.show()  
+
+
 
 
 
