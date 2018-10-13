@@ -15,10 +15,10 @@ hintmeth = 3;    %if 1, integrate psi4 in time to 1st order in delta and filter 
 
 tstart = 100;    %time in M to start, ie length of time at beginning to cut out
 tstop = 50;      %time in M to stop, measured from end
-filename='rMPsi4_AlignedSpin_Sz_mp800_q1dataClean';
-save_location='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/';
+filename='rMPsi4_Sz1_m0p9_Sz2_0p9_q1p5dataClean';
+save_location='/home/ashok/gravitational_wave_memory_project/data/Spinning_Sz_antialigned/Memory_data/';
 filename_and_loc=strcat(save_location, filename);
-wave = load(strcat(strcat('/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/',filename),'.txt'));
+wave = load(strcat(strcat('/home/ashok/gravitational_wave_memory_project/data/Spinning_Sz_antialigned/',filename),'.txt'));
 timeNR = wave(:,1);
 psi_plus = wave(:,2);
 psi_cross = wave(:,3);

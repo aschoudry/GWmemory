@@ -34,13 +34,13 @@ for i in range(len(data_psi)):
 dhSXS_dt_initial_real=np.gradient(h22_real_SXS, time)[0]
 dhSXS_dt_initial_imag=np.gradient(h22_imag_SXS, time)[0]
 
-dh22_real_by_dt=integrate.cumtrapz(d2h22_real_by_dt2, time,initial=0*dhSXS_dt_initial_real)
-dh22_imag_by_dt=integrate.cumtrapz(d2h22_imag_by_dt2, time, initial=0*dhSXS_dt_initial_real)
+dh22_real_by_dt=integrate.cumtrapz(d2h22_real_by_dt2, time,initial=0)
+dh22_imag_by_dt=integrate.cumtrapz(d2h22_imag_by_dt2, time, initial=0)
 
 #integrating the data second time with respect to time
 
-h22_real=integrate.cumtrapz(dh22_real_by_dt, time, initial=0*h22_real_SXS[0])
-h22_imag=integrate.cumtrapz(dh22_imag_by_dt, time, initial=0*h22_imag_SXS[0])
+h22_real=integrate.cumtrapz(dh22_real_by_dt, time, initial=0)
+h22_imag=integrate.cumtrapz(dh22_imag_by_dt, time, initial=0)
 
 #making plots
 plt.plot(time, h22_real, 'g', label="h22 real")
