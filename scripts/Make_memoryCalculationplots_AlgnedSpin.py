@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotsettings
 from matplotlib.font_manager import FontProperties
+import memory_function_from_favataPaper as mf
+
+def find_nearest_idx(array, value):
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return idx
 
 #data location
 file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
@@ -62,6 +68,10 @@ for filename in filename_vec:
 	plt.close()
 
 
+#Stiching Postnewtonian memory
+dt=timeNR[1]-timeNR[0]
+time_PN = np.arange(-9000, -2000, dt)
+hp_mem_PN = mf.h_plus_mem(np.pi/2, 1.0/4.0, 1.0, 1.0, time_PN)
 
 i=0
 #Making plots
@@ -77,8 +87,25 @@ for filename in filename_vec:
 	
 	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
-	plt.plot(timeNR, hmem, label=filename_vec[i])
+	
+	idx = find_nearest_idx(time_PN, timeNR[0])
+	print timeNR[0], time_PN[idx]
+	time_PN_cut=time_PN[:idx]
+	hp_mem_PN_cut=hp_mem_PN[:idx]
+
+	#Normalize to stich
+	slope=(hmem[1]-hmem[0])/(hp_mem_PN_cut[-1]-hp_mem_PN_cut[-2])
+	hp_mem_PN_cut*=slope
+
+	hmem_tot=hmem+hp_mem_PN_cut[-1]
+	time_tot = np.append(time_PN_cut, timeNR)
+	hmem_tot = np.append(hp_mem_PN_cut, hmem_tot)
+
+	plt.plot(time_tot, hmem_tot, label=filename_vec[i])
 	i+=1
+	
+	
+
 
 plt.grid()
 #plt.ylim(0,0.0007)
