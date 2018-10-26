@@ -133,6 +133,8 @@ hdot_plus = maghdot.*cos(phasehdot);
 hdot_cross = maghdot.*sin(phasehdot);
 hdot_tot = complex(hdot_plus,hdot_cross);
 
+
+
 figure
 plot(timeNR,hdot_plus)
 hold all
@@ -170,7 +172,7 @@ A=[timeNR h_plus h_cross];
 file_hNR=strcat(strcat(filename_and_loc,'_hNR'),'.dat');
 save(file_hNR,'A','-ASCII','-double')
 
-h_plus_mem =cumsum(abs(hdot_plus.*hdot_plus))*(timeNR(2)-timeNR(1))/(192*pi);
+h_plus_mem =cumtrapz(abs(hdot_plus.*hdot_plus))*(timeNR(2)-timeNR(1))/(192*pi);
 h_plus_total=h_plus+h_plus_mem;
 figure
 plot(timeNR,h_plus_mem)

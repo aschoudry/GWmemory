@@ -87,21 +87,38 @@ for filename in filename_vec:
 	
 	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
-	
-	idx = find_nearest_idx(time_PN, timeNR[0])
-	print timeNR[0], time_PN[idx]
-	time_PN_cut=time_PN[:idx]
-	hp_mem_PN_cut=hp_mem_PN[:idx]
+
+		
+#	idx = find_nearest_idx(time_PN, timeNR[0])
+#
+#	print timeNR[0], time_PN[idx]
+#	time_PN_cut=time_PN[:idx]
+#	hp_mem_PN_cut=hp_mem_PN[:idx]
+
+
 
 	#Normalize to stich
-	slope=(hmem[1]-hmem[0])/(hp_mem_PN_cut[-1]-hp_mem_PN_cut[-2])
-	hp_mem_PN_cut*=slope
+	hmem*=17.0
+	
+	dhp_mem_PN_dt=np.diff(hp_mem_PN)/dt
+
+	dt=timeNR[1]-timeNR[0]
+	Slope_hmem_NR=(hmem[51]-hmem[50])/dt
+	idx=find_nearest_idx(dhp_mem_PN_dt, Slope_hmem_NR)
+
+	print Slope_hmem_NR, dhp_mem_PN_dt[idx] 
+
+	time_PN_cut=time_PN[:idx]
+	hp_mem_PN_cut=hp_mem_PN[:idx]
 
 	hmem_tot=hmem+hp_mem_PN_cut[-1]
 	time_tot = np.append(time_PN_cut, timeNR)
 	hmem_tot = np.append(hp_mem_PN_cut, hmem_tot)
 
 	plt.plot(time_tot, hmem_tot, label=filename_vec[i])
+#	plt.plot(timeNR, hmem, 'g--')
+	plt.plot(time_PN, hp_mem_PN, 'r--')
+#	plt.show()
 	i+=1
 	
 	
