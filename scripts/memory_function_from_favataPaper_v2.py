@@ -38,6 +38,7 @@ def dx_by_dt(x, t):
 	
 	#M=1
 	#eta=0.25
+	PN_order = 2.5
 	
 	gammaE = 0.57721
 	C0 = 1.0
@@ -48,8 +49,21 @@ def dx_by_dt(x, t):
 	C3 = (16447322263.0/139708800.0) + (16.0/3.0)*np.pi**2 - (856.0/105.0)*(2*gammaE + np.log(16.0*x)) + (-(56198689.0/217728.0) + (451.0/48.0)*np.pi**2)*eta + (541.0/896.0)*eta**2 \
 		-(5605.0/2592.0)*eta**3
 	C7p5 = np.pi*( -(4415.0/4032.0) + (358675.0/6048.0)*eta + (91495.0/1512.0)*eta**2)
-
-	dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5) + C2*pow(x,2) + C2p5*pow(x,2.5) + C3*pow(x,3) + C7p5*pow(x,7.5)) 
+	
+	if PN_order==0:
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0)
+	if PN_order==1:
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x)
+	if PN_order==1.5:
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5))
+	if PN_order==2:
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5) + C2*pow(x,2))
+	if PN_order==2.5:
+		 dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5) + C2*pow(x,2) + C2p5*pow(x,2.5)) 		 
+	if PN_order==3:
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5) + C2*pow(x,2) + C2p5*pow(x,2.5) + C3*pow(x,3))
+	if PN_order==3.5:	
+		dx_bydt = (64.0/5.0)*(eta/M)*pow(x, 5)*(C0 + C1*x + C1p5*pow(x, 1.5) + C2*pow(x,2) + C2p5*pow(x,2.5) + C3*pow(x,3) + C7p5*pow(x,3.5)) 
 
 	return dx_bydt
 
@@ -88,7 +102,7 @@ def h_plus_mem(theta, eta, M, R, t, x0):
 	return h_mem
 
 
-t = np.arange(-9000.0, -2000.0, 0.1)
+t = np.arange(-9000.0, -70.0, 0.1)
 M=1.0
 q=2.0
 eta=q/pow(1.0+q,2)
@@ -99,7 +113,7 @@ hp_mem = h_plus_mem(np.pi/2, eta, 1.0, 1.0, t, x0)
 
 plt.plot(t, hp_mem)
 plt.plot(t, hp_mem_leading,'r--')
-plt.xlim(-9000, -1000)
+#plt.xlim(-9000, -8000)
 plt.show()
  	
 f=open("/home/ashok/gravitational_wave_memory_project/data/PostnewtonianMemory_v2.txt","w") 

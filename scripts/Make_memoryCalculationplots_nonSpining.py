@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotsettings
 from matplotlib.font_manager import FontProperties
-import memory_function_from_favataPaper as mf
+import memory_function_from_favataPaper_v2 as mf
+from scipy.integrate import odeint
+
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -95,13 +97,22 @@ for filename in filename_vec:
 	
 	#Stiching Postnewtonian memory
 	dt=timeNR[1]-timeNR[0]
-	time_PN = np.arange(-9000, -2000, dt)
-	
+	time_PN = np.arange(-9000, -60, dt)
+
 	q=mass_ratio_vec[i]
 	eta = q/pow(1.0+q,2)
-		
-	hp_mem_PN = mf.h_plus_mem(np.pi/2, eta, 1.0, 1.0, time_PN)
+	
+	M=1
+	x0=pow(-5.0*M/(256.0*time_PN[0]*eta), 1.0/4.0)
 
+	
+	
+
+#	hp_mem_PN = mf.h_plus_mem(np.pi/2, eta, 1.0, 1.0, time_PN, x0)		
+	hp_mem_PN = mf.h_plus_mem_leadingOrder(np.pi/2, eta, 1.0, 1.0, time_PN)
+	
+	hp_mem_PN_original = hp_mem_PN
+	time_PN_original = time_PN
 
 	dhp_mem_PN_dt=np.diff(hp_mem_PN)/dt
 
@@ -124,7 +135,10 @@ for filename in filename_vec:
 
 	plt.plot(time_tot, hmem_tot, label=filename_vec[i])
 	plt.plot(timeNR, hmem + hp_mem_PN_cut[-1], 'k--' )
+#	plt.plot(time_PN_original, hp_mem_PN_original, 'g--')
 	i+=1
+
+plt.plot(time_PN_original, hp_mem_PN_original, 'g')
 
 plt.grid()
 #plt.ylim(0,0.0002)
