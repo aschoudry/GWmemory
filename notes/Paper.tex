@@ -1,0 +1,352 @@
+\documentclass[prd,preprintnumbers,twocolumn,eqsecnum,floatfix,letter]{revtex4}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage{tensor}
+\usepackage{bm}
+\usepackage{times}
+\usepackage[varg]{txfonts}
+\usepackage[colorlinks, pdfborder={0 0 0}]{hyperref}
+\definecolor{LinkColor}{rgb}{0.75, 0, 0}
+\definecolor{CiteColor}{rgb}{0, 0.5, 0.5}
+\definecolor{UrlColor}{rgb}{0, 0, 0.75}
+\hypersetup{linkcolor=LinkColor}
+\hypersetup{citecolor=CiteColor}
+\hypersetup{urlcolor=UrlColor}
+\maxdeadcycles=1000
+\allowdisplaybreaks
+\textwidth 7.5 in 
+\hoffset -1 cm 
+\newcommand{\comment}[1]{\textcolor{blue}{\textit{#1}}}
+\newcommand{\ajith}[1]{\textcolor{red}{\textit{Ajith:#1}}}
+\newcommand{\ashok}[1]{\textcolor{cyan}{\textit{Ashok:#1}}}
+
+
+\begin{document}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ber}{\begin{eqnarray}}
+\newcommand{\eer}{\end{eqnarray}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\newcommand{\etal}{\emph{et al.}}
+
+\newcommand{\Sl}{S_\ell}
+\newcommand{\Sigmal}{\Sigma_\ell}
+\newcommand{\Flux}{\mathcal{F}}
+\newcommand{\LNh}{\hat{\mathbf{L}}_N}
+\newcommand{\LN}{\mathbf{L}_N}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\flow}{f_\mathrm{low}}
+\newcommand{\fcut}{f_\mathrm{cut}}
+
+\newcommand{\bchi}{\bm{\chi}}
+\newcommand{\blambda}{\bm{\lambda}}
+\newcommand{\bLambda}{\bm{\Lambda}}
+\newcommand{\bchia}{\bm{\chi}_a}
+\newcommand{\bchis}{\bm{\chi}_s}
+\newcommand{\chis}{\chi_s}
+%\newcommand{\bchi}{\mathbf{\chi}}
+\newcommand{\chia}{\chi_a}
+\newcommand{\chiadL}{\bchia \cdot \LNh}
+\newcommand{\chisdL}{\bchis \cdot \LNh}
+\newcommand{\chisSqr}{\bchis^2}
+\newcommand{\chiaSqr}{\bchia^2}
+\newcommand{\chisDchia}{\bchis \cdot \bchia}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\pc}{{+,\times}}
+
+
+\newcommand{\LIGO}{LIGO Laboratory, California Institute of Technology, 
+Pasadena, CA 91125, USA}
+\newcommand{\CIT}{Theoretical Astrophysics, California Institute of
+Technology, Pasadena, CA 91125, USA}
+\newcommand{\UWM}{UWM}
+
+
+\title{Notes on the SpinTaylorF2 project}
+\author{P.~Ajith}\email{ajith@icts.res.in}
+\affiliation{International Centre for Theoretical Sciences, Tata Institute of Fundamental Research, Bangalore 560012, India}
+\author{Ashok Choudhary}
+\affiliation{International Centre for Theoretical Sciences, Tata Institute of Fundamental Research, Bangalore 560012, India}
+
+
+\begin{abstract}
+\end{abstract}
+
+\maketitle
+
+\section{Computing the spin and angular momentum vectors in the frequency domain}
+
+\subsection{Performing the evolution in Cartesian coordinates}
+
+The spin angular momentum vectors $\bS_i (v)$ and the unit vector $ \LNh (v)$ along the Newtonian angular momentum the frequency domain can be computed by using the evolution equations: 
+\begin{eqnarray}
+\frac{d \bS_i}{dv} & = & \frac{d \bS_i}{dt}  \frac{dt}{dv}, \\
+\frac{d \LNh}{dv}  & = & \frac{d \LNh}{dt} \frac{dt}{dv},  
+\label{eq:precessionEqFreqDom}
+\end{eqnarray}
+%
+where 
+\begin{equation}
+\frac{d \LNh}{dt}  = - \frac{1}{||\mathbf{L}||} \, \frac{d}{dt} (\bS_1 + \bS_2),
+\label{eq:orbitPrec}
+\end{equation}
+% 
+%
+\begin{equation}
+\frac{d \bS_i}{dt}  =  \bm{\Omega}_i \times \bS_i \,,~ i = 1,2, 
+\label{eq:spinPrec}
+\end{equation}
+%
+and 
+% 
+\begin{widetext}
+\begin{align}\label{eq:EbyF}
+\frac{dt}{dv} & = \frac{5m}{32 \, v^9  \, \eta} \left\{1 + v^2 \left[\frac{11 \eta }{4}+\frac{743}{336} \right] 
+    + v^3 \left[\frac{113}{12} \left(\biggl( 1-\frac{76\eta}{113}\biggr) \, \chisdL + \delta \, \chiadL \right)-4 \pi \right] \right. \nonumber \\ 
+    &\quad + v^4 \left[(\chiadL)^2 \left(30 \eta -\frac{719}{96}\right)-\frac{719 \chiadL \, \chisdL \delta
+   }{48}+\chiaSqr \left(\frac{233}{96}-10 \eta \right)+\frac{233 \chisDchia \delta}{48} \right. \nonumber\\
+   &\qquad \left. +(\chisdL)^2 \left(-\frac{\eta }{24}-\frac{719}{96}\right)+\chisSqr \left(\frac{7 \eta
+   }{24}+\frac{233}{96}\right)+\frac{617 \eta ^2}{144}+\frac{5429 \eta }{1008}+\frac{3058673}{1016064} \right] \nonumber \\ 
+    &\quad + v^5 \left[\chiadL \delta  \left(\frac{7 \eta }{2}+\frac{146597}{2016}\right)+\chisdL \left(-\frac{17 \eta
+   ^2}{2}-\frac{1213 \eta }{18}+\frac{146597}{2016}\right)+\frac{13 \pi  \eta }{8}-\frac{7729 \pi }{672} \right]  \nonumber\\ 
+    &\quad + v^6 \left[\frac{1712 \gamma_E }{105}+\frac{25565 \eta ^3}{5184}-\frac{15211 \eta
+   ^2}{6912}-\frac{451 \pi ^2 \eta }{48}+\frac{3147553127 \eta }{12192768}+\frac{32 \pi
+   ^2}{3}-\frac{10817850546611}{93884313600}+\frac{1712 \ln (4v)}{105} \right]  \nonumber\\ 
+    &\quad \left. + v^7 \left[\frac{14809 \pi  \eta ^2}{3024}-\frac{75703 \pi  \eta }{6048}-\frac{15419335 \pi }{1016064} \right] \right\}. 
+\end{align}
+\end{widetext}
+% 
+(\ajith{Need to add the BH absorption term above}). The (orbit averaged) precession frequencies $\bm{\Omega}_i$ appearing in Eq.~(\ref{eq:spinPrec}) are given by 
+\begin{align}
+\label{eq:Omega}
+\bm{\Omega}_1 & =  \frac{v^5}{m} \left\{\left(\frac{3}{4}+\frac{\eta}{2}-\frac{3\delta}{4}\right) \LNh \right. \nonumber \\
+     & \quad +  \frac{v}{2m^2} \left[-3 \, (\bS_2 + q \, \bS_1).\LNh ~ \LNh + \bS_2 \right]  \nonumber \\
+     & \quad +  \left. v^2 \left(\frac{9}{16} + \frac{5\eta}{4} - \frac{\eta^2}{24} - \frac{9\delta}{16} + \frac{5\delta \eta}{8} \right)  \LNh  \right\}, \nonumber \\
+%
+\bm{\Omega}_2 & =  \frac{v^5}{m} \left\{\left(\frac{3}{4}+\frac{\eta}{2}+\frac{3\delta}{4}\right) \LNh \right. \nonumber \\
+     & \quad +  \frac{v}{2m^2} \left[-3 \, (\bS_1 + q^{-1} \, \bS_2).\LNh ~ \LNh + \bS_1 \right]  \nonumber \\
+     & \quad +  \left. v^2 \left(\frac{9}{16} + \frac{5\eta}{4} - \frac{\eta^2}{24} + \frac{9\delta}{16} - \frac{5\delta \eta}{8} \right)  \LNh  \right\}. 
+\end{align}
+
+%
+Above, $v \equiv (m \omega)^{1/3}$ is the PN expansion parameter, $\omega$ is the orbital frequency, $m \equiv m_1 + m_2$ is the total mass of the binary, $q \equiv m_2/m_1$ is the mass ratio, $\eta \equiv m_1 m_2/m^2$ is the symmetric mass ratio, $\delta \equiv (m_1-m_2)/m$ the asymmetric mass ratio, $\gamma_E$ the Euler's constant, and $\LNh$ the unit vector along the Newtonian orbital angular momentum $\LN \equiv m^2\eta/v ~ \LNh$. The spin variables $\bchis$ and $\bchia$ are related to the (dimensionless) spin vectors of the binary as: 
+%
+\begin{equation}
+\bchis = (\bchi_1 + \bchi_2)/2, ~~~ \bchia = (\bchi_1 - \bchi_2)/2,
+\end{equation}
+%
+where $\bchi_i \equiv \bS_i/m_i^2$.
+
+\subsection{Performing the evolution in spherical polar coordinates}
+
+The time evolution equation of $i \equiv \arccos L_{Nz}$ and $ \alpha \equiv \arctan (L_{Ny}/L_{Nx})$ are given by:
+\begin{equation}
+\frac{d\iota}{dt} = \frac{-1}{\|L\| \sin\iota}\sum\limits_{k = 1}^{2}m^2_{k}\| \boldsymbol{\chi}_{k}\|\sin\theta_{s_{k}}\frac{d\theta_{s_{k}}}{dt}
+\end{equation}  
+and
+\begin{widetext}
+\begin{align}
+\begin{split}
+\frac{d\alpha}{dt} =& \frac{\cos\alpha}{\sin\iota}\Bigg(\frac{-1}{\|\boldsymbol{L}\|}\sum\limits_{k = 1}^{2} m^{2}_{k}\|\boldsymbol{{\chi}}_{k}\|\left[\frac{d\theta_{S_{k}}}{dt}\cos\theta_{s_{k}}\sin\phi_{s_{k}} + \frac{d\phi_{S_{k}}}{dt}\sin\theta_{s_{k}}\cos\phi_{s_{k}}\right]\Bigg) \\ 
+- & \frac{\sin\alpha}{\sin\iota}\Bigg(\frac{-1}{\|\boldsymbol{L}\|}\sum\limits_{k = 1}^{2} m^{2}_{k}\|\boldsymbol{{\chi}}_{k}\|\left[\frac{d\theta_{S_{k}}}{dt}\cos\theta_{s_{k}}\cos\phi_{s_{k}} - \frac{d\phi_{S_{k}}}{dt}\sin\theta_{s_{k}}\sin\phi_{s_{k}}\right]\Bigg)
+\end{split}
+\end{align}
+ \end{widetext}
+
+ The angles corresponding to spin vectors($S_{1}$ and $S_{2}$)can also be written as:
+ \begin{eqnarray}
+ \frac{d\theta_{s}}{dt} = \frac{1}{\|\boldsymbol{\chi}\|\cos\theta_{s}}\left[
+ \cos\phi_{s}(\Omega_{y}\chi_{z}-\Omega_{z}\chi_{y}) + \sin\phi_{s}(\Omega_{z}\chi_{x}-\Omega_{x}\chi_{z}) \right], \nonumber \\ 
+  \frac{d\phi_{s}}{dt} = \frac{1}{\|\boldsymbol{\chi}\|\sin\theta_{s}}\left[
+  \cos\phi_{s}(\Omega_{z}\chi_{x}-\Omega_{x}\chi_{z}) - \sin\phi_{s}(\Omega_{y}\chi_{z}-\Omega_{z}\chi_{y}) \right], \nonumber \\ 
+i = 1,2 \end{eqnarray}
+where the expression for $\Omega$ are given in \ref{eq:Omega} 
+
+
+\section{Computing the GW polarizations in the radiation frame}
+
+In the absence of precession, the phase evolution of the (dominant harmonic) GWs is twice the orbital phase $\varphi(t)$. But the precession of the orbital plane introduces additional modulation in the orbital phase. If we define $\Phi(t)$ as the orbital phase with respect to the line of ascending nodes (the point at which the orbit crosses the $x-y$ plane from below) then the the phase evolution of the (dominant harmonic) GWs is given by $2\Phi(t)$, where $\Phi(t)$ is given by 
+%
+\begin{equation}
+\label{eq:dPhiByDt}
+\frac{d\Phi}{dt} = \omega - \frac{d\alpha}{dt} \cos i, 
+\end{equation}
+%
+where $\alpha$ and $i$ are the angles describing the evolution of the orbital angular momentum vector $\LNh$ in the Finn-Chernoff coordinate system:
+%
+\begin{equation}
+\alpha \equiv \arctan (\hat{L}_{Ny}/\hat{L}_{Nx}), ~~~ i \equiv \arccos (\hat{L}_{Nz}). 
+\end{equation}
+%
+Time domain GW polarizations in the radiation frame can be written as 
+%
+\begin{eqnarray}
+\label{eq:polzns_timedom}
+h_{+,\times}(t) & = & \frac{-m \eta v^2}{d} ~\Bigg\{ C_{+,\times}\cos 2[\Phi(t)+\Phi_{0}] \nonumber \\ 
+ & + & S_{+,\times}\sin 2[\Phi(t)+\Phi_{0}] \Bigg\}, \nonumber \\ 
+\end{eqnarray} 
+% 
+which can be rewritten as 
+%
+\begin{eqnarray}
+h_{+,\times}(t) = & A_{+,\times}(t) \, \cos \Psi_{+,\times}(t),
+\end{eqnarray} 
+%
+where 
+\begin{eqnarray}
+\label{eq:polz_timedom_ampphase}
+A_{+,\times}(t) & = & \frac{-m \eta v^2}{d} \sqrt{C_{+,\times}^2 + S_{+,\times}^2}, \nonumber \\ 
+\Psi_{+,\times}(t) & = & 2 [\Phi(t) + \Phi_0] - \arctan \left(\frac{S_{+,\times}}{C_{+,\times}} \right),
+\end{eqnarray}
+where 
+\begin{eqnarray}
+C_+(t) & = & 2 \cos^2\alpha (\cos^2\Theta \cos^2 i+1)
+	 -  \sin^2\alpha (\cos 2\Theta+\cos 2i+2) \nonumber \\ 
+	& + & \cos \alpha \sin 2\Theta \sin 2i+2 \sin^2 \Theta \sin^2 i , \nonumber \\ 
+S_+(t) & = & -2 \sin\alpha (\cos\alpha (\cos 2\Theta+3) \cos i + 2 \sin\Theta \cos\Theta \sin i), \nonumber \\ 
+C_\times(t) & = & \sin \alpha (2 \cos \alpha \cos \Theta (\cos 2i+3)+4 \sin \Theta \sin i \cos i), \nonumber \\ 
+S_\times(t) & = & 4 \cos 2\alpha \cos \Theta \cos i+ 4 \cos \alpha \sin \Theta \sin i.
+\end{eqnarray}
+
+
+\section{Computation of the Fourier transform}
+
+In this section, we compute the Fourier transform of the time domain GW polarizations given in Eq.~(\ref{eq:polz_timedom_ampphase}).
+
+\subsection{Stationary phase approximation}
+
+We compute the Fourier transform of Eq.~(\ref{eq:polz_timedom_ampphase}) using stationary phase approximation (SPA). According to the SPA, the power in a Fourier frequency $f$ should mostly come from the saddle point $t_f$ given by the relation 
+%
+\begin{equation}
+ f = F_{+,\times}(t_f).
+ \label{eq:saddle_point}
+\end{equation}
+%
+Above $F_{+,\times}(t_f)$ is the instantaneous GW frequency of the $+,\times$ polarization in the radiation frame. That is, 
+\begin{equation}
+\label{eq:saddle_point}
+2 \pi F_{+,\times}(t) =  \frac{d\Psi_{+,\times}(t)}{dt} = 2 \omega_\mathrm{orb}(t) - \xi_{+,\times}(t), 
+\end{equation}
+where 
+\begin{equation}
+\xi_{+,\times}(t) = 2 \frac{d\alpha}{dt} \cos i - \frac{d}{dt} \arctan\left(\frac{S_{+,\times}}{C_{+,\times}}\right).
+\end{equation}
+% 
+Then the Fourier transform can be written as as 
+%
+\begin{equation}
+\tilde{h}_{+,\times}(f) = \mathcal{A}_{+,\times}(t_f) ~ e^{i[\Psi_{f+,\times}(t_f)-\pi/4]},
+\end{equation}
+where 
+\begin{equation}
+\label{eq:fourier_ampl}
+\mathcal{A}_{+,\times}(t_f) = \frac{A_{+,\times}(t_f)}{2 \sqrt{\dot{F}_{+,\times}(t_f)}},
+\end{equation}
+and 
+\begin{equation}
+\label{eq:fourier_phase}
+\Psi_{f\pc}(t_f) = 2\pi f t_{f}- 2 \varphi_\mathrm{orb}(t_f) + \int_{t_0}^{t_f} \xi_\pc(t) \, dt 
+\end{equation}
+
+The time-derivative of the instantaneous frequency appearing in Eq.~(\ref{eq:fourier_ampl}) can be written as 
+%
+\begin{eqnarray}
+\frac{dF_\pc(t_f)}{dt} & = & \frac{dF_\pc}{dv} \frac{dv}{dt} \nonumber \\
+ & = & -\frac{3v_f^2}{\pi m^2} \frac{\mathcal{F}(v_f)}{E'(v_f)}\left[1-\frac{m}{6v_f^2}\frac{d\xi_{+,\times}(t_f)}{dv} \right].
+\end{eqnarray}
+%
+Using the binomial expansion of $(1-x)^{-1/2} \simeq (1+x/2)$, 
+%
+\begin{eqnarray}
+\frac{1}{\sqrt{\dot{F}_{+,\times}(t_f)}} \simeq \sqrt{\frac{\pi}{3}} \frac{m}{v_f} \left[\frac{-E'(v_f)}{\mathcal{F}(v_f)} \right]^{1/2} \left[1+\frac{m}{12v_f^2} \frac{d\xi_{+,\times}(t_f)}{dv}\right]
+\end{eqnarray}
+%
+Plugging this in Eq.~(\ref{eq:fourier_ampl}),
+%
+\begin{eqnarray}
+\mathcal{A}_{+,\times}(t_f) & = &  \frac{m^2\eta v_f}{2d} \sqrt{\frac{\pi}{3}} \left[C_{+,\times}(t_f)^2 + S_{+,\times}(t_f)^2 \right]^{1/2} \nonumber \\ 
+& & \left[\frac{-E'(v_f)}{\mathcal{F}(v_f)} \right]^{1/2} \left[1+ \frac{m}{12 v_f^2} \frac{d\xi_{+,\times}}{dv}\right]
+\label{eq:spa_amp}
+\end{eqnarray}
+%
+\subsection{Computing the saddle point}
+
+For each Fourier frequency $f$, compute the corresponding saddle point $v_f$ (value of $v$ at the saddle point) by solving Eq.(\ref{eq:saddle_point}), which can be rewritten as 
+%
+\begin{equation}
+v_f = v_f^0 \left[1+ \frac{\xi_{+,\times}(v_f)}{2\pi f} \right]^{1/3} \simeq  v_f^0 \left[1+ \frac{\xi_{+,\times}(v_f)}{6\pi f} \right]
+\label{eq:saddle_point2}
+\end{equation}
+% 
+where $v_f^0 = (\pi m f)^{1/3}$. Below, we describe the different approximations used in solving this equation. 
+
+\paragraph{\textbf{Approximation A}}: We neglect the correction to the saddle point due to the modulational effect of precession, by neglecting the contribution from $\xi_\pc$ in Eq.~(\ref{eq:saddle_point2}). We take $v_f^0$ as the saddle point corresponding to the Fourier frequency $f$. 
+
+Comparison of the amplitude and phase of the this version of SPA with the FFT is given in Figures~\ref{fig:fft_spa_comparison_approx_1_nonprec} and \ref{fig:fft_spa_comparison_approx_1_prec}. In each plot, the legend SPA$_1$ refers to the approximation in which the correction terms $\frac{m}{12 v_f^2} \frac{d\xi_{+,\times}}{dv}$ in Eq.(\ref{eq:spa_amp}) and $\int_{t_0}^{t_f} \xi_\pc(t) \, dt$ in Eq.(\ref{eq:fourier_phase}) are neglected, while SPA$_2$ refers to the version computed using the complete terms in  Eq.(\ref{eq:spa_amp}) and Eq.(\ref{eq:fourier_phase}). 
+
+\paragraph{\textbf{Approximation B}}: A slightly more accurate approximation of the saddle point is given by 
+%
+\begin{equation}
+v_f \simeq  v_f^0 \left[1+ \frac{\xi_{+,\times}(v_f^0)}{6\pi f} \right],
+\label{eq:saddle_point2}
+\end{equation}
+%
+where the correction term is computed at $v_f = v_f^0$. This refined approximation is being compared against the FFT. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[tb]
+\begin{center}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_1.00_m_20.00_spin1[0.00,0.00,0.98]_spin2[0.00,0.00,0.98]_iota1.57}.pdf}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_4.00_m_20.00_spin1[0.00,0.00,0.98]_spin2[0.00,0.00,0.98]_iota1.57}.pdf}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_10.00_m_20.00_spin1[0.00,0.00,0.98]_spin2[0.00,0.00,0.98]_iota1.57}.pdf}
+\caption{Comparison of different SPA approximations with numerical FFTs in the case of some non-precessing-spin binaries. Left and middle panels show the amplitude and phase in the Fourier domain, while the right panels show the difference between the FFT and SPA phase. Parameters of the waveforms are shown in the titles.}
+\label{fig:fft_spa_comparison_approx_1_nonprec}
+\end{center}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[tb]
+\begin{center}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_1.00_m_20.00_spin1[0.98,0.00,0.00]_spin2[0.98,0.00,0.00]_iota1.57}.pdf}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_4.00_m_20.00_spin1[0.98,0.00,0.00]_spin2[0.98,0.00,0.00]_iota1.57}.pdf}
+\includegraphics[width=5.0in]{{../plots/spa/SPA_SpinAndOrbitEv_SpinTaylorT5_q_10.00_m_20.00_spin1[0.98,0.00,0.00]_spin2[0.98,0.00,0.00]_iota1.57}.pdf}
+\caption{Comparison of different SPA approximations with numerical FFTs in the case of some highly precessing binaries. Left and middle panels show the amplitude and phase in the Fourier domain, while the right panels show the difference between the FFT and SPA phase. Parameters of the waveforms are shown in the titles.}
+\label{fig:fft_spa_comparison_approx_1_prec}
+\end{center}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\newpage
+\appendix 
+
+\section{Ingredients for the Fourier domain waveforms}
+The orbital phase is given by 
+\begin{widetext}
+\begin{align}
+\begin{split}
+\varphi_\mathrm{orb}(f) = &\frac{3}{256\eta v^{5}}\Bigg\lbrace 1 + v^{2}\Bigg\lbrack\frac{55\eta}{9}+\frac{3715}{756}\Bigg\rbrack + v^{3}\Bigg\lbrack\frac{113\delta\boldsymbol{\chi_{a}.L}}{3} +\frac{113\boldsymbol{\chi_{s}.L}}{3} - \frac{76\eta\boldsymbol{\chi_{s}.L}}{3} -16\pi\Bigg\rbrack + \\& v^{4}\Bigg\lbrack\frac{15293365}{508032}+\frac{27145 \eta }{504}+\frac{3085 \eta ^2}{72}-\frac{3595 \boldsymbol{\chi_{a}.L}^2}{48}+300 \eta  \boldsymbol{\chi_{a}.L}^2+\frac{1165 \chi_{a}^{2}}{48}- 100 \eta  \chi_{a}^{2}-\\& \frac{3595 \delta  \boldsymbol{\chi_{a}.L} \boldsymbol{\chi_{s}.L}}{24}-\frac{3595 \boldsymbol{\chi_{s}.L}^2}{48}-\frac{5 \eta  \boldsymbol{\chi_{s}.L}^2}{12}+\frac{1165 \delta  \chi_{s}.\chi_{a}}{24}+\frac{1165 \chi_{s}^{2}}{48}+\frac{35 \eta \chi _{s}^{2}}{12}\Bigg\rbrack + \\& v^{5}\Bigg\lbrack
+-\frac{5 \delta  (146597+7056 \eta ) \boldsymbol{\chi_{a}.L}}{2268}-\frac{5 \left(3 \pi  (-7729+1092 \eta )+\left(146597-135856 \eta -17136 \eta ^2\right) \boldsymbol{\chi_{s}.L}\right)}{2268}\Bigg\rbrack \\&(3 \text{Log}[u]+1) +
+v^{6}\Bigg\lbrack \frac{11583231236531}{4694215680}-\frac{15737765635 \eta}{3048192}+\frac{76055 \eta^2}{1728}-\frac{127825 \eta^3}{1296}-\frac{640 \pi ^2}{3}+\\&\frac{2255 \eta \pi ^2}{12}- \frac{6848 \text{$\gamma $E}}{21}-\frac{6848 \text{Log}[4]}{21}-\frac{6848 \text{Log}[u]}{21}\Bigg\rbrack + v^{7}\Bigg\lbrack\frac{77096675 \pi }{254016}+\frac{378515 \eta \pi }{1512}-\frac{74045 \eta^2 \pi }{756}\Bigg\rbrack
+\end{split}
+\label{eqn:fphase}
+\end{align}
+\end{widetext}
+
+\bibliography{Spin}
+
+\end{document}
