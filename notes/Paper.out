@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section*.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section*.2}{POST-NEWTONIAN WAVEFORM POLARIZATION AND MODE DECOMPOSITION}{}% 2
+\BOOKMARK [1][-]{section*.3}{MEMORY CONTRIBUTION TO THE RADIATIVE-MASS MULTIPOLES}{}% 3
+\BOOKMARK [2][-]{section*.4}{Computing angular integral}{section*.3}% 4
+\BOOKMARK [2][-]{section*.5}{Time derivatives of the memory multipole moments}{section*.3}% 5
+\BOOKMARK [2][-]{section*.6}{Computing time integral over the past history of the source}{section*.3}% 6
+\BOOKMARK [2][-]{section*.7}{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}{section*.3}% 7
+\BOOKMARK [1][-]{section*.8}{Memory calculation using Numerical relativity data}{}% 8
+\BOOKMARK [2][-]{section*.9}{Evaluating Bondi News from numerical data}{section*.8}% 9
+\BOOKMARK [2][-]{section*.10}{Integration of finite length signals in frequency domain}{section*.8}% 10
+\BOOKMARK [3][-]{section*.11}{Fixed frequency integration \(FFI\)}{section*.10}% 11
+\BOOKMARK [1][-]{section*.12}{References}{}% 12
