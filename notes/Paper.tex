@@ -112,10 +112,19 @@ where $\frac{dE^{gw}}{dtd\Omega}$ is the GW energy flux, $n_{j}$ is a unit radia
 	\delta h^{TT}_{jk} = \frac{4}{R}\int_{-\infty}^{T_{R}} dt'\Bigg[ \frac{dE^{gw}}{dt'd\Omega'}\frac{n'_{j}n'_{k}}{(1-\boldsymbol{n'}\cdot\boldsymbol{N})}d\Omega'\Bigg]^{TT}
 \end{equation}
 where $T_{R}$ is the retarded time. This equation shows that part of the distant GW is sourced by loss of GW energy.\\
-The Christodoulou memory is an interesting consequence of the nonlinearity of general relativity. It has a clear physical interpretation : It arises from the loss of GW energy from the system and the effect of this loss on the system's radiative mass multipole moments. The nonlinear memory effect arises from nonlinear interactions at 2.5 PN order but affects the gravitational waveform at leading (0PN) order. This memory effect causes a non oscillatory shift in the amplitude of $+$ polarization, which starts at early times and slowly grows during the inspiral. The PN waveform allow us to model the slow growth of memory during the inspiral phase of coalescence but, most contribution to this nonlinear memory come from the merger phase where the PN model do not work. In this case the memory must be extracted from Numerical relativity simulation. However, it is quite challenging to extract the nonlinear memory accurately from numerical simulations of binary black holes. Numerical relativity simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform; but the nonlinear memory is present in only $m=0$ mode.\\
+The Christodoulou memory is an interesting consequence of the nonlinearity of general relativity. It has a clear physical interpretation : It arises from the loss of GW energy from the system and the effect of this loss on the system's radiative mass multipole moments. The nonlinear memory effect arises from nonlinear interactions at 2.5 PN order but affects the gravitational waveform at leading (0PN) order. This memory effect causes a non oscillatory shift in the amplitude of $+$ polarization, which starts at early times and slowly grows during the inspiral. The PN waveform allow us to model the slow growth of memory during the inspiral phase of coalescence but, most contribution to this nonlinear memory come from the merger phase where the PN model do not work. In this case the memory must be extracted from Numerical relativity simulation. However, it is quite challenging to extract the nonlinear memory accurately from numerical simulations of binary black holes.  Numerical relativity simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform; but the nonlinear memory is present in only $m=0$ mode. These $m=0$ modes tend to be much smaller in magnitude and depends more sensitively on	initial conditions than other modes. For detailed discussion on this see ref [add ref] \\
+The NR simulations mostly easily compute  the curvature scalar $\Psi_4$ and decompose its values at large $R$ into a sum over spin-weighted spherical harmonic modes:
+\begin{equation}
+	\Psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_\times = \sum_{l=2}^{\infty}\sum_{m=-l}^{l}\psi_{lm}(t, R) _{-2}Y_{lm}(\Theta, \Phi)
+\end{equation} 
+In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes are smaller than the $\psi_{22}$ modes by $five$ PN orders.The relative mode magnitudes are $\psi_{22} \approx 690 \psi_{20}\approx 4.5 \times 10^4 \psi_{40}$ at $x\approx1/5$. There are other difficulties in calculating memory from numerical relativity data.Construction of the $h_{lm}$ from $\psi_{lm}$ requires two integration constants to be specified. Choosing these integration constant to be zero [add ref] causes and artificial memory and a slope in the $h_{lm}$ modes. This artificial memory is unphysical and arises from the finite size of the initial separation and extraction radius.The initial burst of junk radiation also contribute to artificial memory.\\
+Numerical relativity simulations starts at a finite radius, so although it contains a most part of gravitational wave memory, PN results should be used for early inspiral phase. The significance of memory accumulated during the inspiral phase can be seen by looking at the largest memory mode $h_{20}$. Consider the leading-(Newtonian)-order piece of the largest memory mode $h_{20}$:
+\begin{equation}
+	h^{NR}_{20}\left(T_R\right) = \frac{1}{\sqrt{2}R}\int_{T_0}^{T_R}U^{(mem)(1)}_{20}(t)dt
+\end{equation}
+where $U^{(mem)(1)}_{20}$ is given by the leading order piece of Eq. (3.13a) in ref [add ref], and the $T_0$ is the starting time of the simulation. For a realistic, quasicircular binary that inspirals from a large initial separation, $T_0 \rightarrow -\infty$. The NR simulations of binaries that starts at a finite initial separation would underestimate the size of the memory. For a simulation that starts with an initial separation of $10M$, the error in the memory at a harmonic coordinate separation of $5M$ is $50\%$. 
 
-
-The corrections to the leading-oder formula for the nonlinear memory's contribution to 3PN order for non-spinning binaries has been computed by by Favata []. However the effect of binary spins have not been explored these results.(\ashok{need to add why looking at spins is important})   
+\par The corrections to the leading-oder formula for the nonlinear memory's contribution to 3PN order for non-spinning binaries has been computed by by Favata []. However the effect of binary spins have not been explored these results.(\ashok{need to add why looking at spins is important})   
 
 
 
@@ -180,41 +189,21 @@ where $G^{2-20}_{l'm'lm'-m''-m}$ is the angular integral of equation 2.9 and is 
 After performing the change of variable indicated in above equation 2.12, evaluation of the resulting integrals requires a model for the frequency evolution of the binary. The adiabatic evolution of the frequency (or $x$) is easily derived from energy balance ($\mathcal{L}_{GW}=-\dot{E}$). and the relation $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$. The 3.5PN orbital energy is given by equation C in ref[add aruns paper ref]
 \begin{widetext}
 	\begin{align}\label{eq:E}
-	E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right. \nonumber \\
-	& \quad \left. x^2\left[-\frac{27}{8} + \frac{19 \, \eta}{8}-\frac{\eta^2}{24} + \eta^2 \left\{\left(\chisSqr-\chiaSqr\right) -3\left[\left(\chisdL\right)^2 - \left(\chiadL\right)^2\right]\right\}\right.\right. \nonumber \\
-	& \qquad \left(\frac{1}{2}-\eta\right)\left\{\chisSqr+\chiaSqr-3\left[\left(\chisdL\right)^2+\left(\chiadL\right)^2\right]\right\}+\delta\left\{\chisDchia-3\left[\left(\chisdL\chisdL\right)\right]\right\} \nonumber\\
-	& \quad \left.\left.x^{5/2}\left[\left(8-\frac{121\,\eta}{9} +  \frac{2\,\eta^2}{9}\right)\chisdL + \left(8-\frac{31\,\eta}{9}\right)\delta\chiadL\right] + x^3\left[-\frac{675}{64}+\left(\frac{34445}{576}-\frac{205\,\pi^2}{96}\right)\eta-\frac{155\,\eta^2}{96}-\frac{35\,\eta^3}{5184}\right]
-	\right]
-	\right\}
+	E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right\} \nonumber \\
 	\end{align}
-\end{widetext}
+
 and the 3PN GW luminosity is given by Eq C7 to C12 in [ref]
-\begin{widetext}
-	\begin{align}\label{eq:F}
+
+\begin{align}\label{eq:F}
 \mathcal{L} &=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right.\right]\nonumber\\
-&\quad \left.\left. x^2\left[-\frac{44711}{9072}+\frac{9271\eta}{504}+\frac{65\, \eta^2}{18} + \left(\frac{287}{96} +\frac{\eta}{24}\right)\left(\chisdL\right)^2-\left(\frac{89}{96}+\frac{7\,\eta}{24}\right)\chisSqr\right.\right.\right.\nonumber\\
-&\qquad\left.\left.\left. + \left(\frac{287}{96}-12\eta\right)\left(\chiadL\right)^2 + \left(-\frac{89}{96}+4\eta\right)\chiaSqr + \frac{287}{48}\delta\left(\chisdL\right)\left(\chiadL\right) -\frac{89}{48}\delta\left(\chisDchia\right)
-\right]\right.\right.\nonumber\\
-&\quad \left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\
-& \left. \quad x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
-\right]
-\right\}
-	\end{align}
-\end{widetext}
+\end{align}
+
+
 Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, we get the following result 
-\begin{widetext}
-	\begin{align}\label{eq:FbydE}
-	\frac{dx}{dt} & = \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
-	+ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
-	&\quad + x^2 \left[ \frac{34103}{18144} + \frac{13661 \, \eta}{2016} + \frac{59 \, \eta^2}{18} + \left( \frac{719}{96}- 30 \eta\right)(\chiadL)^2 +\chiaSqr \left(-\frac{233}{96}+10 \eta \right) \right. \nonumber\\
-	&\qquad+\frac{719 \chiadL \, \chisdL \delta
-	}{48}-\frac{233 \chisDchia \delta}{48} \left. + \, (\chisdL)^2 \left(-\frac{\eta }{24}-\frac{719}{96}\right)+\chisSqr \left(\frac{7 \eta
-}{24}+\frac{233}{96}\right) \right] \nonumber \\ 
-&\quad + x^{5/2} \left[-\frac{4159 \, \pi}{672}-\frac{189 \, \pi \, \eta}{8} + \chiadL \delta  \left(-\frac{31319}{1008} + \frac{1159 \, \eta}{24}\right)+\chisdL \left(-\frac{31319}{1008} + \frac{22975 \, \eta}{252} -\frac{79 \, \eta^2}{3}\right) \right]  \nonumber\\ 
-&\quad \left. + x^3 \left[\frac{16447322263}{139708800} + \frac{16 \, \pi^2}{3} -\frac{1712 \, \gamma_{E}}{105} -\frac{56198689 \, \eta}{217728} + \frac{451 \, \pi^2 \, \eta}{48} + \frac{541 \, \eta^2}{896} -\frac{5605 \, \eta^{3}}{2592} -\frac{80 \,\pi \delta\chiadL }{3} \right.\right. \nonumber \\
-&\qquad \left.\left. + \left(\frac{575}{448} + \frac{565 \, \delta^2}{9}-\frac{65815 \, \eta}{4032} + \frac{89 \, \eta^2}{2}\right)(\chiadL)^2 + \left(-\frac{145}{448}+\frac{21985 \,\eta}{4032} -\frac{89 \, \eta^2}{6}\right)\chiaSqr + \right(-\frac{80 \, \pi}{3} + \frac{40 \, \pi \, \eta}{3} \right. \nonumber \\
-&\qquad  \left.+\delta\left(\frac{258295}{2016} -\frac{9203 \, \eta}{96}\right)\chiadL\left)\chisdL + \left(\frac{258295}{4032} -\frac{48773 \, \eta}{576} + \frac{3041 \, \eta^2}{144}\right)(\chisdL)^2 + \delta\left(-\frac{145}{224} + \frac{2143 \, \eta}{288}\right)\chisDchia \right.\right.\nonumber \\ 
-&\qquad\left.\left.+\left(-\frac{145}{448} + \frac{1891 \, \eta}{576} -\frac{7 \, \eta^2}{144}\right)\chisSqr - \frac{3424 \, \log[2]}{105} - \frac{1712 \log[x]}{210}\right]\right\}
+
+\begin{align}\label{eq:FbydE}
+\frac{dx}{dt} & = \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
++ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
 \end{align}
 \end{widetext}
 The above equation can be used to evaluate the integral in Eq. 2.12
@@ -232,19 +221,52 @@ where we have followed the notation of Sec. 9 of Ref [add referece]. The notatio
 The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \begin{widetext}
 \begin{align}\label{eq:H20}
-\hat{H}_{20} &= \alpha \frac{5}{15\sqrt{6}}\left\{ 1 + x\left(-\frac{4075}{4032} + \frac{67 \, \eta}{48}\right)+ x^{3/2}\left(\left(-\frac{7}{1440} -\frac{27 \, \delta}{10} + \frac{7 \,\eta}{360}\right)\chiadL+\left(-\frac{27}{10} -\frac{7 \, \delta^3}{1440} + \frac{22 \, \eta}{15}\right)\chisdL\right)\right. \nonumber \\
-& \quad \left. x^2\left(-\frac{151877213}{67060224} -\frac{123815 \, \eta}{44352} +\frac{205 \, \eta^2}{352} -\left(\frac{1459}{864} -\frac{1441 \, \eta}{216}\right)\chiaSqr - \left(\frac{27 \, \delta}{8} +\frac{\delta^3}{432}\right)\chisDchia - \left(\frac{27}{16}+\frac{\delta^4}{864} -\frac{\eta}{12}\right)\chisSqr\right)\right. \nonumber \\
-& \quad \left. x^{5/2}\left(-\frac{253 \, \pi}{336}+ \frac{253 \, \pi \, \eta}{84} -\left(-\frac{631}{96768} + \frac{2729857 \, \delta}{84672} -\frac{146597 \, \pi \, \delta}{1764}+\frac{5 \, \eta}{378}+\frac{3007 \, \delta \, \eta}{1008} -4\pi \, \delta \, \eta +\frac{311 \, \eta^2}{6048}\right)\chiadL\right.\right. \nonumber\\
-& \qquad\left. -\left(\frac{2729857}{84672}-\frac{146597 \, \pi}{1764}-\frac{631 \, \delta^3 }{96798} -\frac{44111 \, \eta}{1764}+\frac{4852 \, \pi \, \eta}{63}-\frac{311 \, \delta^3 \, \eta}{24192}-\frac{1121 \, \eta^2}{252} +\frac{68 \, \pi \, \eta^2}{7}\right)\chisdL\right) \nonumber \\
-& \quad  x^3\left[-\frac{4397711103307}{532580106240} + \left( \frac{700464542023}{13948526592} - \frac{205 \, \pi^2}{96}\right)\eta + \frac{69527951 \, \eta^2}{166053888} + \frac{1321981 \, \eta^3}{5930496} -  \left(-\frac{160867}{13824} -\frac{791 \, \delta}{27648} + \right.\right. \nonumber \\
-& \qquad \left. \frac{7345 \, \delta^2}{576} + \left(\frac{3953767}{96768}+\frac{791 \, \delta}{6912}\right)\eta + \frac{22885 \, \eta^2}{1152}\right)\chiaSqr -\left(-\frac{275 \, \pi}{12} + \frac{7 \, \pi \, \delta^3}{768} + 17 \, \pi \, \eta \right)\chisdL + \left(\frac{47869}{43008}  \right.\nonumber\\
-& \qquad \left.\left. - \frac{791 \, \delta^3}{27648} + \frac{743 \, \delta^4}{387072} + \left(-\frac{410453}{16128} + \frac{133 \, \delta^3}{6912} + \frac{11 \, \delta^4}{4608}\right)\eta + \frac{10229 \, \eta^2}{1152}\right)\chisSqr - \left( \frac{7 \, \pi}{768}-\frac{275 \, \pi \, \delta}{12}-\frac{7 \, \pi \, \eta}{192}\right.\right. \nonumber \\
-&\qquad \left.\left.\left. + \left(-\frac{791}{27648} + \frac{47869 \, \delta}{21504} + \frac{743 \, \delta^3}{193536} - \frac{791 \, \delta^4}{27648} + \left(\frac{77}{576} - \frac{71749 \, \delta}{2304} + \frac{11 \, \delta^3}{2304}\right)\eta - \frac{133 \, \eta^2}{1728}\right)\chisdL\right)\chisdL
-\right]
-\right\}
+\hat{H}_{20} &= \alpha \frac{5}{14\sqrt{6}}\left\{ 1 + x\left[-\frac{4075}{4032} + \frac{67 \, \eta}{48}\right]+ x^{3/2}\left[\left(\frac{7}{480} +\frac{27 \, \delta}{10} - \frac{7 \,\eta}{120}\right)\chiadL+\left(\frac{27}{10} +\frac{7 \, \delta^3}{480} - \frac{2 \, \eta}{15}\right)\chisdL\right]\right. \nonumber \\
+& \quad \left. x^2\left[-\frac{151877213}{67060224} -\frac{123815 \, \eta}{44352} +\frac{205 \, \eta^2}{352} +\left(-\frac{163}{96} +\frac{161 \, \eta}{24}\right)\chiaSqr + \left(-\frac{27 \, \delta}{8} -\frac{\delta^3}{48}\right)\chisDchia + \left(-\frac{27}{16}-\frac{\delta^4}{96} -\frac{\eta}{12}\right)\chisSqr\right]\right. \nonumber \\
+& \quad \left. x^{5/2}\left[-\frac{253 \, \pi}{336}+ \frac{253 \, \pi \, \eta}{84} +\left\{\frac{631}{32256} + \frac{788471\,\delta}{84672} +\left(-\frac{5}{126}-\frac{991\,\delta}{1008}\right)\eta-\frac{311\,\eta^2}{2016}\right\}\chiadL\right.\right. \nonumber\\
+& \qquad\left. +\left\{\frac{788471}{84672}-\frac{631\, \delta^3}{32256} -\left(-\frac{36509}{2646} + \frac{311\,\delta^3}{8064}\right)\eta+\frac{853\,\eta^2}{252}\right\}\chisdL\right] \nonumber \\
+& \quad  x^3\left[-\frac{4397711103307}{532580106240} + \left( \frac{700464542023}{13948526592} - \frac{205 \, \pi^2}{96}\right)\eta + \frac{69527951 \, \eta^2}{166053888} + \frac{1321981 \, \eta^3}{5930496} -  \left(-\frac{7\,\pi}{256} + \frac{275\,\pi\,\delta}{12} \right.\right. \nonumber \\
+& \qquad \left. \frac{7 \, \pi\,\delta}{256}\right)\chiadL + \left\{-\frac{42787}{32256} + \frac{791\,\delta}{9216} +\frac{113\,\delta^2}{576} + \left(\frac{354035}{32256} -\frac{791\,\delta}{2304}\right)\eta - \frac{2533\,\eta^2}{128}\right\}\chiaSqr\nonumber\\
+&\qquad \left.\left. \left\{\frac{275\,\pi}{12} -\frac{7\,\pi\,\delta^3}{256}-\frac{56\,\pi\eta}{3} + \left(\frac{791}{9216} -\frac{47869\,\delta}{21504}-\frac{743\,\delta^3}{21504} + \frac{791\,\delta^4}{9216} + \left(-\frac{77}{192}+\frac{87269\, \delta}{2304}-\frac{11\, \delta^3}{256}\right)\eta + \frac{133\,\eta^2}{576}\right)\chiadL\right\}\chisdL\right.\right.\nonumber\\
+& \qquad \left.\left.\left\{-\frac{47869}{43008} + \frac{791\,\delta^3}{9216} -\frac{743\,\delta^4}{43008} + \left(\frac{57677}{1792} -\frac{133\,\delta^3}{2304} -\frac{11\,\delta^4}{512}\right)\eta - \frac{15029\,\eta^2}{1152}\right\}\chisSqr
+\right]\right\}
+\end{align}
+
+
+\begin{align}\label{eq:H40}
+	\hat{H}_{40} &=\alpha\frac{1}{504\sqrt{2}}\left\{1 + x\left[-\frac{180101}{29568} + \frac{27227\,\eta}{1056}\right] + x^{3/2}\left[\left(\frac{7}{40} + \frac{27\,\delta}{10} -\frac{7\,\eta}{10}\right)\chiadL+\left(\frac{27}{10}+\frac{7\,\delta^3}{40} +\frac{46\,\eta}{5}\right)\chisdL\right]\right.\nonumber\\
+	&\qquad x^{5/2}\left[-\frac{13565\,\pi}{1232} + \frac{13565\,\pi\,\eta}{308} + \left\{\frac{379}{2688}-\frac{1457321\,\delta}{68992}+\left(-\frac{59}{336} + \frac{3094367\,\delta}{22176}\right)\eta -\frac{87\,\eta^2}{56}\right\}\chiadL\right.\nonumber\\
+	&\qquad\qquad \left. \left\{-\frac{1457321}{68992} + \frac{379\,\delta^3}{2688} + \left(\frac{5892749}{38808} + \frac{87\,\delta^3}{224}\eta-\frac{469813\,\eta^2}{5544}\right)\right\}\chisdL\right]\nonumber\\
+	&\quad\qquad x^2\left[\frac{2201411267}{158505984} -\frac{34829479\,\eta}{432432} + \frac{844951\,\eta^2}{27456} + \left(-\frac{85}{48} + 7\,\eta\right)\chiaSqr + \left(-\frac{27\, \delta}{8} -\frac{\delta^3}{6}\right)\chisDchia + \left(-\frac{27}{16} -\frac{\delta^4}{12} + \frac{\eta}{12}\right)\chisSqr\right].\nonumber\\
+	&\quad\qquad x^3\left[\frac{167644780815461}{8592292380672}+\left(-\frac{11327099812895}{306867585024} -\frac{205\,\pi^2}{96}\right)\eta -\frac{137763118975\,\eta^2}{1217728512} + \frac{2435519695\,\eta^3}{130470912}\right.\nonumber\\
+	&\qquad\qquad  + \left(-\frac{21\,\pi}{64} + \frac{275\,\pi\,\delta}{12} + \frac{21\,\pi\,\eta}{16}\right)\chiadL + \left(\frac{32394371}{2838528} + \frac{791\,\delta}{768} + \frac{113\,\eta^2}{576} + \left(-\frac{71832779}{709632} -\frac{791\,\delta}{192}\right)\eta + \frac{59317\,\eta^2}{264}\right)\chiaSqr .\nonumber\\
+	&\qquad\qquad + \left\{\frac{275\,\pi}{12} - \frac{21\,\pi\,\delta^3}{64} -\frac{91\,\pi\,\eta}{3} + \left(\frac{791}{768} + \frac{11114513\,\delta}{473088} -\frac{743\,\delta^3}{2688} + \frac{791\,\delta^4}{768} + \left(-\frac{77}{16} -\frac{649327\,\delta}{16896} -\frac{11\,\delta^3}{32}\right)\eta  \right.\right.\nonumber\\
+	&\qquad\qquad \left.\left.\left. \left.+ \frac{133\,\eta^2}{48}\right)\chiadL\right\}\chisdL + \left(\frac{11114513}{946176} + \frac{791\,\delta^3}{768} -\frac{743\,\delta^4}{5376} + \left(\frac{2007451}{118272} -\frac{133\,\delta^3}{192} -\frac{11\,\delta^4}{64}\right)\eta - \frac{82411\,\eta^2}{2816}\right)\chisdL\right]\nonumber
+	\right\}\\
+\end{align}	
+
+\begin{align}\label{eq:H60}
+	\hat{H}_{60} &=-\alpha\frac{4195}{1419264\sqrt{273}}x\left\{1-\frac{3612\,\eta}{839}+ x\left[-\frac{45661561}{6342840} + \frac{101414\,\eta}{2517} - \frac{48118\,\eta^2}{839}\right]\right. + x^{3/2} \left[\frac{1248\,\pi}{839} -\frac{4992\,\pi\,\eta}{839}\right.\nonumber\\
+	&\qquad + \left(-\frac{44}{5873} + \frac{14129\,\delta}{2517} + \left(\frac{264}{5873} - \frac{140148\,\delta}{5873}\right)\eta -\frac{352\,\eta^2}{5873}\right)\chiadL + \left(\frac{14129}{2517} -\frac{44\,\delta^3}{5873}\right.\nonumber\\
+	&\quad\qquad + \left.\left.\left(-\frac{79120}{2517} + \frac{88\,\delta^3}{5873}\right)\eta + \frac{161136\,\eta^2}{5873}\right)\chisdL\right] + x^{5/2}\left[\frac{66616409\,\pi}{2718360} -\frac{874693\,\pi\,\eta}{7551} + \frac{239134\,\pi\,\eta^2}{2517}\right. + \nonumber\\
+	&\qquad\qquad \left(-\frac{8173}{634248} -\frac{1240441999\,\delta}{57085560} + \left(\frac{6479}{105714} + \frac{15116383\,\delta}{105714}\right)\eta + \left(-\frac{1100}{158571}-\frac{2406356\,\delta}{7551}\right)\eta^2-\frac{968\,\eta^3}{7551}\right)\chiadL\nonumber\\
+	&\qquad\qquad \left. \left(-\frac{1240441999}{57085560} -\frac{8173\,\delta^3}{634284} + \left(\frac{2016684797}{14271390} + \frac{3091\,\delta^3}{317142}\right)\eta + \left(-\frac{19243010}{52857} + \frac{242\,\delta^3}{7551}\right)\eta^2 + \frac{1891144\,\eta^3}{7551}\right)\chisdL\right]\nonumber\\
+	&\qquad x^2\left[\frac{33133408041593}{1594133291520}-\frac{912563795039\,\eta}{25102880} + \frac{8054229309\,\eta^2}{25102880}-\frac{1363643519\,\eta^3}{18827160} + \left(-\frac{81}{32} + \frac{140263\,\eta}{6712}-\frac{36120\,\eta^3}{839}\right)\chiaSqr\right. \nonumber\\
+	& \quad\qquad \left.+ \left(-\frac{81\,\delta}{16} + \frac{73143\,\delta\,\eta}{3356}\right)\chisDchia + \left(-\frac{81}{32} + \frac{36991\,\eta}{3356} - \frac{7047\,\eta^2}{1678}\right)\chisSqr\right]
+\end{align}
+
+\begin{align}\label{eq:H80}
+	\hat{H}_{80} &=\alpha\frac{75601}{213497856\sqrt{119}}x^2\left[1-\frac{452070\,\eta}{75601} + \frac{733320\,\eta^2}{75601} + x\left(-\frac{265354303}{33869248} + \frac{18177343651\,\eta}{321757856} - \frac{5057483259\,\eta^2}{40219732} + \frac{1828935981\,\eta^3}{20109866}\right)\right]\nonumber\\	
+\end{align}
+\begin{align}\label{eq:H80}
+\hat{H}_{100} &=-\alpha\frac{525221\,x^3}{6452379648\sqrt{154}}\left(1 - \frac{79841784\,\eta}{9979199} + \frac{198570240\,\eta^2}{9979199} -\frac{172307520\,\eta^3}{9979199}\right)
 \end{align}
 \end{widetext}
-We can see that all contribution to $m=0$, even-$l$ modes arise solely from the Christodoulou memory of $U_{lm}$
+We can see that all contribution to $m=0$, even-$l$ modes arise solely from the Christodoulou memory piece of $U_{lm}$. There are no hereditary-memory contribution to the radiative current multipole moments $V_{lm}$\\
+We can combine the above with Eq 2.16 and explicitly compute the memory contribution to the + waveform polarization.This can be done in the following way
+\begin{equation}
+	h_{+,\times} = \frac{2\eta Mx}{R}H_{+,\times} + O\left(\frac{1}{R^2}\right)
+\end{equation}
 
 \section{Memory calculation using Numerical relativity data}
 Numerical relativity simulations most commonly output the Newman-Penrose curvature component $\psi_4$.The two polarization states, $h_{+}$ and $h_{\times}$ of the gravitational wave are related to the curvature, expressed in terms 	of the complex Newman-Penrose scalar $\psi_4$ by 
@@ -252,7 +274,7 @@ Numerical relativity simulations most commonly output the Newman-Penrose curvatu
 	\psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_{\times}
 \end{equation}\
 Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been noted that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in numerical simulation, the finite distance calculation introduces a systematic error. In more recent simulations [added ref], which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
-\par It has been argued in [add ref] that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. 
+\par It has been argued in [add ref] that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The unfiltered GW waveform is shown in fig [add fig], which clearly shows an oscillating waveform which settles to a nonzero value. The method described in ref[add ref] gives us a way to get rid of this unphysical behaviour    
 \par The memory contribution to $h_{+}$ is given by 
 
 \begin{equation}
@@ -306,8 +328,88 @@ We evaluate the integral using the following mathod [add ref]
 
 \newpage
 \appendix 
+\begin{widetext}
 
+\section{Angular Integral Of The Triple Product Of Spin-Weighted Spherical Harmonics}
+The following integral appears in the evaluation of nonlinear memory contribution to the radiative mass-multipole moments $U_{lm}$. Equation 2.4 can be rewritten as
+\begin{equation}
+	d^{\,l_j}_{m_js_j}(\Theta)=\sum_{k_j=k_i(j)}^{k_f(j)}g_j(k_j)\left(\sin\frac{\Theta}{2}\right)^{p_j}\left(\cos\frac{\Theta}{2}\right)^{2l_j-p_j}
+\end{equation}
+where
+\begin{equation}
+	g_j(k_j)=\frac{(-1)^k_j[(l_j + m_j)!(l_j-m_j)!(l_j+s_j)!(l_j-s_j)!]^{1/2}}{k_j!(l_j+m_j-k_j)!(l_j-s_j-k_j)!(s_j-m_j+k_j)!},
+\end{equation}
+$p_j=2k_j+s_j-m_j$, $k_i=\max(0, m-s)$ and $k_f=\min(l+m, l-s)$. The index $j=1,2,3$ serves only the three harmonics. The required integral can be written as:
+
+\begin{align}
+	G^{s_1 s_2 s_3}_{l_1 l_2 l_3 m_1 m_2 m_3}&\equiv\int\, _{-s1}Y^{l_1m_1}(\Theta, \Phi)_{-s2}Y^{l_2m_2}(\Theta, \Phi)_{-s3}Y^{l_3m_3}(\Theta, \Phi)d\Omega \nonumber \\
+	&=(-1)^{s_1+s_2+s_3}\frac{[(2l_1+1)(2l_2+1)(2l_3+1)]^{1/2}}{(4\pi)^{3/2}}\int_{0}^{2\pi}e^{\mathit{i}(m_1+m_2+m_3)\Phi}d\Phi\int_{0}^{\pi}d^{l_1}_{m_1s_1}d^{l_2}_{m_2s_2}d^{l_3}_{m_3s_3}\sin(\Theta)d\Theta
+\end{align}
+The $\Phi$ integral is 
+\begin{equation}
+	\int_{0}^{2\pi}e^{\mathit{i}(m_1+m_2+m_3)\Phi}d\Phi = 2\pi\delta^{-m_1}_{m_2+m_3}
+\end{equation}
+The $\Phi$ integral can be written as 
+\begin{equation}
+	\int_{0}^{\pi}d^{l_1}_{m_1s_1}d^{l_2}_{m_2s_2}d^{l_3}_{m_3s_3}\sin\Theta d\Theta = 2\sum_{k_1k_2k_3}g_1(k_1)g_2(k_2)g_3(k_3)\int_{0}^{\pi}\left(\sin\frac{\Theta}{2}\right)^{2a-1}\left(\cos\frac{\Theta}{2}\right)^{2b-1}d\Theta
+\end{equation}
+where $a=1+(p_1+p_2+p_3)/2$ and $b=1+l_1+l_2+l_3-(p_1+p_2+p_3)/2$. The $\Phi$ integral is expression in terms of the Beta or Gamma function and can be found in standard tables.
+\begin{equation}
+	\int_{0}^{\pi}\left(\sin\frac{\Theta}{2}\right)^{2a-1}\left(\cos\frac{\Theta}{2}\right)^{2b-1}d\Theta=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}=B(a,b)
+\end{equation}
+
+\section{Calculation Of The $\dot{h}_{lm}$ Modes}
+The $h_{lm}$ modes are written as 
+\begin{equation}
+	h_{lm}=8\sqrt{\frac{\pi}{5}}\frac{\eta\,M}{R}x\hat{H}_{lm}(x)e^{\mathit{i}m\psi}
+\end{equation}
+where the $\hat{H}_{lm}$ given in ref[add ref] for the case of precessing binaries. In this paper we are interested in nonprecessing case, so we rewrite the expressions such that spin are aligned with the total orbital angular momentum. The phase variable $\psi$ is related to the orbital phase $\phi$ via
+\begin{equation}
+	\psi=\varphi - 3x^{3/2}\left[1-\frac{\eta}{2}x\right]\ln\left(\frac{x}{x_0}\right)
+\end{equation}
+where $\ln x_0 = \frac{11}{18} - \frac{2}{3}\gamma_E -\frac{4}{3}\ln2 + \frac{2}{3}\ln\left(\frac{M}{r_0}\right)$ is related to the arbitrary constant $r_0$ appearing in the coordinate transformation of Eq. (2.20) or ref[add ref]. The orbital phase can be expressed a function of x for nonprecessing binaries, to 3.5PN order.
+\begin{align}
+\varphi(x)& = -\frac{1}{32\,\eta\,x^{5/2}}\left\{1+x\left[\frac{55\eta}{12}+\frac{3715}{1008}\right]+x^{3/2}\left[\frac{565}{24}\left(\left(1-\frac{76\eta}{133}\right)\chisdL + \delta\chiadL\right)-10\pi\right]\right.\nonumber\\
+&\quad + x^2\left[\left(\chiadL\right)^2\left(150\eta-\frac{3595}{96}\right)-\frac{3595\chiadL\chisdL\delta}{48} + \chiaSqr\left(\frac{1165}{96}- 50\eta\right) + \frac{1165\chisDchia\delta}{\delta}\right]\nonumber\\
+&\qquad + \left.\left(\chisdL\right)^2\left(-\frac{5\eta}{24} - \frac{3595}{96}\right) + \chisSqr\left(\frac{35\eta}{24}+\frac{1165}{96}\right) + \frac{3085\eta^2}{144} + \frac{27145\eta}{1008} + \frac{15293365}{10160664}\right]\nonumber\\
+&\quad +  \frac{x^{5/2}}{2}\left[\left(\chiadL\left(-\frac{35\delta\eta}{2} - \frac{732985\delta}{2016}\right) + \chisdL\left(\frac{85\eta^2}{2} + \frac{6065\eta}{18} - \frac{732985}{2016}\right) -\frac{65\pi\eta}{8} + \frac{38645\pi}{672}\right)\ln(x)\right]\nonumber\\
+&\quad x^3\left[-\frac{127825\eta^3}{5184} + \frac{76055\eta^2}{6912} + \frac{2255\pi^2\eta}{48} - \frac{15737765635\eta}{12192768} - \frac{1712\gamma_E}{21} -\frac{160\pi^2}{3} + \frac{12348611916451}{18776862720} - \frac{1712\ln(16x)}{42}\right]\nonumber\\
+&\quad \left.x^{7/2}\left[-\frac{74045\pi\eta^2}{6048} + \frac{378515\pi\eta}{12096} + \frac{77096675\pi}{2032128}\right]\right\}
+\end{align} 
+where $\varphi_0$ is a certain reference phase.	
+
+\section{Complete 3.5 PN expressions}
+
+\begin{align}\label{eq:Ef}
+E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right. \nonumber \\
+& \quad \left. x^2\left[-\frac{27}{8} + \frac{19 \, \eta}{8}-\frac{\eta^2}{24} + \eta^2 \left\{\left(\chisSqr-\chiaSqr\right) -3\left[\left(\chisdL\right)^2 - \left(\chiadL\right)^2\right]\right\}\right.\right. \nonumber \\
+& \qquad \left(\frac{1}{2}-\eta\right)\left\{\chisSqr+\chiaSqr-3\left[\left(\chisdL\right)^2+\left(\chiadL\right)^2\right]\right\}+\delta\left\{\chisDchia-3\left[\left(\chisdL\chisdL\right)\right]\right\} \nonumber\\
+& \quad \left.\left.x^{5/2}\left[\left(8-\frac{121\,\eta}{9} +  \frac{2\,\eta^2}{9}\right)\chisdL + \left(8-\frac{31\,\eta}{9}\right)\delta\chiadL\right] + x^3\left[-\frac{675}{64}+\left(\frac{34445}{576}-\frac{205\,\pi^2}{96}\right)\eta-\frac{155\,\eta^2}{96}-\frac{35\,\eta^3}{5184}\right]
+\right]
+\right\}
+\end{align}
+
+\begin{align}\label{eq:Ff}
+\mathcal{L}&=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right.\right]\nonumber\\
+&\quad \left.\left. x^2\left[-\frac{44711}{9072}+\frac{9271\eta}{504}+\frac{65\, \eta^2}{18} + \left(\frac{287}{96} +\frac{\eta}{24}\right)\left(\chisdL\right)^2-\left(\frac{89}{96}+\frac{7\,\eta}{24}\right)\chisSqr\right.\right.\right.\nonumber\\
+&\qquad\left.\left.\left. + \left(\frac{287}{96}-12\eta\right)\left(\chiadL\right)^2 + \left(-\frac{89}{96}+4\eta\right)\chiaSqr + \frac{287}{48}\delta\left(\chisdL\right)\left(\chiadL\right) -\frac{89}{48}\delta\left(\chisDchia\right)\right]\right.\right.\nonumber\\
+&\quad \left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\&\quad \left. x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
+\right]\right\}
+\end{align}
+
+\begin{align}\label{eq:FbydE}
+\frac{dx}{dt}&= \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
++ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
+&\quad + x^2 \left[ \frac{34103}{18144} + \frac{13661 \, \eta}{2016} + \frac{59 \, \eta^2}{18} + \left( \frac{719}{96}- 30 \eta\right)(\chiadL)^2 +\chiaSqr \left(-\frac{233}{96}+10 \eta \right) \right. \nonumber\\
+&\qquad+\frac{719 \chiadL \, \chisdL \delta}{48}-\frac{233 \chisDchia \delta}{48} \left. + \, (\chisdL)^2 \left(-\frac{\eta }{24}-\frac{719}{96}\right)+\chisSqr \left(\frac{7 \eta
+}{24}+\frac{233}{96}\right) \right] \nonumber \\ 
+&\quad + x^{5/2} \left[-\frac{4159 \, \pi}{672}-\frac{189 \, \pi \, \eta}{8} + \chiadL \delta  \left(-\frac{31319}{1008} + \frac{1159 \, \eta}{24}\right)+\chisdL \left(-\frac{31319}{1008} + \frac{22975 \, \eta}{252} -\frac{79 \, \eta^2}{3}\right) \right]  \nonumber\\ 
+&\quad \left. + x^3 \left[\frac{16447322263}{139708800} + \frac{16 \, \pi^2}{3} -\frac{1712 \, \gamma_{E}}{105} -\frac{56198689 \, \eta}{217728} + \frac{451 \, \pi^2 \, \eta}{48} + \frac{541 \, \eta^2}{896} -\frac{5605 \, \eta^{3}}{2592} -\frac{80 \,\pi \delta\chiadL }{3} \right.\right. \nonumber \\
+&\qquad \left.\left. + \left(\frac{575}{448} + \frac{565 \, \delta^2}{9}-\frac{65815 \, \eta}{4032} + \frac{89 \, \eta^2}{2}\right)(\chiadL)^2 + \left(-\frac{145}{448}+\frac{21985 \,\eta}{4032} -\frac{89 \, \eta^2}{6}\right)\chiaSqr + \right(-\frac{80 \, \pi}{3} + \frac{40 \, \pi \, \eta}{3} \right. \nonumber \\
+&\qquad  \left.+\delta\left(\frac{258295}{2016} -\frac{9203 \, \eta}{96}\right)\chiadL\left)\chisdL + \left(\frac{258295}{4032} -\frac{48773 \, \eta}{576} + \frac{3041 \, \eta^2}{144}\right)(\chisdL)^2 + \delta\left(-\frac{145}{224} + \frac{2143 \, \eta}{288}\right)\chisDchia \right.\right.\nonumber \\ 
+&\qquad\left.\left.+\left(-\frac{145}{448} + \frac{1891 \, \eta}{576} -\frac{7 \, \eta^2}{144}\right)\chisSqr - \frac{3424 \, \log[2]}{105} - \frac{1712 \log[x]}{210}\right]\right\}
+\end{align}
 
 \bibliography{Spin}
-
+\end{widetext}
 \end{document}
