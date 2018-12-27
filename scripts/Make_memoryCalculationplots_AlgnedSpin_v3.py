@@ -4,7 +4,7 @@ import plotsettings
 from matplotlib.font_manager import FontProperties
 from scipy.integrate import odeint
 
-#memory expressions from Favata's paper
+#memory expressions from Favata's paper(our results when spin included)
 def H0mem(theta):
 	H0 = (1.0/96.0)*(np.sin(theta)**2)*(17.0 + (np.cos(theta)**2))
 	return H0
@@ -13,12 +13,19 @@ def H1mem(theta, eta):
 	H1 = (np.sin(theta)**2)*(-(354241.0/2064384.0)-(62059.0/1032192.0)*(np.cos(theta)**2)-(4195.0/688128.0)*(np.cos(theta)**4) + \
 		  ((15607.0/73728.0) + (9373.0/36864.0)*(np.cos(theta)**2) + (215.0/8192.0)*(np.cos(theta)**4))*eta)
 	return H1
+	
+def H1p5(theta, eta, chiZa, chiZs):
+	H1p5 = (np.sin(theta)**2)*(((3.0/1280.0) + (153.0/320.0)*np.sqrt(1.0 - 4*eta) - (3.0*eta/320.0) + (7.0/3840.0)*np.cos(theta)**2 + (9.0/320.0)*np.sqrt(1.0-4.0*eta)*np.cos(theta)**2\
+		-(7.0*eta/960.0)*np.cos(theta)**2)*chiZa + ((153.0/320.0) + (3.0*np.sqrt(1.0 - 4.0*eta)/1280.0) - (3.0*eta/80.0) - (3.0*np.sqrt(1.0-4.0*eta)/320.0)*eta \
+		+ (9.0/320.0)*np.cos(theta)**2  + (7.0*np.sqrt(1.0-4.0*eta)/3840.0)*np.cos(theta)**2 + (23.0/240.0)*eta*np.cos(theta)**2 -(7.0*np.sqrt(1.0-4.0*eta)/960.0)*eta\
+		*np.cos(theta)**2)*chiZs) 	
+	return H1p5
 
 def H2mem(theta, eta):
-	H2 = (np.sin(theta)**2)*(-(3968456539.0/9364045824.0) + (570408173.0/4682022912.0)*(np.cos(theta)**2) + \
-		 (122166887.0/3121348608.0)*(np.cos(theta)**4) + (75601.0/15925248.0)*(np.cos(theta)**6) + (-(7169749.0/18579456.0)-\
-		 (13220477.0/18579456.0)*(np.cos(theta)**2) - (1345405.0/6193152.0)*(np.cos(theta)**4) - (25115.0/884736.0)*(np.cos(theta)**6))*eta \
-			+ ((10097.0/147456.0) + (5179.0/36864.0)*(np.cos(theta)**2) + (44765.0/147456.0)*(np.cos(theta)**4) + (3395.0/73728.0)*(np.cos(theta)**6))*eta**2)
+	H2 = (np.sin(theta)**2)*((-(3968456539.0/9364045824.0) - (7169749.0*eta/18579456.0) + (10097.0/147456.0)*eta**2 + (570408173.0/4682022912.0)*np.cos(theta)**2\
+		-(13220477.0/18579456.0)*eta*np.cos(theta)**2 + (5179.0/36864.0)*eta**2*np.cos(theta)**2 - (122166887.0/3121348608.0)*np.cos(theta)**4 - (1345405.0/6193152.0)*eta\
+		*np.cos(theta)**4 + (44765.0/147456.0)*eta**2*np.cos(theta)**4 + (75601.0/15925248.0)*np.cos(theta)**6 - (25115.0*eta/884736.0)*np.cos(theta)**6 + (3395.0/73728.0)\
+		*eta**2*np.cos(theta)**2) + (-(1385.0/4608.0))  )
 
 	return H2
 
@@ -37,16 +44,25 @@ def H3mem(theta, eta):
 	return H3
 
 
-def dx_by_dt(x, M, eta, PN_order):
+def dx_by_dt(x, M, eta, PN_order, chiZa, chiZs):
 		
 	gammaE = 0.57721
 	C0 = 1.0
+
 	C1 = -(743.0/336.0) -(11.0/4.0)*eta
-	C1p5 = 4*np.pi
-	C2 = (34103.0/18144.0) + (13661.0/2016.0)*eta + (59.0/18.0)*eta**2
-	C2p5 = np.pi*( -(4159.0/672.0) - (189.0/8.0)*eta)
+
+	C1p5 = 4*np.pi - (113.0/12.0)*np.sqrt(1.0- eta**2)*chiZa + (-(113.0/12.0) + (19.0/3.0)*eta)*chiZs
+
+	C2 = (34103.0/18144.0) + (13661.0/2016.0)*eta + (59.0/18.0)*eta**2 + ((719.0/96.0)-30.0*eta)*chiZa**2 + ((-233.0/96.0)+ 10*eta)*chiZa**2 + \
+		((719.0/48.0)*np.sqrt(1.0- eta**2)*chiZa*chiZs) + ((719.0/96.0) + (eta/24.0))*chiZs**2 - (233.0/48.0)*np.sqrt(1.0 - eta**2)*chiZa*chiZs + \
+		((-233.0/96.0)-(7.0/24.0)*eta)*chiZs**2 
+
+	C2p5 = np.pi*( -(4159.0/672.0) - (189.0/8.0)*eta) #+ np.sqrt(1.0-eta**2)*((-31319.0/1008.0)+(1159.0/24.0)*eta)*chiZa + \
+		#((-31319.0/1008.0) + (22975.0/252.0)*eta - (79.0/3.0)*eta**2)*chiZs
+
 	C3 = (16447322263.0/139708800.0) + (16.0/3.0)*np.pi**2 - (856.0/105.0)*(2*gammaE + np.log(16.0*x)) + (-(56198689.0/217728.0) + (451.0/48.0)*np.pi**2)*eta + \
 		(541.0/896.0)*eta**2 -(5605.0/2592.0)*(eta**3)
+
 	C7p5 = np.pi*( -(4415.0/4032.0) + (358675.0/6048.0)*eta + (91495.0/1512.0)*eta**2)
 	
 	if PN_order==0:
@@ -69,39 +85,38 @@ def dx_by_dt(x, M, eta, PN_order):
 
 
 
-def Inegrate(x0, dt, nsteps, eta, M, PN_order):
+def Inegrate(x0, dt, nsteps, eta, M, PN_order, chiZa, chiZs):
 	
 	x1 = x0
 	X=np.array([])
 
 	k=0	
 	for i in range(nsteps):
-		kx1 = dx_by_dt(x1, M, eta, PN_order)*dt
+		kx1 = dx_by_dt(x1, M, eta, PN_order, chiZa, chiZs)*dt
 		
-		kx2 = dx_by_dt(x1 + 0.5*kx1 , M, eta, PN_order)*dt
+		kx2 = dx_by_dt(x1 + 0.5*kx1 , M, eta, PN_order, chiZa, chiZs)*dt
 
-		kx3 = dx_by_dt(x1 + 0.5*kx2, M, eta, PN_order)*dt
+		kx3 = dx_by_dt(x1 + 0.5*kx2, M, eta, PN_order, chiZa, chiZs)*dt
 
-		kx4 = dx_by_dt(x1 + kx3, M, eta, PN_order)*dt
+		kx4 = dx_by_dt(x1 + kx3, M, eta, PN_order, chiZa, chiZs)*dt
 
 		x2 = x1 + ((kx1 + 2*kx2 + 2*kx3 + kx4)/6.0)
 
 		x1 = x2
 
 		X=np.append(X,x1)
-		k+=1
-	
-	print len(X)		
+		k+=1		
 
 	return X
 
-def h_plus_mem(theta, eta, M, R, x0, dt, nsteps, PN_order):
+def h_plus_mem(theta, eta, M, R, x0, dt, nsteps, PN_order, chiZa, chiZs):
 
-	x= Inegrate(x0, dt, nsteps, eta, M, PN_order)
+	x= Inegrate(x0, dt, nsteps, eta, M, PN_order, chiZa, chiZs)
 	
 	A = (2.0*eta*M*x/R)
 	B0 = H0mem(theta)
 	B1 = H1mem(theta, eta)
+	B1p5 = H1p5(theta, eta, chiZa, chiZs)
 	B2 = H2mem(theta, eta)
 	B2p5 = H2p5mem(theta, eta)
 	B3 = H3mem(theta, eta)
@@ -110,12 +125,16 @@ def h_plus_mem(theta, eta, M, R, x0, dt, nsteps, PN_order):
 		h_mem = A*(B0)
 	if PN_order==1:
 		h_mem = A*(B0 + B1*x) 
+	if PN_order==1.5:
+		h_mem = A*(B0 + B1*x + B1p5*pow(x,1.5))	
 	if PN_order==2:
-		h_mem = A*(B0 + B1*x + B2*pow(x,2))
+		h_mem = A*(B0 + B1*x + B1p5*pow(x,1.5)+ B2*pow(x,2))
 	if PN_order==2.5:
-		h_mem = A*(B0 + B1*x + B2*pow(x,2) + B2p5*pow(x,2.5))
+		h_mem = A*(B0 + B1*x + B1p5*pow(x,1.5) + B2*pow(x,2) + B2p5*pow(x,2.5))
 	if PN_order==3:
-		h_mem = A*(B0 + B1*x + B2*pow(x,2) + B2p5*pow(x,2.5) + B3*pow(x,3))
+		h_mem = A*(B0 + B1*x + B1p5*pow(x,1.5) + B2*pow(x,2) + B2p5*pow(x,2.5) + B3*pow(x,3))
+	
+	h_mem[h_mem > 0.025]=0.25
 	
 	return h_mem
 
@@ -125,17 +144,17 @@ def find_nearest_idx(array, value):
     return idx
 
 #data location
-file_location ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/'
+file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
 #import data
-mass_ratio_vec = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 7, 8, 9.5]
-filename_vec=['q1', 'q1p5', 'q2', 'q2p5','q3','q4','q5','q6', 'q7', 'q8','q9p5']
+mass_ratio_vec = [0.43, 0.6, 0.8, 0.95]
+filename_vec=['0p43', '0p600', '0p800','0p95']
 i=0
 
 for filename in filename_vec:
 	
-	datafile_hNRdot='rMPsi4_noSpin_'+filename+'dataClean_hdotNR.dat'
-	datafile_hNR='rMPsi4_noSpin_'+filename+'dataClean_hNR.dat'
-	datafile_hMemNR='rMPsi4_noSpin_'+filename+'dataClean_hMemNR.dat'
+	datafile_hNRdot='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hdotNR.dat'
+	datafile_hNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hNR.dat'
+	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
 
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
 	timeNR, hdot_plus, hdot_cross = np.loadtxt(file_location+datafile_hNRdot, unpack=True)
@@ -145,7 +164,7 @@ for filename in filename_vec:
 	#Making plots
 	legend_size = 1
 	fig = plt.figure()
-	plt.suptitle('Memory Calculation for q ='+str(mass_ratio_vec[i]) ,fontsize = 15)
+	plt.suptitle('Memory Calculation for aligned Sz spin ='+str(mass_ratio_vec[i]) ,fontsize = 15)
 	fontP = FontProperties()
 	fontP.set_size('10.')
 
@@ -178,112 +197,106 @@ for filename in filename_vec:
 	plt.legend(loc=2)
 	fontP.set_size('10.')
 
-	plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_nonSpining/'+filename+'.png')
+	plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_alignedSpin/'+filename+'.png')
 	i+=1
 	plt.close()
 
 
+#data location
+file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
 
 
-mass_ratio_vec = [2.0, 3.0, 4.0, 7.0]
-filename_vec=['q2', 'q3', 'q4', 'q7']
-
-
+Spin_vec = [0.43, 0.60, 0.8, 0.95]
+filename_vec=['0p43', '0p600', '0p800', '0p95']
+tf_vec=[-60, -10, -10, -10.0]
+ti_vec=[-8000, -8000, -8000, -8000]
+idx_cut_vec = [80, 80, 80, 80, 80]
 
 
 i=0
 #Making plots
 legend_size = 2
 fig = plt.figure()
-plt.title('Memory Calculation for NonSpinning ' ,fontsize = 15)
+plt.title('Memory Calculation for Spinning case' ,fontsize = 15)
 fontP = FontProperties()
 fontP.set_size('20.')
 
 legend = plt.legend(loc='best',prop={'size':legend_size})
 
+
+
 for filename in filename_vec:
 	
-	datafile_hMemNR='rMPsi4_noSpin_'+filename+'dataClean_hMemNR.dat'
+	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
 	#Normalize to stich
 	hmem*=17.0
 	
-	#Stiching Postnewtonian memory
+	#generating Postnewtonian memory
 	dt=timeNR[1]-timeNR[0]
-	time_PN = np.arange(-8000, -2500, dt)
-	nsteps=len(time_PN)
+	ti = ti_vec[i]
+	tf=tf_vec[i]
+	time_PN = np.arange(ti, tf, dt)
+	nsteps=len(time_PN)+1
 	
-	q=mass_ratio_vec[i]
+	q=1.0
 	eta = q/pow(1.0+q,2)
 	
 	R=1.0
 	M=1
 	x0=pow(-5.0*M/(256.0*time_PN[0]*eta), 1.0/4.0)
+	chiZa=0.0
+	chiZs=Spin_vec[i]
 
-	
-	
+ 	hp_mem_PN = h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 2, chiZa, chiZs)	
+		
 
-#	hp_mem_PN_full = h_plus_mem(np.pi/2, eta, 1.0, 1.0, time_PN, x0)		
-#	hp_mem_PN_lead = h_plus_mem_leadingOrder(np.pi/2, eta, 1.0, 1.0, time_PN)
-
-#	hp_mem_PN = hp_mem_PN_lead
- 	hp_mem_PN = h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 2)	
-	hp_mem_PN_original = hp_mem_PN
-	time_PN_original = time_PN
-
+	time_PN=time_PN-tf
 	dhp_mem_PN_dt=np.diff(hp_mem_PN)/dt
+	dhp_mem_NR_dt=np.diff(hmem)/dt
 
-	idx_cut = 100
+	NRmax_idx = np.argmax(dhp_mem_NR_dt)
+	dhp_mem_NR_dt=dhp_mem_NR_dt[:NRmax_idx]
+
+	idx_cut = idx_cut_vec[i]
 	dt=timeNR[1]-timeNR[0]
 	Slope_hmem_NR=(hmem[idx_cut]-hmem[idx_cut-1])/dt
 	idx=find_nearest_idx(dhp_mem_PN_dt, Slope_hmem_NR)
-	print idx, len(dhp_mem_PN_dt), q
-	hmem=hmem[idx_cut:]
-	timeNR=timeNR[idx_cut:]
+#	print idx, len(dhp_mem_PN_dt), q
+	hmem_cut=hmem[idx_cut:]
+	timeNR_cut=timeNR[idx_cut:]
 	
-#	print Slope_hmem_NR, dhp_mem_PN_dt[idx], len(timeNR)
+#	print len(timeNR)
+#	print timeNR_cut[0],time_PN[idx], timeNR_cut[0]-time_PN[idx]
 
 	hp_mem_PN_cut=hp_mem_PN[:idx]
-	time_PN_cut=np.linspace(-8000,timeNR[0] , len(hp_mem_PN_cut))
+	time_PN_cut=np.linspace(ti-tf,timeNR_cut[0] , len(hp_mem_PN_cut))
+	
+	hmem_tot_cut=hmem_cut+hp_mem_PN_cut[-1]
+	time_tot = np.append(time_PN_cut, timeNR_cut)
+	hmem_tot = np.append(hp_mem_PN_cut, hmem_tot_cut)
 
 
-	hmem_tot=hmem+hp_mem_PN_cut[-1]
-	time_tot = np.append(time_PN_cut, timeNR)
-	hmem_tot = np.append(hp_mem_PN_cut, hmem_tot)
+	plt.title('Memory Calculation for Spinning Sz only = ' ,fontsize = 15)
+	plt.plot(time_tot, hmem_tot, label=r'$hmem$ for $S_{z}$ = '+str(Spin_vec[i]))
+	plt.plot(timeNR_cut, hmem_tot_cut, 'y--')
 
-	plt.plot(time_tot, hmem_tot, label=filename_vec[i])
-	plt.plot(timeNR, hmem + hp_mem_PN_cut[-1], 'y--' )
-#	plt.plot(time_PN_original, hp_mem_PN_original, 'g--')
+	plt.grid()
+	plt.xlabel(r'$time$')
+	plt.ylabel(r'$h_{mem}$')
+	plt.legend(loc=2)
+	fontP.set_size('20.')
 	i+=1
-
-
-datafile_hMemNR='rMPsi4_noSpin_q2dataClean_hMemNR.dat'
-timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
-dt = timeNR[1]-timeNR[0]
-time_PN = np.arange(-8000, -560, dt)
-q=2.0
-eta = q/pow(1.0+q,2)
-nsteps=len(time_PN)	
-R=1.0
-M=1
-x0= pow(-5.0*M/(256.0*time_PN[0]*eta), 1.0/4.0)
-hp_mem_PN = h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 2)	
-hp_mem_PN_original = hp_mem_PN
-time_PN_original = time_PN
-
-
-
-plt.plot(time_PN_original+ 552, hp_mem_PN_original, 'k',label='PN expression')
-#plt.plot(time_PN_original, hp_mem_PN_original, 'k--',label='PN expression not shifted')
+	
+	
 
 
 plt.grid()
-#plt.ylim(0,0.0002)
+#plt.ylim(0,0.0007)
 plt.xlabel(r'$time$')
 plt.ylabel(r'$h_{mem}$')
 plt.legend(loc=2)
 fontP.set_size('10.')
-plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_nonSpining/'+filename+'.pdf')
+plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_alignedSpin/'+filename+'.pdf')
 plt.show()
-
-
+	

@@ -68,8 +68,8 @@ plt.plot(time,d2h22_real_by_dt2,'k' )
 plt.show()
 
 #Subtract linearfit
-linear_fit_coeff_real = np.polyfit(time, h22_real, 1)
-linear_fit_coeff_imag = np.polyfit(time, h22_imag, 1)
+linear_fit_coeff_real = np.polyfit(time, h22_real, 3)
+linear_fit_coeff_imag = np.polyfit(time, h22_imag, 3)
 
 linear_fit_real=linear_fit_coeff_real[0]*time + linear_fit_coeff_real[1]
 plt.plot(time, h22_real-linear_fit_real,'r--', label="linear fit sub from h22")
