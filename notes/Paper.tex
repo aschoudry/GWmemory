@@ -64,7 +64,7 @@
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\pc}{{+,\times}}
 
-\title{Spin effect on Christodoulou memory for merging blackhole binaries}
+\title{Effect of Black Hole Spin on Christodoulou Memory}
 \author{Ashok Choudhary}\email{aschoudhary@mix.wvu.edu}
 \author{Sean T. McWilliams}\email{sean.mcwilliams@mail.wvu.edu}
 \affiliation{Department of Physics and Astronomy, West Virginia University, Morgantown, WV 26506, USA}
@@ -78,7 +78,7 @@
 
 \section{Introduction}
 
-Gravitational wave (GW) memory effect leads to a permanent displacement of test masses after the gravitational wave has passed through it. The are two kinds of gravitational wave memory: linear and nonlinear. Linear memory is produced by gravitational sources that produce a net change in the time derivative of one or more of their source-multipole moments. At leading order in a Post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
+Gravitational wave (GW) memory effect leads to a permanent displacement of test masses after the gravitational wave has passed through it~\cite{Abbott_2016nmj}. The are two kinds of gravitational wave memory: linear and nonlinear. Linear memory is produced by gravitational sources that produce a net change in the time derivative of one or more of their source-multipole moments. At leading order in a Post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
 \begin{equation}
 	\Delta h^{TT}_{jk} = \frac{2}{R}\Delta\left(\ddot{\mathit{I}}^{TT}_{jk}\right) 
 \end{equation} 
@@ -264,10 +264,26 @@ The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \end{widetext}
 We can see that all contribution to $m=0$, even-$l$ modes arise solely from the Christodoulou memory piece of $U_{lm}$. There are no hereditary-memory contribution to the radiative current multipole moments $V_{lm}$\\
 We can combine the above with Eq 2.16 and explicitly compute the memory contribution to the + waveform polarization.This can be done in the following way
-\begin{equation}
+\begin{widetext}
+	\begin{equation}
 	h_{+,\times} = \frac{2\eta Mx}{R}H_{+,\times} + O\left(\frac{1}{R^2}\right)
 \end{equation}
-
+\begin{equation}
+	H_{+,\,\times}= \sum_{n=0}^{\infty}x^{n/2}H_{+,\,\times}^{(n/2)}
+\end{equation}
+The memory contribution to $H_{+}^{n/2} $ are:
+\begin{subequations}
+\begin{align}
+	H_{+}^{(0,mem)}&=\alpha\frac{1}{96}s_{\Theta}^2\left(17 + c_{\Theta}^2\right),\\
+	H_{+}^{(0.5,mem)}&=0,\\
+	H_{+}^{(1,mem)}&=\alpha s_{\Theta}^2\left[-\frac{354241}{2064384} - \frac{62059}{1032192}c_{\Theta}^2 - \frac{4195}{688128}c_{\Theta}^4 + \left(\frac{15607}{73728} + \frac{9373}{36864}c_{\Theta}^2 +\frac{215}{8192}c_{\Theta}^4\right)\right],\\
+	H_{+}^{(1.5,mem)}&=\alpha s_{\Theta}^2\left\{\left[\frac{3}{1280}  + \frac{7}{3840}c_{\Theta}^2 +  \delta\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) +\eta \left(-\frac{3}{320}-\frac{7}{960}c_{\Theta}^2\right)\right]\chiadL\right.\nonumber\\
+	& \quad+\left.\left[\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) + \delta\left(\frac{3}{1280} + \frac{7}{3840}c_{\Theta}^2\right) + \eta\left(-\frac{3}{80} +\frac{23}{240}c_{\Theta}^2\right) + \delta\eta\left(-\frac{3}{320}-\frac{7}{960}\right)\right]\chisdL\right\}\\
+	H_{+}^{(2,mem)} &=\alpha s_{\Theta}^2\left\{-\frac{3968456539}{9364045824} + \frac{570408173}{4682022912}c_{\Theta}^2 + \frac{122166887}{3121348608}c_{\Theta}^4 + \frac{7560}{15925248}c_{\Theta}^6 \right.\nonumber\\
+	& \quad + \eta\left[-\frac{7169749}{18579456} - \frac{13220477}{18579456}c_{\Theta}^2 -\frac{1345405}{6193152}c_{\Theta}^4 - \frac{25115}{884736}c_{\Theta}^6\right] + \eta^2\left[\frac{10097}{147456}\right]
+\end{align}
+\end{subequations}
+\end{widetext}
 \section{Memory calculation using Numerical relativity data}
 Numerical relativity simulations most commonly output the Newman-Penrose curvature component $\psi_4$.The two polarization states, $h_{+}$ and $h_{\times}$ of the gravitational wave are related to the curvature, expressed in terms 	of the complex Newman-Penrose scalar $\psi_4$ by 
 \begin{equation}
@@ -275,21 +291,21 @@ Numerical relativity simulations most commonly output the Newman-Penrose curvatu
 \end{equation}\
 Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been noted that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in numerical simulation, the finite distance calculation introduces a systematic error. In more recent simulations [added ref], which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
 \par It has been argued in [add ref] that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The unfiltered GW waveform is shown in fig [add fig], which clearly shows an oscillating waveform which settles to a nonzero value. The method described in ref[add ref] gives us a way to get rid of this unphysical behaviour    
-\par The memory contribution to $h_{+}$ is given by 
+\par The memory contribution to $h_{+}$ is given by
 
-\begin{equation}
-	h_{+}^{(mem)} \approx \frac{R}{192 \, \pi}s_{\Theta}^{2}\left(17 +c_{\Theta}^{2} \right)\int_{-\infty}^{T_R}|\dot{h}_{22}|^2 dt
+\begin{equation}\label{3.2}
+h_{+}^{(mem)} \approx \frac{R}{192 \, \pi}s_{\Theta}^{2}\left(17 +c_{\Theta}^{2} \right)\int_{-\infty}^{T_R}|\dot{h}_{22}|^2 dt
 \end{equation}
 
 The above equation requires a time integration of absolute value of $\dot{h}_{22}$, but this is not typically the quantity which is directly computed in numerical simulation. The output of numerical simulation is usually in the form of component of curvature tensor components, or Zerilli-Moncrief-type variables defined relative to a background. 
 \subsection{Evaluating Bondi News from numerical data}
 The Bondi News is determined by
-\begin{equation}
-	\mathcal{N} = \int_{-\infty}^{t}dt' \psi_4
+\begin{equation}\label{3.3}
+\mathcal{N} = \int_{-\infty}^{t}dt' \psi_4
 \end{equation}
-
+The gravitational wave memory contribution to $h_{+}$ polarization can be computed from this bondi news, by integrating the absolute value of bondi news as shown in equation \ref{hmem}. The memory contribution evaluated using Eq.\ref{hmem} will contain contribution from numerical noise, which is unphysical and must be removed from the data.
 \subsection{Integration of finite length signals in frequency domain}
-
+The unphysical part of mermory essential lies in low frequency. If we remove this low frequency part from data, we can get rid of memory contribution due to numerical noise. 
 Consider the Fourier transform, $\mathcal{F}$, applied to an absolutely integrable function $f(t)$,
 \begin{equation}
 	\tilde{f}(\omega) = \mathcal{F}[f]=\int_{-\infty}^{\infty}\e^{-\iota \omega t}f(t)dt.	
@@ -298,21 +314,26 @@ The Fourier transform of the time integral is given by
 \begin{equation}
 	\mathcal{F}\left[\int_{-\infty}^{t}dt' f(t')\right] |_\omega = -\iota \frac{\tilde{f}(\omega)}{\omega}
 \end{equation}
+The inverse fourier transform of above expression is given by
+\begin{equation}\label{3.6}
+	\int_{-\infty}^{t}dt'f(t')=\mathcal{F}^{-1}\left[-\mathit{i}\frac{\tilde{f}(\omega)}{\omega}\right] = -\frac{\mathit{i}}{2\pi}\int_{-\infty}^{\infty}\frac{1}{\omega}e^{\mathit{i\omega t}}\tilde{f}(\omega)d\omega
+\end{equation}
+In the frequency-domain, time integration becomes a simple division by the frequency. Above method is particularly susceptible to low-frequency error, under-resolved high-frequency modes can be aliased into low-frequency modes of the signal. We try to remove these unphysical frequencies by the method described below   
+\subsubsection{Fixed frequency integration ($\mathit{FFI}$)}\label{FFI}
+The effect of the spurious low-frequency modes caused by spectral leakage or aliasing effects, can be significantly suppressed by use of signal filter. The time integral can be performed in frequency domain as shown in equation \ref{3.6}. The low frequencies which cause the unphysical nonlinear drift can be removed by choosing a cutoff frequency while taking a Fourier transform.   
 
-\subsubsection{Fixed frequency integration ($\mathit{FFI}$)}
-
-We evaluate the integral using the following mathod [add ref]
-
-
-
-\[
-\tilde{F} =
+\[\tilde{F} =
 \begin{cases}
 -\mathit{i} \frac{\tilde{f}(\omega)}{\omega_0} & \text{ $\omega\leq\omega_0$} \\
 -\mathit{i} \frac{\tilde{f}(\omega)}{\omega} & \text{ $\omega>\omega_0$} 
+\end{cases}\]
 
-\end{cases}
-\]
+We use this method to integrate $\psi$ to obtain Bondi News as shown in equation \ref{3.3}.
+
+\subsection{Memory calculation from SXS Rumerical Relativity data}
+The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency in chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. The first begin separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data choose a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the post-Newtonian expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
+       
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
@@ -325,7 +346,12 @@ We evaluate the integral using the following mathod [add ref]
 \caption{NonSpinning case}
 \label{fig:0p95}
 \end{figure}
-
+\begin{figure}
+	\includegraphics[width=3.0in]{../plots/PNmemoryContributiontoHplus.pdf}
+	\includegraphics[width=3.0in]{../plots/PNmemoryContributionfunofTheta.pdf}
+	\caption{NonSpinning case}
+	\label{fig:0p95}
+\end{figure}
 \newpage
 \appendix 
 \begin{widetext}
@@ -386,20 +412,18 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 & \qquad \left(\frac{1}{2}-\eta\right)\left\{\chisSqr+\chiaSqr-3\left[\left(\chisdL\right)^2+\left(\chiadL\right)^2\right]\right\}+\delta\left\{\chisDchia-3\left[\left(\chisdL\chisdL\right)\right]\right\} \nonumber\\
 & \quad \left.\left.x^{5/2}\left[\left(8-\frac{121\,\eta}{9} +  \frac{2\,\eta^2}{9}\right)\chisdL + \left(8-\frac{31\,\eta}{9}\right)\delta\chiadL\right] + x^3\left[-\frac{675}{64}+\left(\frac{34445}{576}-\frac{205\,\pi^2}{96}\right)\eta-\frac{155\,\eta^2}{96}-\frac{35\,\eta^3}{5184}\right]
 \right]
-\right\}
-\end{align}
-
-\begin{align}\label{eq:Ff}
-\mathcal{L}&=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right.\right]\nonumber\\
-&\quad \left.\left. x^2\left[-\frac{44711}{9072}+\frac{9271\eta}{504}+\frac{65\, \eta^2}{18} + \left(\frac{287}{96} +\frac{\eta}{24}\right)\left(\chisdL\right)^2-\left(\frac{89}{96}+\frac{7\,\eta}{24}\right)\chisSqr\right.\right.\right.\nonumber\\
-&\qquad\left.\left.\left. + \left(\frac{287}{96}-12\eta\right)\left(\chiadL\right)^2 + \left(-\frac{89}{96}+4\eta\right)\chiaSqr + \frac{287}{48}\delta\left(\chisdL\right)\left(\chiadL\right) -\frac{89}{48}\delta\left(\chisDchia\right)\right]\right.\right.\nonumber\\
-&\quad \left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\&\quad \left. x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
-\right]\right\}
-\end{align}
-
-\begin{align}\label{eq:FbydE}
-\frac{dx}{dt}&= \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
-+ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
+\right\}\nonumber\\
+\\
+\label{eq:Flux}
+\mathcal{L}&=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right]\right.\nonumber\\
+&\quad  x^2\left[-\frac{44711}{9072}+\frac{9271\eta}{504}+\frac{65\, \eta^2}{18} + \left(\frac{287}{96} +\frac{\eta}{24}\right)\left(\chisdL\right)^2-\left(\frac{89}{96}+\frac{7\,\eta}{24}\right)\chisSqr\right.\nonumber\\
+&\qquad\left. + \left(\frac{287}{96}-12\eta\right)\left(\chiadL\right)^2 + \left(-\frac{89}{96}+4\eta\right)\chiaSqr + \frac{287}{48}\delta\left(\chisdL\right)\left(\chiadL\right) -\frac{89}{48}\delta\left(\chisDchia\right)\right]\nonumber\\
+&\quad\left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\&\quad \left.x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
+\right]\right\}\nonumber\\
+\\
+\label{eq:dxdt}
+\frac{dx}{dt}&=\frac{64\, x^5  \, \eta}{5}\left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
++ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\
 &\quad + x^2 \left[ \frac{34103}{18144} + \frac{13661 \, \eta}{2016} + \frac{59 \, \eta^2}{18} + \left( \frac{719}{96}- 30 \eta\right)(\chiadL)^2 +\chiaSqr \left(-\frac{233}{96}+10 \eta \right) \right. \nonumber\\
 &\qquad+\frac{719 \chiadL \, \chisdL \delta}{48}-\frac{233 \chisDchia \delta}{48} \left. + \, (\chisdL)^2 \left(-\frac{\eta }{24}-\frac{719}{96}\right)+\chisSqr \left(\frac{7 \eta
 }{24}+\frac{233}{96}\right) \right] \nonumber \\ 
@@ -409,7 +433,11 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 &\qquad  \left.+\delta\left(\frac{258295}{2016} -\frac{9203 \, \eta}{96}\right)\chiadL\left)\chisdL + \left(\frac{258295}{4032} -\frac{48773 \, \eta}{576} + \frac{3041 \, \eta^2}{144}\right)(\chisdL)^2 + \delta\left(-\frac{145}{224} + \frac{2143 \, \eta}{288}\right)\chisDchia \right.\right.\nonumber \\ 
 &\qquad\left.\left.+\left(-\frac{145}{448} + \frac{1891 \, \eta}{576} -\frac{7 \, \eta^2}{144}\right)\chisSqr - \frac{3424 \, \log[2]}{105} - \frac{1712 \log[x]}{210}\right]\right\}
 \end{align}
-
-\bibliography{Spin}
 \end{widetext}
+
+\section*{References}
+
+\bibliographystyle{apsrev4-1}
+\bibliography{references}
+
 \end{document}
