@@ -18,6 +18,7 @@
 \allowdisplaybreaks
 \textwidth 7.5 in 
 \hoffset -1 cm 
+\newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
 \newcommand{\comment}[1]{\textcolor{blue}{\textit{#1}}}
 \newcommand{\ashok}[1]{\textcolor{red}{\textit{Ashok:#1}}}
 \newcommand{\sean}[1]{\textcolor{cyan}{\textit{Sean:#1}}}
@@ -78,23 +79,22 @@
 
 \section{Introduction}
 
-Gravitational wave (GW) memory effect leads to a permanent displacement of test masses after the gravitational wave has passed through it~\cite{Abbott_2016nmj}. The are two kinds of gravitational wave memory: linear and nonlinear. Linear memory is produced by gravitational sources that produce a net change in the time derivative of one or more of their source-multipole moments. At leading order in a Post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
+Gravitational wave memory effect results in a permanent displacement of test masses after the gravitational wave has passed through an "ideal" GW detector. There are two kinds of gravitational wave memory effects: linear and nonlinear. The linear memory is produced by gravitational sources that produce a net change in the time derivative of one or more of their source-multipole moments. At leading order in a Post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
 \begin{equation}
-	\Delta h^{TT}_{jk} = \frac{2}{R}\Delta\left(\ddot{\mathit{I}}^{TT}_{jk}\right) 
+\Delta h^{TT}_{jk} = \frac{2}{R}\Delta\left(\ddot{\mathit{I}}^{TT}_{jk}\right) 
 \end{equation} 
-where $I_{ij}$ is the source mass-quadrupole moment, R is the distance source and $\Delta$ describes the net change in the quantity from early to late times. Gravitational waves with linear memory are important in case of unbound systems and have been studied studied in context of supernova explosion [add ref], asymmetric mass loss due to neutrino emission and gamma-ray-burst jets [add ref] \\
+where $I_{ij}$ is the source mass-quadrupole moment, R is the distance to the source and $\Delta$ describes the net change in the quantity from early to late times. Gravitational waves with linear memory are important in case of unbound systems and have been studied studied in context of supernova explosion [add ref], asymmetric mass loss due to neutrino emission and gamma-ray-burst jets, \cite{Davies_Melvyn2002,Buonanno_Sigl2015,Kotake_Kei2009}
+\par The linear memory produced by a system of N bodies with changing mass $M_A$ or velocities $V_A$ is given by the following general formula for by Thorn \cite{Thorne_Braginskii1987}
 
-A general formula for the linear memory produced by a system of N bodies with changing mass $M_A$ or velocities $V_A$ is given by Thorn [add ref]
-
-\begin{equation}
+\begin{equation}\label{eq:1.2}
 \Delta h^{TT}_{jk} = \Delta \sum_{A=1}^{N}\frac{4 M_A}{R\sqrt{1-v^2_A}}\left[\frac{v^j_A v^k_A}{1-\boldsymbol{v}_A\cdot \boldsymbol{N}}\right]
 \end{equation} 
 
 where the masses are unbound in their initial and final states(or both). Here $\Delta$ refers to take difference between the final and initial values of the summations, and $\boldsymbol{N}$ is the unit vector that points from the source to the observer.  
 \\
- Nonlinear memory effect also called Christodoulou memory, arises from a change in the radiative multiple moment that is sourced by the energy flux of the radiated gravitational wave. It can be understood in the following way. Consider the Einstein field equation in harmonic gauge. [add ref] 
+The other kind of memory is the nonlinear memory, which is also called Christodoulou memory. This was independently discovered by Christodoulou \cite{Christodoulou1991}, Payne \cite{Payne1894}, Blanchet and Damour \cite{Blanchet_Damour1992}. Christodoulou arises from a change in the radiative multiple moment that is sourced by the energy flux of the radiated gravitational wave. It can be understood in the following way. Consider the Einstein field equation in harmonic gauge. \cite{Thorne1980} 
 \begin{subequations}
-\begin{align}	
+\begin{align}\label{eq:3.1a}	
 \Box \bar{h}^{\alpha \beta} & = -16\pi (-g)(T^{\alpha\beta} + t_{LL}^{\alpha\beta})-\bar{h}^{\alpha\mu}_{,\nu}\bar{h}^{\beta\nu}_{,\mu}+\bar{h}^{\mu\nu}\bar{h}^{\alpha\beta}_{,\mu\nu}\\
 \bar{h}^{\alpha \beta},_{\beta} & = 0
 \end{align}
@@ -103,123 +103,125 @@ where
 \begin{equation}
 \bar{h}^{\alpha \beta} = \eta^{\alpha\beta}-\sqrt{-g}g^{\alpha\beta} 
 \end{equation}
-is the gravitational field tensor, $g$ is the determinant of the metric $g_{\alpha\beta}$, $T^{\alpha\beta}$ is the matter stress-energy tensor, $t^{\alpha\beta}_{LL}$ is the Landau-Lifshitz pseudotensor, $\Box \equiv  -\partial^{2}_{t} + \nabla^{2}$ is the flat-space wave operator, a comma denotes a partial derivative $(,_{\mu}\equiv \partial_{\mu})$, and $\nabla^{2}$ is a flat-space Laplace operator. The Landau-Lifshitz term is the Gravitational wave stress tensor[add ref].
+is the gravitational field tensor, $g$ is the determinant of the metric $g_{\alpha\beta}$, $T^{\alpha\beta}$ is the matter stress-energy tensor, $t^{\alpha\beta}_{LL}$ is the Landau-Lifshitz pseudotensor, $\Box \equiv  -\partial^{2}_{t} + \nabla^{2}$ is the flat-space wave operator, a comma denotes a partial derivative $(,_{\mu}\equiv \partial_{\mu})$, and $\nabla^{2}$ is a flat-space Laplace operator. The Landau-Lifshitz term is the Gravitational wave stress tensor~\cite{Isaacson1968}.
 \begin{equation}
 	T^{gw}_{jk}=\frac{1}{32\pi}\langle h^{TT}_{ab,j}h^{TT}_{ab,k}\rangle\approx T^{gw}_{00}n_{j}n_{k} = \frac{1}{R^{2}}\frac{dE^{gw}}{dt d\Omega}n_{j}n_{k}
 \end{equation}
-where $\frac{dE^{gw}}{dtd\Omega}$ is the GW energy flux, $n_{j}$ is a unit radial vector, the angle-bracket mean to average over several wavelengths, $h^{TT}_{ab,j}=\bar{h}^{TT}_{ab,j}$. When we apply standard Green's function to right hand side of equation (1.1a), we obtain the following correction term to GW field [add ref]
-\begin{equation}
+where $\frac{dE^{gw}}{dtd\Omega}$ is the GW energy flux, $n_{j}$ is a unit radial vector, the angle-bracket mean to average over several wavelengths, $h^{TT}_{ab}=\bar{h}^{TT}_{ab}$. When we apply standard Green's function to right hand side of equation \ref{eq:3.1a}, we obtain the following correction term to GW field \cite{Wiseman1991}
+\begin{equation}\label{eq:1.6}
 	\delta h^{TT}_{jk} = \frac{4}{R}\int_{-\infty}^{T_{R}} dt'\Bigg[ \frac{dE^{gw}}{dt'd\Omega'}\frac{n'_{j}n'_{k}}{(1-\boldsymbol{n'}\cdot\boldsymbol{N})}d\Omega'\Bigg]^{TT}
 \end{equation}
-where $T_{R}$ is the retarded time. This equation shows that part of the distant GW is sourced by loss of GW energy.\\
-The Christodoulou memory is an interesting consequence of the nonlinearity of general relativity. It has a clear physical interpretation : It arises from the loss of GW energy from the system and the effect of this loss on the system's radiative mass multipole moments. The nonlinear memory effect arises from nonlinear interactions at 2.5 PN order but affects the gravitational waveform at leading (0PN) order. This memory effect causes a non oscillatory shift in the amplitude of $+$ polarization, which starts at early times and slowly grows during the inspiral. The PN waveform allow us to model the slow growth of memory during the inspiral phase of coalescence but, most contribution to this nonlinear memory come from the merger phase where the PN model do not work. In this case the memory must be extracted from Numerical relativity simulation. However, it is quite challenging to extract the nonlinear memory accurately from numerical simulations of binary black holes.  Numerical relativity simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform; but the nonlinear memory is present in only $m=0$ mode. These $m=0$ modes tend to be much smaller in magnitude and depends more sensitively on	initial conditions than other modes. For detailed discussion on this see ref [add ref] \\
-The NR simulations mostly easily compute  the curvature scalar $\Psi_4$ and decompose its values at large $R$ into a sum over spin-weighted spherical harmonic modes:
+where $T_{R}$ is the retarded time. This equation shows that part of the distant GW is sourced by loss of GW energy. The nonlinear memory occurs in any system that radiates GWs. These systems are usually considered to have a vanishing linear memory. The nonlinear memory [Eq.\ref{eq:1.6}] can be described by equation \ref{eq:1.2}, the formula for the linear memory if the unbound object in the system are taken to be the individual gravitons with energy $E_A = M_A/(1-v_A^2)^{1/2}$ and velocities $v_A^j = c\,{n'}_A^{j}$.\cite{Thorne1992} 
+\par The Christodoulou memory is an interesting consequence of the nonlinearity of general relativity, it arises from the loss of GW energy from the system and the effect of this loss on the system's radiative mass multipole moments. The nonlinear memory effect arises from nonlinear interactions at 2.5 PN order but affects the gravitational waveform at leading (0PN) order. This memory effect causes a non oscillatory shift in the amplitude of $+$ polarization, which starts at early times and slowly grows during the inspiral. The PN waveform allow us to model the slow growth of memory during the inspiral phase of coalescence, but the most contribution to this nonlinear memory come from the merger phase where the PN model do not work. In this case the memory must be extracted from Numerical relativity simulations. However, it is quite challenging to extract the nonlinear memory accurately from numerical simulations of binary black holes. Numerical relativity simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform; but the nonlinear memory is present in only $m=0$ mode. These $m=0$ modes tend to be much smaller in magnitude and depends more sensitively on	initial conditions than other modes. For detailed discussion on this see section $\RomanNumeralCaps{5}$ in reference \cite{Favata2009}
+\par The NR simulations mostly easily compute  the curvature scalar $\Psi_4$ and decompose its values at large $R$ into a sum over spin-weighted spherical harmonic modes:
 \begin{equation}
 	\Psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_\times = \sum_{l=2}^{\infty}\sum_{m=-l}^{l}\psi_{lm}(t, R) _{-2}Y_{lm}(\Theta, \Phi)
 \end{equation} 
-In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes are smaller than the $\psi_{22}$ modes by $five$ PN orders.The relative mode magnitudes are $\psi_{22} \approx 690 \psi_{20}\approx 4.5 \times 10^4 \psi_{40}$ at $x\approx1/5$. There are other difficulties in calculating memory from numerical relativity data.Construction of the $h_{lm}$ from $\psi_{lm}$ requires two integration constants to be specified. Choosing these integration constant to be zero [add ref] causes and artificial memory and a slope in the $h_{lm}$ modes. This artificial memory is unphysical and arises from the finite size of the initial separation and extraction radius.The initial burst of junk radiation also contribute to artificial memory.\\
-Numerical relativity simulations starts at a finite radius, so although it contains a most part of gravitational wave memory, PN results should be used for early inspiral phase. The significance of memory accumulated during the inspiral phase can be seen by looking at the largest memory mode $h_{20}$. Consider the leading-(Newtonian)-order piece of the largest memory mode $h_{20}$:
+In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes are smaller than the $\psi_{22}$ modes by $five$ PN orders.The relative mode magnitudes(\cite{Favata2009}) are $\psi_{22} \approx 690 \psi_{20}\approx 4.5 \times 10^4 \psi_{40}$ at $x\approx1/5$. There are many other difficulties too in calculating memory from numerical relativity data. Construction of the $h_{lm}$ from $\psi_{lm}$ requires two integration constants to be specified. Choosing these integration constant to be zero \cite{Reisswig_Pollney2011} causes an artificial memory and a slope in the $h_{lm}$ modes. This artificial memory is unphysical and arises from the finite size of the initial separation and extraction radius.The initial burst of junk radiation also contribute to artificial memory.
+\par Numerical relativity simulations starts at a finite radius, so although it contains most part of gravitational wave memory, PN results should be used for early inspiral phase. The significance of memory accumulated during the inspiral phase can be seen by looking at the largest memory mode $h_{20}$. Consider the leading-(Newtonian)-order piece of the largest memory mode $h_{20}$:
 \begin{equation}
 	h^{NR}_{20}\left(T_R\right) = \frac{1}{\sqrt{2}R}\int_{T_0}^{T_R}U^{(mem)(1)}_{20}(t)dt
 \end{equation}
-where $U^{(mem)(1)}_{20}$ is given by the leading order piece of Eq. (3.13a) in ref [add ref], and the $T_0$ is the starting time of the simulation. For a realistic, quasicircular binary that inspirals from a large initial separation, $T_0 \rightarrow -\infty$. The NR simulations of binaries that starts at a finite initial separation would underestimate the size of the memory. For a simulation that starts with an initial separation of $10M$, the error in the memory at a harmonic coordinate separation of $5M$ is $50\%$. 
+where $U^{(mem)(1)}_{20}$ is given by the leading order piece of Eq. (3.13a) in ref \cite{Favata2009}, and the $T_0$ is the starting time of the simulation. For a realistic, quasicircular binary that inspirals from a large initial separation, $T_0 \rightarrow -\infty$. The NR simulations of binaries that starts at a finite initial separation would underestimate the size of the memory. For a simulation that starts with an initial separation of $10M$, the error in the memory at a harmonic coordinate separation of $5M$ is $50\%$.\cite{Favata2009} 
 
-\par The corrections to the leading-oder formula for the nonlinear memory's contribution to 3PN order for non-spinning binaries has been computed by by Favata []. However the effect of binary spins have not been explored these results.(\ashok{need to add why looking at spins is important})   
-
-
-
-In this paper we calculate the nonlinear memory contribution to the + waveform polarization and look at the effect of spin contribution.In Sec. II, we describe the calculation required to compute memory contribution to the post-Newtonian waveform of quasi-circular, inspiralling binaries. In Sec. III, we describe the method used extract memory contribution from NR simulations. Sec. IV we give the results which looks at the effect of spin on total nonlinear memory. We use PN expressions for memory for early time and for late time we use memory extracted from NR simulations.
+\par The corrections to the leading-oder formula for the nonlinear memory's contribution to 3PN order for non-spinning binaries has been computed by by Favata \cite{Favata2009}. However the effect of binary spins have not been explored these results.(\ashok{need to add why looking at spins is important})   
+\par In this paper we calculate the nonlinear memory contribution to the + waveform polarization and look at the effect of spin contribution. In Sec. II, we describe the calculation required to compute memory contribution to the post-Newtonian waveform of quasi-circular, inspiralling binaries. In Sec. III, we describe the method used to extract memory contribution from NR simulations. Sec. IV we give the results which looks at the effect of spin on total nonlinear memory. We use PN expressions for memory for early time and for late time we use memory extracted from NR simulations.
 
 
 \section{MEMORY CONTRIBUTION TO POST-NEWTONIAN WAVEFORM POLARIZATION}
 
 The mode decomposition of gravitational wave polarization is given by
-\begin{equation}
+\begin{equation}\label{eq:2.1}
 	h_+ - \mathit{i}h_{\times} = \sum_{l=2}^{\infty}\sum_{m=-l}^{m=l}h^{lm} \,  _{-2}Y^{lm}(\Theta, \Phi)
 \end{equation}
 where $_{-2}Y^{lm}$ are spin-weighted spherical harmonics, the angles $(\Theta, \Phi)$ indicates the direction from the source to the observer. In a multipolar expansion of the GW field, the modes $h^{lm}$ are related to the radiative mass $U^{lm}$ and the current $V^{lm}$ multipole via
-\begin{equation}
+\begin{equation}\label{eq:2.2}
 	h^{lm}= \frac{G}{\sqrt{2}\, R }\left[U^{lm}(T_R)-\frac{\mathit{i}}{c}V^{lm}(T_R)\right]
 \end{equation}
 Here $R$ is the distance from source to observer, $T_R$ is retarded time. We assume $c\,=\,G\,=\,1$ for all out calculations.
  The spin weighted spherical harmonics are defined in terms of the Wigner $d$ function by
-\begin{equation}
+\begin{equation}\label{eq:2.3}
 	_{-2}Y^{lm}(\Theta, \Phi) = (-1)^2\sqrt{\frac{2l + 1}{4\pi}}d^{l}_{ms}(\Theta)e^{\mathit{i}m\Phi}
 \end{equation} 
 Here
-\begin{align}
+\begin{align}\label{eq:2.4}
 	d^{l}_{ms}&=\sqrt{(l+m)!(l-m)!(l+s)!(l-s)!}\\
 	&\times \sum_{k=k_i}^{k_f}\frac{(-1)^k(\sin\frac{\Theta}{2})^{2k+s-1}(\cos\frac{\Theta}{2})^{1l+m-s-2k}}{k!(l+m-k)!(l-s-k)!(s-m+k)!}
 \end{align}
 where $k_i$ = max$(0, m-s)$ and $k_f$ = min$(l+m, l-s)$. \\
-When the GW field is decomposed into modes as in [ref eqn], the nonlinear memory can be shown to yield a correction to the radiative mass multipole moments that enters at 2.5PN and higher orders.
-\begin{equation}
+When the GW field is decomposed into spin-weighted spherical harmonic modes, the nonlinear memory can be shown to yield a correction to the radiative mass multipole moments that enters at 2.5PN and higher orders. For more detail about GW multipole expansion \cite{Thorne1980}. The correction to the radiative mass multipole moments is given by
+\begin{equation}\label{eq:2.6}
 	U^{(mem)}_{lm}=32\pi\frac{(l-2)!}{2(l+2)!}\int_{-\infty}^{T_R}dt\int d\Omega\frac{dE_{gw}}{dtd\Omega}(\Omega)Y^*_{lm}(\Omega)
 \end{equation}
-The radiative current moments $V_{lm}$ do not contribute to nonlinear memory. The GW energy flux can be computed from the GW stress-energy tensor and is given by [add ref]
-\begin{equation}
+The radiative current moments $V_{lm}$ do not contribute to nonlinear memory. The GW energy flux can be computed from the GW stress-energy tensor and is given by \cite{Favata2010}
+\begin{equation}\label{eq:2.7}
 	\frac{dE_{gw}}{dtd\Omega} = R^2 T^{gw}_{00} = \frac{R^2}{32\pi}\langle\dot{h}^{TT}_{jk}\dot{h}^{TT}_{jk}\rangle =\frac{R^2}{16\pi}\langle\dot{h}^2_{+}+ \dot{h}^2_{\times}\rangle
 \end{equation}
-where the angled bracket mean to average over several wavelengths. The energy flux and be written in terms of $h_{lm}$ modes using equation 2.1 in the following way:
+where the angled bracket mean to average over several wavelengths. The energy flux can be written in terms of $h_{lm}$ modes using equation \ref{eq:2.1} in the following way:
 \begin{widetext}
-\begin{equation}
+\begin{equation}\label{eq:2.8}
 		\frac{dE_{gw}}{dtd\Omega}=\frac{R^2}{16\pi}\sum_{l'=2}^{\infty}\sum_{l''=2}^{\infty}\sum_{m'=-l'}^{l'}\sum_{m''=-l''}^{l''}\langle\dot{h}_{l'm'}\dot{h}^*_{l''m''}\rangle _{-2}Y^{l'm'}(\theta,\phi)_{-2}Y^{l''m''*}(\theta, \phi)
 \end{equation}
 \end{widetext}
 
-The memory contribution to mass multipole moment can now be evaluated using equation 2.6 and 2.8. The angular part of the integral has the following form
+The memory contribution to the mass multipole moment can now be evaluated using equation \ref{eq:2.6} and \ref{eq:2.8}. The angular part of the integral has the following form
 
-\begin{equation}
+\begin{equation}\label{eq:2.9}
 	\int d\Omega _{-2}Y_{l'm'}(\theta,\phi)_{-2}Y_{l''m''}^{*}(\theta, \phi)Y_{lm}^{*}(\theta, \phi)
 \end{equation}
 
-The above integral can be evaluated as done in ref [add reference]. The result is show in appendix. \\
-The time derivative of the memory mass-multipole moment is defines as [add ref] 
- $U^{(mem)(1)}_{lm}\equiv\frac{dU^{(mem)}_{lm}}{dT_R}$, which when combined using equation 2.6 and 2.8, can be written as
+The above integral can be evaluated as done in section III of  Favata\cite{Favata2009}. The results are also shown in appendix ~\ref{Appendix A}. The time derivative of the memory mass-multipole moment is defines as $U^{(mem)(1)}_{lm}\equiv\frac{dU^{(mem)}_{lm}}{dT_R}$ \cite{Favata2009}, which when combined using equation \ref{eq:2.6} and \ref{eq:2.8} and Appendix \ref{Appendix A}, can be written as
 
-\begin{align}
-	U_{lm}^{(mem)(1)}=&R^{2}\sqrt{\frac{2(l-2)!}{(l+2)!}}\sum_{l'=2}^{\infty}\sum_{l''=2}^{\infty}\sum_{m'=-l'}^{l'}\sum_{m''=-l''}^{l''}(-1)^{m+m'}\\
+\begin{align}\label{eq:2.10}
+	U_{lm}^{(mem)(1)}=&R^{2}\sqrt{\frac{2(l-2)!}{(l+2)!}}\sum_{l'=2}^{\infty}\sum_{l''=2}^{\infty}\sum_{m'=-l'}^{l'}\sum_{m''=-l''}^{l''}(-1)^{m+m'}\nonumber\\
 	&\times\Bigg\langle \dot{h}_{l'm'}\dot{h}_{l'm'}^{*}\Bigg\rangle G^{2-20}_{l'm'lm'-m''-m}
 \end{align}
  
-where $G^{2-20}_{l'm'lm'-m''-m}$ is the angular integral of equation 2.9 and is given in Appendix [add]. The above equation can be used to compute the first time derivative of mass-multipole moment by substituting the GW modes $h_{lm}$. When evaluating equation 2.10, we are only interested in $m=0$ modes. The $m\neq=0$ terms yield oscillatory contribution to the waveform polarizations that enter at higher PN orders then the nonoscillatory, $m=0$ terms. The non-vanishing, non-oscillatory modes are $U^{(mem)}_{l0}$ with l-even. These $U^{(mem)}_{l0}$ consist of time-integral of polynomials in $x\equiv(M\omega)^{2/3}$ (where $\omega$ is the orbital angular frequency), with each terms of the form
-\begin{equation}
+where $G^{2-20}_{l'm'lm'-m''-m}$ is the angular integral of equation \ref{eq:2.9} and is given in Appendix \ref{Appendix A}. The above equation can be used to compute the first time derivative of mass-multipole moment by substituting the GW modes $h_{lm}$. When evaluating equation \ref{eq:2.10}, we are only interested in $m=0$ modes. The $m\neq0$ terms yield oscillatory contribution to the waveform polarizations that enter at higher PN orders then the nonoscillatory, $m=0$ terms. The non-vanishing, non-oscillatory modes are $U^{(mem)}_{l0}$ with l-even. These $U^{(mem)}_{l0}$ consist of time-integral of polynomials in $x\equiv(M\omega)^{2/3}$ (where $\omega$ is the orbital angular frequency), with each terms of the form
+\begin{equation}\label{eq:2.11}
 \int_{-\infty}^{T_{R}} x^{n}dt=\int_{-\infty}^{T_{R}}\frac{x^{n}}{\dot{x}}dx
 \end{equation}
-After performing the change of variable indicated in above equation 2.12, evaluation of the resulting integrals requires a model for the frequency evolution of the binary. The adiabatic evolution of the frequency (or $x$) is easily derived from energy balance ($\mathcal{L}_{GW}=-\dot{E}$). and the relation $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$. The 3.5PN orbital energy is given by equation C in ref[add aruns paper ref]
+After performing the change of variable indicated in above equation \ref{eq:2.11}, evaluation of the resulting integrals requires a model for the frequency evolution of the binary. The adiabatic evolution of the frequency (or $x$) is easily derived from energy balance ($\mathcal{L}_{GW}=-\dot{E}$). and the relation $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$. The 3.5PN orbital energy and flux are given in Appendix C of reference \cite{Arun2009}. Here we who only upto 1.5 PN terms, the complete expression are show in Appendix \ref{Appendix:C1}. The 1.5 PN expression for energy is given by 
 \begin{widetext}
 	\begin{align}\label{eq:E}
 	E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right\} \nonumber \\
 	\end{align}
 
-and the 3PN GW luminosity is given by Eq C7 to C12 in [ref]
+and the 1.5 PN GW luminosity is given by
 
 \begin{align}\label{eq:F}
 \mathcal{L} &=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right.\right]\nonumber\\
 \end{align}
 
 
-Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, we get the following result 
+Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, and expanding upto 1.5 PN gives the following expression.
 
-\begin{align}\label{eq:FbydE}
+\begin{align}\label{eq:2.14}
 \frac{dx}{dt} & = \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
 + x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
 \end{align}
 \end{widetext}
-The above equation can be used to evaluate the integral in Eq. 2.12
+The results upto 3.5 PN are shows in Appendix \ref{Appendix:C}.
+The equation \ref{eq:2.14} can be used change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} are directly taken from reference \cite{Arun2009}. The PN expression for $h_{lm}$ there are computed for precessing binaries(Equations 4.17 in ref \cite{Arun2009}), but here we are only interested in aligned spin case. The structure of modes for non-precessing binaries can be obtained by aligning the orbital angular momentum with the total angular momentum($\iota = 0, \alpha = \pi$). These results for a special case of non-precessing binaries is shown in Appendix \ref{Appendix:D}. We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-pressing case.
 
+\begin{widetext}
 \subsection{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}
-The memory contribution to the spin-weighted spherical-harmonic modes of the polarization waveform [ref eqn]. These quantities are related via 
+The memory contribution to the spin-weighted spherical-harmonic modes of the polarization waveform [Eq. \ref{eq:2.2}]. These quantities are related via 
 \begin{equation}
 	h_{l0}^{(mem)} = \frac{\alpha}{\sqrt{2} \, R} U_{l0}^{(mem)} = 8 \sqrt{\frac{\pi}{5}}\frac{\eta M x}{R} 
 \end{equation}
-where we have followed the notation of Sec. 9 of Ref [add referece]. The notational parameter $\alpha$ accounts for the two commonly used choices for the polarization triad 
+where we have followed the notation of Sec. 9 of Ref. \cite{Blanchet_Iyer2008}. The notational parameter $\alpha$ accounts for the two commonly used choices for the polarization triad 
 \begin{equation}
-	content...
+\alpha = \left\{
+\begin{array}{ll}
+(+1) & \text{for the Kidder  \cite{Kidder2008} convention} \\
+(-1) & \text{for the Blanchet et al. \cite{Blanchet_Iyer2008}   convention}\\
+\end{array} 
+\right.
 \end{equation}
-(\ashok{Need to add}).\\
+
 The results of polarization modes in terms of $\hat{H}_{l0}$ are:
-\begin{widetext}
+\begin{subequations}
 \begin{align}\label{eq:H20}
 \hat{H}_{20} &= \alpha \frac{5}{14\sqrt{6}}\left\{ 1 + x\left[-\frac{4075}{4032} + \frac{67 \, \eta}{48}\right]+ x^{3/2}\left[\left(\frac{7}{480} +\frac{27 \, \delta}{10} - \frac{7 \,\eta}{120}\right)\chiadL+\left(\frac{27}{10} +\frac{7 \, \delta^3}{480} - \frac{2 \, \eta}{15}\right)\chisdL\right]\right. \nonumber \\
 & \quad \left. x^2\left[-\frac{151877213}{67060224} -\frac{123815 \, \eta}{44352} +\frac{205 \, \eta^2}{352} +\left(-\frac{163}{96} +\frac{161 \, \eta}{24}\right)\chiaSqr + \left(-\frac{27 \, \delta}{8} -\frac{\delta^3}{48}\right)\chisDchia + \left(-\frac{27}{16}-\frac{\delta^4}{96} -\frac{\eta}{12}\right)\chisSqr\right]\right. \nonumber \\
@@ -261,11 +263,11 @@ The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \begin{align}\label{eq:H80}
 \hat{H}_{100} &=-\alpha\frac{525221\,x^3}{6452379648\sqrt{154}}\left(1 - \frac{79841784\,\eta}{9979199} + \frac{198570240\,\eta^2}{9979199} -\frac{172307520\,\eta^3}{9979199}\right)
 \end{align}
-\end{widetext}
+\end{subequations}
 We can see that all contribution to $m=0$, even-$l$ modes arise solely from the Christodoulou memory piece of $U_{lm}$. There are no hereditary-memory contribution to the radiative current multipole moments $V_{lm}$\\
 We can combine the above with Eq 2.16 and explicitly compute the memory contribution to the + waveform polarization.This can be done in the following way
-\begin{widetext}
-	\begin{equation}
+
+\begin{equation}
 	h_{+,\times} = \frac{2\eta Mx}{R}H_{+,\times} + O\left(\frac{1}{R^2}\right)
 \end{equation}
 \begin{equation}
@@ -289,23 +291,23 @@ Numerical relativity simulations most commonly output the Newman-Penrose curvatu
 \begin{equation}
 	\psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_{\times}
 \end{equation}\
-Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been noted that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in numerical simulation, the finite distance calculation introduces a systematic error. In more recent simulations [added ref], which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
-\par It has been argued in [add ref] that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The unfiltered GW waveform is shown in fig [add fig], which clearly shows an oscillating waveform which settles to a nonzero value. The method described in ref[add ref] gives us a way to get rid of this unphysical behaviour    
-\par The memory contribution to $h_{+}$ is given by
+Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been noted that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift \cite{Berti2007}. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in numerical simulation, the finite distance calculation introduces a systematic error. In simulations \cite{Hannam2009, Reisswig2009}, which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
+\par It has been argued in ref. \cite{Reisswig_Pollney2011} that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The method described in ref \cite{Reisswig_Pollney2011} gives us a way to get rid of this unphysical behavior by eliminating the lower frequencies.    
+\par The memory contribution to $h_{+}$ is given by \cite{Favata2010}
 
-\begin{equation}\label{3.2}
+\begin{equation}\label{eq:3.2}
 h_{+}^{(mem)} \approx \frac{R}{192 \, \pi}s_{\Theta}^{2}\left(17 +c_{\Theta}^{2} \right)\int_{-\infty}^{T_R}|\dot{h}_{22}|^2 dt
 \end{equation}
 
-The above equation requires a time integration of absolute value of $\dot{h}_{22}$, but this is not typically the quantity which is directly computed in numerical simulation. The output of numerical simulation is usually in the form of component of curvature tensor components, or Zerilli-Moncrief-type variables defined relative to a background. 
+The above equation requires a time integration of absolute value of $\dot{h}_{22}$, but this is not typically the quantity which is directly computed in numerical simulation. The output of numerical simulation is usually in the form of component of curvature tensor, or Zerilli-Moncrief-type variables defined relative to a background. 
 \subsection{Evaluating Bondi News from numerical data}
-The Bondi News is determined by
+The Bondi News which also the first derivative of gravitational wave strain is defined as
 \begin{equation}\label{3.3}
 \mathcal{N} = \int_{-\infty}^{t}dt' \psi_4
 \end{equation}
-The gravitational wave memory contribution to $h_{+}$ polarization can be computed from this bondi news, by integrating the absolute value of bondi news as shown in equation \ref{hmem}. The memory contribution evaluated using Eq.\ref{hmem} will contain contribution from numerical noise, which is unphysical and must be removed from the data.
+The gravitational wave memory contribution to $h_{+}$ polarization can be computed from this bondi news, by integrating the absolute value of bondi news as shown in equation \ref{eq:3.2}. The memory contribution evaluated using Eq.\ref{eq:3.2} will contain contribution from numerical noise, which is unphysical and must be removed from the data. We apply the method described in the following section to remove the unphysical part of GW memory. 
 \subsection{Integration of finite length signals in frequency domain}
-The unphysical part of mermory essential lies in low frequency. If we remove this low frequency part from data, we can get rid of memory contribution due to numerical noise. 
+The unphysical part of mermory essentially lies in lower frequency. If we remove this low frequency part from data such that the physical memory is still preserved, we can get rid of memory contribution due to numerical noise. 
 Consider the Fourier transform, $\mathcal{F}$, applied to an absolutely integrable function $f(t)$,
 \begin{equation}
 	\tilde{f}(\omega) = \mathcal{F}[f]=\int_{-\infty}^{\infty}\e^{-\iota \omega t}f(t)dt.	
@@ -332,19 +334,24 @@ We use this method to integrate $\psi$ to obtain Bondi News as shown in equation
 
 \subsection{Memory calculation from SXS Rumerical Relativity data}
 The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency in chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. The first begin separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data choose a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the post-Newtonian expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
-       
-
+\subsection{Compleate Christodoulou memory during BBH coalescence} 
+The PN waveform are given as a function of parameter $x$ which is related to time by equation \ref{eq:FbydE}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that this peak in $h_+^{(mem)}$ is reached at time $t=0$. For comparison we show the time derivative of $h_+^{(mem)}$ from Numerically obtained results and the analytical expressions in figure \ref{fig:derivative}. The slope as seen from figure \ref{fig:derivative} rises asymptotically. We use our PN results for computing the memory during early inspiral and attach them to NR results. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude tends to increase the memory contribution.     
+\begin{figure}
+	\includegraphics[width=4.0in]{/home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNRvsPN0p800.pdf}
+	\caption{The figure above shows a comparison for time derivatives Christodoulou memory contribution to $h_+$ polarization between NR data and PN results }
+	\label{fig:derivative}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
-\caption{NonSpinning case}
-\label{fig:q7}
+\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using Numerical Relativity data}
+\label{fig:differentmassratio}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=4.0in]{../plots/MemoryPlot_alignedSpin/0p95.pdf}
-\caption{NonSpinning case}
-\label{fig:0p95}
+\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different values of dimensionless spin parameter $\chi$. These results are for BBH system with equal spin magnitude for individual black hole and spins aligned with orbital angular momentum. It can be seen that higher spin magnitude tend to increase the Christodoulou memory. }
+\label{fig:differntchivalues}
 \end{figure}
 \begin{figure}
 	\includegraphics[width=3.0in]{../plots/PNmemoryContributiontoHplus.pdf}
@@ -356,7 +363,7 @@ The publicly available SXS catalog provides data for Newman-Penrose scalar compo
 \appendix 
 \begin{widetext}
 
-\section{Angular Integral Of The Triple Product Of Spin-Weighted Spherical Harmonics}
+\section{Angular Integral Of The Triple Product Of Spin-Weighted Spherical Harmonics}\label{Appendix A}
 The following integral appears in the evaluation of nonlinear memory contribution to the radiative mass-multipole moments $U_{lm}$. Equation 2.4 can be rewritten as
 \begin{equation}
 	d^{\,l_j}_{m_js_j}(\Theta)=\sum_{k_j=k_i(j)}^{k_f(j)}g_j(k_j)\left(\sin\frac{\Theta}{2}\right)^{p_j}\left(\cos\frac{\Theta}{2}\right)^{2l_j-p_j}
@@ -404,9 +411,9 @@ where $\ln x_0 = \frac{11}{18} - \frac{2}{3}\gamma_E -\frac{4}{3}\ln2 + \frac{2}
 \end{align} 
 where $\varphi_0$ is a certain reference phase.	
 
-\section{Complete 3.5 PN expressions}
+\section{Complete 3.5 PN expressions for Energy and Flux}\label{Appendix:C}
 
-\begin{align}\label{eq:Ef}
+\begin{align}\label{Appendix:C1}
 E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right. \nonumber \\
 & \quad \left. x^2\left[-\frac{27}{8} + \frac{19 \, \eta}{8}-\frac{\eta^2}{24} + \eta^2 \left\{\left(\chisSqr-\chiaSqr\right) -3\left[\left(\chisdL\right)^2 - \left(\chiadL\right)^2\right]\right\}\right.\right. \nonumber \\
 & \qquad \left(\frac{1}{2}-\eta\right)\left\{\chisSqr+\chiaSqr-3\left[\left(\chisdL\right)^2+\left(\chiadL\right)^2\right]\right\}+\delta\left\{\chisDchia-3\left[\left(\chisdL\chisdL\right)\right]\right\} \nonumber\\
@@ -414,14 +421,14 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 \right]
 \right\}\nonumber\\
 \\
-\label{eq:Flux}
+\label{Appendix:C2}
 \mathcal{L}&=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right]\right.\nonumber\\
 &\quad  x^2\left[-\frac{44711}{9072}+\frac{9271\eta}{504}+\frac{65\, \eta^2}{18} + \left(\frac{287}{96} +\frac{\eta}{24}\right)\left(\chisdL\right)^2-\left(\frac{89}{96}+\frac{7\,\eta}{24}\right)\chisSqr\right.\nonumber\\
 &\qquad\left. + \left(\frac{287}{96}-12\eta\right)\left(\chiadL\right)^2 + \left(-\frac{89}{96}+4\eta\right)\chiaSqr + \frac{287}{48}\delta\left(\chisdL\right)\left(\chiadL\right) -\frac{89}{48}\delta\left(\chisDchia\right)\right]\nonumber\\
 &\quad\left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\&\quad \left.x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
 \right]\right\}\nonumber\\
 \\
-\label{eq:dxdt}
+\label{Appendix:C3}
 \frac{dx}{dt}&=\frac{64\, x^5  \, \eta}{5}\left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
 + x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\
 &\quad + x^2 \left[ \frac{34103}{18144} + \frac{13661 \, \eta}{2016} + \frac{59 \, \eta^2}{18} + \left( \frac{719}{96}- 30 \eta\right)(\chiadL)^2 +\chiaSqr \left(-\frac{233}{96}+10 \eta \right) \right. \nonumber\\
@@ -435,6 +442,21 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 \end{align}
 \end{widetext}
 
+\section{$h_{lm}$ modes for non-precessing binaries}\label{Appendix:D}
+The GW modes for precessing binaries with small inclination angle on nearly circular orbits through 1.5 PN order are given in section IV of ref \cite{Arun2009}. Setting $\iota = 0, \alpha = \pi$ in equation 4.16 and 4.17 gives the result for non-precessing case. In that case the spins are aligned along $z$ axis, so we set $\chi_a^x=\chi_s^x=\chi_a^y=\chi_s^y=0$. We can now write the expression as 
+\begin{equation}
+	h_{lm} = (-1)^{m+1}\frac{(2M\eta v^2)}{D_L}\sqrt{\frac{16\pi}{5}}e^{\mathit{i}\,m\,\psi}\hat{h}_{lm},
+\end{equation}
+and $\hat{h}_{lm}$ modes are given by 
+
+\begin{subequations}
+\begin{align}
+	\hat{h}_{22} &= 1 + x\left(-\frac{107}{42} + \frac{55\eta}{42}\right) + x^{3/2}\left(2\pi - \frac{4\,\delta\,\chi^{z}_{a}}{3} + \frac{4}{3}\left(-1+\eta\right)\chi^z_s\right)\\
+	\hat{h}_{21} &= \frac{\mathit{i}\delta}{3}\left[x^{1/2} - x\frac{3}{2\delta}\left(\chi^{z}_{a} + \delta\chi^{z}_{s}\right) + x^{3/2}\left(-\frac{17}{28} + \frac{5\eta}{7}\right)\right]\\
+	\hat{h}_{32} &= \frac{9}{8}\sqrt{\frac{5}{7}}\left[\frac{8}{27}x\left(1-3\nu\right) + \frac{32}{27}x^{3/2}\eta\,\chi^z_s\right]
+\end{align}
+\end{subequations}
+$\hat{h}_{lm}$ shown above are the only modes which has spin contributions. We only include spin contribution upto 1.5PN but keep the remaining expression upto 3PN. The complete expression upto 3.5PN are given in ref \cite{Blanchet_Iyer2008}
 \section*{References}
 
 \bibliographystyle{apsrev4-1}
