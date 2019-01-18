@@ -285,6 +285,13 @@ The memory contribution to $H_{+}^{n/2} $ are:
 	& \quad + \eta\left[-\frac{7169749}{18579456} - \frac{13220477}{18579456}c_{\Theta}^2 -\frac{1345405}{6193152}c_{\Theta}^4 - \frac{25115}{884736}c_{\Theta}^6\right] + \eta^2\left[\frac{10097}{147456}\right]
 \end{align}
 \end{subequations}
+\begin{figure}
+	\includegraphics[width=3.0in]{../plots/PNmemoryContributiontoHplus.pdf}
+	\includegraphics[width=3.0in]{../plots/PNmemoryContributionfunofTheta.pdf}
+	\caption{Dependence of post-Newtonian (PN) corrections to the Christodoulou memory on the binary inclination and orbital separation. The plots above show the memory contribution to $H_+$ for different dimensionless spin parameter $\chi$ values (the polar angle to the observer at 𝛩 = 0 points along the binary orbital angular momentum) for $x = 1/5$ and $\eta=1/4 $ . The plot to the right shows $x H_+$ as a function of parameter x. Increasing the magnitude of 𝜒 does not change the angular dependence, but does tend to increase the magnitude of the memory. 
+		}
+	\label{fig:0p95}
+\end{figure}
 \end{widetext}
 \section{Memory calculation using Numerical relativity data}
 Numerical relativity simulations most commonly output the Newman-Penrose curvature component $\psi_4$.The two polarization states, $h_{+}$ and $h_{\times}$ of the gravitational wave are related to the curvature, expressed in terms 	of the complex Newman-Penrose scalar $\psi_4$ by 
@@ -307,7 +314,7 @@ The Bondi News which also the first derivative of gravitational wave strain is d
 \end{equation}
 The gravitational wave memory contribution to $h_{+}$ polarization can be computed from this bondi news, by integrating the absolute value of bondi news as shown in equation \ref{eq:3.2}. The memory contribution evaluated using Eq.\ref{eq:3.2} will contain contribution from numerical noise, which is unphysical and must be removed from the data. We apply the method described in the following section to remove the unphysical part of GW memory. 
 \subsection{Integration of finite length signals in frequency domain}
-The unphysical part of mermory essentially lies in lower frequency. If we remove this low frequency part from data such that the physical memory is still preserved, we can get rid of memory contribution due to numerical noise. 
+The unphysical part of mermory essentially lies in lower frequency. A method to remove this unphysical part is given in ref \cite{Reisswig_Pollney2011}. If we remove this low frequency part from data such that the physical memory is still preserved, we can get rid of memory contribution due to numerical noise. 
 Consider the Fourier transform, $\mathcal{F}$, applied to an absolutely integrable function $f(t)$,
 \begin{equation}
 	\tilde{f}(\omega) = \mathcal{F}[f]=\int_{-\infty}^{\infty}\e^{-\iota \omega t}f(t)dt.	
@@ -333,32 +340,29 @@ The effect of the spurious low-frequency modes caused by spectral leakage or ali
 We use this method to integrate $\psi$ to obtain Bondi News as shown in equation \ref{3.3}.
 
 \subsection{Memory calculation from SXS Rumerical Relativity data}
-The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency in chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. The first begin separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data choose a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the post-Newtonian expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
+The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
 \subsection{Compleate Christodoulou memory during BBH coalescence} 
-The PN waveform are given as a function of parameter $x$ which is related to time by equation \ref{eq:FbydE}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that this peak in $h_+^{(mem)}$ is reached at time $t=0$. For comparison we show the time derivative of $h_+^{(mem)}$ from Numerically obtained results and the analytical expressions in figure \ref{fig:derivative}. The slope as seen from figure \ref{fig:derivative} rises asymptotically. We use our PN results for computing the memory during early inspiral and attach them to NR results. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude tends to increase the memory contribution.     
+The PN waveform are given as a function of parameter $x$ which is related to time by equation \ref{eq:2.14}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that the peak in $h_+^{(mem)}$ is reached at time $t=0$. For comparison we show the time derivative of $h_+^{(mem)}$ from Numerically obtained results and the analytical expressions in figure \ref{fig:derivative}. The slope as seen from figure \ref{fig:derivative} rises asymptotically. We use our PN results for computing the memory during early inspiral and attach them to NR results. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude, in case of spin aligned with orbital angular momentum tends to increase the memory contribution. When the spins are anti aligned with orbital angular momentum, the memory tend to decrease the Christodoulou memory. These results show it important to consider the spin contribution when studying the Christodoulou memory in gravitational wave signals. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 	\includegraphics[width=4.0in]{/home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNRvsPN0p800.pdf}
 	\caption{The figure above shows a comparison for time derivatives Christodoulou memory contribution to $h_+$ polarization between NR data and PN results }
 	\label{fig:derivative}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
-\includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
-\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using Numerical Relativity data}
-\label{fig:differentmassratio}
+ 	\includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
+ 	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using Numerical Relativity data. The red dashed line shows result from PN expression}
+ 	\label{fig:differentmassratio}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=4.0in]{../plots/MemoryPlot_alignedSpin/0p95.pdf}
-\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different values of dimensionless spin parameter $\chi$. These results are for BBH system with equal spin magnitude for individual black hole and spins aligned with orbital angular momentum. It can be seen that higher spin magnitude tend to increase the Christodoulou memory. }
-\label{fig:differntchivalues}
+	\includegraphics[width=4.0in]{../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf}
+	\includegraphics[width=4.0in]{../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf}
+	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. The top figure shows a comparison for different values of dimensionless spin parameter $\chi$. These results are for BBH system with equal spin magnitude for individual black hole and spins aligned with orbital angular momentum. It can be seen that higher spin magnitude tend to increase the Christodoulou memory. The bottom figure shows the anti aligned case.  }
+	\label{fig:differntchivalues}
 \end{figure}
-\begin{figure}
-	\includegraphics[width=3.0in]{../plots/PNmemoryContributiontoHplus.pdf}
-	\includegraphics[width=3.0in]{../plots/PNmemoryContributionfunofTheta.pdf}
-	\caption{NonSpinning case}
-	\label{fig:0p95}
-\end{figure}
+
 \newpage
 \appendix 
 \begin{widetext}
