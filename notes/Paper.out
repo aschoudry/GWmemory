@@ -1,12 +1,15 @@
 \BOOKMARK [1][-]{section*.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section*.2}{POST-NEWTONIAN WAVEFORM POLARIZATION AND MODE DECOMPOSITION}{}% 2
-\BOOKMARK [1][-]{section*.3}{MEMORY CONTRIBUTION TO THE RADIATIVE-MASS MULTIPOLES}{}% 3
-\BOOKMARK [2][-]{section*.4}{Computing angular integral}{section*.3}% 4
-\BOOKMARK [2][-]{section*.5}{Time derivatives of the memory multipole moments}{section*.3}% 5
-\BOOKMARK [2][-]{section*.6}{Computing time integral over the past history of the source}{section*.3}% 6
-\BOOKMARK [2][-]{section*.7}{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}{section*.3}% 7
-\BOOKMARK [1][-]{section*.8}{Memory calculation using Numerical relativity data}{}% 8
-\BOOKMARK [2][-]{section*.9}{Evaluating Bondi News from numerical data}{section*.8}% 9
-\BOOKMARK [2][-]{section*.10}{Integration of finite length signals in frequency domain}{section*.8}% 10
-\BOOKMARK [3][-]{section*.11}{Fixed frequency integration \(FFI\)}{section*.10}% 11
-\BOOKMARK [1][-]{section*.12}{References}{}% 12
+\BOOKMARK [1][-]{section*.2}{MEMORY CONTRIBUTION TO POST-NEWTONIAN WAVEFORM POLARIZATION}{}% 2
+\BOOKMARK [2][-]{section*.3}{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}{section*.2}% 3
+\BOOKMARK [1][-]{section*.4}{Memory calculation using Numerical relativity data}{}% 4
+\BOOKMARK [2][-]{section*.5}{Evaluating Bondi News from numerical data}{section*.4}% 5
+\BOOKMARK [2][-]{section*.6}{Integration of finite length signals in frequency domain}{section*.4}% 6
+\BOOKMARK [3][-]{section*.7}{Fixed frequency integration \(FFI\)}{section*.6}% 7
+\BOOKMARK [2][-]{section*.8}{Memory calculation from SXS Rumerical Relativity data}{section*.4}% 8
+\BOOKMARK [2][-]{section*.9}{Compleate Christodoulou memory during BBH coalescence}{section*.4}% 9
+\BOOKMARK [1][-]{section*.10}{Angular Integral Of The Triple Product Of Spin-Weighted Spherical Harmonics}{}% 10
+\BOOKMARK [1][-]{section*.11}{Calculation Of The lm Modes}{}% 11
+\BOOKMARK [1][-]{section*.12}{Complete 3.5 PN expressions for Energy and Flux}{}% 12
+\BOOKMARK [1][-]{section*.13}{hlm modes for non-precessing binaries}{}% 13
+\BOOKMARK [1][-]{section*.14}{References}{}% 14
+\BOOKMARK [1][-]{section*.15}{References}{}% 15

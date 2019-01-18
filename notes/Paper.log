@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  13 DEC 2018 16:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  18 JAN 2019 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -410,53 +410,57 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 LaTeX Warning: Unused global option(s):
     [letter].
 
-(./Paper.aux)
+(./Paper.aux
+
+LaTeX Warning: Label `eq:H80' multiply defined.
+
+)
 \openout1 = `Paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 26.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 26.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 27.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 27.
 
  (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 27.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 27.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-Class revtex4 Info: Patching LaTeX tabular. on input line 26.
-Class revtex4 Info: cite was not loaded (OK!) on input line 26.
-Class revtex4 Info: multicol was not loaded (OK!) on input line 26.
+Class revtex4 Info: Patching LaTeX tabular. on input line 27.
+Class revtex4 Info: cite was not loaded (OK!) on input line 27.
+Class revtex4 Info: multicol was not loaded (OK!) on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -492,7 +496,7 @@ e
 Package hyperref Warning: Height of page (\paperheight) is invalid (0.0pt),
 (hyperref)                using 11in.
 
-Package hyperref Info: Link coloring ON on input line 26.
+Package hyperref Info: Link coloring ON on input line 27.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -501,121 +505,227 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count125
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
 
 (./Paper.out) (./Paper.out)
 \@outlinefile=\write3
 \openout3 = `Paper.out'.
 
-LaTeX Font Info:    Try loading font information for U+txsya on input line 74.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 74.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 74.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 74.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 1742) in paragraph at lines 178--179
-[]\OT1/txr/m/n/10 The mem-ory con-tri-bu-tion to the spin-weighted spherical-
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \vbox (7.96022pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (7.96022pt too high) has occurred while \output is active []
+
+
+[3] [4] [5]
+<../plots/PNmemoryContributiontoHplus.pdf, id=211, 779.91376pt x 503.8825pt>
+File: ../plots/PNmemoryContributiontoHplus.pdf Graphic file (type pdf)
+
+<use ../plots/PNmemoryContributiontoHplus.pdf>
+Package pdftex.def Info: ../plots/PNmemoryContributiontoHplus.pdf used on input
+ line 289.
+(pdftex.def)             Requested size: 216.81pt x 140.07124pt.
+
+<../plots/PNmemoryContributionfunofTheta.pdf, id=212, 613.29124pt x 406.51875pt
+>
+File: ../plots/PNmemoryContributionfunofTheta.pdf Graphic file (type pdf)
+ <use ../plots/PNmemoryContributionfunofTheta.pdf>
+Package pdftex.def Info: ../plots/PNmemoryContributionfunofTheta.pdf used on in
+put line 290.
+(pdftex.def)             Requested size: 216.81pt x 143.71037pt.
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no õ in font txr!
+Missing character: There is no © in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no ú in font txr!
+Missing character: There is no í in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no õ in font txr!
+Missing character: There is no © in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no ú in font txr!
+Missing character: There is no í in font txr!
+ [6 <../plots/PNmemoryContributiontoHplus.pdf> <../plots/PNmemoryContributionfu
+nofTheta.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/PNmemoryContributionfunofTheta
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 331.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 331.
+
+
+</home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNRvsP
+N0p800.pdf, id=312, 578.16pt x 433.62pt>
+File: /home/ashok/gravitational_wave_memory_project/plots/DerivativeComparision
+NRvsPN0p800.pdf Graphic file (type pdf)
+
+<use /home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionN
+RvsPN0p800.pdf>
+Package pdftex.def Info: /home/ashok/gravitational_wave_memory_project/plots/De
+rivativeComparisionNRvsPN0p800.pdf used on input line 349.
+(pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
+
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 349--350
+ [][] 
  []
 
-[2]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 235.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 235.
-
-[3] <../plots/MemoryPlot_nonSpining/q7.pdf, id=107, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_nonSpining/q7.pdf, id=313, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_nonSpining/q7.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_nonSpining/q7.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_nonSpining/q7.pdf used on input li
-ne 251.
+ne 354.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 251--252
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 354--355
  [][] 
  []
 
-<../plots/MemoryPlot_alignedSpin/0p95.pdf, id=108, 578.16pt x 433.62pt>
-File: ../plots/MemoryPlot_alignedSpin/0p95.pdf Graphic file (type pdf)
 
-<use ../plots/MemoryPlot_alignedSpin/0p95.pdf>
-Package pdftex.def Info: ../plots/MemoryPlot_alignedSpin/0p95.pdf used on input
- line 257.
+<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=314, 578.16pt x 433.62pt>
+File: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf Graphic file (type pdf)
+
+<use ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf>
+Package pdftex.def Info: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf used o
+n input line 360.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 257--258
+<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=315, 578.16pt x 433.6
+2pt>
+File: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf Graphic file (type p
+df)
+ <use ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf>
+Package pdftex.def Info: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf u
+sed on input line 361.
+(pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
+
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 360--362
  [][] 
  []
 
-(./Paper.bbl
 
-LaTeX Warning: Reference `LastBibItem' on page 4 undefined on input line 1.
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 360--362
+ [] 
+ []
+
+[7]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 367.
 
 
-Package natbib Warning: Empty `thebibliography' environment on input line 15.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 367.
 
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
- [4 <../plots/MemoryPlot_nonSpining/q7.pdf> <../plots/MemoryPlot_alignedSpin/0p
-95.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_alignedSpin/0p95.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
->] (./Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
+Class revtex4 Warning: Deferred float stuck during \clearpage processing.
+
+[8 </home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNR
+vsPN0p800.pdf> <../plots/MemoryPlot_nonSpining/q7.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_nonSpining/q7.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+>] [9 <../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf> <../plots/MemoryPlot_An
+tialignedSpinSXSdata/m0p94.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_AntialignedSpinSXSd
+ata/m0p94.pdf): PDF inclusion: multiple pdfs with page group included in a sing
+le page
+>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 398.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 398.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 398.
+
+[10]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 449.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 449.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 449.
+
+[11] (./Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
+ [12] (./Paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
 Package rerunfilecheck Info: File `Paper.out' has not changed.
-(rerunfilecheck)             Checksum: 06A5FEBC9EC10DD954FE1E3AD9F84CD5;1057.
+(rerunfilecheck)             Checksum: 272B107266161E6DBAC9AFC8FF28B4C2;1277.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8289 strings out of 494910
- 114619 string characters out of 6179836
- 237065 words of memory out of 5000000
- 11384 multiletter control sequences out of 15000+600000
- 51315 words of font info for 128 fonts, out of 8000000 for 9000
+ 8500 strings out of 494910
+ 118678 string characters out of 6179836
+ 247798 words of memory out of 5000000
+ 11516 multiletter control sequences out of 15000+600000
+ 52691 words of font info for 130 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 37i,13n,31p,1289b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,15n,32p,1797b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/r
-txr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
-i8a.pfb>
-Output written on Paper.pdf (4 pages, 233234 bytes).
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
+ts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Paper.pdf (12 pages, 443182 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 568 PDF objects out of 1000 (max. 8388607)
+ 498 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
