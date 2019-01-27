@@ -190,7 +190,7 @@ After performing the change of variable indicated in above equation \ref{eq:2.11
 and the 1.5 PN GW luminosity is given by
 
 \begin{align}\label{eq:F}
-\mathcal{L} &=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right.\right]\nonumber\\
+\mathcal{L} &=\frac{32}{5}\eta^2x^5\left\{1 + x\left[-\frac{1247}{336}-\frac{35\,\eta}{12}\right] + x^{3/2}\left[4\pi-\left\{\left(\frac{11}{4}-3\eta\right)\chisdL +\frac{11}{4}\delta\chiadL\right\}\right]\right\}\nonumber\\
 \end{align}
 
 
@@ -198,17 +198,27 @@ Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, an
 
 \begin{align}\label{eq:2.14}
 \frac{dx}{dt} & = \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
-+ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\ 
++ x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right\} \nonumber \\ 
 \end{align}
 \end{widetext}
 The results upto 3.5 PN are shows in Appendix \ref{Appendix:C}.
-The equation \ref{eq:2.14} can be used change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} are directly taken from reference \cite{Arun2009}. The PN expression for $h_{lm}$ there are computed for precessing binaries(Equations 4.17 in ref \cite{Arun2009}), but here we are only interested in aligned spin case. The structure of modes for non-precessing binaries can be obtained by aligning the orbital angular momentum with the total angular momentum($\iota = 0, \alpha = \pi$). These results for a special case of non-precessing binaries is shown in Appendix \ref{Appendix:D}. We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-pressing case.
+The equation \ref{eq:2.14} can be used to change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} are directly taken from reference \cite{Arun2009}. The PN expression for $h_{lm}$ there are computed for precessing binaries(Equations 4.17 in ref \cite{Arun2009}), but here we are only interested in aligned spin case. The structure of modes for non-precessing binaries can be obtained by aligning the orbital angular momentum with the total angular momentum($\iota = 0, \alpha = \pi$). These results for a special case of non-precessing binaries, which contain spin contribution at 1.5PN order are shown below
+\begin{subequations}
+	\begin{align}\label{eq:2.15}
+	\hat{h}_{22} &= 1 + x\left(-\frac{107}{42} + \frac{55\eta}{42}\right) + x^{3/2}\left(2\pi - \frac{4\,\delta\,\chi^{z}_{a}}{3} + \frac{4}{3}\left(-1+\eta\right)\chi^z_s\right)\\
+	\hat{h}_{21} &= \frac{\mathit{i}\delta}{3}\left[x^{1/2} - x\frac{3}{2\delta}\left(\chi^{z}_{a} + \delta\chi^{z}_{s}\right) + x^{3/2}\left(-\frac{17}{28} + \frac{5\eta}{7}\right)\right]\\
+	\hat{h}_{32} &= \frac{9}{8}\sqrt{\frac{5}{7}}\left[\frac{8}{27}x\left(1-3\nu\right) + \frac{32}{27}x^{3/2}\eta\,\chi^z_s\right]
+	\end{align}
+\end{subequations}
+The remaining $h_{lm}$ expressions does not contain spin terms and the complete expressions upto 3PN terms can be directly taken from Ref.\cite{Blanchet_Iyer2008}
+ We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-pressing case.
+With these modes we use equation \ref{eq:2.10} to evaluate the first time derivative of the memory mass-multipole moment, which is further integrated using equation \ref{eq:2.11}. The results after integration are show in next section.
 
 \begin{widetext}
 \subsection{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}
 The memory contribution to the spin-weighted spherical-harmonic modes of the polarization waveform [Eq. \ref{eq:2.2}]. These quantities are related via 
 \begin{equation}
-	h_{l0}^{(mem)} = \frac{\alpha}{\sqrt{2} \, R} U_{l0}^{(mem)} = 8 \sqrt{\frac{\pi}{5}}\frac{\eta M x}{R} 
+	h_{l0}^{(mem)} = \frac{\alpha}{\sqrt{2} \, R} U_{l0}^{(mem)} = 8 \sqrt{\frac{\pi}{5}}\frac{\eta M x}{R}\hat{H}_{lm}
 \end{equation}
 where we have followed the notation of Sec. 9 of Ref. \cite{Blanchet_Iyer2008}. The notational parameter $\alpha$ accounts for the two commonly used choices for the polarization triad 
 \begin{equation}
@@ -223,7 +233,7 @@ where we have followed the notation of Sec. 9 of Ref. \cite{Blanchet_Iyer2008}. 
 The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \begin{subequations}
 \begin{align}\label{eq:H20}
-\hat{H}_{20} &= \alpha \frac{5}{14\sqrt{6}}\left\{ 1 + x\left[-\frac{4075}{4032} + \frac{67 \, \eta}{48}\right]+ x^{3/2}\left[\left(\frac{7}{480} +\frac{27 \, \delta}{10} - \frac{7 \,\eta}{120}\right)\chiadL+\left(\frac{27}{10} +\frac{7 \, \delta^3}{480} - \frac{2 \, \eta}{15}\right)\chisdL\right]\right. \nonumber \\
+&\hat{H}_{20} = \alpha \frac{5}{14\sqrt{6}}\left\{ 1 + x\left[-\frac{4075}{4032} + \frac{67 \, \eta}{48}\right]+ x^{3/2}\left[\left(\frac{7}{480} +\frac{27 \, \delta}{10} - \frac{7 \,\eta}{120}\right)\chiadL+\left(\frac{27}{10} +\frac{7 \, \delta^3}{480} - \frac{2 \, \eta}{15}\right)\chisdL\right]\right. \nonumber \\
 & \quad \left. x^2\left[-\frac{151877213}{67060224} -\frac{123815 \, \eta}{44352} +\frac{205 \, \eta^2}{352} +\left(-\frac{163}{96} +\frac{161 \, \eta}{24}\right)\chiaSqr + \left(-\frac{27 \, \delta}{8} -\frac{\delta^3}{48}\right)\chisDchia + \left(-\frac{27}{16}-\frac{\delta^4}{96} -\frac{\eta}{12}\right)\chisSqr\right]\right. \nonumber \\
 & \quad \left. x^{5/2}\left[-\frac{253 \, \pi}{336}+ \frac{253 \, \pi \, \eta}{84} +\left\{\frac{631}{32256} + \frac{788471\,\delta}{84672} +\left(-\frac{5}{126}-\frac{991\,\delta}{1008}\right)\eta-\frac{311\,\eta^2}{2016}\right\}\chiadL\right.\right. \nonumber\\
 & \qquad\left. +\left\{\frac{788471}{84672}-\frac{631\, \delta^3}{32256} -\left(-\frac{36509}{2646} + \frac{311\,\delta^3}{8064}\right)\eta+\frac{853\,\eta^2}{252}\right\}\chisdL\right] \nonumber \\
@@ -236,7 +246,7 @@ The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 
 
 \begin{align}\label{eq:H40}
-	\hat{H}_{40} &=\alpha\frac{1}{504\sqrt{2}}\left\{1 + x\left[-\frac{180101}{29568} + \frac{27227\,\eta}{1056}\right] + x^{3/2}\left[\left(\frac{7}{40} + \frac{27\,\delta}{10} -\frac{7\,\eta}{10}\right)\chiadL+\left(\frac{27}{10}+\frac{7\,\delta^3}{40} +\frac{46\,\eta}{5}\right)\chisdL\right]\right.\nonumber\\
+	&\hat{H}_{40} =\alpha\frac{1}{504\sqrt{2}}\left\{1 + x\left[-\frac{180101}{29568} + \frac{27227\,\eta}{1056}\right] + x^{3/2}\left[\left(\frac{7}{40} + \frac{27\,\delta}{10} -\frac{7\,\eta}{10}\right)\chiadL+\left(\frac{27}{10}+\frac{7\,\delta^3}{40} +\frac{46\,\eta}{5}\right)\chisdL\right]\right.\nonumber\\
 	&\qquad x^{5/2}\left[-\frac{13565\,\pi}{1232} + \frac{13565\,\pi\,\eta}{308} + \left\{\frac{379}{2688}-\frac{1457321\,\delta}{68992}+\left(-\frac{59}{336} + \frac{3094367\,\delta}{22176}\right)\eta -\frac{87\,\eta^2}{56}\right\}\chiadL\right.\nonumber\\
 	&\qquad\qquad \left. \left\{-\frac{1457321}{68992} + \frac{379\,\delta^3}{2688} + \left(\frac{5892749}{38808} + \frac{87\,\delta^3}{224}\eta-\frac{469813\,\eta^2}{5544}\right)\right\}\chisdL\right]\nonumber\\
 	&\quad\qquad x^2\left[\frac{2201411267}{158505984} -\frac{34829479\,\eta}{432432} + \frac{844951\,\eta^2}{27456} + \left(-\frac{85}{48} + 7\,\eta\right)\chiaSqr + \left(-\frac{27\, \delta}{8} -\frac{\delta^3}{6}\right)\chisDchia + \left(-\frac{27}{16} -\frac{\delta^4}{12} + \frac{\eta}{12}\right)\chisSqr\right].\nonumber\\
@@ -248,7 +258,7 @@ The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \end{align}	
 
 \begin{align}\label{eq:H60}
-	\hat{H}_{60} &=-\alpha\frac{4195}{1419264\sqrt{273}}x\left\{1-\frac{3612\,\eta}{839}+ x\left[-\frac{45661561}{6342840} + \frac{101414\,\eta}{2517} - \frac{48118\,\eta^2}{839}\right]\right. + x^{3/2} \left[\frac{1248\,\pi}{839} -\frac{4992\,\pi\,\eta}{839}\right.\nonumber\\
+	&\hat{H}_{60} =-\alpha\frac{4195}{1419264\sqrt{273}}x\left\{1-\frac{3612\,\eta}{839}+ x\left[-\frac{45661561}{6342840} + \frac{101414\,\eta}{2517} - \frac{48118\,\eta^2}{839}\right]\right. + x^{3/2} \left[\frac{1248\,\pi}{839} -\frac{4992\,\pi\,\eta}{839}\right.\nonumber\\
 	&\qquad + \left(-\frac{44}{5873} + \frac{14129\,\delta}{2517} + \left(\frac{264}{5873} - \frac{140148\,\delta}{5873}\right)\eta -\frac{352\,\eta^2}{5873}\right)\chiadL + \left(\frac{14129}{2517} -\frac{44\,\delta^3}{5873}\right.\nonumber\\
 	&\quad\qquad + \left.\left.\left(-\frac{79120}{2517} + \frac{88\,\delta^3}{5873}\right)\eta + \frac{161136\,\eta^2}{5873}\right)\chisdL\right] + x^{5/2}\left[\frac{66616409\,\pi}{2718360} -\frac{874693\,\pi\,\eta}{7551} + \frac{239134\,\pi\,\eta^2}{2517}\right. + \nonumber\\
 	&\qquad\qquad \left(-\frac{8173}{634248} -\frac{1240441999\,\delta}{57085560} + \left(\frac{6479}{105714} + \frac{15116383\,\delta}{105714}\right)\eta + \left(-\frac{1100}{158571}-\frac{2406356\,\delta}{7551}\right)\eta^2-\frac{968\,\eta^3}{7551}\right)\chiadL\nonumber\\
@@ -258,14 +268,14 @@ The results of polarization modes in terms of $\hat{H}_{l0}$ are:
 \end{align}
 
 \begin{align}\label{eq:H80}
-	\hat{H}_{80} &=\alpha\frac{75601}{213497856\sqrt{119}}x^2\left[1-\frac{452070\,\eta}{75601} + \frac{733320\,\eta^2}{75601} + x\left(-\frac{265354303}{33869248} + \frac{18177343651\,\eta}{321757856} - \frac{5057483259\,\eta^2}{40219732} + \frac{1828935981\,\eta^3}{20109866}\right)\right]\nonumber\\	
+	&\hat{H}_{80} =\alpha\frac{75601}{213497856\sqrt{119}}x^2\left[1-\frac{452070\,\eta}{75601} + \frac{733320\,\eta^2}{75601} + x\left(-\frac{265354303}{33869248} + \frac{18177343651\,\eta}{321757856} - \frac{5057483259\,\eta^2}{40219732} + \frac{1828935981\,\eta^3}{20109866}\right)\right]\nonumber\\	
 \end{align}
 \begin{align}\label{eq:H80}
 \hat{H}_{100} &=-\alpha\frac{525221\,x^3}{6452379648\sqrt{154}}\left(1 - \frac{79841784\,\eta}{9979199} + \frac{198570240\,\eta^2}{9979199} -\frac{172307520\,\eta^3}{9979199}\right)
 \end{align}
 \end{subequations}
 We can see that all contribution to $m=0$, even-$l$ modes arise solely from the Christodoulou memory piece of $U_{lm}$. There are no hereditary-memory contribution to the radiative current multipole moments $V_{lm}$\\
-We can combine the above with Eq 2.16 and explicitly compute the memory contribution to the + waveform polarization.This can be done in the following way
+We can combine the above with equation \ref{eq:2.1} and explicitly compute the memory contribution to the + waveform polarization.This can be done in the following way
 
 \begin{equation}
 	h_{+,\times} = \frac{2\eta Mx}{R}H_{+,\times} + O\left(\frac{1}{R^2}\right)
@@ -276,13 +286,29 @@ We can combine the above with Eq 2.16 and explicitly compute the memory contribu
 The memory contribution to $H_{+}^{n/2} $ are:
 \begin{subequations}
 \begin{align}
-	H_{+}^{(0,mem)}&=\alpha\frac{1}{96}s_{\Theta}^2\left(17 + c_{\Theta}^2\right),\\
-	H_{+}^{(0.5,mem)}&=0,\\
-	H_{+}^{(1,mem)}&=\alpha s_{\Theta}^2\left[-\frac{354241}{2064384} - \frac{62059}{1032192}c_{\Theta}^2 - \frac{4195}{688128}c_{\Theta}^4 + \left(\frac{15607}{73728} + \frac{9373}{36864}c_{\Theta}^2 +\frac{215}{8192}c_{\Theta}^4\right)\right],\\
-	H_{+}^{(1.5,mem)}&=\alpha s_{\Theta}^2\left\{\left[\frac{3}{1280}  + \frac{7}{3840}c_{\Theta}^2 +  \delta\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) +\eta \left(-\frac{3}{320}-\frac{7}{960}c_{\Theta}^2\right)\right]\chiadL\right.\nonumber\\
-	& \quad+\left.\left[\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) + \delta\left(\frac{3}{1280} + \frac{7}{3840}c_{\Theta}^2\right) + \eta\left(-\frac{3}{80} +\frac{23}{240}c_{\Theta}^2\right) + \delta\eta\left(-\frac{3}{320}-\frac{7}{960}\right)\right]\chisdL\right\}\\
-	H_{+}^{(2,mem)} &=\alpha s_{\Theta}^2\left\{-\frac{3968456539}{9364045824} + \frac{570408173}{4682022912}c_{\Theta}^2 + \frac{122166887}{3121348608}c_{\Theta}^4 + \frac{7560}{15925248}c_{\Theta}^6 \right.\nonumber\\
-	& \quad + \eta\left[-\frac{7169749}{18579456} - \frac{13220477}{18579456}c_{\Theta}^2 -\frac{1345405}{6193152}c_{\Theta}^4 - \frac{25115}{884736}c_{\Theta}^6\right] + \eta^2\left[\frac{10097}{147456}\right]
+	& H_{+}^{(0,mem)}=\alpha\frac{1}{96}s_{\Theta}^2\left(17 + c_{\Theta}^2\right),\\
+	& H_{+}^{(0.5,mem)}=0,\\
+	& H_{+}^{(1,mem)}=\alpha s_{\Theta}^2\left[-\frac{354241}{2064384} - \frac{62059}{1032192}c_{\Theta}^2 - \frac{4195}{688128}c_{\Theta}^4 + \eta\left(\frac{15607}{73728} + \frac{9373}{36864}c_{\Theta}^2 +\frac{215}{8192}c_{\Theta}^4\right)\right],\\
+	& H_{+}^{(1.5,mem)}=\alpha s_{\Theta}^2\left\{\left[\frac{3}{1280}  + \frac{7}{3840}c_{\Theta}^2 +  \delta\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) +\eta \left(-\frac{3}{320}-\frac{7}{960}c_{\Theta}^2\right)\right]\chiadL\right.\nonumber\\
+	& \qquad\qquad+\left.\left[\left(\frac{153}{320} + \frac{9}{320}c_{\Theta}^2\right) + \delta\left(\frac{3}{1280} + \frac{7}{3840}c_{\Theta}^2\right) + \eta\left(-\frac{3}{80} +\frac{23}{240}c_{\Theta}^2\right) + \delta\eta\left(-\frac{3}{320}-\frac{7}{960}\right)\right]\chisdL\right\}\nonumber\\
+	\\
+	& H_{+}^{(2,mem)} =\alpha s_{\Theta}^2\left\{-\frac{3968456539}{9364045824} + \frac{570408173}{4682022912}c_{\Theta}^2 + \frac{122166887}{3121348608}c_{\Theta}^4 + \frac{7560}{15925248}c_{\Theta}^6 \right.\nonumber\\
+	& \qquad\qquad + \eta\left[-\frac{7169749}{18579456} - \frac{13220477}{18579456}c_{\Theta}^2 -\frac{1345405}{6193152}c_{\Theta}^4 - \frac{25115}{884736}c_{\Theta}^6\right] + \eta^2\left[\frac{10097}{147456} + \frac{5179}{36864}c_{\Theta}^2 + \frac{44765}{147456}c_{\Theta}^4\right.\nonumber\\
+	& \qquad\qquad\quad \left.+ \frac{3395}{73728}c_{\Theta}^6\right] + \left[-\frac{1385}{4608}-\frac{85}{4608}c_{\Theta}^2 +\eta\left(\frac{19}{16} + \frac{7}{96}c_{\Theta}^2\right)\right]\chiaSqr + \left[-\frac{1385\sqrt{1-4\eta}}{2304} - \frac{85\sqrt{1-4\eta}}{2304}c_{\Theta}^2\right.\nonumber\\
+	& \qquad\qquad\quad \left. \left.+ \eta\left(\frac{\sqrt{1-4\eta}}{72} + \frac{\sqrt{1-4\eta}}{144}c_{\Theta}^2\right)\right]\chisDchia + \left[-\frac{1385}{4608}-\frac{85}{4608}c_{\Theta}^2 + \eta^2\left(-\frac{1}{36}-\frac{c_{\Theta}^2}{72}\right)+ \eta\left(\frac{11}{384} + \frac{c_{\Theta}^2}{128}\right)\right]\chisSqr\right\}\nonumber\\
+	\\
+	& H_{+}^{(2.5,mem)} =\alpha s_{\Theta}^2\left\{-\frac{2545\pi}{21504} - \frac{295\pi}{2688}c_{\Theta}^2 -\frac{65\pi}{7168}c_{\Theta}^4 + \eta\left[\frac{2545\pi}{5376} + \frac{295\pi}{672}c_{\Theta}^2 + \frac{65\pi}{1792}c_{\Theta}^4\right] + \left[\frac{11867}{3612672} + \frac{8156279\sqrt{1-4\eta}}{4816896}\right.\right.\nonumber\\
+	& \qquad\qquad\quad + \frac{163}{112896}c_{\Theta}^2 - \frac{484979\sqrt{1-4\eta}}{2408448}c_{\Theta}^2 + \frac{55}{1204224}c_{\Theta}^4 -\frac{70645\sqrt{1-4\eta}}{2064384}c_{\Theta}^4 + \eta^2\left(-\frac{3797}{150528}-\frac{411}{25088}c_{\Theta}^2\right.\nonumber\\
+	& \qquad\qquad\quad \left.+ \frac{55}{150528}c_{\Theta}^4\right) + \eta^2\left(-\frac{3797}{150528}-\frac{411}{25088}c_{\Theta}^2+\frac{55}{150528}c_{\Theta}^4\right) + \eta\left(-\frac{12343}{1806336}-\frac{4105391\sqrt{1-4\eta}}{10838016}-\frac{1517}{903168}c_{\Theta}^2 \right.\nonumber\\ &\qquad\qquad\quad\left.\left.+\frac{7446571\sqrt{1-4\eta}}{5419008}-\frac{55}{200704}c_{\Theta}^4 + \frac{58395\sqrt{1-4\eta}}{401408}c_{\Theta}^4\right)\right]\chiadL + \left[\frac{8156279}{4816896}+ \frac{11867\sqrt{1-4\eta}}{3612672}+ \frac{484979}{2408448}c_{\Theta}^2 \right.\nonumber\\
+	&\qquad\qquad\quad + \frac{163\sqrt{1-4\eta}}{112896}c_{\Theta}^2 - \frac{70645}{2064384}c_{\Theta}^4 + \frac{55\sqrt{1-4\eta}}{1204224}c_{\Theta}^4 + \eta\left(-\frac{7272431}{2709504}-\frac{12343\sqrt{1-4\eta}}{1806336} + \frac{2001211c_{\Theta}^2}{1354752}\right.\nonumber\\
+	&\qquad\qquad\quad\left. -\frac{1517\sqrt{1-4\eta}}{903168}c_{\Theta}^2 + \frac{24725}{129024}c_{\Theta}^4 - \frac{55\sqrt{1-4\eta}}{200704}c_{\Theta}^4\right) + \eta^2\left(\frac{1965709}{2709504}-\frac{3797\sqrt{1-4\eta}}{150528}-\frac{1072289}{1354752}c_{\Theta}^2\right.\nonumber\\
+	&\qquad\qquad\quad\left.\left.\left. -\frac{411\sqrt{1-4\eta}}{25088}c_{\Theta}^2 - \frac{16785}{100325}c_{\Theta}^4 + \frac{55\sqrt{1-4\eta}}{150528}c_{\Theta}^4\right)\right]\chisdL\right\}\nonumber\\
+	\\
+	& H_{+}^{(3,mem)} =\alpha s_{\Theta}^2\left\{-\frac{69549014242469}{46146017820672} + \frac{6093995955001}{23073008910336}c_{\Theta}^2 - \frac{1416977186081}{15382005940224}c_{\Theta}^4-\frac{2455652411}{78479622144}c_{\Theta}^6-\frac{9979199}{2491416576}c_{\Theta}^8\right.\nonumber\\
+	&\qquad\qquad\quad + \eta^2\left[\frac{111707903}{594542592} - \frac{792654827}{3269984256}c_{\Theta}^2 -\frac{9226880251}{6539968512}c_{\Theta}^4 - \frac{71269747}{148635648}c_{\Theta}^6-\frac{7835}{98304}c_{\Theta}^8\right] + \eta\left[\frac{1355497792045}{149824733184}\nonumber\right.\\
+	&\qquad\qquad\quad \left.- \frac{3485\pi^2}{9216}-\frac{41463325921}{51502252032}c_{\Theta}^2 -\frac{205\pi^2}{9216} + \frac{347235904277}{549357355008}c_{\Theta}^4 + \frac{788232313}{3567255552}c_{\Theta}^6 + \frac{302431}{9437184}c_{\Theta}^8\right]+\eta^3\left[\frac{10034527}{445906944}\right.\nonumber\\
+	&\qquad\qquad\quad\left. + \frac{57932071}{1226244096}c_{\Theta}^2 + \frac{29847079}{544997376}c_{\Theta}^4 + \frac{8170691}{24772608}c_{\Theta}^6 + \frac{9065}{131072}c_{\Theta}^8\right] + \left[-\frac{14443855}{66060288}  + \frac{113\sqrt{1-4\eta}}{8192} + \frac{3716075}{33030144}c_{\Theta}^2\right.\nonumber\\
+	& \qquad\qquad\quad\left. + \frac{791\sqrt{1-4\eta}}{73728} + \frac{113265}{7340032}c_{\Theta}^4 + \eta\left(\frac{32497919}{16515072} - \frac{113\sqrt{1-4\eta}}{2048}\right)\right]
 \end{align}
 \end{subequations}
 \begin{figure}
@@ -340,7 +366,7 @@ The effect of the spurious low-frequency modes caused by spectral leakage or ali
 We use this method to integrate $\psi$ to obtain Bondi News as shown in equation \ref{3.3}.
 
 \subsection{Memory calculation from SXS Rumerical Relativity data}
-The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
+The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method u	sed to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
 \subsection{Compleate Christodoulou memory during BBH coalescence} 
 The PN waveform are given as a function of parameter $x$ which is related to time by equation \ref{eq:2.14}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that the peak in $h_+^{(mem)}$ is reached at time $t=0$. For comparison we show the time derivative of $h_+^{(mem)}$ from Numerically obtained results and the analytical expressions in figure \ref{fig:derivative}. The slope as seen from figure \ref{fig:derivative} rises asymptotically. We use our PN results for computing the memory during early inspiral and attach them to NR results. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude, in case of spin aligned with orbital angular momentum tends to increase the memory contribution. When the spins are anti aligned with orbital angular momentum, the memory tend to decrease the Christodoulou memory. These results show it important to consider the spin contribution when studying the Christodoulou memory in gravitational wave signals. 
 
