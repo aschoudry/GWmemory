@@ -202,7 +202,11 @@ Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, an
 \end{align}
 \end{widetext}
 The results upto 3.5 PN are shows in Appendix \ref{Appendix:C}.
-The equation \ref{eq:2.14} can be used to change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} are directly taken from reference \cite{Arun2009}. The PN expression for $h_{lm}$ there are computed for precessing binaries(Equations 4.17 in ref \cite{Arun2009}), but here we are only interested in aligned spin case. The structure of modes for non-precessing binaries can be obtained by aligning the orbital angular momentum with the total angular momentum($\iota = 0, \alpha = \pi$). These results for a special case of non-precessing binaries, which contain spin contribution at 1.5PN order are shown below
+The equation \ref{eq:2.14} can be used to change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} can be obtained from Ref\cite{Arun2009}. The GW modes for precessing binaries with small inclination angle on nearly circular orbits through 1.5 PN order are given in section IV of ref \cite{Arun2009}. Setting $\iota = 0, \alpha = \pi$ in equation 4.16 and 4.17 gives the result for non-precessing case. In that case the spins are aligned along $z$ axis, so we set $\chi_a^x=\chi_s^x=\chi_a^y=\chi_s^y=0$. We can now write the expression as 
+\begin{equation}
+h_{lm} = (-1)^{m+1}\frac{(2M\eta v^2)}{D_L}\sqrt{\frac{16\pi}{5}}e^{\mathit{i}\,m\,\psi}\hat{h}_{lm},
+\end{equation}
+and $\hat{h}_{lm}$ modes are given by 
 \begin{subequations}
 	\begin{align}\label{eq:2.15}
 	\hat{h}_{22} &= 1 + x\left(-\frac{107}{42} + \frac{55\eta}{42}\right) + x^{3/2}\left(2\pi - \frac{4\,\delta\,\chi^{z}_{a}}{3} + \frac{4}{3}\left(-1+\eta\right)\chi^z_s\right)\\
@@ -211,8 +215,7 @@ The equation \ref{eq:2.14} can be used to change the integration with respect to
 	\end{align}
 \end{subequations}
 The remaining $h_{lm}$ expressions does not contain spin terms and the complete expressions upto 3PN terms can be directly taken from Ref.\cite{Blanchet_Iyer2008}
- We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-pressing case.
-With these modes we use equation \ref{eq:2.10} to evaluate the first time derivative of the memory mass-multipole moment, which is further integrated using equation \ref{eq:2.11}. The results after integration are show in next section.
+ We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-precessing case. The time derivative of $h_{lm}$ modes can be obtained by following the procedure shown in Appendix \ref{Appendix B}. With these modes we use equation \ref{eq:2.10} to evaluate the first time derivative of the memory mass-multipole moment, which is further integrated using equation \ref{eq:2.11}. The results after integration are show in next section.
 
 \begin{widetext}
 \subsection{RESULTS: MEMORY CONTRIBUTION TO THE POST-NEWTONIAN WAVEFORM OF QUASI-CIRCULAR, INSPIRALLING BINARIES}
@@ -312,8 +315,10 @@ The memory contribution to $H_{+}^{n/2} $ are:
 \end{align}
 \end{subequations}
 \begin{figure}
-	\includegraphics[width=3.0in]{../plots/PNmemoryContributiontoHplus.pdf}
-	\includegraphics[width=3.0in]{../plots/PNmemoryContributionfunofTheta.pdf}
+	\includegraphics[width=3.5in]{../plots/PNmemorycontributionHpAlginedSpin.pdf}
+	\includegraphics[width=3.5in]{../plots/PNmemorycontributionHpAlginedSpinAngular.pdf}
+	\includegraphics[width=3.5in]{../plots/PNmemorycontributionHpAntiAlginedSpin.pdf}
+	\includegraphics[width=3.5in]{../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf}
 	\caption{Dependence of post-Newtonian (PN) corrections to the Christodoulou memory on the binary inclination and orbital separation. The plots above show the memory contribution to $H_+$ for different dimensionless spin parameter $\chi$ values (the polar angle to the observer at 𝛩 = 0 points along the binary orbital angular momentum) for $x = 1/5$ and $\eta=1/4 $ . The plot to the right shows $x H_+$ as a function of parameter x. Increasing the magnitude of 𝜒 does not change the angular dependence, but does tend to increase the magnitude of the memory. 
 		}
 	\label{fig:0p95}
@@ -366,25 +371,21 @@ The effect of the spurious low-frequency modes caused by spectral leakage or ali
 We use this method to integrate $\psi$ to obtain Bondi News as shown in equation \ref{3.3}.
 
 \subsection{Memory calculation from SXS Rumerical Relativity data}
-The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method u	sed to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
+The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
 \subsection{Compleate Christodoulou memory during BBH coalescence} 
 The PN waveform are given as a function of parameter $x$ which is related to time by equation \ref{eq:2.14}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that the peak in $h_+^{(mem)}$ is reached at time $t=0$. For comparison we show the time derivative of $h_+^{(mem)}$ from Numerically obtained results and the analytical expressions in figure \ref{fig:derivative}. The slope as seen from figure \ref{fig:derivative} rises asymptotically. We use our PN results for computing the memory during early inspiral and attach them to NR results. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude, in case of spin aligned with orbital angular momentum tends to increase the memory contribution. When the spins are anti aligned with orbital angular momentum, the memory tend to decrease the Christodoulou memory. These results show it important to consider the spin contribution when studying the Christodoulou memory in gravitational wave signals. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{figure}
-	\includegraphics[width=4.0in]{/home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNRvsPN0p800.pdf}
-	\caption{The figure above shows a comparison for time derivatives Christodoulou memory contribution to $h_+$ polarization between NR data and PN results }
-	\label{fig:derivative}
-\end{figure}
-\begin{figure}
- 	\includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
+ 	\includegraphics[width=3.5in]{../plots/MemoryPlot_nonSpining/q7.pdf}
  	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using Numerical Relativity data. The red dashed line shows result from PN expression}
  	\label{fig:differentmassratio}
 \end{figure}
-
 \begin{figure}
-	\includegraphics[width=4.0in]{../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf}
-	\includegraphics[width=4.0in]{../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf}
+	\includegraphics[width=3.5in]{../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf}
+	\includegraphics[width=3.5in]{../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf}
 	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. The top figure shows a comparison for different values of dimensionless spin parameter $\chi$. These results are for BBH system with equal spin magnitude for individual black hole and spins aligned with orbital angular momentum. It can be seen that higher spin magnitude tend to increase the Christodoulou memory. The bottom figure shows the anti aligned case.  }
 	\label{fig:differntchivalues}
 \end{figure}
@@ -421,16 +422,16 @@ where $a=1+(p_1+p_2+p_3)/2$ and $b=1+l_1+l_2+l_3-(p_1+p_2+p_3)/2$. The $\Phi$ in
 	\int_{0}^{\pi}\left(\sin\frac{\Theta}{2}\right)^{2a-1}\left(\cos\frac{\Theta}{2}\right)^{2b-1}d\Theta=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}=B(a,b)
 \end{equation}
 
-\section{Calculation Of The $\dot{h}_{lm}$ Modes}
+\section{Calculation Of The $\dot{h}_{lm}$ Modes}\label{Appendix B}
 The $h_{lm}$ modes are written as 
-\begin{equation}
+\begin{equation}\label{eq:B1}
 	h_{lm}=8\sqrt{\frac{\pi}{5}}\frac{\eta\,M}{R}x\hat{H}_{lm}(x)e^{\mathit{i}m\psi}
 \end{equation}
-where the $\hat{H}_{lm}$ given in ref[add ref] for the case of precessing binaries. In this paper we are interested in nonprecessing case, so we rewrite the expressions such that spin are aligned with the total orbital angular momentum. The phase variable $\psi$ is related to the orbital phase $\phi$ via
+where the $\hat{H}_{lm}$ are obtained by taking the non-precessing limit of expressions for precessing binaries given in Ref.\cite{Arun2009} . In this paper we are interested in nonprecessing case, so we rewrite the expressions such that spin are aligned with the total orbital angular momentum. The phase variable $\psi$ is related to the orbital phase $\phi$ via
 \begin{equation}
 	\psi=\varphi - 3x^{3/2}\left[1-\frac{\eta}{2}x\right]\ln\left(\frac{x}{x_0}\right)
 \end{equation}
-where $\ln x_0 = \frac{11}{18} - \frac{2}{3}\gamma_E -\frac{4}{3}\ln2 + \frac{2}{3}\ln\left(\frac{M}{r_0}\right)$ is related to the arbitrary constant $r_0$ appearing in the coordinate transformation of Eq. (2.20) or ref[add ref]. The orbital phase can be expressed a function of x for nonprecessing binaries, to 3.5PN order.
+where $\ln x_0 = \frac{11}{18} - \frac{2}{3}\gamma_E -\frac{4}{3}\ln2 + \frac{2}{3}\ln\left(\frac{M}{r_0}\right)$ is related to the arbitrary constant $r_0$ appearing in the coordinate transformation of Eq. (2.20) or ref\cite{Favata2009}. The orbital phase can be expressed a function of x for nonprecessing binaries, to 3.5PN order.This expression is given in Eq(3.4) of Ref. \cite{Ajith_2011}
 \begin{align}
 \varphi(x)& = -\frac{1}{32\,\eta\,x^{5/2}}\left\{1+x\left[\frac{55\eta}{12}+\frac{3715}{1008}\right]+x^{3/2}\left[\frac{565}{24}\left(\left(1-\frac{76\eta}{133}\right)\chisdL + \delta\chiadL\right)-10\pi\right]\right.\nonumber\\
 &\quad + x^2\left[\left(\chiadL\right)^2\left(150\eta-\frac{3595}{96}\right)-\frac{3595\chiadL\chisdL\delta}{48} + \chiaSqr\left(\frac{1165}{96}- 50\eta\right) + \frac{1165\chisDchia\delta}{\delta}\right]\nonumber\\
@@ -439,7 +440,11 @@ where $\ln x_0 = \frac{11}{18} - \frac{2}{3}\gamma_E -\frac{4}{3}\ln2 + \frac{2}
 &\quad x^3\left[-\frac{127825\eta^3}{5184} + \frac{76055\eta^2}{6912} + \frac{2255\pi^2\eta}{48} - \frac{15737765635\eta}{12192768} - \frac{1712\gamma_E}{21} -\frac{160\pi^2}{3} + \frac{12348611916451}{18776862720} - \frac{1712\ln(16x)}{42}\right]\nonumber\\
 &\quad \left.x^{7/2}\left[-\frac{74045\pi\eta^2}{6048} + \frac{378515\pi\eta}{12096} + \frac{77096675\pi}{2032128}\right]\right\}
 \end{align} 
-where $\varphi_0$ is a certain reference phase.	
+where $\varphi_0$ is a certain reference phase. The first time derivative of modes can be obtained by using equation \ref{eq:B1} and substituting the expression for $\dot{x}$ as a function of $x$ using Eq. \ref{eq:C3}. We use the expression for time derivative as show in equation below
+\begin{equation}
+	\dot{h}_{lm} = 8\sqrt{\frac{\pi}{5}}\frac{\eta\,M}{R}\dot{x}e^{-\mathit{i}m\psi}\left(\tilde{H}_{lm}' - \mathit{i}m\psi'\tilde{H}_{lm} \right)
+\end{equation}
+where the prime denotes the derivative with respect to $x$.
 
 \section{Complete 3.5 PN expressions for Energy and Flux}\label{Appendix:C}
 
@@ -458,7 +463,7 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 &\quad\left.x^{5/2}\left[\left(-\frac{8191}{672}-\frac{583\,\eta}{24}\right)\pi+\left\{\left(-\frac{59}{16}+\frac{227\, \eta}{9}-\frac{157\, \eta^2}{9}\right)\chisdL + \left(-\frac{59}{16} + \frac{701\,\eta}{36}\delta\chiadL\right)\right\}\right.\right]\nonumber\\&\quad \left.x^3\left[\frac{6643739519}{69854400}+\frac{16\,\pi^2}{3}-\frac{1712\,\gamma_E}{105}-\frac{856}{105}\log(16x)+\left(-\frac{134543}{7776}+\frac{41\,\pi^2}{48}\right)\eta -\frac{94403\,\eta^2}{3024}-\frac{775\,\eta^3}{324}
 \right]\right\}\nonumber\\
 \\
-\label{Appendix:C3}
+\label{eq:C3}
 \frac{dx}{dt}&=\frac{64\, x^5  \, \eta}{5}\left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
 + x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right. \nonumber \\
 &\quad + x^2 \left[ \frac{34103}{18144} + \frac{13661 \, \eta}{2016} + \frac{59 \, \eta^2}{18} + \left( \frac{719}{96}- 30 \eta\right)(\chiadL)^2 +\chiaSqr \left(-\frac{233}{96}+10 \eta \right) \right. \nonumber\\
@@ -472,21 +477,7 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 \end{align}
 \end{widetext}
 
-\section{$h_{lm}$ modes for non-precessing binaries}\label{Appendix:D}
-The GW modes for precessing binaries with small inclination angle on nearly circular orbits through 1.5 PN order are given in section IV of ref \cite{Arun2009}. Setting $\iota = 0, \alpha = \pi$ in equation 4.16 and 4.17 gives the result for non-precessing case. In that case the spins are aligned along $z$ axis, so we set $\chi_a^x=\chi_s^x=\chi_a^y=\chi_s^y=0$. We can now write the expression as 
-\begin{equation}
-	h_{lm} = (-1)^{m+1}\frac{(2M\eta v^2)}{D_L}\sqrt{\frac{16\pi}{5}}e^{\mathit{i}\,m\,\psi}\hat{h}_{lm},
-\end{equation}
-and $\hat{h}_{lm}$ modes are given by 
 
-\begin{subequations}
-\begin{align}
-	\hat{h}_{22} &= 1 + x\left(-\frac{107}{42} + \frac{55\eta}{42}\right) + x^{3/2}\left(2\pi - \frac{4\,\delta\,\chi^{z}_{a}}{3} + \frac{4}{3}\left(-1+\eta\right)\chi^z_s\right)\\
-	\hat{h}_{21} &= \frac{\mathit{i}\delta}{3}\left[x^{1/2} - x\frac{3}{2\delta}\left(\chi^{z}_{a} + \delta\chi^{z}_{s}\right) + x^{3/2}\left(-\frac{17}{28} + \frac{5\eta}{7}\right)\right]\\
-	\hat{h}_{32} &= \frac{9}{8}\sqrt{\frac{5}{7}}\left[\frac{8}{27}x\left(1-3\nu\right) + \frac{32}{27}x^{3/2}\eta\,\chi^z_s\right]
-\end{align}
-\end{subequations}
-$\hat{h}_{lm}$ shown above are the only modes which has spin contributions. We only include spin contribution upto 1.5PN but keep the remaining expression upto 3PN. The complete expression upto 3.5PN are given in ref \cite{Blanchet_Iyer2008}
 \section*{References}
 
 \bibliographystyle{apsrev4-1}
