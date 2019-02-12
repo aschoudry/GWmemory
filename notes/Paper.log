@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  18 JAN 2019 14:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  12 FEB 2019 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -532,29 +532,37 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \vbox (7.96022pt too high) has occurred while \output is active []
+)
+Missing character: There is no ‚ in font txr!
+Missing character: There is no Ä in font txr!
+Missing character: There is no ô in font txr!
+Missing character: There is no ‚ in font txr!
+Missing character: There is no Ä in font txr!
+Missing character: There is no ô in font txr!
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
+<../plots/PNmemorycontributionHpAlginedSpin.pdf, id=231, 732.7375pt x 482.80376
+pt>
+File: ../plots/PNmemorycontributionHpAlginedSpin.pdf Graphic file (type pdf)
+ <use ../plots/PNmemorycontributionHpAlginedSpin.pdf>
+Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpin.pdf used on
+ input line 325.
+(pdftex.def)             Requested size: 252.94499pt x 166.66324pt.
 
+<../plots/PNmemoryFavata.pdf, id=232, 798.985pt x 523.9575pt>
+File: ../plots/PNmemoryFavata.pdf Graphic file (type pdf)
 
-Overfull \vbox (7.96022pt too high) has occurred while \output is active []
+<use ../plots/PNmemoryFavata.pdf>
+Package pdftex.def Info: ../plots/PNmemoryFavata.pdf used on input line 326.
+(pdftex.def)             Requested size: 252.94499pt x 165.87096pt.
 
-
-[3] [4] [5]
-<../plots/PNmemoryContributiontoHplus.pdf, id=211, 779.91376pt x 503.8825pt>
-File: ../plots/PNmemoryContributiontoHplus.pdf Graphic file (type pdf)
-
-<use ../plots/PNmemoryContributiontoHplus.pdf>
-Package pdftex.def Info: ../plots/PNmemoryContributiontoHplus.pdf used on input
- line 289.
-(pdftex.def)             Requested size: 216.81pt x 140.07124pt.
-
-<../plots/PNmemoryContributionfunofTheta.pdf, id=212, 613.29124pt x 406.51875pt
->
-File: ../plots/PNmemoryContributionfunofTheta.pdf Graphic file (type pdf)
- <use ../plots/PNmemoryContributionfunofTheta.pdf>
-Package pdftex.def Info: ../plots/PNmemoryContributionfunofTheta.pdf used on in
-put line 290.
-(pdftex.def)             Requested size: 216.81pt x 143.71037pt.
+<../plots/PNmemorycontributionHpAntiAlginedSpin.pdf, id=233, 787.94376pt x 516.
+93124pt>
+File: ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf Graphic file (type pdf
+)
+ <use ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf>
+Package pdftex.def Info: ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf use
+d on input line 327.
+(pdftex.def)             Requested size: 252.94499pt x 165.94196pt.
 Missing character: There is no  in font txr!
 Missing character: There is no ù in font txr!
 Missing character: There is no õ in font txr!
@@ -571,92 +579,128 @@ Missing character: There is no  in font txr!
 Missing character: There is no ù in font txr!
 Missing character: There is no ú in font txr!
 Missing character: There is no í in font txr!
- [6 <../plots/PNmemoryContributiontoHplus.pdf> <../plots/PNmemoryContributionfu
-nofTheta.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ../plots/PNmemoryContributionfunofTheta
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
+<../plots/PNmemorycontributionHpAlginedSpinAngular.pdf, id=234, 833.1125pt x 56
+8.1225pt>
+File: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf Graphic file (type 
+pdf)
+ <use ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf>
+Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf 
+used on input line 335.
+(pdftex.def)             Requested size: 252.94499pt x 172.4839pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 331.
+<../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf, id=235, 856.19875pt
+ x 583.17876pt>
+File: ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf Graphic file (t
+ype pdf)
 
+<use ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf>
+Package pdftex.def Info: ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.
+pdf used on input line 336.
+(pdftex.def)             Requested size: 252.94499pt x 172.2854pt.
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no õ in font txr!
+Missing character: There is no © in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no ú in font txr!
+Missing character: There is no í in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no õ in font txr!
+Missing character: There is no © in font txr!
+Missing character: There is no  in font txr!
+Missing character: There is no ù in font txr!
+Missing character: There is no ú in font txr!
+Missing character: There is no í in font txr!
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 331.
-
-
-</home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNRvsP
-N0p800.pdf, id=312, 578.16pt x 433.62pt>
-File: /home/ashok/gravitational_wave_memory_project/plots/DerivativeComparision
-NRvsPN0p800.pdf Graphic file (type pdf)
-
-<use /home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionN
-RvsPN0p800.pdf>
-Package pdftex.def Info: /home/ashok/gravitational_wave_memory_project/plots/De
-rivativeComparisionNRvsPN0p800.pdf used on input line 349.
-(pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
-
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 349--350
- [][] 
+Underfull \hbox (badness 2384) in paragraph at lines 338--338
+[]\OT1/txr/m/n/9 FIG. 2: []Dependence of post-Newtonian (PN) cor-rec-tions to t
+he
  []
 
-<../plots/MemoryPlot_nonSpining/q7.pdf, id=313, 578.16pt x 433.62pt>
+[7]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 375.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 375.
+
+[8 <../plots/PNmemorycontributionHpAlginedSpin.pdf> <../plots/PNmemoryFavata.pd
+f
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/PNmemoryFavata.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+> <../plots/PNmemorycontributionHpAntiAlginedSpin.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/PNmemorycontributionHpAntiAlgi
+nedSpin.pdf): PDF inclusion: multiple pdfs with page group included in a single
+ page
+>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 377.
+
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 377.
+
+
+Class revtex4 Warning: Deferred float stuck during \clearpage processing.
+
+[9 <../plots/PNmemorycontributionHpAlginedSpinAngular.pdf> <../plots/PNmemoryco
+ntributionHpAntiAlginedSpinAngular.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/PNmemorycontributionHpAntiAlgi
+nedSpinAngular.pdf): PDF inclusion: multiple pdfs with page group included in a
+ single page
+>] <../plots/MemoryPlot_nonSpining/q7.pdf, id=469, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_nonSpining/q7.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_nonSpining/q7.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_nonSpining/q7.pdf used on input li
-ne 354.
+ne 400.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 354--355
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 400--401
  [][] 
  []
 
 
-<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=314, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=470, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf used o
-n input line 360.
+n input line 405.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=315, 578.16pt x 433.6
+<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=471, 578.16pt x 433.6
 2pt>
 File: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf Graphic file (type p
 df)
  <use ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf u
-sed on input line 361.
+sed on input line 406.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 360--362
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 405--407
  [][] 
  []
 
 
-Overfull \hbox (27.06749pt too wide) in paragraph at lines 360--362
+Overfull \hbox (27.06749pt too wide) in paragraph at lines 405--407
  [] 
  []
 
-[7]
+[10 <../plots/MemoryPlot_nonSpining/q7.pdf> <../plots/MemoryPlot_AlignedSpinSXS
+data/0p99.pdf
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 367.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 367.
-
-
-Class revtex4 Warning: Deferred float stuck during \clearpage processing.
-
-[8 </home/ashok/gravitational_wave_memory_project/plots/DerivativeComparisionNR
-vsPN0p800.pdf> <../plots/MemoryPlot_nonSpining/q7.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_nonSpining/q7.pdf):
- PDF inclusion: multiple pdfs with page group included in a single page
->] [9 <../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf> <../plots/MemoryPlot_An
-tialignedSpinSXSdata/m0p94.pdf
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_AlignedSpinSXSdata/
+0p99.pdf): PDF inclusion: multiple pdfs with page group included in a single pa
+ge
+> <../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_AntialignedSpinSXSd
 ata/m0p94.pdf): PDF inclusion: multiple pdfs with page group included in a sing
@@ -664,50 +708,37 @@ le page
 >]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 398.
+(hyperref)                removing `math shift' on input line 443.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 398.
+(hyperref)                removing `subscript' on input line 443.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 398.
+(hyperref)                removing `math shift' on input line 443.
 
-[10]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 449.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 449.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 449.
-
-[11] (./Paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
- [12] (./Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
+[11] [12] (./Paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 504.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 504.
+ [13] (./Paper.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 504.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 504.
 Package rerunfilecheck Info: File `Paper.out' has not changed.
-(rerunfilecheck)             Checksum: 272B107266161E6DBAC9AFC8FF28B4C2;1277.
+(rerunfilecheck)             Checksum: 0DCFD92EFCC1516445BFD29D88C09337;1314.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8500 strings out of 494910
- 118678 string characters out of 6179836
- 247798 words of memory out of 5000000
- 11516 multiletter control sequences out of 15000+600000
+ 8520 strings out of 494910
+ 119147 string characters out of 6179836
+ 260762 words of memory out of 5000000
+ 11529 multiletter control sequences out of 15000+600000
  52691 words of font info for 130 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 37i,15n,32p,1797b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,16n,32p,1805b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
@@ -722,10 +753,10 @@ mf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Paper.pdf (12 pages, 443182 bytes).
+Output written on Paper.pdf (13 pages, 522263 bytes).
 PDF statistics:
- 568 PDF objects out of 1000 (max. 8388607)
- 498 compressed objects within 5 object streams
- 116 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 703 PDF objects out of 1000 (max. 8388607)
+ 591 compressed objects within 6 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
