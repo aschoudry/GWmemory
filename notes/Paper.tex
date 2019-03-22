@@ -1,4 +1,10 @@
-\documentclass[prd,preprintnumbers,twocolumn,eqsecnum,floatfix,letter]{revtex4}
+\documentclass[twocolumn,showpacs,aps,prd,nobibnotes,floatfix]{revtex4-1}
+\usepackage[hmargin=1.5cm,vmargin=1.5cm,bindingoffset=0.0cm]{geometry}
+\usepackage{longtable}
+%\usepackage{graphics,epsfig,placeins,subfigure,wrapfig}
+\usepackage{graphics,placeins,subfigure,wrapfig}
+\usepackage[usenames]{color}
+\usepackage[export]{adjustbox}
 \usepackage{color}
 \usepackage{calc}
 \usepackage{amsmath,amssymb,graphicx}
@@ -7,6 +13,7 @@
 \usepackage{bm}
 \usepackage{times}
 \usepackage[varg]{txfonts}
+\usepackage{soul}
 \usepackage[colorlinks, pdfborder={0 0 0}]{hyperref}
 \definecolor{LinkColor}{rgb}{0.75, 0, 0}
 \definecolor{CiteColor}{rgb}{0, 0.5, 0.5}
@@ -16,13 +23,12 @@
 \hypersetup{urlcolor=UrlColor}
 \maxdeadcycles=1000
 \allowdisplaybreaks
-\textwidth 7.5 in 
-\hoffset -1 cm 
+%\textwidth 7.5 in 
+%\hoffset 0 cm 
 \newcommand{\RomanNumeralCaps}[1]{\MakeUppercase{\romannumeral #1}}
 \newcommand{\comment}[1]{\textcolor{blue}{\textit{#1}}}
 \newcommand{\ashok}[1]{\textcolor{red}{\textit{Ashok:#1}}}
-\newcommand{\sean}[1]{\textcolor{cyan}{\textit{Sean:#1}}}
-
+\newcommand{\stm}[1]{\textcolor{blue}{\textit{Sean:#1}}}
 
 \begin{document}
 
@@ -65,33 +71,41 @@
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\pc}{{+,\times}}
 
-\title{Effect of Black Hole Spin on Christodoulou Memory}
+\title{Effect of Black Hole Spins on Christodoulou Memory in Binary Mergers}
 \author{Ashok Choudhary}\email{aschoudhary@mix.wvu.edu}
 \author{Sean T. McWilliams}\email{sean.mcwilliams@mail.wvu.edu}
 \affiliation{Department of Physics and Astronomy, West Virginia University, Morgantown, WV 26506, USA}
+\affiliation{Center for Gravitational Waves and Cosmology, West Virginia University, Chestnut Ridge Research Building, Morgantown, WV 26505, USA}
 
-
+\stm{note everywhere I have added ``the'', that ``upto'' should be ``up to'', etc}
 \begin{abstract}
-	The Christodoulou memory, which is a nonlinear memory effect sourced by the gravitational wave stress tensor, produce a growing, nonoscillatory change in the gravitational wave "plus" polarization. This results in the permanent displacement of a pair of freely falling test masses after the gravitational wave has passed. While the memory contribution during early in-spiral is well described by Post-Newtonian approximation, the contribution at merger must be obtained from Numerical relativity simulations. The Post-Newtonian corrections upto 3PN order to the gravitational wave memory for quasicircular, inspiralling compact binaries for non spinning has been computed by Favata et al.[Physical Review D 80, 024002 (2009)]. Here we include the Spin contribution at leading order and calculate the memory effect upto 3PN order. We also compute memory contribution at merger from Numerical relativity using Weyl curvature component $\psi_4$ after removing the unphysical low frequency contribution due to spectral leakage. We use the method described in [Class. Quantum Grav. 28 195015] for integration which control the amplification of the unphysical frequency resulting from spectral leakage. 
+	The Christodoulou memory, which is a nonlinear memory effect sourced by the oscillatory component of the gravitational wave stress tensor, produces a growing, nonoscillatory change in the gravitational wave \st{"plus" polarization} strain \stm{the ``plus'' polarization isn't a fundamental quantity, its a gauge choice}. This results in the permanent displacement of a pair of freely falling test masses after the gravitational wave has passed. While the memory contribution during the early inspiral is well described by the post-Newtonian (PN) approximation, the contribution at merger must be obtained using numerical relativity simulations. The corrections up to third PN order (i.~e.~3PN) for the gravitational wave memory from pairs of nonspinning black holes on quasicircular orbits has been computed by Favata et al. \stm{is it Favata et al, or just Favata by himself? use bibtex for references, get style file for PRD so that they appear correctly}. Here we include the contribution from the individual black-hole spins at leading order \stm{what is leading order here, if we then say the memory is 3PN?} and calculate the memory effect up to 3PN order. We also compute the memory contribution during
+the merger by using the methods presented in \stm{cite Favata} to calculate the memory content using the oscillatory radiation as input, and
+applying that method using publicly available numerical relativity simulations of spinning binaries.
+\st{using Weyl curvature component $\psi_4$ after removing the unphysical low frequency contribution due to spectral leakage. We use the method described in [Class. Quantum Grav. 28 195015] for integration which control the amplification of the unphysical frequency resulting from spectral leakage.}\stm{This is too much detail form the abstract, belongs in the body of the paper} 
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Gravitational waves(GW), when they pass through a pair of freeling falling test masses cause an oscillatory motion. This oscillatory motion after the gravitational wave has passed through it, does not bring back the pair of test particle to their original location. This permanent displacement is called gravitational wave memory effect. This displacement is caused by a permanent deformation of spacetime geometry caused by passing gravitational waves. The memory effect associated with gravitational waves is accumulated effect over the entire lifehistory of the source. The permanent deformation that it leaves in spacetime geometry can be described in two ways: The Linear memory, which is caused by net change in the time derivative of source of one more multipole moment and the Nonlinear memory, which is caused by radiatiated gravitational waves acting as source for generating secondary gravitational waves. The linear memory is important for unbound astrophysical system and have been studied in context of supernova explosion, asymmetric mass loss due to neutrino emission, gamma-ray-burst jets etc \cite{Davies_Melvyn2002,Buonanno_Sigl2015,Kotake_Kei2009}. At leading order in a Post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
-\begin{equation}
-\Delta h^{TT}_{jk} = \frac{2}{R}\Delta\left(\ddot{\mathit{I}}^{TT}_{jk}\right) 
-\end{equation} 
-where $I_{ij}$ is the source mass-quadrupole moment, R is the distance to the source and $\Delta$ describes the net change in the quantity from early to late times. 
-\par A general formula for the linear memory produced by an unbound system of N particle as a result of  change in  it’s mass $M_A$ and velocity configuration $v_A$ is given by Thorn \cite{Thorne_Braginskii1987} as shown below.
-\begin{equation}\label{eq:1.2}
-\Delta h^{TT}_{jk} = \Delta \sum_{A=1}^{N}\frac{4 M_A}{R\sqrt{1-v^2_A}}\left[\frac{v^j_A v^k_A}{1-\boldsymbol{v}_A\cdot \boldsymbol{N}}\right]
-\end{equation} 
+Gravitational waves (GW), when they pass through a pair of freeling falling test masses, induce an oscillatory motion. This motion is incredibly small for astrophysical sources. Nonetheless, the signals generated by ten black-hole binaries and one neutron-star binary were detected by the Advanced LIGO and Advanced Virgo \stm{cite the catalog paper}. For sources whose strength changes significantly with time, such as the final merger of compact binaries like those that have already been observed, there is an additional non-oscillatory signal that results in a permanent displacement of
+freely falling test masses. This permanent displacement, which is called the Christodoulou memory effect \cite{Christodoulou1991}, is sourced by the oscillatory part of the signal, and is therefore a fundamental manifestation of nonlinearity in general relativity. This memory effect accumulates over the entire history of the source. This nonlinear memory effect is distinct from linear memory, which is due to a change in the time derivative of one or more multipole moments of a source \stm{give a more specific definition}. The linear memory is important for unbound astrophysical systems and have been studied in context of supernova explosions \stm{put one or more citations after each item}, asymmetric mass loss due to neutrino emission \stm{isn't this also in the context of supernovae? if not, what source is this?}, and gamma-ray-burst jets \cite{Davies_Melvyn2002,Buonanno_Sigl2015,Kotake_Kei2009}. 
 
- Here $\Delta$ refers to take difference between the final and initial values of the summations, and $\boldsymbol{N}$ is the unit vector that points from the source to the observer.  
-\\
-The other kind of memory is the nonlinear memory, which is also called Christodoulou memory. It arises as results of change in the radiative multipole moment that is sourced by the energy flux of the radiated GWs. It can be understood by looking at Eisntein's equations in harmonic gauge and considering the leading order nonlinear terms. The equation below shows a wave equation for spacetime metric in harmonic gauge with different source terms appearing on the right. \cite{Thorne1980} 
+\stm{I commented out the detailing of linear memory, since the paper is about nonlinear. The above mention of linear is sufficient.}
+%At leading order in a post-Newtonian (PN) expansion, the linear memory causes a net change in the GW field given by
+%\begin{equation}
+%\Delta h^{TT}_{jk} = \frac{2}{R}\Delta\left(\ddot{\mathit{I}}^{TT}_{jk}\right) 
+%\end{equation} 
+%where $I_{ij}$ is the source mass-quadrupole moment, R is the distance to the source and $\Delta$ describes the net change in the quantity from early to late times. 
+%\par A general formula for the linear memory produced by an unbound system of N particle as a result of  change in  it’s mass $M_A$ and velocity configuration $v_A$ is given by Thorn \cite{Thorne_Braginskii1987} as shown below.
+%\begin{equation}\label{eq:1.2}
+%\Delta h^{TT}_{jk} = \Delta \sum_{A=1}^{N}\frac{4 M_A}{R\sqrt{1-v^2_A}}\left[\frac{v^j_A v^k_A}{1-\boldsymbol{v}_A\cdot \boldsymbol{N}}\right]
+%\end{equation} 
+
+% Here $\Delta$ refers to take difference between the final and initial values of the summations, and $\boldsymbol{N}$ is the unit vector that points from the source to the observer.  
+
+Christodoulou memory arises from a change in the radiative multipole moment, and is therefore sourced by the energy flux of radiated GWs. It can be understood by considering Einstein's equation in the harmonic gauge, and calculating the leading order nonlinear contribution. The resulting wave equation for the spacetime metric can be expressed as \cite{Thorne1980} 
 \begin{subequations}
 \begin{align}\label{eq:3.1a}	
 \Box \bar{h}^{\alpha \beta} & = -16\pi (-g)(T^{\alpha\beta} + t_{LL}^{\alpha\beta})-\bar{h}^{\alpha\mu}_{,\nu}\bar{h}^{\beta\nu}_{,\mu}+\bar{h}^{\mu\nu}\bar{h}^{\alpha\beta}_{,\mu\nu}\\
@@ -102,22 +116,29 @@ where
 \begin{equation}
 \bar{h}^{\alpha \beta} = \eta^{\alpha\beta}-\sqrt{-g}g^{\alpha\beta} 
 \end{equation}
-is the gravitational field tensor, $g$ is the determinant of the metric $g_{\alpha\beta}$, $T^{\alpha\beta}$ is the matter stress-energy tensor, $t^{\alpha\beta}_{LL}$ is the Landau-Lifshitz pseudotensor, $\Box \equiv  -\partial^{2}_{t} + \nabla^{2}$ is the flat-space wave operator, a comma denotes a partial derivative $(,_{\mu}\equiv \partial_{\mu})$, and $\nabla^{2}$ is a flat-space Laplace operator. We can see that there are many source terms.The Landau-Lifshitz term is the Gravitational wave stress tensor which is the source of nonlinear memory contribution to GW waveform.~\cite{Isaacson1968}.
+is the gravitational field tensor, $g$ is the determinant of the metric $g_{\alpha\beta}$, $T^{\alpha\beta}$ is the matter stress-energy tensor, $t^{\alpha\beta}_{LL}$ is the Landau-Lifshitz pseudotensor, $\Box \equiv  -\partial^{2}_{t} + \nabla^{2}$ is the d'Alembertian, a comma denotes a partial derivative $(,_{\mu}\equiv \partial_{\mu})$, and $\nabla^{2}$ is the flat-space Laplacian. 
+
+This wave equation has several source terms. The Landau-Lifshitz term represents the contribution of GWs to the stress tensor,
+and therefore serves as the source of the nonlinear memory contribution to GW waveform \cite{Isaacson1968},
+\stm{You appear to change the meanings of T and t, which you shouldn't do, but please verify that my correction is what you actually meant. Also, since the contravariant form appears in the above equation, you should give that here, rather than the covariant form.}
 \begin{equation}
-	T^{gw}_{jk}=\frac{1}{32\pi}\langle h^{TT}_{ab,j}h^{TT}_{ab,k}\rangle\approx T^{gw}_{00}n_{j}n_{k} = \frac{1}{R^{2}}\frac{dE^{gw}}{dt d\Omega}n_{j}n_{k}
+	t^{LL}_{jk}\equiv \frac{1}{32\pi}\langle h^{TT}_{ab,j}h^{TT}_{ab,k}\rangle\approx t^{LL}_{00}n_{j}n_{k} = \frac{1}{R^{2}}\frac{dE^{gw}}{dt d\Omega}n_{j}n_{k}
 \end{equation}
-where $\frac{dE^{gw}}{dtd\Omega}$ is the GW energy flux, $n_{j}$ is a unit radial vector, the angle-bracket mean to average over several wavelengths, $h^{TT}_{ab}=\bar{h}^{TT}_{ab}$. The standard procedure to solve a wave equation with source is by using Green’s function. When applied to  Eq. \ref{eq:3.1a} obtains a correction term to gravitational field sourced by the Landau-Lifshitz term is shown below \cite{Wiseman1991}
+where $TT$ refers to the transverse-traceless gauge, $\frac{dE^{gw}}{dtd\Omega}$ is the GW energy flux, $n_{j}$ is a unit radial vector, the angle-brackets correspond to an average over several wavelengths, \stm{what does this last one mean?} $h^{TT}_{ab}=\bar{h}^{TT}_{ab}$. The standard procedure to solve a wave equation with a source is to use the Green's function. When this approach is applied to Eq. \ref{eq:3.1a}, we obtain a correction term to the gravitational field sourced by the Landau-Lifshitz term, given by \cite{Wiseman1991}
 \begin{equation}\label{eq:1.6}
 	\delta h^{TT}_{jk} = \frac{4}{R}\int_{-\infty}^{T_{R}} dt'\Bigg[ \frac{dE^{gw}}{dt'd\Omega'}\frac{n'_{j}n'_{k}}{(1-\boldsymbol{n'}\cdot\boldsymbol{N})}d\Omega'\Bigg]^{TT}
 \end{equation}
-where $T_{R}$ is the retarded time. The above equation \ref{eq:1.6} gives the nonlinear Landau-Lifshitz pseudotensor term contribution to gravitational wave memory. This was independently discovered by Christodoulou \cite{Christodoulou1991}, Payne \cite{Payne1894}, Blanchet and Damour \cite{Blanchet_Damour1992}. The nonlinear memory occurs in any system that radiates GWs. These systems are usually considered to have a vanishing linear memory. The nonlinear memory [Eq.\ref{eq:1.6}] can be described by equation \ref{eq:1.2}, the formula for the linear memory if the unbound object in the system are taken to be the individual gravitons with energy $E_A = M_A/(1-v_A^2)^{1/2}$ and velocities $v_A^j = c\,{n'}_A^{j}$.\cite{Thorne1992} 
-\par The Christodoulou memory effect arises from nonlinear interactions at 2.5 PN order but affects the gravitational waveform at leading (0PN) order. The $+$ polarization of the gravitational wave signal starts to ossillates around zero and slowly starts to deviate dues to Chritodoulou memory effect. This oscillatory shift in the amplitude of $+$ polarization starts at early times and slowly grows during inspiral phase. The PN waveform allow us to model the slow growth of memory during the inspiral phase of coalescence, but the most contribution to this nonlinear memory come from the merger phase where the PN model do not work. In this case the memory must be extracted from Numerical relativity (NR) simulations. However, it is quite challenging to extract the nonlinear memory accurately from numerical simulations of binary black holes. NR simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform; but the nonlinear memory is present in only $m=0$ mode. These $m=0$ modes are much smaller in magnitude and depends more sensitively on	initial conditions than other modes. For detailed discussion on this see section $\RomanNumeralCaps{5}$ in reference \cite{Favata2009}
-\par The NR simulations mostly easily compute  the curvature scalar $\Psi_4$ and decompose its values at large $R$ into a sum over spin-weighted spherical harmonic modes:
+where $T_{R}$ is the retarded time. Eq.~\ref{eq:1.6} is the nonlinear Landau-Lifshitz pseudotensor describing gravitational wave memory \cite{Christodoulou1991, Payne1894, Blanchet_Damour1992}. The nonlinear memory occurs in any system that radiates GWs, whereas these systems are usually considered to have a vanishing linear memory, although we can apply the formalism for linear memory to nonlinear memory if 
+we consider the radiated gravitons to be the unbound masses \cite{Thorne1992}.
+%The nonlinear memory [Eq.\ref{eq:1.6}] can be described by equation \ref{eq:1.2}, the formula for the linear memory if the unbound object in the system are taken to be the individual gravitons with energy $E_A = M_A/(1-v_A^2)^{1/2}$ and velocities $v_A^j = c\,{n'}_A^{j}$.\cite{Thorne1992} 
+
+\par The Christodoulou memory effect arises from nonlinear interactions at 2.5PN order, but it affects the GWs at leading (0PN) order. In the transverse-traceless gauge, the $+$ polarization of the GW signal no longer oscillates around zero when memory is included, but instead accumulates a nonzero drift that remains small compared to the amplitude of the oscillatory contribution to the GWs throughout the inspiral, and becomes largest during the final merger.  We can use PN methods to model the slow growth of memory during the inspiral phase, but the largest memory contribution that occurs during the merger requires information from numerical relativity (NR), since the PN approach breaks down at that stage. In principle, the memory can be extracted directly from NR simulations. However, it is challenging to extract the memory accurately. NR simulations can most accurately compute the $(l, m) = (2, 2)$ mode of the waveform, but the nonlinear memory is present in only $m=0$ mode. These $m=0$ modes are much smaller in magnitude and can be masked by numerical noise as well as subtleties of the numerical techniques used to extract the radiation. For a detailed discussion of these issues, see section $\RomanNumeralCaps{5}$ in reference \cite{Favata2009} \stm{the main reference for this is Reisswig and Pollney, and you should actually read that and include a little more detail here}
+\par NR simulations that use the most widely adopted methods directly compute the Weyl curvature scalar, $\Psi_4$, and decompose its values at large radii $R$ into a sum over spin-weighted spherical harmonic modes:
 \begin{equation}
 	\Psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_\times = \sum_{l=2}^{\infty}\sum_{m=-l}^{l}\psi_{lm}(t, R) _{-2}Y_{lm}(\Theta, \Phi)
 \end{equation} 
-In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes are smaller than the $\psi_{22}$ modes by $five$ PN orders. The relative mode magnitudes(\cite{Favata2009}) are $\psi_{22} \approx 690 \psi_{20}\approx 4.5 \times 10^4 \psi_{40}$ at $x\approx1/5$. There are other difficulties too in calculating memory from numerical relativity data. Construction of the $h_{lm}$ from $\psi_{lm}$ requires two integration constants to be specified. Choosing these integration constant to be zero \cite{Reisswig_Pollney2011}  does not make the signal oscillate around zero. Although it should not if memory is present, but this nonlinear growth is not solely due to actual memory effect. This can also be caused by numerical noise. So there is an artificial memory in the $h_{lm}$ modes which is caused by numerical noise. This artificial memory is unphysical and arises from the finite size of the initial separation and extraction radius. The initial burst of junk radiation also contribute to artificial memory.
-\par Numerical relativity simulations starts at a finite radius, so although it contains most part of gravitational wave memory, PN results should be used for early inspiral phase. The significance of memory accumulated during the inspiral phase can be seen by looking at the largest memory mode $h_{20}$. Consider the leading-(Newtonian)-order piece of the largest memory mode $h_{20}$:
+In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes are smaller than the $\psi_{22}$ modes by $five$ PN orders. The relative mode magnitudes(\cite{Favata2009}) are $\psi_{22} \approx 690 \psi_{20}\approx 4.5 \times 10^4 \psi_{40}$ at $x\approx1/5$. There are other difficulties too in calculating memory from NR data. Construction of the $h_{lm}$ from $\psi_{lm}$ requires two integration constants to be specified. Choosing these integration constant to be zero \cite{Reisswig_Pollney2011}  does not make the signal oscillate around zero. Although it should not if memory is present, but this nonlinear growth is not solely due to actual memory effect. This can also be caused by numerical noise. So there is an artificial memory in the $h_{lm}$ modes which is caused by numerical noise. This artificial memory is unphysical and arises from the finite size of the initial separation and extraction radius. The initial burst of junk radiation also contribute to artificial memory.
+\par NR simulations starts at a finite radius, so although it contains most part of gravitational wave memory, PN results should be used for early inspiral phase. The significance of memory accumulated during the inspiral phase can be seen by looking at the largest memory mode $h_{20}$. Consider the leading-(Newtonian)-order piece of the largest memory mode $h_{20}$:
 \begin{equation}
 	h^{NR}_{20}\left(T_R\right) = \frac{1}{\sqrt{2}R}\int_{T_0}^{T_R}U^{(mem)(1)}_{20}(t)dt
 \end{equation}
@@ -337,20 +358,20 @@ The effect of spin on Christodoulou memory can be seen in fig \ref{fig:HpVsX}, w
 	\includegraphics[width=3.5in]{../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf}
 	\caption{Dependence of post-Newtonian (PN) corrections to the Christodoulou memory on the binary inclination and orbital separation. The plots above show the memory contribution to $H_+$ for different dimensionless spin parameter $\chi$ values (the polar angle to the observer at 𝛩 = 0 points along the binary orbital angular momentum) for $x = 1/5$ and $\eta=1/4$.}
 \end{figure}
-\section{Memory calculation using Numerical relativity data}
-Numerical relativity simulations most commonly output the Newman-Penrose curvature component $\psi_4$.The two polarization states, $h_{+}$ and $h_{\times}$ of the gravitational wave are related to the curvature, expressed in terms 	of the complex Newman-Penrose scalar $\psi_4$ by 
+\section{Memory calculation using NR data}
+NR simulations most commonly output the Newman-Penrose curvature component $\psi_4$.The two polarization states, $h_{+}$ and $h_{\times}$ of the gravitational wave are related to the curvature, expressed in terms 	of the complex Newman-Penrose scalar $\psi_4$ by 
 \begin{equation}
 	\psi_4 = \ddot{h}_+ - \mathit{i}\ddot{h}_{\times}
 \end{equation}\
-Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been known that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift \cite{Berti2007}. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in numerical simulation, the finite distance calculation introduces a systematic error. In simulations \cite{Hannam2009, Reisswig2009}, which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
-\par It has been argued in ref. \cite{Reisswig_Pollney2011} that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the numerical simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The method described in ref \cite{Reisswig_Pollney2011} gives us a way to get rid of this unphysical behavior by eliminating the lower frequencies.    
+Given the Newman-Penrose scalar $\psi_4$ for a particular mode, we have to integrate twice in time to obtain $h_{+}$ and $h_{\times}$. It has long been known that producing a strain, $h$, from the Newman-Penrose curvature component, $\psi_4$, typically results in a waveform with unphysical secular non-linear drift \cite{Berti2007}. The nonlinearity of drift indicates that this is not simply a result of two constants of integration involved in transformation. This nonlinearity is potentially caused by the fact that $\psi_4$ is typically extracted at a finite distance from the gravitating source. The strain $h$ is only related to $\psi_4$ at an infinite distance and also strictly valid in a particular gauge. As a result in NR simulation, the finite distance calculation introduces a systematic error. In simulations \cite{Hannam2009, Reisswig2009}, which can possibly extract truly gauge-invariant waveform at future null infinity has not able able to get rid of the secular nonlinear drift.
+\par It has been argued in ref. \cite{Reisswig_Pollney2011} that an important source of unphysical non-linear drift in numerical computation of gravitational wave strain lies in the transformation of the measured data to the strain $h$  which generally involves an integration in time. The output of the NR simulation is a discretely sampled time series of finite duration, incorporating some component of unresolved frequencies due to numerical error. This can lead to an uncontrollable non-linear drift if the integration is performed in the time domain. The method described in ref \cite{Reisswig_Pollney2011} gives us a way to get rid of this unphysical behavior by eliminating the lower frequencies.    
 \par The memory contribution to $h_{+}$ is given by \cite{Favata2010}
 
 \begin{equation}\label{eq:3.2}
 h_{+}^{(mem)} \approx \frac{R}{192 \, \pi}s_{\Theta}^{2}\left(17 +c_{\Theta}^{2} \right)\int_{-\infty}^{T_R}|\dot{h}_{22}|^2 dt
 \end{equation}
 
-The above equation requires a time integration of absolute value of $\dot{h}_{22}$, but this is not typically the quantity which is directly computed in numerical simulation. The output of numerical simulation is usually in the form of component of curvature tensor, or Zerilli-Moncrief-type variables defined relative to a background. 
+The above equation requires a time integration of absolute value of $\dot{h}_{22}$, but this is not typically the quantity which is directly computed in numerical simulation. The output of NR simulation is usually in the form of component of curvature tensor, or Zerilli-Moncrief-type variables defined relative to a background. 
 \subsection{Evaluating Bondi News from numerical data}
 The Bondi News which also the first derivative of gravitational wave strain is defined as
 \begin{equation}\label{3.3}
@@ -384,7 +405,7 @@ The effect of the spurious low-frequency modes caused by spectral leakage or ali
 We use this method to integrate $\psi$ to obtain Bondi News as shown in equation \ref{3.3}.
 
 \subsection{Memory calculation from SXS Rumerical Relativity data}
-The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the minimum instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from Numerical Relativity data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and numerical relativity results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
+The publicly available SXS catalog provides data for Newman-Penrose scalar component $\psi_4$, decomposed into spin weighted spherical harmonics, extrapolated to infinite radius. We used this data and  performed a frequency domain time integration as described in equation \ref{3.6}, while removing the unphysical frequency by choosing a lower cutoff as show in section \ref{FFI}. The cutoff frequency is chosen as $\omega_0/10$ where $\omega_0$ is the minimum instantaneous GW angular frequency. We first begin by separating the complex Newman-Perose scalar $\psi_4$ data into phase and amplitude part. We compute instantaneous GW angular frequency from this by taking the first time derivative of phase corresponding to $\psi_4$. The instantaneous GW frequency often looks noisy at the beginning of the simulations due to numerical issues. We remove this noise data by choosing a lower and upper cutoff time. Once we find the upper and lower cutoff time, we can apply a frequency domain time integration for $\psi_4$ by choosing a cutoff frequency. After filtering the noise creating frequency we can use equation \ref{eq:3.2} to compute the memory contribution to "plus" polarization of GW signal. The SXS catalog gives data for different parameter values like mass ratio, dimensionless spin parameter etc. The Christodoulou memory computed from NR data starts from zeros using equation \ref{eq:3.2} due to finite simulation time. Chrostodoulou memory is hereditary, hence it's entire past should be included. This can be done by combining the PN expression during early inspiral and NR results for merger part. The method used to connect the memory accumulated during entire life time of BBH coalesce is described in the next section. 
 \subsection{Compleate Christodoulou memory during BBH coalescence} 
 The PN waveform for Christodoulou are given as a function of parameter $x$ which is related to time by equation \ref{eq:2.14}. This equation can be integrated to obtain a relation between time $t$ and parameter $x$. The Christodoulou memory reaches it's peak value at the merger. We choose the values of integration constants such that the peak in $h_+^{(mem)}$ is reached at time $t=0$. We use our PN results for computing the memory during early inspiral and attach them to NR results near the late inspiral. We compare this memory for different mass ratio and different values of dimensionless spin parameter. Figure \ref{fig:differentmassratio} show the Christodoulou memory for different mass ratios, which shows that the Christodoulou tends to decrease with higher mass ration. The effect of dimensionless spin is shown in figure \ref{fig:differntchivalues}. It can be seen that the spin magnitude has significant effect on nonlinear memory, higher spin magnitude, in case of spin aligned with orbital angular momentum tends to increase the memory contribution. When the spins are anti aligned with orbital angular momentum, it tend to decrease the Christodoulou memory. These results show that it is important to consider the spin contribution when studying the Christodoulou memory in gravitational wave signals. 
 
@@ -392,7 +413,7 @@ The PN waveform for Christodoulou are given as a function of parameter $x$ which
 
 \begin{figure}
  	\includegraphics[width=4.0in]{../plots/MemoryPlot_nonSpining/q7.pdf}
- 	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using Numerical Relativity data. The red dashed line shows result from PN expression}
+ 	\caption{The figure above shows Christodoulou memory as a function of time during BBH coalesce. This figure shows a comparison for different mass ratios. It can be seen that higher mass ration tends to decrease the Chistodoulou memory. The early inspiral part is computed using post-Newtonian expression and the later part during BBH merger is computer using NR data. The red dashed line shows result from PN expression}
  	\label{fig:differentmassratio}
 \end{figure}
 \begin{figure}
@@ -498,7 +519,8 @@ E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\righ
 
 \section*{References}
 
-\bibliographystyle{apsrev4-1}
+%\bibliographystyle{apsrev4-1}
+\bibliographystyle{prsty}
 \bibliography{references}
 
 \end{document}
