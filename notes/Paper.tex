@@ -144,7 +144,7 @@ In terms of the $\psi_{lm}$ modes, the leading-order Christodoulou-memory modes 
 where $U^{(mem)(1)}_{20}$ is given by the leading order piece of Eq. (3.13a) in ref \cite{Favata2009}, and the $T_0$ is the starting time of the simulation. For a realistic, quasicircular binary that inspirals from a large initial separation, $T_0 \rightarrow -\infty$. The NR simulations of binaries that starts at a finite initial separation would underestimate the size of the memory. For a simulation that starts with an initial separation of $10M$, the error in the memory at a harmonic coordinate separation of $5M$ is $50\%$.\cite{Favata2009} 
 
 \par The corrections to the leading-oder formula for the nonlinear memory's contribution to 3PN order for non-spinning binaries has been computed by by Favata \cite{Favata2009}. However the effect of binary spins have not been explored in these results. Astrophysical black holes are formed by gravitation collapse of massive star when when they run out of their nuclear fuel in the core. These massive stars are likely to posses spin angular momentum, as a result the black hole formed would also be spinning. The black holes can also accrete matter from surrounding and as a result spin up during the process. It is highly likely that there is a large population of spinning binaries in the universe.      
-\par In this paper we calculate the nonlinear memory contribution to the + waveform polarization and look at the effect of spin contribution. For PN calculations, this paper is just an extension of Favata's\cite{Favata2009} paper, where we include the spin contribution upto leading (1.5 PN) order for nonprecessing binaries. The nonlinear memory contribution near merger is computed using NR data from publicly available SXS catalog, where we process the data to remove the low frequency numerical noise. In Sec. II, we describe the calculation required to compute memory contribution to the post-Newtonian waveform of quasi-circular, inspiralling binaries. In Sec. III, we describe the method used to extract memory contribution from NR simulations. Sec. IV we give the results which looks at the effect of spin on total nonlinear memory. We use PN expressions for memory for early time and for late time we use memory extracted from NR simulations.
+\par In this paper we calculate the nonlinear memory contribution to the + waveform polarization and look at the effect of spin contribution. For PN calculations, this paper is just an extension of Favata's\cite{Favata2009} paper, where we include the spin contribution up to leading (1.5 PN) order for nonprecessing binaries. The nonlinear memory contribution near merger is computed using NR data from publicly available SXS catalog, where we process the data to remove the low frequency numerical noise. In Sec. II, we describe the calculation required to compute memory contribution to the post-Newtonian waveform of quasi-circular, inspiralling binaries. In Sec. III, we describe the method used to extract memory contribution from NR simulations. Sec. IV we give the results which looks at the effect of spin on total nonlinear memory. We use PN expressions for memory for early time and for late time we use memory extracted from NR simulations.
 
 
 \section{MEMORY CONTRIBUTION TO POST-NEWTONIAN WAVEFORM POLARIZATION}
@@ -200,7 +200,7 @@ where $G^{2-20}_{l'm'lm'-m''-m}$ is the angular integral of equation \ref{eq:2.9
 \begin{equation}\label{eq:2.11}
 \int_{-\infty}^{T_{R}} x^{n}dt=\int_{-\infty}^{T_{R}}\frac{x^{n}}{\dot{x}}dx
 \end{equation}
-After performing the change of variable indicated in above equation \ref{eq:2.11}, evaluation of the resulting integrals requires a model for the frequency evolution of the binary. The adiabatic evolution of the frequency (or $x$) is easily derived from energy balance ($\mathcal{L}_{GW}=-\dot{E}$). and the relation $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$. The 3.5PN orbital energy and flux are given in Appendix C of reference \cite{Arun2009}. Here we who only upto 1.5 PN terms, the complete expression are show in Appendix \ref{Appendix:C1}. The 1.5 PN expression for energy is given by 
+After performing the change of variable indicated in above equation \ref{eq:2.11}, evaluation of the resulting integrals requires a model for the frequency evolution of the binary. The adiabatic evolution of the frequency (or $x$) is easily derived from energy balance ($\mathcal{L}_{GW}=-\dot{E}$). and the relation $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$. The 3.5PN orbital energy and flux are given in Appendix C of reference \cite{Arun2009}. Here we who only up to 1.5 PN terms, the complete expression are show in Appendix \ref{Appendix:C1}. The 1.5 PN expression for energy is given by 
 \begin{widetext}
 	\begin{align}\label{eq:E}
 	E&=-\frac{\eta \, M \, x}{2}\left\{1 + x \left[-\frac{3}{4}-\frac{\eta}{12}\right] + x^{3/2}\left[\left(\frac{8}{3} - \frac{4 \, \eta}{3}\right)\chisdL + \frac{8}{3}\delta\chiadL\right]\right\} \nonumber \\
@@ -213,14 +213,14 @@ and the 1.5 PN GW luminosity is given by
 \end{align}
 
 
-Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, and expanding upto 1.5 PN gives the following expression.
+Substituting the above two equation into $\dot{x}=-\mathcal{L}_{GW}/(dE/dx)$, and expanding up to 1.5 PN gives the following expression.
 
 \begin{align}\label{eq:2.14}
 \frac{dx}{dt} & = \frac{64\, x^5  \, \eta}{5} \left\{1 + x \left[-\frac{743}{336}-\frac{11 \eta }{4} \right] 
 + x^{3/2} \left[4 \pi-\frac{113}{12}\delta \, \chiadL- \left(-\frac{113}{19} + \frac{19 \, \eta}{3}  \right)\chisdL \right] \right\} \nonumber \\ 
 \end{align}
 \end{widetext}
-The results upto 3.5 PN are shows in Appendix \ref{Appendix:C}.
+The results up to 3.5 PN are shows in Appendix \ref{Appendix:C}.
 The equation \ref{eq:2.14} can be used to change the integration with respect to time into integration with respect to $x$ as shown in equation in \ref{eq:2.11}. The expressions for $h_{lm}$ whose first time derivatives appear equation \ref{eq:2.10} can be obtained from Ref\cite{Arun2009}. The GW modes for precessing binaries with small inclination angle on nearly circular orbits through 1.5 PN order are given in section IV of ref \cite{Arun2009}. Setting $\iota = 0, \alpha = \pi$ in equation 4.16 and 4.17 gives the result for non-precessing case. In that case the spins are aligned along $z$ axis, so we set $\chi_a^x=\chi_s^x=\chi_a^y=\chi_s^y=0$. We can now write the expression as 
 \begin{equation}
 h_{lm} = (-1)^{m+1}\frac{(2M\eta v^2)}{D_L}\sqrt{\frac{16\pi}{5}}e^{\mathit{i}\,m\,\psi}\hat{h}_{lm},
@@ -233,7 +233,7 @@ and $\hat{h}_{lm}$ modes are given by
 	\hat{h}_{32} &= \frac{9}{8}\sqrt{\frac{5}{7}}\left[\frac{8}{27}x\left(1-3\nu\right) + \frac{32}{27}x^{3/2}\eta\,\chi^z_s\right]
 	\end{align}
 \end{subequations}
-The remaining $h_{lm}$ expressions does not contain spin terms and the complete expressions upto 3PN terms can be directly taken from Ref.\cite{Blanchet_Iyer2008}
+The remaining $h_{lm}$ expressions does not contain spin terms and the complete expressions up to 3PN terms can be directly taken from Ref.\cite{Blanchet_Iyer2008}
  We show the $h_{lm}$ expressions for positive $m$ values, but the results for negative $m$ values can be obtained by the relation, $h_{l, -m} = (-1)^l \bar{h}_{lm}$. This results is not in general true for precessing binaries, but it continues to hold true of non-precessing case. The time derivative of $h_{lm}$ modes can be obtained by following the procedure shown in Appendix \ref{Appendix B}. With these modes we use equation \ref{eq:2.10} to evaluate the first time derivative of the memory mass-multipole moment, which is further integrated using equation \ref{eq:2.11}. The results after integration are show in next section.
 
 \begin{widetext}

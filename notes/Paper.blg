@@ -9,7 +9,12 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Database file #1: references.bib
+Database file #1: PaperNotes.bib
+Database file #2: references.bib
+Your field is more than 20000 characters---line 635 of file references.bib
+ :          {van Veggel}, A.~A. and {Vardaro}, M. and {Varma}, V. and {Vass},
+ :                                                                            S. and
+I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
 Control: key (0) 
@@ -19,44 +24,48 @@ Control: production of article title (-1) disabled
 Control: page (0) single
 Control: year (1) truncated
 Control: production of eprint (0) enabled
-You've used 21 entries,
+Warning--empty author in Ligocatalog2018
+Warning--missing journal in Ligocatalog2018
+Warning--empty year in Ligocatalog2018
+You've used 25 entries,
             5847 wiz_defined-function locations,
-            1787 strings with 19717 characters,
-and the built_in function-call counts, 21220 in all, are:
-= -- 1332
-> -- 555
-< -- 138
-+ -- 180
-- -- 136
-* -- 3489
-:= -- 2077
-add.period$ -- 21
-call.type$ -- 21
-change.case$ -- 84
-chr.to.int$ -- 21
-cite$ -- 21
-duplicate$ -- 2010
-empty$ -- 1549
-format.name$ -- 325
-if$ -- 4125
+            1817 strings with 20409 characters,
+and the built_in function-call counts, 24703 in all, are:
+= -- 1560
+> -- 630
+< -- 158
++ -- 206
+- -- 154
+* -- 4048
+:= -- 2421
+add.period$ -- 25
+call.type$ -- 25
+change.case$ -- 100
+chr.to.int$ -- 25
+cite$ -- 30
+duplicate$ -- 2350
+empty$ -- 1820
+format.name$ -- 368
+if$ -- 4799
 int.to.chr$ -- 1
-int.to.str$ -- 29
-missing$ -- 257
-newline$ -- 115
-num.names$ -- 63
-pop$ -- 785
+int.to.str$ -- 33
+missing$ -- 299
+newline$ -- 127
+num.names$ -- 72
+pop$ -- 939
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 124
 quote$ -- 0
-skip$ -- 736
+skip$ -- 854
 stack$ -- 0
-substring$ -- 394
-swap$ -- 1990
-text.length$ -- 68
+substring$ -- 467
+swap$ -- 2302
+text.length$ -- 77
 text.prefix$ -- 0
 top$ -- 8
-type$ -- 299
-warning$ -- 0
-while$ -- 52
+type$ -- 352
+warning$ -- 3
+while$ -- 60
 width$ -- 0
-write$ -- 233
+write$ -- 265
+(There was 1 error message)
