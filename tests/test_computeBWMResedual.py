@@ -18,13 +18,17 @@ def s(t, hpmem, mu, phi):
 
 	return st
 
+#Spin_vec = [-0.2, -0.43, -0.94]
+#filename_vec=['m0p20', 'm0p43', 'm0p94']
+
 
 #data location
-file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
-#filename_vec=['0p2', '0p43', '0p600', '0p800', '0p95']
-filename='0p43'
+file_location ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
 
-datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
+#filename_vec=['0p2', '0p43', '0p600', '0p800', '0p95']
+filename='m0p94'
+
+datafile_hMemNR="rMPsi4_Sz1_"+filename+"_Sz2_"+filename+"_q1p5dataN4Clean_hMemNR.dat"
 timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
 
 #Reproduce fig1 from Pshirkov paper
@@ -39,9 +43,12 @@ res_quadfit = np.polyfit(time, res, 2)
 res1d = np.poly1d(res_quadfit)
 res_quadSubtract = res-res1d(time)
 
-plt.plot(time, res1d(time), "r--")
-plt.plot(time, res, "g--")
-plt.plot(time, res_quadSubtract, "b")
+plt.plot(time, res1d(time), "r--", label="quad fit")
+plt.plot(time, res, "g--", label="without subtraction")
+plt.plot(time, res_quadSubtract, "b", label="After substraction")
+plt.xlabel("time(M)")
+plt.ylabel("Residuals")
+plt.legend(loc=2)
 plt.show()
 
 
@@ -84,8 +91,8 @@ res1d2 = np.poly1d(res_quadfit2)
 res_quadSubtract2 = res2-res1d2(timeNR_tot)
 
 
-plt.plot(timeStep_tot, res1d1(timeStep_tot), "r--")
-plt.plot(timeStep_tot, res1, "g--")
+plt.plot(timeStep_tot, res1d2(timeStep_tot), "r--")
+plt.plot(timeStep_tot, res2, "g--")
 plt.plot(timeStep_tot, res_quadSubtract1, "b")
 plt.plot(timeNR_tot, res_quadSubtract2, "r")
 plt.show()

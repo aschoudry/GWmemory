@@ -76,14 +76,14 @@ if __name__ == "__main__":
     # Sample rate and desired cutoff frequencies (in Hz).
     fs = 1.0/dt
     lowcut = fs/2000.0
-    highcut = fs/2.1
+    highcut = fs/5.1
     print dt,fs	
 	 
     # Filter a noisy signal.
     plt.figure(3)
     plt.clf()
     plt.plot(time, h22_imag, label='With out applying filter')
-    plt.plot(time, h22_imag_SXS, label='SXS')
+#    plt.plot(time, h22_imag_SXS, label='SXS')
 	
     h22_imag_filter = butter_bandpass_filter(h22_imag, lowcut, highcut, fs, order=3)
     plt.plot(time, h22_imag_filter, label='Filtered signal')
