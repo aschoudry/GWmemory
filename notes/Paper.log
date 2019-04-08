@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  27 MAR 2019 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  8 APR 2019 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,33 +736,33 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 87.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-Overfull \hbox (2.81746pt too wide) in paragraph at lines 298--298
+Overfull \hbox (2.81746pt too wide) in paragraph at lines 294--294
 [] 
  []
 
 [5] [6]
-<../plots/PNmemorycontributionHpAlginedSpin.pdf, id=262, 809.0225pt x 527.9725p
+<../plots/PNmemorycontributionHpAlginedSpin.pdf, id=256, 809.0225pt x 527.9725p
 t>
 File: ../plots/PNmemorycontributionHpAlginedSpin.pdf Graphic file (type pdf)
  <use ../plots/PNmemorycontributionHpAlginedSpin.pdf>
 Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpin.pdf used on
- input line 350.
+ input line 346.
 (pdftex.def)             Requested size: 252.94499pt x 165.07156pt.
 
-<../plots/PNmemoryFavata.pdf, id=263, 798.985pt x 520.94624pt>
+<../plots/PNmemoryFavata.pdf, id=257, 798.985pt x 520.94624pt>
 File: ../plots/PNmemoryFavata.pdf Graphic file (type pdf)
 
 <use ../plots/PNmemoryFavata.pdf>
-Package pdftex.def Info: ../plots/PNmemoryFavata.pdf used on input line 351.
+Package pdftex.def Info: ../plots/PNmemoryFavata.pdf used on input line 347.
 (pdftex.def)             Requested size: 252.94499pt x 164.91768pt.
 
-<../plots/PNmemorycontributionHpAntiAlginedSpin.pdf, id=264, 787.94376pt x 514.
+<../plots/PNmemorycontributionHpAntiAlginedSpin.pdf, id=258, 787.94376pt x 514.
 92375pt>
 File: ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf Graphic file (type pdf
 )
  <use ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf>
 Package pdftex.def Info: ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf use
-d on input line 352.
+d on input line 348.
 (pdftex.def)             Requested size: 252.94499pt x 165.29753pt.
 Missing character: There is no  in font txr!
 Missing character: There is no ù in font txr!
@@ -773,22 +773,22 @@ Missing character: There is no ù in font txr!
 Missing character: There is no õ in font txr!
 Missing character: There is no © in font txr!
 
-<../plots/PNmemorycontributionHpAlginedSpinAngular.pdf, id=267, 833.1125pt x 56
+<../plots/PNmemorycontributionHpAlginedSpinAngular.pdf, id=261, 833.1125pt x 56
 6.115pt>
 File: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf Graphic file (type 
 pdf)
  <use ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf>
 Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf 
-used on input line 360.
+used on input line 356.
 (pdftex.def)             Requested size: 252.94499pt x 171.87442pt.
 
-<../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf, id=268, 856.19875pt
+<../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf, id=262, 856.19875pt
  x 580.1675pt>
 File: ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf Graphic file (t
 ype pdf)
  <use ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf>
 Package pdftex.def Info: ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.
-pdf used on input line 361.
+pdf used on input line 357.
 (pdftex.def)             Requested size: 252.94499pt x 171.3958pt.
 Missing character: There is no  in font txr!
 Missing character: There is no ù in font txr!
@@ -802,14 +802,14 @@ Missing character: There is no © in font txr!
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 395.
+(hyperref)                removing `math shift' on input line 396.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 395.
+(hyperref)                removing `math shift' on input line 396.
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 407--408
+Underfull \hbox (badness 3439) in paragraph at lines 408--409
 []\OT1/txr/m/n/10 The pub-licly avail-able SXS cat-a-log pro-vides data for
  []
 
@@ -825,50 +825,50 @@ nedSpin.pdf): PDF inclusion: multiple pdfs with page group included in a single
  page
 >]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 408.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 409.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 408.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 409.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-<../plots/MemoryPlot_nonSpining/q7.pdf, id=410, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_nonSpining/q7.pdf, id=411, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_nonSpining/q7.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_nonSpining/q7.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_nonSpining/q7.pdf used on input li
-ne 414.
+ne 415.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (33.61162pt too wide) in paragraph at lines 414--415
+Overfull \hbox (33.61162pt too wide) in paragraph at lines 415--416
  [][] 
  []
 
 
-<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=411, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=412, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf used o
-n input line 419.
+n input line 420.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=412, 578.16pt x 433.6
+<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=413, 578.16pt x 433.6
 2pt>
 File: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf Graphic file (type p
 df)
  <use ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf>
 Package pdftex.def Info: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf u
-sed on input line 420.
+sed on input line 421.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-Overfull \hbox (33.61162pt too wide) in paragraph at lines 419--421
+Overfull \hbox (33.61162pt too wide) in paragraph at lines 420--422
  [][] 
  []
 
 
-Overfull \hbox (33.61162pt too wide) in paragraph at lines 419--421
+Overfull \hbox (33.61162pt too wide) in paragraph at lines 420--422
  [] 
  []
 
@@ -884,10 +884,10 @@ pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_nonSpining/q7.pdf):
  PDF inclusion: multiple pdfs with page group included in a single page
 >]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 432.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 428.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 432.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 428.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
@@ -901,21 +901,21 @@ le page
 >]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 464.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 463.
+(hyperref)                removing `subscript' on input line 464.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 463.
+(hyperref)                removing `math shift' on input line 464.
 
-[11] (./Paper.bbl [12]
+[11] [12] (./Paper.bbl
 ! Undefined control sequence.
 <argument> \bibinfo {journal} {\mnras 
                                       }\ 
-l.303 ...o {pages} {417} (\bibinfo {year} {2010})}
+l.313 ...o {pages} {417} (\bibinfo {year} {2010})}
                                                   ,\ \Eprint
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -926,7 +926,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \mnras 
                   
-l.303 ...o {pages} {417} (\bibinfo {year} {2010})}
+l.313 ...o {pages} {417} (\bibinfo {year} {2010})}
                                                   ,\ \Eprint
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -935,10 +935,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ) [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 525.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 526.
  (./Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 525.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 525.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 526.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 526.
 Package rerunfilecheck Info: File `Paper.out' has not changed.
 (rerunfilecheck)             Checksum: 8182AC551B3C4BDBF650F0D3DA09F284;1548.
 
@@ -947,35 +947,32 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10555 strings out of 494910
- 149698 string characters out of 6179836
- 307012 words of memory out of 5000000
- 13487 multiletter control sequences out of 15000+600000
+ 10557 strings out of 494910
+ 149761 string characters out of 6179836
+ 307936 words of memory out of 5000000
+ 13489 multiletter control sequences out of 15000+600000
  53004 words of font info for 131 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 33i,16n,35p,1769b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{equation.2.7} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts
-/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Paper.pdf (13 pages, 530726 bytes).
+ 33i,16n,35p,2110b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfon
+ts/rtxi.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Paper.pdf (13 pages, 530905 bytes).
 PDF statistics:
- 744 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
+ 747 PDF objects out of 1000 (max. 8388607)
+ 632 compressed objects within 7 object streams
  128 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

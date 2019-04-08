@@ -27,45 +27,45 @@ Control: production of eprint (0) enabled
 Warning--empty author in Ligocatalog2018
 Warning--missing journal in Ligocatalog2018
 Warning--empty year in Ligocatalog2018
-You've used 25 entries,
+You've used 26 entries,
             5847 wiz_defined-function locations,
-            1817 strings with 20409 characters,
-and the built_in function-call counts, 24703 in all, are:
-= -- 1560
-> -- 630
-< -- 158
-+ -- 206
-- -- 154
-* -- 4048
-:= -- 2421
-add.period$ -- 25
-call.type$ -- 25
-change.case$ -- 100
-chr.to.int$ -- 25
-cite$ -- 30
-duplicate$ -- 2350
-empty$ -- 1820
-format.name$ -- 368
-if$ -- 4799
+            1825 strings with 20568 characters,
+and the built_in function-call counts, 25592 in all, are:
+= -- 1624
+> -- 648
+< -- 163
++ -- 212
+- -- 158
+* -- 4192
+:= -- 2510
+add.period$ -- 26
+call.type$ -- 26
+change.case$ -- 104
+chr.to.int$ -- 26
+cite$ -- 31
+duplicate$ -- 2438
+empty$ -- 1886
+format.name$ -- 381
+if$ -- 4969
 int.to.chr$ -- 1
-int.to.str$ -- 33
-missing$ -- 299
-newline$ -- 127
-num.names$ -- 72
-pop$ -- 939
+int.to.str$ -- 34
+missing$ -- 310
+newline$ -- 130
+num.names$ -- 75
+pop$ -- 974
 preamble$ -- 1
-purify$ -- 124
+purify$ -- 129
 quote$ -- 0
-skip$ -- 854
+skip$ -- 886
 stack$ -- 0
-substring$ -- 467
-swap$ -- 2302
-text.length$ -- 77
+substring$ -- 480
+swap$ -- 2387
+text.length$ -- 79
 text.prefix$ -- 0
 top$ -- 8
-type$ -- 352
+type$ -- 365
 warning$ -- 3
-while$ -- 60
+while$ -- 62
 width$ -- 0
-write$ -- 265
+write$ -- 274
 (There was 1 error message)

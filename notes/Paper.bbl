@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{25}%
+\begin{thebibliography}{26}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -178,6 +178,16 @@
   {Thorne}},\ }\href {\doibase 10.1103/PhysRevD.45.520} {\bibfield  {journal}
   {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {45}},\
   \bibinfo {pages} {520} (\bibinfo {year} {1992})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {{Pollney}}\ and\ \citenamefont
+  {{Reisswig}}(2011)}]{Reisswig2011}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+  {{Pollney}}}\ and\ \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont
+  {{Reisswig}}},\ }\href {\doibase 10.1088/2041-8205/732/1/L13} {\bibfield
+  {journal} {\bibinfo  {journal} {\apj}\ }\textbf {\bibinfo {volume} {732}},\
+  \bibinfo {eid} {L13} (\bibinfo {year} {2011})},\ \Eprint
+  {http://arxiv.org/abs/1004.4209} {arXiv:1004.4209 [gr-qc]} \BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {{Reisswig}}\ and\ \citenamefont
   {{Pollney}}(2011)}]{Reisswig_Pollney2011}%
   \BibitemOpen
