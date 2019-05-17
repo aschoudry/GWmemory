@@ -1,0 +1,100 @@
+\documentclass[prd,preprintnumbers,twocolumn,eqsecnum,floatfix,letter]{revtex4}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage{tensor}
+\usepackage{bm}
+\usepackage{times}
+\usepackage[varg]{txfonts}
+\usepackage{mathrsfs,amsmath}  
+\usepackage{empheq}
+\usepackage[colorlinks, pdfborder={0 0 0}]{hyperref}
+\definecolor{LinkColor}{rgb}{0.75, 0, 0}
+\definecolor{CiteColor}{rgb}{0, 0.5, 0.5}
+\definecolor{UrlColor}{rgb}{0, 0, 0.75}
+\hypersetup{linkcolor=LinkColor}
+\hypersetup{citecolor=CiteColor}
+\hypersetup{urlcolor=UrlColor}
+\maxdeadcycles=1000
+\allowdisplaybreaks
+\textwidth 7.5 in 
+\hoffset -1 cm 
+\newcommand{\boxedeq}[2]{\begin{empheq}[box={\fboxsep=6pt\fbox}]{align}\label{#1}#2\end{empheq}}
+\newcommand{\comment}[1]{\textcolor{blue}{\textit{#1}}}
+\newcommand{\ajith}[1]{\textcolor{red}{\textit{Ajith:#1}}}
+\newcommand{\ashok}[1]{\textcolor{cyan}{\textit{Ashok:#1}}}
+
+
+\begin{document}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ber}{\begin{eqnarray}}
+\newcommand{\eer}{\end{eqnarray}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\newcommand{\etal}{\emph{et al.}}
+
+
+
+\title{Notes on BWM reseduals }
+\author{Ashok Choudhary}\email{aschoudhary@mix.wvu.edu}
+\affiliation{Department of Physics and Astronomy, West Virginia University, Morgantown, WV 26506, USA}
+
+\begin{abstract}
+\end{abstract}
+
+\maketitle
+
+\section{Fourier Transform for polynomial inside a bounded domain}
+Let $f(x)$ be defined as:
+
+\[ f(x) =  \left\{
+\begin{array}{ll}
+1 & x \in [-1, 1] \\
+0 & x \in (-\infty, 1) \, \cup (1, \infty)
+\end{array} 
+\right. \]
+and $P_{N}(x)$ be the polynomial function defined as:
+\begin{equation}
+	P_{N}(x) = \sum_{n = 0}^{N}a_n x^n  \nonumber
+\end{equation}
+The product of these two functions gives a polynomial function which is zero out side the interval $x \in [-1, 1]$
+\begin{equation}
+	G(x) = f(x)P_N(x)\nonumber
+\end{equation}
+The Fourier transform $\mathscr{F}[G(x)]$ is given by convolution of Fourier transforms of two functions:
+\begin{equation}
+	\mathscr{F}(G(x)) = \mathscr{F}(f(x))*\mathscr{F}(P_N(x)) \nonumber
+\end{equation}
+The Fourier transform of polynomial is given by
+\begin{equation}
+	\mathscr{F}(P_N(x)) =  \mathscr{F}\left(\sum_{n=0}^{N} a_n x^n\right) = \sum_{n=0}^{N}a_n\mathscr{F}\left(x^n\right)= \sqrt{2\pi}\sum_{n=0}^{N}a_n\left(i^n\delta^{(n)}(\omega)
+	\right) \nonumber
+\end{equation}
+The Fourier transform of $f(x)$ is given by
+\begin{equation}
+	\mathscr{F}\left(f(x)\right) = \frac{\sin(\omega)}{\omega} \nonumber
+\end{equation}
+Now the Fourier transform is given 
+\begin{align}
+	\mathscr{F}(G(x)) &= \mathscr{F}(f(x))*\mathscr{F}(P_N(x)) \nonumber\\ 
+	& = \left(\sqrt{2\pi}\sum_{n=0}^{N}a_n i^n \delta^{(n)}(\omega)\right)*\left(\frac{\sin(\omega)}{\omega}\right) \nonumber \\
+	& = \int_{-\infty}^{\infty}\sqrt{2\pi}\sum_{n=0}^{N}a_n i^n \delta^{(n)}(\tau)\frac{\sin(\omega-\tau)}{\omega-\tau}d\tau \nonumber \\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}a_n i^n\int_{-\infty}^{\infty} \delta^{(n)}(\tau)\frac{\sin(\omega-\tau)}{\omega-\tau}d\tau \nonumber
+	\\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}a_n i^n\int_{-\infty}^{\infty}\left[ \frac{\sin(\omega-\tau)}{\omega-\tau}\right]\delta^{(n)}(\tau)d\tau \nonumber
+	\\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}(-1)^{n}a_n i^n\int_{-\infty}^{\infty}\frac{\partial^n}{\partial \tau^n}\left[ \frac{\sin(\omega-\tau)}{\omega-\tau}\right]\delta(\tau)d\tau \nonumber
+	\\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}(-1)^{n+1}a_n i^n\int_{-\infty}^{\infty}\frac{\partial^n}{\partial \omega^n}\left[ \frac{\sin(\omega-\tau)}{\omega-\tau}\right]\delta(\tau)d\tau \nonumber
+	\\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}(-1)^{n+1}a_n i^n\frac{\partial^n}{\partial \omega^n}\int_{-\infty}^{\infty}\left[ \frac{\sin(\omega-\tau)}{\omega-\tau}\right]\delta(\tau)d\tau \nonumber
+	\\
+	& = \sqrt{2\pi}\sum_{n=0}^{N}(-1)^{n+1}a_n i^n\frac{\partial^n}{\partial \omega^n}\left[ \frac{\sin(\omega)}{\omega}\right] \nonumber
+\end{align}
+\boxedeq{eq:first}{\int\left[x^n f(x)\right]\delta^{(n)}(x)dx = (-1)^n\int\frac{\partial^n\left[x^n f(x)\right]}{\partial x^n} \delta(x)dx\nonumber}
+So the Fourier transform of any polynomial function nonzero only inside the interval $x \in [\-1,1]$ is given by
+\boxedeq{eq:first}{\mathscr{F}(G(x)) = \sqrt{2\pi}\sum_{n=0}^{N}(-1)^{n+1} a_n i^n\frac{\partial^n}{\partial \omega^n}\left[ \frac{\sin(\omega)}{\omega}\right] \nonumber}
+\end{document}
