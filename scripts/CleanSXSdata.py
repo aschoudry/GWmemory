@@ -7,9 +7,9 @@ def find_nearest_idx(array, value):
     idx = (np.abs(array - value)).argmin()
     return idx
 
-filename_list_nonspinning = ["rMPsi4_noSpin_q1data", "rMPsi4_noSpin_q1p5data", "rMPsi4_noSpin_q2data", "rMPsi4_noSpin_q2p5data", "rMPsi4_noSpin_q3data", "rMPsi4_noSpin_q4data", "rMPsi4_noSpin_q5data", "rMPsi4_noSpin_q6data", "rMPsi4_noSpin_q7data", "rMPsi4_noSpin_q8data", "rMPsi4_noSpin_q9p5data"]
+filename_list_nonspinning = ["rMPsi4_noSpin_q1data"]#, "rMPsi4_noSpin_q1p5data", "rMPsi4_noSpin_q2data", "rMPsi4_noSpin_q2p5data", "rMPsi4_noSpin_q3data", "rMPsi4_noSpin_q4data", "rMPsi4_noSpin_q5data", "rMPsi4_noSpin_q6data", "rMPsi4_noSpin_q7data", "rMPsi4_noSpin_q8data", "rMPsi4_noSpin_q9p5data"]
 
-filename_list_equalmass_alignSzSpin = ["rMPsi4_AlignedSpin_Sz_0p2_q1data", "rMPsi4_AlignedSpin_Sz_0p43_q1data", "rMPsi4_AlignedSpin_Sz_0p600_q1data", "rMPsi4_AlignedSpin_Sz_0p6_q1data", "rMPsi4_AlignedSpin_Sz_0p800_q1data", "rMPsi4_AlignedSpin_Sz_0p95_q1data", "rMPsi4_AlignedSpin_Sz_m0p2_q1data", "rMPsi4_AlignedSpin_Sz_m0p9_q1data", "rMPsi4_AlignedSpin_Sz_mp800_q1data"]
+#filename_list_equalmass_alignSzSpin = ["rMPsi4_AlignedSpin_Sz_0p2_q1data", "rMPsi4_AlignedSpin_Sz_0p43_q1data", "rMPsi4_AlignedSpin_Sz_0p600_q1data", "rMPsi4_AlignedSpin_Sz_0p6_q1data", "rMPsi4_AlignedSpin_Sz_0p800_q1data", "rMPsi4_AlignedSpin_Sz_0p95_q1data", "rMPsi4_AlignedSpin_Sz_m0p2_q1data", "rMPsi4_AlignedSpin_Sz_m0p9_q1data", "rMPsi4_AlignedSpin_Sz_mp800_q1data"]
 
 #import data
 

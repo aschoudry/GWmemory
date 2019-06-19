@@ -96,9 +96,7 @@ def H3mem(theta, eta):
 		(11*np.sqrt(1 - 4*eta)*np.cos(theta)**2)/768.) + \
 		eta*(-0.1748046875 + (56422223*np.sqrt(1 - 4*eta))/8.257536e6 - (1253*np.cos(theta)**2)/9216. - \
 		(440281*np.sqrt(1 - 4*eta)*np.cos(theta)**2)/1.376256e6 - (17415*np.sqrt(1 - 4*eta)*np.cos(theta)**4)/131072.))))*np.sin(theta)**2
-		
-
-
+	
 	return H3
 
 
@@ -192,8 +190,6 @@ def h_plus_mem(theta, eta, M, R, x0, dt, nsteps, PN_order, chiZa, chiZs):
 	if PN_order==3:
 		h_mem = A*(B0 + B1*x + B1p5*pow(x,1.5) + B2*pow(x,2) + B2p5*pow(x,2.5) + B3*pow(x,3))
 	
-	h_mem[h_mem > 0.025]=0.25
-	
 	return h_mem
 
 def find_nearest_idx(array, value):
@@ -201,18 +197,23 @@ def find_nearest_idx(array, value):
     idx = (np.abs(array - value)).argmin()
     return idx
 
+
+#Spinning_binary_with_SpinAligned_27Dec
+#Spinning_binary_with_SpinAntialigned_27Dec
+#Spinning_binary_with_totalSpin0_27Dec
+
 #data location
-file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
+file_location ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 #import data
-mass_ratio_vec = [0.43, 0.6, 0.8, 0.95]
-filename_vec=['0p43', '0p600', '0p800','0p95']
+mass_ratio_vec = [0.20, 0.60, 0.80, 0.99]
+filename_vec=['0p20', '0p60', '0p80','0p99']
 i=0
 
 for filename in filename_vec:
 	
-	datafile_hNRdot='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hdotNR.dat'
-	datafile_hNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hNR.dat'
-	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
+	datafile_hNRdot='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hdotNR.dat'
+	datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
+	datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
 	timeNR, hdot_plus, hdot_cross = np.loadtxt(file_location+datafile_hNRdot, unpack=True)
@@ -255,20 +256,24 @@ for filename in filename_vec:
 	plt.legend(loc=2)
 	fontP.set_size('10.')
 
-	plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_alignedSpin/'+filename+'.png')
+	plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_AlignedSpinSXSdata/'+filename+'.png')
 	i+=1
+	#plt.show()
 	plt.close()
 
-
+#Spinning_binary_with_SpinAligned_27Dec
+#Spinning_binary_with_SpinAntialigned_27Dec
+#Spinning_binary_with_totalSpin0_27Dec
 #data location
-file_location ='/home/ashok/gravitational_wave_memory_project/data/SamMassRatio_differentSzSpinOnly/Memory_data/'
+file_location ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 
-
-Spin_vec = [0.43, 0.60, 0.8, 0.95]
-filename_vec=['0p43', '0p600', '0p800', '0p95']
-tf_vec=[-60, -10, -10, -10.0]
-ti_vec=[-8000, -8000, -8000, -8000]
+Spin_vec = [0.20, 0.60, 0.80, 0.99]
+filename_vec=['0p20', '0p60', '0p80','0p99']
+tf_vec=[-300, -10, -10, -10.0]
+ti_vec=[-9000, -9000, -9000, -9000]
 idx_cut_vec = [80, 80, 80, 80, 80]
+line_thickness_vec = [3,3,3,3]
+line_style = [":", "-.", "--", "-"]
 
 
 i=0
@@ -281,11 +286,22 @@ fontP.set_size('20.')
 
 legend = plt.legend(loc='best',prop={'size':legend_size})
 
+#NonSpinning data
+
+file_nospin ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/rMPsi4_noSpin_q1dataClean_hMemNR.dat'
+#import data
+	
+timeNR_nospin, hmem_nospin, h_mem_plus_nospin = np.loadtxt(file_nospin, unpack=True)
+#Normalize to stich
+hmem_nospin*=17.0
+
+plt.plot(timeNR_nospin+0,hmem_nospin+0.004, 'k', label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$ = 0.0 ' )
+
 
 
 for filename in filename_vec:
 	
-	datafile_hMemNR='rMPsi4_AlignedSpin_Sz_'+filename+'_q1dataClean_hMemNR.dat'
+	datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 	timeNR, hmem, h_mem_plus = np.loadtxt(file_location+datafile_hMemNR, unpack=True)
 	#Normalize to stich
 	hmem*=17.0
@@ -335,26 +351,26 @@ for filename in filename_vec:
 	hmem_tot = np.append(hp_mem_PN_cut, hmem_tot_cut)
 
 
-	plt.title('Memory Calculation for Spinning Sz only = ' ,fontsize = 15)
-	plt.plot(time_tot, hmem_tot, label=r'$hmem$ for $S_{z}$ = '+str(Spin_vec[i]))
-	plt.plot(timeNR_cut, hmem_tot_cut, 'y--')
+	plt.title(r'$\theta = \pi/2, \eta = 1/4' ,fontsize = 15)
+	plt.plot(time_tot, hmem_tot, line_style[i],label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$ = '+str(Spin_vec[i]), linewidth=line_thickness_vec[i])
+#	plt.plot(timeNR_cut, hmem_tot_cut, 'y--')
 
 	plt.grid()
 	plt.xlabel(r'$time$')
-	plt.ylabel(r'$h_{mem}$')
+	plt.ylabel(r'$h^{+}$')
 	plt.legend(loc=2)
 	fontP.set_size('20.')
 	i+=1
 	
-	
 
 
 plt.grid()
+plt.xlim(-300, 50)
 #plt.ylim(0,0.0007)
-plt.xlabel(r'$time$')
-plt.ylabel(r'$h_{mem}$')
+plt.xlabel(r'$t/M$')
+plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
-fontP.set_size('10.')
-plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_alignedSpin/'+filename+'.pdf')
+fontP.set_size('12.')
+plt.savefig('/home/ashok/gravitational_wave_memory_project/plots/MemoryPlot_AlignedSpinSXSdata/'+filename+'.pdf')
 plt.show()
 	
