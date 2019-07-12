@@ -4,6 +4,8 @@ import matplotlib.cm as cm
 import plotsettings
 from matplotlib.font_manager import FontProperties
 from matplotlib import colors, cm
+from matplotlib.ticker import LogLocator
+from matplotlib.colors import LogNorm
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -70,13 +72,15 @@ for i in range(len(Spin_array)):
 		Memory_growth_M_vs_Spin[i][j]  = 4.4*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], vmax=abs(Memory_growth_M_vs_Spin).max(), vmin=-abs(Memory_growth_M_vs_Spin).max())
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=3.261800077256976e-18, vmax=8.031504325972437e-16))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
 plt.colorbar()
 fig.tight_layout()
-plt.show()	
+plt.savefig("/home/ashok/Desktop/gravitational_wave_memory_project/plots/Memory_Spin_vs_Mass.pdf")	
+plt.show()
+
 
 print abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max()
 
@@ -113,7 +117,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 	
 	idx = find_nearest_idx(timeNR, t_initial)
 	
-	hmem_two_weeks = hmem[idx:find_nearest_idx(timeNR, 25)]
+	hmem_two_weeks =  4.4*(10**(log_SolarMass-23))*hmem[idx:find_nearest_idx(timeNR, 25)]
 	timeNR_two_weeks = timeNR[idx:find_nearest_idx(timeNR, 25)]
 
 	#compute the quadratic fit and subtact it from reseduals
@@ -122,6 +126,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 	res1d = np.poly1d(res_quadfit)
 	res_quadSubtract = res-res1d(timeNR_two_weeks)
 
+	
 	# mean of reseduals
 	res_mean = np.sqrt(np.mean(res_quadSubtract**2))
 	
@@ -143,9 +148,12 @@ for i in range(len(Spin_array)):
 		Reseduals_M_vs_Spin[i][j]  = compute_rms_reseduals(Mass_array[i], Spin_array[j])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], vmax=abs(Reseduals_M_vs_Spin).max(), vmin=-abs(Reseduals_M_vs_Spin).max())
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=8.111388526479076e-18, vmax=1.5305626085081242e-16))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.colorbar()
 fig.tight_layout()
-plt.show()	
+plt.savefig("/home/ashok/Desktop/gravitational_wave_memory_project/plots/MemoryRes_Spin_vs_Mass.pdf")
+plt.show()
+
+print Reseduals_M_vs_Spin.min(), Reseduals_M_vs_Spin.max()	
