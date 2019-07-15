@@ -301,18 +301,20 @@
   {eid} {221101} (\bibinfo {year} {2009})},\ \Eprint
   {http://arxiv.org/abs/0907.2637} {arXiv:0907.2637 [gr-qc]} \BibitemShut
   {NoStop}%
-\bibitem [{\citenamefont {{Pshirkov}}\ \emph {et~al.}(2010)\citenamefont
-  {{Pshirkov}}, \citenamefont {{Baskaran}},\ and\ \citenamefont
-  {{Postnov}}}]{Pshirkov2010}%
+\bibitem [{\citenamefont {Pshirkov}\ \emph {et~al.}(2010)\citenamefont
+  {Pshirkov}, \citenamefont {Baskaran},\ and\ \citenamefont
+  {Postnov}}]{Pshirkov2010}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.~S.}\ \bibnamefont
-  {{Pshirkov}}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
-  {{Baskaran}}}, \ and\ \bibinfo {author} {\bibfnamefont {K.~A.}\ \bibnamefont
-  {{Postnov}}},\ }\href {\doibase 10.1111/j.1365-2966.2009.15887.x} {\bibfield
-  {journal} {\bibinfo  {journal} {\mnras}\ }\textbf {\bibinfo {volume} {402}},\
-  \bibinfo {pages} {417} (\bibinfo {year} {2010})},\ \Eprint
-  {http://arxiv.org/abs/0909.0742} {arXiv:0909.0742 [astro-ph.CO]} \BibitemShut
-  {NoStop}%
+  {Pshirkov}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Baskaran}},
+  \ and\ \bibinfo {author} {\bibfnamefont {K.~A.}\ \bibnamefont {Postnov}},\
+  }\href {\doibase 10.1111/j.1365-2966.2009.15887.x} {\bibfield  {journal}
+  {\bibinfo  {journal} {Monthly Notices of the Royal Astronomical Society}\
+  }\textbf {\bibinfo {volume} {402}},\ \bibinfo {pages} {417} (\bibinfo {year}
+  {2010})},\ \Eprint
+  {http://arxiv.org/abs/http://oup.prod.sis.lan/mnras/article-pdf/402/1/417/18581595/mnras0402-0417.pdf}
+  {http://oup.prod.sis.lan/mnras/article-pdf/402/1/417/18581595/mnras0402-0417.pdf}
+  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {{Ajith}}(2011)}]{Ajith_2011}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont

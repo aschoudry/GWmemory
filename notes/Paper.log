@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  8 APR 2019 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.12.3)  13 JUL 2019 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -741,7 +741,7 @@ Overfull \hbox (2.81746pt too wide) in paragraph at lines 294--294
  []
 
 [5] [6]
-<../plots/PNmemorycontributionHpAlginedSpin.pdf, id=256, 809.0225pt x 527.9725p
+<../plots/PNmemorycontributionHpAlginedSpin.pdf, id=260, 809.0225pt x 527.9725p
 t>
 File: ../plots/PNmemorycontributionHpAlginedSpin.pdf Graphic file (type pdf)
  <use ../plots/PNmemorycontributionHpAlginedSpin.pdf>
@@ -749,14 +749,14 @@ Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpin.pdf used on
  input line 346.
 (pdftex.def)             Requested size: 252.94499pt x 165.07156pt.
 
-<../plots/PNmemoryFavata.pdf, id=257, 798.985pt x 520.94624pt>
+<../plots/PNmemoryFavata.pdf, id=261, 798.985pt x 520.94624pt>
 File: ../plots/PNmemoryFavata.pdf Graphic file (type pdf)
 
 <use ../plots/PNmemoryFavata.pdf>
 Package pdftex.def Info: ../plots/PNmemoryFavata.pdf used on input line 347.
 (pdftex.def)             Requested size: 252.94499pt x 164.91768pt.
 
-<../plots/PNmemorycontributionHpAntiAlginedSpin.pdf, id=258, 787.94376pt x 514.
+<../plots/PNmemorycontributionHpAntiAlginedSpin.pdf, id=262, 787.94376pt x 514.
 92375pt>
 File: ../plots/PNmemorycontributionHpAntiAlginedSpin.pdf Graphic file (type pdf
 )
@@ -773,7 +773,7 @@ Missing character: There is no ù in font txr!
 Missing character: There is no õ in font txr!
 Missing character: There is no © in font txr!
 
-<../plots/PNmemorycontributionHpAlginedSpinAngular.pdf, id=261, 833.1125pt x 56
+<../plots/PNmemorycontributionHpAlginedSpinAngular.pdf, id=265, 833.1125pt x 56
 6.115pt>
 File: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf Graphic file (type 
 pdf)
@@ -782,7 +782,7 @@ Package pdftex.def Info: ../plots/PNmemorycontributionHpAlginedSpinAngular.pdf
 used on input line 356.
 (pdftex.def)             Requested size: 252.94499pt x 171.87442pt.
 
-<../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf, id=262, 856.19875pt
+<../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf, id=266, 856.19875pt
  x 580.1675pt>
 File: ../plots/PNmemorycontributionHpAntiAlginedSpinAngular.pdf Graphic file (t
 ype pdf)
@@ -833,7 +833,7 @@ LaTeX Warning: A float is stuck (cannot be placed) on input line 409.
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-<../plots/MemoryPlot_nonSpining/q7.pdf, id=411, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_nonSpining/q7.pdf, id=415, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_nonSpining/q7.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_nonSpining/q7.pdf>
@@ -846,7 +846,7 @@ Overfull \hbox (33.61162pt too wide) in paragraph at lines 415--416
  []
 
 
-<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=412, 578.16pt x 433.62pt>
+<../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf, id=416, 578.16pt x 433.62pt>
 File: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf Graphic file (type pdf)
 
 <use ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf>
@@ -854,7 +854,7 @@ Package pdftex.def Info: ../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf used o
 n input line 420.
 (pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
 
-<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=413, 578.16pt x 433.6
+<../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf, id=417, 578.16pt x 433.6
 2pt>
 File: ../plots/MemoryPlot_AntialignedSpinSXSdata/m0p94.pdf Graphic file (type p
 df)
@@ -884,13 +884,38 @@ pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_nonSpining/q7.pdf):
  PDF inclusion: multiple pdfs with page group included in a single page
 >]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 428.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 427.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 428.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 427.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
+
+<../plots/Memory_Spin_vs_Mass.pdf, id=538, 578.16pt x 433.62pt>
+File: ../plots/Memory_Spin_vs_Mass.pdf Graphic file (type pdf)
+
+<use ../plots/Memory_Spin_vs_Mass.pdf>
+Package pdftex.def Info: ../plots/Memory_Spin_vs_Mass.pdf used on input line 42
+9.
+(pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
+
+<../plots/MemoryRes_Spin_vs_Mass.pdf, id=539, 578.16pt x 433.62pt>
+File: ../plots/MemoryRes_Spin_vs_Mass.pdf Graphic file (type pdf)
+
+<use ../plots/MemoryRes_Spin_vs_Mass.pdf>
+Package pdftex.def Info: ../plots/MemoryRes_Spin_vs_Mass.pdf used on input line
+ 430.
+(pdftex.def)             Requested size: 289.07999pt x 216.80946pt.
+
+Overfull \hbox (33.61162pt too wide) in paragraph at lines 429--431
+ [][] 
+ []
+
+
+Overfull \hbox (33.61162pt too wide) in paragraph at lines 429--431
+ [] 
+ []
 
 [10 <../plots/MemoryPlot_AlignedSpinSXSdata/0p99.pdf> <../plots/MemoryPlot_Anti
 alignedSpinSXSdata/m0p94.pdf
@@ -898,59 +923,60 @@ alignedSpinSXSdata/m0p94.pdf
 pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryPlot_AntialignedSpinSXSd
 ata/m0p94.pdf): PDF inclusion: multiple pdfs with page group included in a sing
 le page
+> <../plots/Memory_Spin_vs_Mass.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/Memory_Spin_vs_Mass.pdf): PDF 
+inclusion: multiple pdfs with page group included in a single page
+> <../plots/MemoryRes_Spin_vs_Mass.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../plots/MemoryRes_Spin_vs_Mass.pdf): P
+DF inclusion: multiple pdfs with page group included in a single page
 >]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 464.
+(hyperref)                removing `math shift' on input line 472.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 464.
+(hyperref)                removing `subscript' on input line 472.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 464.
+(hyperref)                removing `math shift' on input line 472.
 
 [11] [12] (./Paper.bbl
-! Undefined control sequence.
-<argument> \bibinfo {journal} {\mnras 
-                                      }\ 
-l.313 ...o {pages} {417} (\bibinfo {year} {2010})}
-                                                  ,\ \Eprint
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Underfull \hbox (badness 10000) in paragraph at lines 311--318
+ []\OT1/txr/m/n/9 M. S. Pshirkov, D. Baskaran,  and K. A. Post-nov,
+ []
 
-! Undefined control sequence.
-<argument> \mnras 
-                  
-l.313 ...o {pages} {417} (\bibinfo {year} {2010})}
-                                                  ,\ \Eprint
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--318
+ [][]\OT1/txr/m/n/9 Monthly No-tices of the Royal As-tro-nom-i-cal So-ci-ety
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--318
+ \OT1/txr/bx/n/9 402\OT1/txr/m/n/9 , 417 (2010)[][], [][]http://oup.prod.sis.la
+n/mnras/article-
+ []
 
 ) [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 526.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 534.
  (./Paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 526.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 526.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 534.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 534.
 Package rerunfilecheck Info: File `Paper.out' has not changed.
-(rerunfilecheck)             Checksum: 8182AC551B3C4BDBF650F0D3DA09F284;1548.
+(rerunfilecheck)             Checksum: DD2ACFC36B1C005815458E13A482A883;1654.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10557 strings out of 494910
- 149761 string characters out of 6179836
- 307936 words of memory out of 5000000
- 13489 multiletter control sequences out of 15000+600000
+ 10571 strings out of 494910
+ 150175 string characters out of 6179836
+ 308204 words of memory out of 5000000
+ 13499 multiletter control sequences out of 15000+600000
  53004 words of font info for 131 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  33i,16n,35p,2110b,433s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -969,10 +995,10 @@ s/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Paper.pdf (13 pages, 530905 bytes).
+Output written on Paper.pdf (13 pages, 698974 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
- 632 compressed objects within 7 object streams
- 128 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 790 PDF objects out of 1000 (max. 8388607)
+ 669 compressed objects within 7 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
