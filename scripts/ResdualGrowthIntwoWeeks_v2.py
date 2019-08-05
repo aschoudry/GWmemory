@@ -8,6 +8,7 @@ from matplotlib.ticker import LogLocator
 from matplotlib.colors import LogNorm
 import plotsettings
 from matplotlib.font_manager import FontProperties
+import PostNewtonianMemoryFnc as PNM
 
 
 def find_nearest_idx(array, value):
@@ -95,6 +96,10 @@ fig = plt.figure()
 fontP = FontProperties()
 fontP.set_size('20.')
 
+# PN initial time parameter
+t_iPN = -9000.0
+t_fPN = -100.0
+
 Spin_array = np.array([-0.941, 0.99])
 
 Mass_array = np.array([8.0, 9.0, 10.0])
@@ -104,15 +109,33 @@ k=0
 for i in Spin_array:
 	for j in Mass_array:
 			timeNR = Memory_growth_in_two_weeks(j, i)[0]
-			hmem = Memory_growth_in_two_weeks(j, i)[1]
+			hmem = 17*Memory_growth_in_two_weeks(j, i)[1]
 			time_two_weeks = Memory_growth_in_two_weeks(j, i)[2]
-			hmem_two_weeks = Memory_growth_in_two_weeks(j, i)[3]
+			hmem_two_weeks = 17*Memory_growth_in_two_weeks(j, i)[3]
+
+			#Attaching the PostNewtonian part spinning binaries 
+			dt=timeNR[1]-timeNR[0]
+			time_PN=np.arange(t_iPN, t_fPN, dt)
+			nsteps=len(time_PN)
+			eta=0.25
+			R=1.0
+			M=1.0
+			
+			x0=pow(-5.0*M/(256.0*t_iPN*eta), 1.0/4.0)
+			chiZa=0.0
+			chiZs=i
+			
+			hp_mem_PN=PNM.h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 2, chiZa, chiZs)
+			hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
+		
+			print len(hp_mem_PN), len(time_PN)
+			plt.plot(time_PN+100.0, hp_mem_PN)			
 
 			plt.plot(timeNR+k*shift, hmem,'k--')
 			plt.plot(time_two_weeks+k*shift, hmem_two_weeks, label='M='+str(round(j,1))+' \t\t S ='+ str(round(i, 2)))
 			k+=1		
 
-#plt.xlim(-3500, 4500)
+plt.ylim(0.0, 0.076)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
