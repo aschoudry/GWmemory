@@ -98,8 +98,7 @@ fontP = FontProperties()
 fontP.set_size('20.')
 
 # PN initial time parameter
-t_iPN = -9000.0
-t_fPN = -830.0
+t_fPN = 580.0
 
 Spin_array = np.array([-0.941, 0.0, 0.99])
 
@@ -137,13 +136,18 @@ for i in Spin_array:
 		hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
 		hp_mem_PN = hp_mem_PN[:hp_mem_PN_max_idx]
 		time_PN = time_PN[:hp_mem_PN_max_idx]
+			
+		time_PN=time_PN-time_PN[-1]
+		time_PN=time_PN+timeNR[-1]
+
+		
 
 		## Adjusting NR memory to shift
 		#hmem = hmem + hp_mem_PN[-1]
 		#hmem_two_weeks = hmem_two_weeks + hp_mem_PN[-1]
 		hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
 		
-		plt.plot(time_PN, hp_mem_PN)		
+		plt.plot(time_PN, hp_mem_PN, 'r:')		
 
 		plt.plot(timeNR, hmem,'k--')
 		plt.plot(time_two_weeks, hmem_two_weeks, label='M='+str(round(j,1))+' \t\t S ='+ str(round(i, 2)))
