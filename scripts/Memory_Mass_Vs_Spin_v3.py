@@ -67,6 +67,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
+	hmem=17.0*hmem	
 
 	hmem_diff = np.zeros(len(hmem))
 	for i in range(len(hmem)):
@@ -90,7 +91,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 # Make heatmap for the two weeks memory growth in SMBHB		
 Spin_array = np.array([-0.941, -0.801, -0.601, -0.431, -0.201, 0.0 ,0.201, 0.601, 0.801, 0.99])
-Mass_array = np.linspace(8, 9.5, len(Spin_array))
+Mass_array = np.linspace(8.0, 9.5, len(Spin_array))
 
 Memory_growth_M_vs_Spin = np.zeros([len(Spin_array), len(Spin_array)])
 
@@ -100,7 +101,7 @@ for i in range(len(Spin_array)):
 		Memory_growth_M_vs_Spin[i][j]  = 4.6*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=9.511959855858058e-21, vmax=1.0311708502287188e-17))
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=7.711959855858058e-17, vmax=7.311708502287188e-15))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
@@ -151,6 +152,8 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 	
+	hmem=17.0*hmem	
+
 	hmem_diff = np.zeros(len(hmem))
 	for i in range(len(hmem)):
 		hmem_diff[i] =  (hmem[-i]-hmem[-(i+1)])/abs(hmem[-i])
@@ -191,7 +194,7 @@ for i in range(len(Spin_array)):
 		Reseduals_M_vs_Spin[i][j]  = compute_rms_reseduals(Mass_array[i], Spin_array[j])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=7.4011072070563e-19, vmax=4.152466994869437e-17))
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=1.3e-17, vmax=7.0e-16))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.colorbar()
@@ -199,4 +202,6 @@ fig.tight_layout()
 #plt.savefig("/home/ashok/Desktop/gravitational_wave_memory_project/plots/MemoryRes_Spin_vs_Mass.pdf")
 plt.show()
 
+
+print Memory_growth_M_vs_Spin.min(), Memory_growth_M_vs_Spin.max()
 print Reseduals_M_vs_Spin.min(), Reseduals_M_vs_Spin.max()	

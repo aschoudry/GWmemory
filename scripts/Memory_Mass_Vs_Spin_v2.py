@@ -65,7 +65,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
 	
-
+	hmem = 17.0*hmem
 	time_final=timeNR[np.argmax(hp)]
 	t_initial =  time_initial(log_SolarMass, time_final)
 
@@ -92,7 +92,7 @@ for i in range(len(Spin_array)):
 		Memory_growth_M_vs_Spin[i][j]  = 4.4*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=3.261800077256976e-18, vmax=8.031504325972437e-16))
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=4.261800077256976e-17, vmax=4.931504325972437e-15))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
@@ -143,6 +143,8 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
+	hmem=17.0*hmem
+
 	time_final=timeNR[np.argmax(hp)]
 	t_initial =  time_initial(log_SolarMass, time_final)
 
@@ -181,7 +183,7 @@ for i in range(len(Spin_array)):
 		Reseduals_M_vs_Spin[i][j]  = compute_rms_reseduals(Mass_array[i], Spin_array[j])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=8.111388526479076e-18, vmax=1.5305626085081242e-16))
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.90, 0.99, 8, 10], norm=LogNorm(vmin=1.3711388526479076e-16, vmax=3.4205626085081242e-15))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.colorbar()
@@ -189,4 +191,5 @@ fig.tight_layout()
 #plt.savefig("/home/ashok/Desktop/gravitational_wave_memory_project/plots/MemoryRes_Spin_vs_Mass.pdf")
 plt.show()
 
+print Memory_growth_M_vs_Spin.min(), Memory_growth_M_vs_Spin.max()
 print Reseduals_M_vs_Spin.min(), Reseduals_M_vs_Spin.max()	

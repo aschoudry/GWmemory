@@ -102,10 +102,12 @@ t_fPN = 580.0
 
 Spin_array = np.array([-0.941, 0.0, 0.99])
 
-Mass_array = np.array([8.0, 9.0, 10.0])
+Mass_array = np.array([8.0, 9.0, 9.5])
 
 shift = 2500
+shiftSpin=10000
 k=0
+l=0
 for i in Spin_array:
 	for j in Mass_array:
 		timeNR = Memory_growth_in_two_weeks(j, i)[0]
@@ -114,8 +116,8 @@ for i in Spin_array:
 		hmem_two_weeks = 17*Memory_growth_in_two_weeks(j, i)[3]
 	
 		timeNR_Original = timeNR
-		timeNR = timeNR+k*shift
-		time_two_weeks = time_two_weeks+k*shift
+		timeNR = timeNR+k*shift+l*shiftSpin
+		time_two_weeks = time_two_weeks+k*shift+l*shiftSpin
 
 		#Attaching the PostNewtonian part spinning binaries
 		t_iPN=timeNR_Original[0]
@@ -138,26 +140,33 @@ for i in Spin_array:
 		time_PN = time_PN[:hp_mem_PN_max_idx]
 			
 		time_PN=time_PN-time_PN[-1]
-		time_PN=time_PN+timeNR[-1]
+		time_PN=time_PN+time_two_weeks[-1]
 
 		
 
 		## Adjusting NR memory to shift
-		#hmem = hmem + hp_mem_PN[-1]
-		#hmem_two_weeks = hmem_two_weeks + hp_mem_PN[-1]
-		hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
-		
-		plt.plot(time_PN, hp_mem_PN, 'r:')		
+		#hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
 
+		hmem = hmem+hp_mem_PN[0]
+		hmem_two_weeks=hmem_two_weeks+hp_mem_PN[0]
+
+		plt.plot(time_PN, hp_mem_PN, 'r,')		
 		plt.plot(timeNR, hmem,'k--')
-		plt.plot(time_two_weeks, hmem_two_weeks, label='M='+str(round(j,1))+' \t\t S ='+ str(round(i, 2)))
-		k+=1		
 
-plt.ylim(0.0, 0.08)
+		plt.plot(time_two_weeks, hmem_two_weeks, label='M=10**('+ str(round(j,1))+')\, S ='+str(round(i, 2)))
+		k+=1		
+	l+=1
+
+plt.plot(time_PN, hp_mem_PN, 'r,', label = "PN memory")		
+plt.plot(timeNR, hmem,'k--', label = 'NR memory')
+
+plt.xlim(-3000, 41000)
+plt.ylim(0.0, 0.2)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
 fontP.set_size('12.')
+plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 print max(hmem)
@@ -167,7 +176,7 @@ print max(hmem)
 t_iPN = -1000.0
 t_fPN = 830.0
 
-
+'''
 for i in Spin_array:
 	j=8
 	timeNR = Memory_growth_in_two_weeks(j, i)[0]
@@ -209,6 +218,7 @@ plt.legend(loc=2)
 fontP.set_size('12.')
 plt.show()
 
+'''
 
 
 
@@ -285,8 +295,10 @@ fig = plt.figure()
 fontP = FontProperties()
 fontP.set_size('20.')
 
-shift = 50
+shift = 15
+shiftSpin=30
 k=0
+l=0
 time_last=0
 for i in Spin_array:
 	for j in Mass_array:
@@ -295,19 +307,24 @@ for i in Spin_array:
 		res_quad_fit_two_weeks = compute_rms_reseduals(j, i)[2]
 		res_quadSubtract_two_weeks = compute_rms_reseduals(j, i)[3]
 
-		timeNR_two_weeks = timeNR_two_weeks - timeNR_two_weeks[0] +  k*shift
+		timeNR_two_weeks = timeNR_two_weeks - timeNR_two_weeks[0] +  k*shift + l*shiftSpin
 		plt.plot(timeNR_two_weeks, res_two_weeks,'k--')
 		plt.plot(timeNR_two_weeks, res_quad_fit_two_weeks ,'r--')
-		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label='M='+str(round(j,1))+' \t\t S ='+ str(round(i, 2)))
+		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label='M=10**(' + str(round(j,1))+')\, S ='+ str(round(i, 2)))
 		#time_last = timeNR_two_weeks[-1]+25
-
 		k+=1		
+	l+=1
 
-plt.ylim(-0.02, 0.2)
-plt.xlabel(r'$days$')
-plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
+plt.plot(timeNR_two_weeks, res_two_weeks,'k--', label= 'NR memory')
+plt.plot(timeNR_two_weeks, res_quad_fit_two_weeks ,'r--', label='Quadratic fit')
+
+plt.xlim(-10, 200)
+plt.ylim(-0.02, 0.3)
+plt.xlabel(r'$time \, (days)$')
+plt.ylabel(r'$Residuals \, (ns)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
+plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 
 
