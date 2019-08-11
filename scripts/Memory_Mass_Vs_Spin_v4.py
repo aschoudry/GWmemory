@@ -7,8 +7,6 @@ from matplotlib import colors, cm
 from matplotlib.ticker import LogLocator
 from matplotlib.colors import LogNorm
 
-#Set memory growth rate
-grwth = 5.0*pow(10, -5)
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -16,8 +14,8 @@ def find_nearest_idx(array, value):
     return idx
                                          
 # defining intial time for given solar mass for a given fixed time interval of two weeks
-def time_initial(x, time_final):
-	return time_final - 2.6*pow(10, 11-x)
+def time_initial(log_solarMass, time_final, numer_of_observation_days):
+	return time_final - 1.76*pow(10, 10-log_solarMass)*numer_of_observation_days
 
 #function that integrate the memory signal
 def s(t, hpmem, mu, phi):
@@ -69,29 +67,70 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 	hmem=17.0*hmem	
 
-	hmem_diff = np.zeros(len(hmem))
-	for i in range(len(hmem)):
-		hmem_diff[i] =  (hmem[-i]-hmem[-(i+1)])/abs(hmem[-i])
-
+	#Look where the memory growth looks greatest
+	numer_of_observation_days=14.0	
 	
-	time_final = timeNR[-find_nearest_idx(hmem_diff, grwth)]	
+	time_final_i = timeNR[-1]
 
-	t_initial =  time_initial(log_SolarMass, time_final)
+	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
 
-	idx = find_nearest_idx(timeNR, t_initial)
+	idx_i = find_nearest_idx(timeNR, t_initial_i)
 
-#	print timeNR[np.argmax(hp)]	
-	hmem_diff = abs(hmem[find_nearest_idx(timeNR, time_final)]-hmem[idx])
+	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+	time_final_ip1 = timeNR[-2]
+
+	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+	idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+	hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+	time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+	hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+	hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+	k=0
 	
-#	plt.plot(timeNR, hp)
-#	plt.show()
+	while hmem_growth_two_weeks_ip1 >= hmem_growth_two_weeks_i:
+		k+=1
+		time_final_i = timeNR[-(1+k)]
+
+		t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+
+		idx_i = find_nearest_idx(timeNR, t_initial_i)
+
+		hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+		time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+		time_final_ip1 = timeNR[-(2+k)]
+
+		t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+		idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+		hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+		time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+		hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+		hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+		
+		
+	hmem_two_weeks = hmem_two_weeks_ip1
+	time_two_weeks = time_two_weeks_ip1
+
+	hmem_diff = hmem_two_weeks[-1]-hmem_two_weeks[0]
 
 	return hmem_diff
 
 
 # Make heatmap for the two weeks memory growth in SMBHB		
 Spin_array = np.array([-0.941, -0.801, -0.601, -0.431, -0.201, 0.0 ,0.201, 0.601, 0.801, 0.99])
-Mass_array = np.linspace(8.0, 9.5, len(Spin_array))
+Mass_array = np.linspace(8.0, 10.0, len(Spin_array))
 
 Memory_growth_M_vs_Spin = np.zeros([len(Spin_array), len(Spin_array)])
 
@@ -101,7 +140,7 @@ for i in range(len(Spin_array)):
 		Memory_growth_M_vs_Spin[i][j]  = 4.6*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=7.711959855858058e-17, vmax=7.311708502287188e-15))
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 10.0], norm=LogNorm(vmin=7.711959855858058e-17, vmax=1.3973e-14))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
@@ -109,10 +148,6 @@ plt.colorbar()
 fig.tight_layout()
 plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/Memory_Spin_vs_Mass.pdf")	
 plt.show()
-
-
-#print abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max()
-print Memory_growth_M_vs_Spin.min(), Memory_growth_M_vs_Spin.max()
 
 # Compute RMS reseduals as function of Spin Vs Mass
 
@@ -154,20 +189,63 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 	
 	hmem=17.0*hmem	
 
-	hmem_diff = np.zeros(len(hmem))
-	for i in range(len(hmem)):
-		hmem_diff[i] =  (hmem[-i]-hmem[-(i+1)])/abs(hmem[-i])
-
+	#Look where the memory growth looks greatest
+	numer_of_observation_days=14.0	
 	
-	time_final = timeNR[-find_nearest_idx(hmem_diff, grwth)]
+	time_final_i = timeNR[-1]
 
-	t_initial =  time_initial(log_SolarMass, time_final)
+	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
 
-	idx = find_nearest_idx(timeNR, t_initial)
+	idx_i = find_nearest_idx(timeNR, t_initial_i)
 
-	hmem_two_weeks =  hmem[idx:find_nearest_idx(timeNR, grwth)]
-	timeNR_two_weeks = timeNR[idx:find_nearest_idx(timeNR, grwth)]
-	timeNR_two_weeks=timeNR_two_weeks*4.6*pow(10.0, -6)*pow(10, log_SolarMass)
+	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+	time_final_ip1 = timeNR[-2]
+
+	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+	idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+	hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+	time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+	hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+	hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+	k=0
+	
+	while hmem_growth_two_weeks_ip1 >= hmem_growth_two_weeks_i:
+		k+=1
+		time_final_i = timeNR[-(1+k)]
+
+		t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+
+		idx_i = find_nearest_idx(timeNR, t_initial_i)
+
+		hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+		time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+		time_final_ip1 = timeNR[-(2+k)]
+
+		t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+		idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+		hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+		time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+		hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+		hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+		
+		
+	hmem_two_weeks = hmem_two_weeks_ip1
+	time_two_weeks = time_two_weeks_ip1
+
+	timeNR_two_weeks=time_two_weeks*4.6*pow(10.0, -6)*pow(10, log_SolarMass)
 
 	#compute the quadratic fit and subtact it from reseduals
 	res = s(timeNR_two_weeks, hmem_two_weeks, 0, 0) 
@@ -179,11 +257,6 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 	# mean of reseduals
 	res_mean = 4.6*(10**(log_SolarMass-23))*np.sqrt(np.mean(res_quadSubtract**2))
 
-#	plt.semilogx(timeNR, h_mem_plus)
-#	plt.semilogx(timeNR_two_weeks, hmem_two_weeks, 'k--')
-#	plt.plot(timeNR_two_weeks, res_quadSubtract, 'k--')
-#	plt.show()
-	
 	return res_mean
       
 # Make heatmap for the two weeks memory growth in SMBHB		
@@ -195,7 +268,7 @@ for i in range(len(Spin_array)):
 		Reseduals_M_vs_Spin[i][j]  = compute_rms_reseduals(Mass_array[i], Spin_array[j])
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 9.5], norm=LogNorm(vmin=5.9e-14, vmax=3.14e-12))
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 10.0], norm=LogNorm(vmin=1.10e-13, vmax=3.78e-11))
 plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.colorbar()

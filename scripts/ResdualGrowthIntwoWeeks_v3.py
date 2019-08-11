@@ -17,8 +17,8 @@ def find_nearest_idx(array, value):
     return idx
                                          
 # defining intial time for given solar mass for a given fixed time interval of two weeks
-def time_initial(x, time_final):
-	return time_final - 2.6*pow(10, 11-x)
+def time_initial(log_solarMass, time_final, numer_of_observation_days):
+	return time_final - 1.76*pow(10, 10-log_solarMass)*numer_of_observation_days
 
 #function that integrate the memory signal
 def s(t, hpmem, mu, phi):
@@ -28,10 +28,6 @@ def s(t, hpmem, mu, phi):
 	st = (1.0/2.0)*(1.0+mu)*(int_hp*np.cos(2*phi))
 
 	return st
-
-# Set rate of memory growth
-grwth = 5.0*pow(10, -5)
-
 
 # Function that compute memory growth during two weeks interval of time for a given mass
 
@@ -71,19 +67,63 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
-	hmem_diff = np.zeros(len(hmem))
-	for i in range(len(hmem)):
-		hmem_diff[i] =  (hmem[-i]-hmem[-(i+1)])/abs(hmem[-i])
-
-	time_final = timeNR[-find_nearest_idx(hmem_diff, grwth)]
-
-	t_initial =  time_initial(log_SolarMass, time_final)
-
-	idx = find_nearest_idx(timeNR, t_initial)
-
-	hmem_two_weeks = hmem[idx:find_nearest_idx(timeNR, time_final)]
-	time_two_weeks = timeNR[idx:find_nearest_idx(timeNR, time_final)]
+	#Look where the memory growth looks greatest
+	numer_of_observation_days=14.0	
 	
+	time_final_i = timeNR[-1]
+
+	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+
+	idx_i = find_nearest_idx(timeNR, t_initial_i)
+
+	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+	time_final_ip1 = timeNR[-2]
+
+	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+	idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+	hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+	time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+	hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+	hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+	k=0
+	
+	while hmem_growth_two_weeks_ip1 >= hmem_growth_two_weeks_i:
+		k+=1
+		time_final_i = timeNR[-(1+k)]
+
+		t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+
+		idx_i = find_nearest_idx(timeNR, t_initial_i)
+
+		hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+		time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+		time_final_ip1 = timeNR[-(2+k)]
+
+		t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+		idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+		hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+		time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+		hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+		hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+		
+		
+	hmem_two_weeks = hmem_two_weeks_ip1
+	time_two_weeks = time_two_weeks_ip1
+														
+
 
 	return timeNR, hmem, time_two_weeks, hmem_two_weeks
 
@@ -165,7 +205,7 @@ plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
+#plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 print max(hmem)
@@ -257,24 +297,63 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
-	hmem_diff = np.zeros(len(hmem))
-	for i in range(len(hmem)):
-		hmem_diff[i] =  (hmem[-i]-hmem[-(i+1)])/abs(hmem[-i])
+	#Look where the memory growth looks greatest
 
+	numer_of_observation_days=14.0	
 	
-	time_final = timeNR[-find_nearest_idx(hmem_diff, grwth)]
+	time_final_i = timeNR[-1]
 
-	t_initial =  time_initial(log_SolarMass, time_final)
+	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
 
-	idx = find_nearest_idx(timeNR, t_initial)
+	idx_i = find_nearest_idx(timeNR, t_initial_i)
 
+	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+	time_final_ip1 = timeNR[-2]
+
+	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+	idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+	hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+	time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+	hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+	hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+	k=0
 	
-	#hmem_two_weeks =  4.4*(10**(log_SolarMass-23))*hmem[idx:find_nearest_idx(timeNR, time_final)]
-	hmem_two_weeks =  hmem[idx:find_nearest_idx(timeNR, time_final)]
-	#hmem = 4.4*(10**(log_SolarMass-23))*hmem
-	timeNR_two_weeks = timeNR[idx:find_nearest_idx(timeNR, time_final)]
+	while hmem_growth_two_weeks_ip1 >= hmem_growth_two_weeks_i:
+		k+=1
+		time_final_i = timeNR[-(1+k)]
 
-	#timeNR_two_weeks = 5.3*pow(10, log_SolarMass-11)*timeNR_two_weeks
+		t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+
+		idx_i = find_nearest_idx(timeNR, t_initial_i)
+
+		hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
+		time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
+
+		time_final_ip1 = timeNR[-(2+k)]
+
+		t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
+
+		idx_ip1 = find_nearest_idx(timeNR, t_initial_ip1)
+
+		hmem_two_weeks_ip1 = hmem[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+		time_two_weeks_ip1 = timeNR[idx_ip1:find_nearest_idx(timeNR, time_final_ip1)]
+
+
+		hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
+		hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
+
+		
+		
+	hmem_two_weeks = hmem_two_weeks_ip1
+	timeNR_two_weeks = time_two_weeks_ip1
+
 	#compute the quadratic fit and subtact it from reseduals
 	res = s(timeNR_two_weeks, hmem_two_weeks, 0, 0) 
 	res_quadfit = np.polyfit(timeNR_two_weeks, res, 2)
@@ -324,7 +403,7 @@ plt.xlabel(r'$time \, (days)$')
 plt.ylabel(r'$Residuals \, (ns)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
+#plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 
 
