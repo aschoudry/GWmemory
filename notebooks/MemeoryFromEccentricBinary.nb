@@ -1,0 +1,89 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2305,         81]
+NotebookOptionsPosition[      1802,         64]
+NotebookOutlinePosition[      2136,         79]
+CellTagsIndexPosition[      2093,         76]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"03104928-7c64-4af2-ac47-3142ffa188ed"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Eccentricity evolution equations (Appendix B \
+https://arxiv.org/pdf/1906.06263.pdf)\
+\>", "Section",
+ CellChangeTimes->{{3.773758438327137*^9, 
+  3.773758513928595*^9}},ExpressionUUID->"6487b6de-c976-4970-bfd9-\
+a6a77bf02fe2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"X", "[", "0", "]"}], " ", "=", " ", 
+   RowBox[{
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["e", "2"]}], ")"}], 
+      RowBox[{"7", "/", "2"}]]], 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["96", "5"], "+", " ", 
+      RowBox[{
+       FractionBox["292", "5"], 
+       SuperscriptBox["e", "2"]}], " ", "+", " ", 
+      RowBox[{
+       FractionBox["37", "5"], 
+       SuperscriptBox["e", "4"]}]}], " ", ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"X", "[", "1", "]"}], " ", "=", " ", 
+  "\[IndentingNewLine]"}]}], "Input",
+ CellChangeTimes->{{3.773758159934754*^9, 
+  3.773758431950688*^9}},ExpressionUUID->"0f8ac2cf-8beb-4d1d-8368-\
+ed7c5375b73e"]
+}, Open  ]]
+},
+WindowSize->{1850, 1016},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 172, 3, 31, "Input",ExpressionUUID->"03104928-7c64-4af2-ac47-3142ffa188ed"],
+Cell[CellGroupData[{
+Cell[755, 27, 237, 6, 68, "Section",ExpressionUUID->"6487b6de-c976-4970-bfd9-a6a77bf02fe2"],
+Cell[995, 35, 791, 26, 104, "Input",ExpressionUUID->"0f8ac2cf-8beb-4d1d-8368-ed7c5375b73e"]
+}, Open  ]]
+}
+]
+*)
+
