@@ -9,6 +9,7 @@ from matplotlib.colors import LogNorm
 import plotsettings
 from matplotlib.font_manager import FontProperties
 import PostNewtonianMemoryFnc as PNM
+from mpl_toolkits.axes_grid.inset_locator import (inset_axes, InsetPosition, mark_inset)
 
 
 def find_nearest_idx(array, value):
@@ -66,6 +67,8 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
+
+	hmem=17.0*hmem
 
 	#Look where the memory growth looks greatest
 	numer_of_observation_days=14.0	
@@ -131,15 +134,20 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 # Make heatmap for the two weeks memory growth in SMBHB		
 #Spin_array = np.array([-0.901, -0.601, -0.431, -0.201, 0.0 ,0.201, 0.601, 0.801, 0.99])
 
+
+#Making plots
 legend_size = 2
-fig = plt.figure()
+fig, ax1 = plt.subplots()
+
 fontP = FontProperties()
-fontP.set_size('20.')
+fontP.set_size('10.')
+
+legend = ax1.legend(loc='best',prop={'size':legend_size})
 
 # PN initial time parameter
-t_fPN = 580.0
+t_fPN = 550.0
 
-Spin_array = np.array([-0.941, 0.0, 0.99])
+Spin_array = np.array([-0.941,0.0, 0.99])
 
 Mass_array = np.array([8.0, 9.0,10.0])
 
@@ -150,9 +158,9 @@ l=0
 for i in Spin_array:
 	for j in Mass_array:
 		timeNR = Memory_growth_in_two_weeks(j, i)[0]
-		hmem = 17*Memory_growth_in_two_weeks(j, i)[1]
+		hmem = Memory_growth_in_two_weeks(j, i)[1]
 		time_two_weeks = Memory_growth_in_two_weeks(j, i)[2]
-		hmem_two_weeks = 17*Memory_growth_in_two_weeks(j, i)[3]
+		hmem_two_weeks = Memory_growth_in_two_weeks(j, i)[3]
 	
 		timeNR_Original = timeNR
 		timeNR = timeNR+k*shift+l*shiftSpin
@@ -189,23 +197,39 @@ for i in Spin_array:
 		hmem = hmem+hp_mem_PN[0]
 		hmem_two_weeks=hmem_two_weeks+hp_mem_PN[0]
 
-		plt.plot(time_PN, hp_mem_PN, 'r,')		
-		plt.plot(timeNR, hmem,'k--')
+		ax1.plot(time_PN, hp_mem_PN, 'r:')		
+		ax1.plot(timeNR, hmem,'k--')
 
-		plt.plot(time_two_weeks, hmem_two_weeks, label='M=10**('+ str(round(j,1))+')\, S ='+str(round(i, 2)))
+		ax1.plot(time_two_weeks, hmem_two_weeks, label='M=10**('+ str(round(j,1))+')\, S ='+str(round(i, 2)))
 		k+=1		
 	l+=1
 
-plt.plot(time_PN, hp_mem_PN, 'r,', label = "PN memory")		
+plt.plot(time_PN, hp_mem_PN, 'r:', label = "PN memory")		
 plt.plot(timeNR, hmem,'k--', label = 'NR memory')
 
-plt.xlim(-3000, 41000)
+#plt.xlim(-5000, 25000)
 plt.ylim(0.0, 0.2)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
-fontP.set_size('12.')
-#plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
+fontP.set_size('8.')
+
+'''
+#Zoon in plot
+ax2 = plt.axes([0,0,1,1])
+ip = InsetPosition(ax1, [0.40,0.40,0.35,0.35])
+ax2.set_axes_locator(ip)
+# Mark the region corresponding to the inset axes on ax1 and draw lines
+# in grey linking the two axes.
+mark_inset(ax1, ax2, loc1=2, loc2=4, fc="none", ec='0.2')
+ax2.plot(timeNR, hmem,'k--')
+ax2.plot(time_two_weeks, hmem_two_weeks)
+
+
+plt.xlim(22500, 22530)
+plt.ylim(0.0379, 0.068)
+'''
+plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 print max(hmem)
@@ -299,6 +323,8 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 	#Look where the memory growth looks greatest
 
+	hmem=17.0*hmem
+
 	numer_of_observation_days=14.0	
 	
 	time_final_i = timeNR[-1]
@@ -351,7 +377,10 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 		
 		
-	hmem_two_weeks = hmem_two_weeks_ip1
+	hmem_two_weeks =  4.6*(10**(log_SolarMass-23))*hmem_two_weeks_ip1
+	#Convert to femto seconds
+	hmem_two_weeks=pow(10,15)*hmem_two_weeks
+	
 	timeNR_two_weeks = time_two_weeks_ip1
 
 	#compute the quadratic fit and subtact it from reseduals
@@ -398,12 +427,12 @@ plt.plot(timeNR_two_weeks, res_two_weeks,'k--', label= 'NR memory')
 plt.plot(timeNR_two_weeks, res_quad_fit_two_weeks ,'r--', label='Quadratic fit')
 
 plt.xlim(-10, 200)
-plt.ylim(-0.02, 0.3)
+plt.ylim(-15.0, 200.0)
 plt.xlabel(r'$time \, (days)$')
-plt.ylabel(r'$Residuals \, (ns)$')
+plt.ylabel(r'$Residuals \, (fs)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-#plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
+plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 
 
