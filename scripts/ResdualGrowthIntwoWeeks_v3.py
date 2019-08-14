@@ -35,7 +35,7 @@ def s(t, hpmem, mu, phi):
 def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		
 	if Spin < 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
 		filename = 'm0p'+str(Spin)[3:5]
 		
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -47,7 +47,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 		
 	if Spin == 0.0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/'
+		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
 		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
@@ -59,7 +59,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
 
 	if Spin > 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 		filename = '0p'+str(Spin)[2:4]
 	
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -229,66 +229,14 @@ ax2.plot(time_two_weeks, hmem_two_weeks)
 plt.xlim(22500, 22530)
 plt.ylim(0.0379, 0.068)
 '''
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryGrowthtwoweeks.pdf")
+plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
-
-print max(hmem)
-
-
-# PN initial time parameter
-t_iPN = -1000.0
-t_fPN = 830.0
-
-'''
-for i in Spin_array:
-	j=8
-	timeNR = Memory_growth_in_two_weeks(j, i)[0]
-	hmem = 17*Memory_growth_in_two_weeks(j, i)[1]
-	time_two_weeks = Memory_growth_in_two_weeks(j, i)[2]
-	hmem_two_weeks = 17*Memory_growth_in_two_weeks(j, i)[3]
-
-	#Attaching the PostNewtonian part spinning binaries 
-	t_iPN = timeNR[0]
-	
-	dt=timeNR[1]-timeNR[0]
-	time_PN=np.arange(t_iPN, t_fPN, dt)
-	nsteps=len(time_PN)
-	eta=0.25
-	R=1.0
-	M=1.0
-	
-	
-	x0=pow(-5.0*M/(256.0*t_iPN*eta), 1.0/4.0)
-	chiZa=0.0
-	chiZs=i
-
-	#Shifting the Post-Newtonian part to where it blows up
-	
-	hp_mem_PN = PNM.h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 3, chiZa, chiZs)
-	hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
-	hp_mem_PN = hp_mem_PN[:hp_mem_PN_max_idx]
-	time_PN = time_PN[:hp_mem_PN_max_idx]
-		
-	time_PN=time_PN-time_PN[-1]
-
-	plt.plot(time_PN, hp_mem_PN, label = str(round(i, 2)))			
-
-plt.xlim(-5000.0, 1000.0)
-plt.ylim(0.0042, 0.076)
-plt.xlabel(r'$t/M$')
-plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
-plt.legend(loc=2)
-fontP.set_size('12.')
-plt.show()
-
-'''
-
 
 
 def compute_rms_reseduals(log_SolarMass, Spin): 
 
 	if Spin < 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
 		filename = 'm0p'+str(Spin)[3:5]
 		
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -300,7 +248,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 		
 	if Spin == 0.0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/'
+		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
 		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
@@ -312,7 +260,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
 
 	if Spin > 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 		filename = '0p'+str(Spin)[2:4]
 	
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -432,7 +380,7 @@ plt.xlabel(r'$time \, (days)$')
 plt.ylabel(r'$Residuals \, (fs)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/ResedualGrowthtwoweeks.pdf")
+plt.savefig("../plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 
 

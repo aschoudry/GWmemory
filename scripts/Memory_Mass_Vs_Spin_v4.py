@@ -32,7 +32,7 @@ def s(t, hpmem, mu, phi):
 def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		
 	if Spin < 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
 		filename = 'm0p'+str(Spin)[3:5]
 		
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -44,7 +44,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 		
 	if Spin == 0.0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/'
+		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
 		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
@@ -56,7 +56,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
 
 	if Spin > 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 		filename = '0p'+str(Spin)[2:4]
 	
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -146,7 +146,7 @@ plt.ylabel('Log{(M)')
 plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
 plt.colorbar()
 fig.tight_layout()
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/Memory_Spin_vs_Mass.pdf")	
+plt.savefig("../plots/Memory_Spin_vs_Mass.pdf")	
 plt.show()
 
 # Compute RMS reseduals as function of Spin Vs Mass
@@ -154,7 +154,7 @@ plt.show()
 def compute_rms_reseduals(log_SolarMass, Spin): 
 
 	if Spin < 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
 		filename = 'm0p'+str(Spin)[3:5]
 		
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -166,7 +166,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 		
 	if Spin == 0.0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/Memory_data/'
+		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
 		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
@@ -178,7 +178,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
 
 	if Spin > 0:
-		file_location_hmem ='/home/ashok/gravitational_wave_memory_project/data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
+		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
 		filename = '0p'+str(Spin)[2:4]
 	
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
@@ -273,7 +273,7 @@ plt.xlabel('Spin')
 plt.ylabel('Log{(M)')
 plt.colorbar()
 fig.tight_layout()
-plt.savefig("/home/ashok/gravitational_wave_memory_project/plots/MemoryRes_Spin_vs_Mass.pdf")
+plt.savefig("../plots/MemoryRes_Spin_vs_Mass.pdf")
 plt.show()
 
 
