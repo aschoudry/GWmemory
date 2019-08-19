@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2019/dev/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Paper.aux
 The style file: apsrev4-1.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -29,14 +29,14 @@ Warning--missing journal in Ligocatalog2018
 Warning--empty year in Ligocatalog2018
 You've used 26 entries,
             5847 wiz_defined-function locations,
-            1825 strings with 20568 characters,
-and the built_in function-call counts, 25592 in all, are:
+            1827 strings with 20723 characters,
+and the built_in function-call counts, 25590 in all, are:
 = -- 1624
 > -- 648
 < -- 163
 + -- 212
 - -- 158
-* -- 4192
+* -- 4189
 := -- 2510
 add.period$ -- 26
 call.type$ -- 26
@@ -52,14 +52,14 @@ int.to.str$ -- 34
 missing$ -- 310
 newline$ -- 130
 num.names$ -- 75
-pop$ -- 974
+pop$ -- 976
 preamble$ -- 1
 purify$ -- 129
 quote$ -- 0
 skip$ -- 886
 stack$ -- 0
 substring$ -- 480
-swap$ -- 2387
+swap$ -- 2386
 text.length$ -- 79
 text.prefix$ -- 0
 top$ -- 8
