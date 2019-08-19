@@ -220,7 +220,7 @@ plt.plot(time_PN, hp_mem_PN, 'r:', label = "PN memory")
 plt.plot(timeNR, hmem,'k--', label = 'NR memory')
 
 #plt.xlim(-5000, 25000)
-plt.ylim(0.0, 0.1)
+plt.ylim(0.0, 0.2)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
@@ -241,7 +241,7 @@ ax2.plot(time_two_weeks, hmem_two_weeks)
 plt.xlim(22500, 22530)
 plt.ylim(0.0379, 0.068)
 '''
-plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
+#plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 
@@ -402,7 +402,7 @@ for i in Spin_array:
 		timeNR_two_weeks = timeNR_two_weeks - timeNR_two_weeks[0] +  k*shift + l*shiftSpin
 		plt.plot(timeNR_two_weeks, res_two_weeks,'k--')
 		plt.plot(timeNR_two_weeks, res_quad_fit_two_weeks ,'r--')
-		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label='$M=10 ^{'+ str(round(j,1))+'}M_\odot\t\, \, S ='+str(round(i, 2))+'$')
+		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label='M=10**(' + str(round(j,1))+')\, S ='+ str(round(i, 2)))
 		#time_last = timeNR_two_weeks[-1]+25
 		k+=1		
 	l+=1
@@ -416,6 +416,6 @@ plt.xlabel(r'$time \, (days)$')
 plt.ylabel(r'$Residuals \, (fs)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-plt.savefig("../plots/ResedualGrowthtwoweeks.pdf")
+#plt.savefig("../plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 
