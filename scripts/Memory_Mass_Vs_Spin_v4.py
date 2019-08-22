@@ -7,6 +7,7 @@ from matplotlib import colors, cm
 from matplotlib.ticker import LogLocator
 from matplotlib.colors import LogNorm
 
+numer_of_observation_days=14.0	
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -29,7 +30,7 @@ def s(t, hpmem, mu, phi):
 
 # Function that compute memory growth during two weeks interval of time for a given mass
 
-def Memory_growth_in_two_weeks(log_SolarMass, Spin):
+def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 		
 	if Spin < 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
@@ -38,22 +39,16 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 	
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
-	
 
 		
 	if Spin == 0.0:
 		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
-		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
 
 		datafile_hMemNR = filename_hmem
-		datafile_hNR = filename_h22
 		
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
 
 	if Spin > 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
@@ -62,13 +57,11 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 
 	hmem=17.0*hmem	
 
 	#Look where the memory growth looks greatest
-	numer_of_observation_days=14.0	
+	#numer_of_observation_days=14.0	
 	
 	time_final_i = timeNR[-1]
 
@@ -129,21 +122,27 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 
 
 # Make heatmap for the two weeks memory growth in SMBHB		
-Spin_array = np.array([-0.941, -0.801, -0.601, -0.431, -0.201, 0.0 ,0.201, 0.601, 0.801, 0.99])
-Mass_array = np.linspace(8.0, 10.0, len(Spin_array))
+#Spin_array = np.array([-0.941, -0.801, -0.601, -0.431, -0.201, 0.0 ,0.201, 0.601, 0.801, 0.99])
 
-Memory_growth_M_vs_Spin = np.zeros([len(Spin_array), len(Spin_array)])
+Spin_array = np.array([0.99, 0.801, 0.601, 0.201, 0.0, -0.201, -0.431, -0.601, -0.801, -0.941])
+Mass_array = np.linspace(8.0, 10.0, 2*len(Spin_array))
+
+Memory_growth_M_vs_Spin = np.zeros([len(Spin_array), len(Mass_array)])
 
 #4.4*(10**(Mass_array[j]-23))
 for i in range(len(Spin_array)):
 	for j in range(len(Mass_array)):
-		Memory_growth_M_vs_Spin[i][j]  = 4.6*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i])
+		Memory_growth_M_vs_Spin[i][j]  = np.log10(4.9*(10**(Mass_array[j]-23))*Memory_growth_in_two_weeks(Mass_array[j], Spin_array[i], numer_of_observation_days))
+
+vmn = Memory_growth_M_vs_Spin.min()
+vmx = Memory_growth_M_vs_Spin.max()
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 10.0], norm=LogNorm(vmin=7.711959855858058e-17, vmax=1.3973e-14))
-plt.xlabel('Spin')
-plt.ylabel('Log{(M)')
-plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 10.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
+
+plt.xlabel('Log{(M)')
+plt.ylabel('Spin')
+#plt.clim(abs(Memory_growth_M_vs_Spin).min(),abs(Memory_growth_M_vs_Spin).max())
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/Memory_Spin_vs_Mass.pdf")	
@@ -151,7 +150,7 @@ plt.show()
 
 # Compute RMS reseduals as function of Spin Vs Mass
 
-def compute_rms_reseduals(log_SolarMass, Spin): 
+def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days): 
 
 	if Spin < 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
@@ -160,8 +159,6 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 	
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 	
 
 		
@@ -169,13 +166,11 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
-		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
 
 		datafile_hMemNR = filename_hmem
-		datafile_hNR = filename_h22
-		
-		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
+
+	    	timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
+
 
 	if Spin > 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
@@ -184,13 +179,11 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
 	
 	hmem=17.0*hmem	
 
 	#Look where the memory growth looks greatest
-	numer_of_observation_days=14.0	
+	
 	
 	time_final_i = timeNR[-1]
 
@@ -245,7 +238,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 	hmem_two_weeks = hmem_two_weeks_ip1
 	time_two_weeks = time_two_weeks_ip1
 
-	timeNR_two_weeks=time_two_weeks*4.6*pow(10.0, -6)*pow(10, log_SolarMass)
+	timeNR_two_weeks=time_two_weeks*4.9*pow(10.0, -6)*pow(10, log_SolarMass)
 
 	#compute the quadratic fit and subtact it from reseduals
 	res = s(timeNR_two_weeks, hmem_two_weeks, 0, 0) 
@@ -255,22 +248,26 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 	
 	# mean of reseduals
-	res_mean = 4.6*(10**(log_SolarMass-23))*np.sqrt(np.mean(res_quadSubtract**2))
+	res_mean = 4.9*(10**(log_SolarMass-23))*np.sqrt(np.mean(res_quadSubtract**2))
 
 	return res_mean
       
 # Make heatmap for the two weeks memory growth in SMBHB		
 
-Reseduals_M_vs_Spin = np.zeros([len(Spin_array), len(Spin_array)])
+Reseduals_M_vs_Spin = np.zeros([len(Spin_array), len(Mass_array)])
 
 for i in range(len(Spin_array)):
 	for j in range(len(Mass_array)):
-		Reseduals_M_vs_Spin[i][j]  = compute_rms_reseduals(Mass_array[i], Spin_array[j])
+		Reseduals_M_vs_Spin[i][j]  = np.log10(compute_rms_reseduals(Mass_array[j], Spin_array[i], numer_of_observation_days))
+
+vmn=Reseduals_M_vs_Spin.min()
+vmx=Reseduals_M_vs_Spin.max()
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, origin='lower', extent=[-0.94, 0.99, 8, 10.0], norm=LogNorm(vmin=1.10e-13, vmax=3.78e-11))
-plt.xlabel('Spin')
-plt.ylabel('Log{(M)')
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 10.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
+
+plt.xlabel('Log{(M)')
+plt.ylabel('Spin')
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/MemoryRes_Spin_vs_Mass.pdf")

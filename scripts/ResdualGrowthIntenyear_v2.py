@@ -220,7 +220,7 @@ plt.plot(time_PN, hp_mem_PN, 'r:', label = "PN memory")
 plt.plot(timeNR, hmem,'k--', label = 'NR memory')
 
 #plt.xlim(-5000, 25000)
-plt.ylim(0.0, 0.2)
+plt.ylim(0.0, 0.1)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
@@ -241,7 +241,7 @@ ax2.plot(time_two_weeks, hmem_two_weeks)
 plt.xlim(22500, 22530)
 plt.ylim(0.0379, 0.068)
 '''
-#plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
+plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 
@@ -416,6 +416,6 @@ plt.xlabel(r'$time \, (days)$')
 plt.ylabel(r'$Residuals \, (fs)$')
 plt.legend(loc=2)
 fontP.set_size('12.')
-#plt.savefig("../plots/ResedualGrowthtwoweeks.pdf")
+plt.savefig("../plots/ResedualGrowthtwoweeks.pdf")
 plt.show()
 

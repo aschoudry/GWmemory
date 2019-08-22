@@ -169,7 +169,7 @@ t_fPN = 550.0
 
 Spin_array = np.array([-0.941,0.0, 0.99])
 
-Mass_array = np.array([8.0, 9.0,10.0])
+Mass_array = np.array([8.0, 9.0,10.0, 11.0 ,12.0])
 
 shift = 2500
 shiftSpin=10000
@@ -361,7 +361,7 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 
 		
 		
-	hmem_two_weeks =  4.6*(10**(log_SolarMass-23))*hmem_two_weeks_ip1
+	hmem_two_weeks =  4.9*(10**(log_SolarMass-23))*hmem_two_weeks_ip1
 	#Convert to femto seconds
 	hmem_two_weeks=pow(10,15)*hmem_two_weeks
 	
