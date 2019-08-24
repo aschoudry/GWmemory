@@ -42,7 +42,7 @@ hmem = Resample_ten_years_memory_data(Spin)[1]
 t0=time[0]
 tf_PN=time[-1]
 
-num_of_subintervl = 50.0
+num_of_subintervl = 40.0
 len_each_intrvl = (tf_PN-t0)/num_of_subintervl
 
 
@@ -54,13 +54,14 @@ ti=t0
 tf=t0+len_each_intrvl
 i=1
 
-while tf< -4000.0:
+while tf< -9000.0:
     dx_sample = len_each_intrvl/(10*i)
-    print i, dx_sample, tf
     time_updated=np.arange(ti, tf, dx_sample)
     time_intr = np.append(time_intr, time_updated) 
     ti=tf
     tf=ti+len_each_intrvl
+    print i, dx_sample, tf
+
 
     i+=1
     

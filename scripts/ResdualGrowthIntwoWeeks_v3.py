@@ -11,6 +11,8 @@ from matplotlib.font_manager import FontProperties
 import PostNewtonianMemoryFnc as PNM
 from mpl_toolkits.axes_grid.inset_locator import (inset_axes, InsetPosition, mark_inset)
 
+numer_of_observation_days=2000.0	
+
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -32,7 +34,7 @@ def s(t, hpmem, mu, phi):
 
 # Function that compute memory growth during two weeks interval of time for a given mass
 
-def Memory_growth_in_two_weeks(log_SolarMass, Spin):
+def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 		
 	if Spin < 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
@@ -41,22 +43,21 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 	
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
-	
+		datafile_PN_mem='ResampledPN_data_'+filename+'.txt'
+		timePN, hmem_PN = np.loadtxt(file_location_hmem+datafile_PN_mem, unpack=True)
 
 		
 	if Spin == 0.0:
 		file_location_hmem ='../data/NonSpinning_differentMassRatio/Memory_data/'
 
 		filename_hmem = 'rMPsi4_noSpin_q1dataClean_hMemNR.dat'
-		filename_h22 = 'rMPsi4_noSpin_q1dataClean_hNR.dat'
-
-		datafile_hMemNR = filename_hmem
-		datafile_hNR = filename_h22
 		
+                datafile_hMemNR = filename_hmem
+    		datafile_PN_mem='ResampledPN_data_0.txt'
+	
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)	
+                timePN, hmem_PN = np.loadtxt(file_location_hmem+datafile_PN_mem, unpack=True)
+
 
 	if Spin > 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAligned_27Dec/Memory_data/'
@@ -65,14 +66,21 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		datafile_hMemNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hMemNR.dat'
 		timeNR, hmem, h_mem_plus = np.loadtxt(file_location_hmem+datafile_hMemNR, unpack=True)
 
-		datafile_hNR='rMPsi4_Sz1_'+filename+'_Sz2_'+filename+'_q1p5dataN4Clean_hNR.dat'
-		timeNR, hp, hc = np.loadtxt(file_location_hmem+datafile_hNR, unpack=True)
+		datafile_PN_mem='ResampledPN_data_'+filename+'.txt'
+		timePN, hmem_PN = np.loadtxt(file_location_hmem+datafile_PN_mem, unpack=True)
 
 	hmem=17.0*hmem
 
+        #Extend the time period when the memory settlles to make it look like a step function
+   
+        timeNR_up=timeNR- timeNR[0]+timeNR[-1]
+        timeNR=np.append(timeNR,timeNR_up)
+
+        hmem_up=np.full(len(timeNR_up), max(hmem))
+        hmem=np.append(hmem, hmem_up)
+
 	#Look where the memory growth looks greatest
-	numer_of_observation_days=14.0	
-	
+		
 	time_final_i = timeNR[-1]
 
 	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
@@ -125,10 +133,8 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin):
 		
 	hmem_two_weeks = hmem_two_weeks_ip1
 	time_two_weeks = time_two_weeks_ip1
-														
 
-
-	return timeNR, hmem, time_two_weeks, hmem_two_weeks
+	return timeNR, hmem, time_two_weeks, hmem_two_weeks, timePN, hmem_PN
 
 
 # Make heatmap for the two weeks memory growth in SMBHB		
@@ -151,64 +157,56 @@ Spin_array = np.array([-0.941,0.0, 0.99])
 
 Mass_array = np.array([8.0, 9.0,10.0])
 
-shift = 2500
-shiftSpin=10000
+shift = 12000
+shiftSpin=16000
 k=0
 l=0
 for i in Spin_array:
 	for j in Mass_array:
-		timeNR = Memory_growth_in_two_weeks(j, i)[0]
-		hmem = Memory_growth_in_two_weeks(j, i)[1]
-		time_two_weeks = Memory_growth_in_two_weeks(j, i)[2]
-		hmem_two_weeks = Memory_growth_in_two_weeks(j, i)[3]
-	
+		timeNR = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[0]
+		hmem = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[1]
+		time_two_weeks = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[2]
+		hmem_two_weeks = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[3]
+	        timePN = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[4]
+                hmem_PN = Memory_growth_in_two_weeks(j, i, numer_of_observation_days)[5]
+
 		timeNR_Original = timeNR
 		timeNR = timeNR+k*shift+l*shiftSpin
 		time_two_weeks = time_two_weeks+k*shift+l*shiftSpin
 
-		#Attaching the PostNewtonian part spinning binaries
-		t_iPN=timeNR_Original[0]
-		dt=timeNR[1]-timeNR[0]
-		time_PN=np.arange(t_iPN, t_fPN, dt)
-		nsteps=len(time_PN)
-		eta=0.25
-		R=1.0
-		M=1.0
-		
-		x0=pow(-5.0*M/(256.0*t_iPN*eta), 1.0/4.0)
-		chiZa=0.0
-		chiZs=i
-
+	
 		#Shifting the Post-Newtonian part to where it blows up
 		
-		hp_mem_PN = PNM.h_plus_mem(np.pi/2.0, eta, M, R, x0, dt, nsteps, 3, chiZa, chiZs)
-		hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
+		hp_mem_PN = hmem_PN 
+                hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
 		hp_mem_PN = hp_mem_PN[:hp_mem_PN_max_idx]
-		time_PN = time_PN[:hp_mem_PN_max_idx]
+		time_PN = timePN[:hp_mem_PN_max_idx]
 			
 		time_PN=time_PN-time_PN[-1]
 		time_PN=time_PN+time_two_weeks[-1]
 
+                #Find index of ti in NR on PN 
+                idx_ti = find_nearest_idx(time_PN, timeNR[0])
 		
 
 		## Adjusting NR memory to shift
 		#hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
 
-		hmem = hmem+hp_mem_PN[0]
-		hmem_two_weeks=hmem_two_weeks+hp_mem_PN[0]
+		hmem = hmem+hp_mem_PN[idx_ti]
+		hmem_two_weeks=hmem_two_weeks+hp_mem_PN[idx_ti]
 
-		ax1.plot(time_PN, hp_mem_PN, 'r:')		
+                ax1.plot(time_PN[-2*len(timeNR_Original):], hp_mem_PN[-2*len(timeNR_Original):], 'r:')		
 		ax1.plot(timeNR, hmem,'k--')
 
 		ax1.plot(time_two_weeks, hmem_two_weeks, label='M=10**('+ str(round(j,1))+')\, S ='+str(round(i, 2)))
 		k+=1		
 	l+=1
 
-plt.plot(time_PN, hp_mem_PN, 'r:', label = "PN memory")		
+plt.plot(time_PN[-2*len(timeNR_Original):], hp_mem_PN[-2*len(timeNR_Original):], 'r:', label = "PN memory")		
 plt.plot(timeNR, hmem,'k--', label = 'NR memory')
 
-#plt.xlim(-5000, 25000)
-plt.ylim(0.0, 0.2)
+plt.xlim(-4000, 134960)
+plt.ylim(0.0, 0.08)
 plt.xlabel(r'$t/M$')
 plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
 plt.legend(loc=2)
@@ -229,11 +227,11 @@ ax2.plot(time_two_weeks, hmem_two_weeks)
 plt.xlim(22500, 22530)
 plt.ylim(0.0379, 0.068)
 '''
-plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
+#plt.savefig("../plots/MemoryGrowthtwoweeks.pdf")
 plt.show()
 
 
-def compute_rms_reseduals(log_SolarMass, Spin): 
+def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days): 
 
 	if Spin < 0:
 		file_location_hmem ='../data/SXSdata/Spinning_binary_with_SpinAntialigned_27Dec/Memory_data/'
@@ -325,7 +323,7 @@ def compute_rms_reseduals(log_SolarMass, Spin):
 
 		
 		
-	hmem_two_weeks =  4.6*(10**(log_SolarMass-23))*hmem_two_weeks_ip1
+	hmem_two_weeks =  4.9*(10**(log_SolarMass-23))*hmem_two_weeks_ip1
 	#Convert to femto seconds
 	hmem_two_weeks=pow(10,15)*hmem_two_weeks
 	

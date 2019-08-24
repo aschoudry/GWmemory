@@ -7,7 +7,7 @@ from matplotlib import colors, cm
 from matplotlib.ticker import LogLocator
 from matplotlib.colors import LogNorm
 
-numer_of_observation_days=50.0	
+numer_of_observation_days=14.0	
 
 def find_nearest_idx(array, value):
     array = np.asarray(array)
@@ -68,18 +68,46 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 	hmem=17.0*hmem
         
         # Do interpolation on NR data to increase the resolution. Necessory because the loaded data could not handle 10^12 solar mass two weeks time interval.
-        dt_NR_intrp=(timeNR[2]-timeNR[1])/4.0
+        hmem_orgnl = hmem
+        timeNR_orgnl = timeNR
+
+        dt_NR_intrp=(timeNR[2]-timeNR[1])/100.0
         timeNR_intrp = np.arange(timeNR[0], timeNR[-1], dt_NR_intrp)
 
         hmem_intrp = np.interp(timeNR_intrp, timeNR, hmem)
+
+        #plt.plot(timeNR_intrp, hmem_intrp)
+        #plt.plot(timeNR, hmem, 'r--')
+        #plt.show()
+
         timeNR = timeNR_intrp
         hmem = hmem_intrp
 
+        #Set PN memory to same resolution as NR after interpolation 
+        '''
+        hmem_PN1 = hmem_PN[:-len(hmem_orgnl)]
+        timePN1 = timePN[:-len(hmem_orgnl)]
+
+        hmem_PN2 = hmem_PN[-len(hmem_orgnl):]
+        timePN2 = timePN[-len(hmem_orgnl):]
+
+        timePN2_intrp = np.arange(timePN2[0], timePN2[-1], dt_NR_intrp)
+        hmem_PN2_intrp = np.interp(timePN2_intrp, timePN2, hmem_PN2)
+
+        hmem_PN = np.append(hmem_PN1, hmem_PN2_intrp)
+        time_PN = np.append(timePN1, timePN2_intrp)
+
+        #plt.plot(timePN, hmem_PN)
+        #plt.plot(time_PNx, hmem_PNx, '--')
+        #plt.show()
+
+        '''
+
+      
         #Create a compleate waveform by stiching PN with NR memory
         #Attaching the PostNewtonian part spinning binaries
     	#Shifting the Post-Newtonian part to where it blows up
 		
-        #hp_mem_PN = hmem_PN[-2*len(timeNR):]
 
         hp_mem_PN = hmem_PN
 	hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
@@ -89,18 +117,20 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 	time_PN = timePN[:hp_mem_PN_max_idx]
 			
 	time_PN=time_PN-time_PN[-1]
-	#time_PN=time_PN+time_two_weeks[-1]
 
 	## Adjusting NR memory to shift
-	#hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
         ##Shift timeNR
-        timeNR_stich=timeNR-timeNR[0]
-        timeNR_stich=timeNR_stich+time_PN[-len(hmem)]
-            
-	hmem_stich=hmem+hp_mem_PN[-len(timeNR_stich)] 
 
-        hmem_PN_NR_stich=np.append(hp_mem_PN[:-(len(hmem_stich)+1)],hmem_stich)
-        time_PN_NR_stich=np.append(time_PN[:-(len(hmem)+1)],timeNR_stich)
+        timeNR_stich=timeNR-timeNR[0]
+
+        #Find index of ti in NR on PN 
+        idx_ti = find_nearest_idx(time_PN, timeNR[0])
+
+        timeNR_stich=timeNR_stich+time_PN[idx_ti]    
+	hmem_stich=hmem+hp_mem_PN[idx_ti] 
+
+        hmem_PN_NR_stich=np.append(hp_mem_PN[:idx_ti],hmem_stich)
+        time_PN_NR_stich=np.append(time_PN[:idx_ti],timeNR_stich)
         time_PN_NR_stich=time_PN_NR_stich-time_PN_NR_stich[-1]
 
         hmem = hmem_PN_NR_stich
@@ -169,7 +199,7 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 
 # Make heatmap for the two weeks memory growth in SMBHB		
 Spin_array = np.array([0.99, 0.801, 0.601, 0.201, 0.0, -0.201, -0.431, -0.601, -0.801, -0.941])
-Mass_array = np.linspace(8.0, 10.0, 2*len(Spin_array))
+Mass_array = np.linspace(8.0, 12.0, 2*len(Spin_array))
 
 Memory_growth_M_vs_Spin = np.zeros([len(Spin_array), len(Mass_array)])
 
@@ -182,7 +212,7 @@ vmn = Memory_growth_M_vs_Spin.min()
 vmx = Memory_growth_M_vs_Spin.max()
 
 fig, ax = plt.subplots()
-im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 10.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
+im = plt.imshow(Memory_growth_M_vs_Spin, interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 12.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
 
 plt.xlabel('Log{(M)')
 plt.ylabel('Spin')
@@ -191,7 +221,7 @@ plt.ylabel('Spin')
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/Memory_Spin_vs_Mass_tenyears.pdf")	
-plt.show()
+#plt.show()
 
 # Compute RMS reseduals as function of Spin Vs Mass
 
@@ -231,23 +261,47 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 		timePN, hmem_PN = np.loadtxt(file_location_hmem+datafile_PN_mem, unpack=True)
 	
 	hmem=17.0*hmem	
-        
- 
-        # Do interpolation on NR data to increase the resolution. Necessory because the loaded data could not handle 10^12 solar mass two weeks time interval.
-        dt_NR=timeNR[2]-timeNR[1]
-        timeNR_intrp = np.arange(timeNR[0], timeNR[-1], dt_NR/2.0)
+                # Do interpolation on NR data to increase the resolution. Necessory because the loaded data could not handle 10^12 solar mass two weeks time interval.
+        hmem_orgnl = hmem
+        timeNR_orgnl = timeNR
+
+        dt_NR_intrp=(timeNR[2]-timeNR[1])/100.0
+        timeNR_intrp = np.arange(timeNR[0], timeNR[-1], dt_NR_intrp)
 
         hmem_intrp = np.interp(timeNR_intrp, timeNR, hmem)
+
+        #plt.plot(timeNR_intrp, hmem_intrp)
+        #plt.plot(timeNR, hmem, 'r--')
+        #plt.show()
+
         timeNR = timeNR_intrp
         hmem = hmem_intrp
 
+        #Set PN memory to same resolution as NR after interpolation 
+        '''
+        hmem_PN1 = hmem_PN[:-len(hmem_orgnl)]
+        timePN1 = timePN[:-len(hmem_orgnl)]
 
-	#Look where the memory growth looks greatest
+        hmem_PN2 = hmem_PN[-len(hmem_orgnl):]
+        timePN2 = timePN[-len(hmem_orgnl):]
+
+        timePN2_intrp = np.arange(timePN2[0], timePN2[-1], dt_NR_intrp)
+        hmem_PN2_intrp = np.interp(timePN2_intrp, timePN2, hmem_PN2)
+
+        hmem_PN = np.append(hmem_PN1, hmem_PN2_intrp)
+        time_PN = np.append(timePN1, timePN2_intrp)
+
+        #plt.plot(timePN, hmem_PN)
+        #plt.plot(time_PNx, hmem_PNx, '--')
+        #plt.show()
+
+        '''
+
+      
         #Create a compleate waveform by stiching PN with NR memory
         #Attaching the PostNewtonian part spinning binaries
     	#Shifting the Post-Newtonian part to where it blows up
 		
-        #hp_mem_PN = hmem_PN[-2*len(timeNR):]
 
         hp_mem_PN = hmem_PN
 	hp_mem_PN_max_idx = np.argmax(hp_mem_PN)
@@ -257,25 +311,26 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 	time_PN = timePN[:hp_mem_PN_max_idx]
 			
 	time_PN=time_PN-time_PN[-1]
-	#time_PN=time_PN+time_two_weeks[-1]
 
 	## Adjusting NR memory to shift
-	#hp_mem_PN=hp_mem_PN-hp_mem_PN[0]
         ##Shift timeNR
-        timeNR_stich=timeNR-timeNR[0]
-        timeNR_stich=timeNR_stich+time_PN[-len(hmem)]
-            
-	hmem_stich=hmem+hp_mem_PN[-len(timeNR_stich)]
-        
 
-        hmem_PN_NR_stich=np.append(hp_mem_PN[:-(len(hmem_stich)+1)],hmem_stich)
-        time_PN_NR_stich=np.append(time_PN[:-(len(hmem)+1)],timeNR_stich)
+        timeNR_stich=timeNR-timeNR[0]
+
+        #Find index of ti in NR on PN 
+        idx_ti = find_nearest_idx(time_PN, timeNR[0])
+
+        timeNR_stich=timeNR_stich+time_PN[idx_ti]    
+	hmem_stich=hmem+hp_mem_PN[idx_ti] 
+
+        hmem_PN_NR_stich=np.append(hp_mem_PN[:idx_ti],hmem_stich)
+        time_PN_NR_stich=np.append(time_PN[:idx_ti],timeNR_stich)
         time_PN_NR_stich=time_PN_NR_stich-time_PN_NR_stich[-1]
 
         hmem = hmem_PN_NR_stich
         timeNR = time_PN_NR_stich
-
-	##
+ 
+	#Look where the memory growth looks greatest
 	time_final_i = timeNR[-1]
 
 	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
@@ -355,7 +410,7 @@ vmn=Reseduals_M_vs_Spin.min()
 vmx=Reseduals_M_vs_Spin.max()
 
 fig, ax = plt.subplots()
-im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 10.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
+im = plt.imshow(Reseduals_M_vs_Spin , interpolation='bilinear', cmap=cm.RdYlGn, extent=[8, 12.0, -0.94, 0.99], vmin=vmn, vmax=vmx)
 
 plt.xlabel('Log{(M)')
 plt.ylabel('Spin')
@@ -363,7 +418,7 @@ plt.ylabel('Spin')
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/MemoryRes_Spin_vs_Mass_tenyears.pdf")
-plt.show()
+#plt.show()
 
 
 print Memory_growth_M_vs_Spin.min(), Memory_growth_M_vs_Spin.max()
