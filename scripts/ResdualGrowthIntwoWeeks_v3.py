@@ -64,8 +64,22 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 
 	hmem=17.0*hmem
 
-    #Extend the time period when the memory settlles to make it look like a step function
-   
+        #Increase the resolution which works for 10^12 Msun data
+        #'''
+
+        if log_SolarMass > 10.0:
+
+            dt_NR_intrp=(timeNR[2]-timeNR[1])/100.0
+            timeNR_intrp = np.arange(timeNR[0], timeNR[-1], dt_NR_intrp)
+
+            hmem_intrp = np.interp(timeNR_intrp, timeNR, hmem)
+
+            timeNR = timeNR_intrp
+            hmem = hmem_intrp
+        #'''
+
+        #Extend the time period when the memory settlles to make it look like a step function
+
         timeNR_up=timeNR- timeNR[0]+timeNR[-1]
         timeNR=np.append(timeNR,timeNR_up)
 
@@ -100,23 +114,33 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
         hmem = np.append(hp_mem_PN[:idx_ti], hmem)
 
 	#Look where the memory growth looks greatest
-		
-	time_final_i = timeNR[-1]
 
-	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
+        if log_SolarMass > 10.0:
+            idx_NRpeak = find_nearest_idx(timeNR, max(hmem)*0.999)
+            time_final_i = timeNR[idx_NRpeak]
+        else:	
+            time_final_i = timeNR[-1]
+	
+        t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
 
+        
 	idx_i = find_nearest_idx(timeNR, t_initial_i)
 
 	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
 	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
         
-        '''
+        #'''
         #check if two weeks interval looks correct 
         plt.plot(time_two_weeks_i, hmem_two_weeks_i)
         plt.plot(timeNR, hmem, '--')
         plt.show()
-        '''
-	time_final_ip1 = timeNR[-2]
+        #'''
+   
+        if log_SolarMass > 10.0:
+            idx_NRpeak = find_nearest_idx(timeNR, max(hmem)*0.999)
+            time_final_ip1 = timeNR[idx_NRpeak-1]
+        else:	
+            time_final_ip1 = timeNR[-2]
 
 	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
 
@@ -132,7 +156,9 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 	k=0
 	
 	while hmem_growth_two_weeks_ip1 >= hmem_growth_two_weeks_i:
-		k+=1
+	
+            
+                k+=1
 		time_final_i = timeNR[-(1+k)]
 
 		t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
@@ -155,19 +181,19 @@ def Memory_growth_in_two_weeks(log_SolarMass, Spin, numer_of_observation_days):
 		hmem_growth_two_weeks_i = hmem_two_weeks_i[-1]-hmem_two_weeks_i[0]	
 		hmem_growth_two_weeks_ip1 = hmem_two_weeks_ip1[-1]-hmem_two_weeks_ip1[0]
 
-		
-		
+	        print hmem_growth_two_weeks_ip1 - hmem_growth_two_weeks_i	
+	
+
 	hmem_two_weeks = hmem_two_weeks_ip1
 	time_two_weeks = time_two_weeks_ip1
         
-        '''
+        #'''
         #Check plots after shifting two weeks mem
-        plt.plot(time_two_weeks, hmem_two_weeks)
+        plt.plot(time_two_weeks_ip1, hmem_two_weeks_ip1)
         plt.plot(timeNR, hmem, '--')
-        plt.plot(timePN, hmem_PN, 'r:')
         plt.show()
-        '''
-
+        #'''
+          
 	return timeNR, hmem, time_two_weeks, hmem_two_weeks, timePN, hmem_PN, len_NR_data
 
 
@@ -185,7 +211,8 @@ fontP = FontProperties()
 
 Spin_array = np.array([-0.941,0.0, 0.99])
 
-Mass_array = np.array([8.0, 9.0, 10.0])
+#Mass_array = np.array([8.0, 9.0, 10.0])
+Mass_array = np.array([11.0])
 
 shift = 13000
 shiftSpin=16000
@@ -261,6 +288,19 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 	#Look where the memory growth looks greatest
 
 	hmem=17.0*hmem
+        #Increase the resolution which works for 10^12 Msun data
+        #'''
+
+        if log_SolarMass > 10.0:
+
+            dt_NR_intrp=(timeNR[2]-timeNR[1])/100.0
+            timeNR_intrp = np.arange(timeNR[0], timeNR[-1], dt_NR_intrp)
+
+            hmem_intrp = np.interp(timeNR_intrp, timeNR, hmem)
+
+            timeNR = timeNR_intrp
+            hmem = hmem_intrp
+        #'''
 
         #Extend the time period when the memory settlles to make it look like a step function
    
@@ -296,9 +336,13 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
         hmem = hmem+hp_mem_PN[idx_ti]
         timeNR=np.append(time_PN[:idx_ti], timeNR)
         hmem = np.append(hp_mem_PN[:idx_ti], hmem)
+	#Look where the memory growth looks greatest
 
-	
-	time_final_i = timeNR[-1]
+        if log_SolarMass > 10.0:
+            idx_NRpeak = find_nearest_idx(timeNR, max(hmem)*0.999)
+            time_final_i = timeNR[idx_NRpeak]
+        else:	
+            time_final_i = timeNR[-1]
 
 	t_initial_i =  time_initial(log_SolarMass, time_final_i, numer_of_observation_days)
 
@@ -307,7 +351,11 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 	hmem_two_weeks_i = hmem[idx_i:find_nearest_idx(timeNR, time_final_i)]
 	time_two_weeks_i = timeNR[idx_i:find_nearest_idx(timeNR, time_final_i)]
 
-	time_final_ip1 = timeNR[-2]
+        if log_SolarMass > 10.0:
+            idx_NRpeak = find_nearest_idx(timeNR, max(hmem)*0.999)
+            time_final_ip1 = timeNR[idx_NRpeak-1]
+        else:	
+            time_final_ip1 = timeNR[-2]
 
 	t_initial_ip1 =  time_initial(log_SolarMass, time_final_ip1, numer_of_observation_days)
 
@@ -375,14 +423,17 @@ def compute_rms_reseduals(log_SolarMass, Spin, numer_of_observation_days):
 	timeNR_two_weeks = 5.3*pow(10, log_SolarMass-11)*timeNR_two_weeks
 
 	return timeNR_two_weeks, res, quadratic_fit_to_res, res_quadSubtract, res_mean
-      
+ 
+
+numer_of_observation_days=7.0
+
 legend_size = 2
 fig = plt.figure()
 fontP = FontProperties()
 fontP.set_size('20.')
 
-shift = 30
-shiftSpin=60
+shift = 15
+shiftSpin=15
 k=0
 l=0
 time_last=0
@@ -393,7 +444,7 @@ for i in Spin_array:
 		timeNR_two_weeks = timeNR_two_weeks - timeNR_two_weeks[0] +  k*shift + l*shiftSpin
 		plt.plot(timeNR_two_weeks, res_two_weeks,'k--')
 		plt.plot(timeNR_two_weeks, res_quad_fit_two_weeks ,'r--')
-		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label='$M=10 ^{'+ str(round(j,1))+'}M_\odot\t\, \, S ='+str(round(i, 2))+'$')
+		plt.plot(timeNR_two_weeks, res_quadSubtract_two_weeks , label=r'$M=10 ^{'+ str(round(j,1))+'}\ M_\odot \ $ $\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N ='+str(round(i, 2))+'$')
 		#time_last = timeNR_two_weeks[-1]+25
 		k+=1		
 	l+=1

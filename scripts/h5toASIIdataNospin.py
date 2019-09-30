@@ -12,7 +12,7 @@ filename_list_noSpin = ["rMPsi4_noSpin_q1data"]#, "rMPsi4_noSpin_q1p5data", "rMP
 
 for filename in filename_list_noSpin: 
 
-	file_name_psi="/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/"+filename+".h5"
+	file_name_psi="../data/NonSpinning_differentMassRatio/"+filename+".h5"
 	f_psi = h5py.File(file_name_psi,'r+')
 
 	# Reading the strain data
@@ -54,7 +54,7 @@ for filename in filename_list_noSpin:
 	d2h22_imag_by_dt2_intrp_data= (d2h22_amp_intrp*np.exp(1j*d2h22_phase_intrp)).imag
 
 
-	f = open("/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/"+filename+".txt","w") 
+	f = open("../data/NonSpinning_differentMassRatio/"+filename+".txt","w") 
 
 	for i in range(len(time)):
 		f.write("%E %E %E\n" % (time_intrp[i], d2h22_real_by_dt2_intrp_data[i], d2h22_imag_by_dt2_intrp_data[i])) 

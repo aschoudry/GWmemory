@@ -16,7 +16,7 @@ filename_list_nonspinning = ["rMPsi4_noSpin_q1data"]#, "rMPsi4_noSpin_q1p5data",
 for filename in filename_list_nonspinning:
 
 	#filename = "rMPsi4_noSpin_q1data"
-	timeNR, psi_plus, psi_cross = np.loadtxt("/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/"+filename+".txt", unpack=True)
+	timeNR, psi_plus, psi_cross = np.loadtxt("../data/NonSpinning_differentMassRatio/"+filename+".txt", unpack=True)
 
 	plt.plot(timeNR, psi_plus)
 	plt.plot(timeNR, psi_cross)
@@ -43,7 +43,7 @@ for filename in filename_list_nonspinning:
 	plt.plot(timeNR,instfreq)
 	plt.show()
 
-	f = open("/home/ashok/gravitational_wave_memory_project/data/NonSpinning_differentMassRatio/"+filename+"Clean.txt","w") 
+	f = open("../data/NonSpinning_differentMassRatio/"+filename+"Clean.txt","w") 
 
 	for i in range(len(timeNR)):
 		f.write("%E %E %E\n" % (timeNR[i], psi_plus[i], psi_cross[i])) 
