@@ -71,7 +71,7 @@
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\pc}{{+,\times}}
 
-\title{Effect of Black Hole Spins on Christodoulou Memory in Binary Mergers}
+\title{Effect of Black Hole Spins on Christodoulou Memory in Binary Mergers and it's implication on Observing Gravitational Wave Bursts With Memory in Pulsar Timing Array}
 \author{Ashok Choudhary}\email{aschoudhary@mix.wvu.edu}
 \author{Sean T. McWilliams}\email{sean.mcwilliams@mail.wvu.edu}
 \affiliation{Department of Physics and Astronomy, West Virginia University, Morgantown, WV 26506, USA}
@@ -79,9 +79,9 @@
 
 \stm{note everywhere I have added ``the'', that ``upto'' should be ``up to'', etc}
 \begin{abstract}
-	The Christodoulou memory, which is a nonlinear memory effect sourced by the oscillatory component of the gravitational wave stress tensor, produces a growing, nonoscillatory change in the gravitational wave strain. This results in the permanent displacement of a pair of freely falling test masses after the gravitational wave has passed. While the memory contribution during the early inspiral is well described by the post-Newtonian (PN) approximation, the contribution at merger must be obtained using numerical relativity simulations. The corrections up to third PN order (i.~e.~3PN) for the gravitational wave memory from pairs of nonspinning black holes on quasicircular orbits has been computed by Favata \cite{Favata2009}. Here we include the contribution from the individual black-hole spins at leading order which appears at 1.5PN \stm{what is leading order here, if we then say the memory is 3PN?} and calculate the memory effect up to 3PN order. We also compute the memory contribution during
-the merger by using the methods presented in \cite{Favata2009} to calculate the memory content using the oscillatory radiation as input, and
-applying that method using publicly available numerical relativity simulations of spinning binaries.
+	The Christodoulou memory, which is a nonlinear memory effect sourced by the oscillatory component of the gravitational wave stress tensor, produces a growing, nonoscillatory change in the gravitational wave strain. This results in the permanent displacement of a pair of freely falling test masses after the gravitational wave has passed. Merger of supermassive black holes is a powerful source of gravitational wave with Chritodoulou  memory effect. This effect can be potentially seen in pulsar timing observations. Initiatives to observe Burst with memory signal have assumed the signal to be a step function of a given amplitude\cite{Pshirkov2010}, which is valid in  situations like supernova explosion. But events like merger of supermassive black holes happens on the time scale of few days depending upon the mass. With future pulsar timing observation, it would be possible to see the change in Chritodoulou memory over two weeks interval of time. We investigate how the effect of Spin changes the timing residuals over a two weeks period of interval. Since Chritodoulou memory is an accumulated effect during the entire history of the source and while memory contribution during the early inspiral is well described by the post-Newtonian (PN) approximation, the contribution at merger must be obtained using numerical relativity simulations. The corrections up to third PN order (i.~e.~3PN) for the gravitational wave memory from pairs of nonspinning black holes on quasicircular orbits has been computed by Favata \cite{Favata2009}. Here we include the contribution from the individual black-hole spins at leading order which appears at 1.5PN \stm{what is leading order here, if we then say the memory is 3PN?} and calculate the memory effect up to 3PN order. We also compute the memory contribution during
+	the merger by using the methods presented in \cite{Favata2009} to calculate the memory content using the oscillatory radiation as input, and
+	applying that method using publicly available numerical relativity simulations of spinning binaries. We Finally use this model to compute the timing residuals for a memory growth during two weeks interval of time following the method described in \cite{Pshirkov2010}
 \end{abstract}
 
 \maketitle
@@ -436,25 +436,42 @@ There are two unknown quantities associated with the timing residuals, the pulsa
   
 The growth in the nonlinear memory signal amplitude from super massive black hole occurs on the time scale of a few days so the effect on timing residuals can be seen if observed over a few weeks period of time. A method for observing Nonlinear memory signal from super massive black hole mergers using pulsar timing has been proposed in ref\cite{Pshirkov2010}. The authors have shown that the present day pulsar timing precision allows one to detect BWM due to  SMBH merger at distance upto 1 Gpc (for case of equal mass $10^{8}$ solar mass). The details regarding the calculation of the timing residuals can be seen in \cite{Pshirkov2010}, where they consider the memory event as a step function which occurs in the middle of an observation time of 10 years. The method described in \cite{Pshirkov2010} is general and can be applied to case where the memory jump is not at step function. In our analysis we explore how the nonlinear memory grows during two weeks interval to time for different ranges of mass and spin parameter values. We also calculate the timing residuals as done in \cite{Pshirkov2010} and explore how it changes as a function of total mass and spin of black holes as shown in Fig[\ref{fig:MemoryMassVsSpin}].
 \par 
-Future observations with increased precision would be able to look at the memory growth on even shorter time of few weeks. The memory growth on the time scale of two weeks does not look like a step function, instead it's shape depends upon the spins of the merging black holes. In Fig[\ref{fig:resedualGrowth}].we show the memory growth interval in two weeks interval of time with solid lines for different range of spin and total mass of the binary. The dashed line show the complete memory growth in growth in geometrical units. It can be seen the as the total mass of binary becomes larger the two weeks interval of time shrinks in geometrical units. We have chosen this two weeks interval of time such that the change in memory during this time interval is maximum. For the pulsar timing observation we compute the residuals during this two week interval of time following the method described in \cite{Pshirkov2010}. We show a figure similar to   
+Future observations with increased precision would be able to look at the memory growth on even shorter time of few weeks. The memory growth on the time scale of two weeks does not look like a step function, instead it's shape depends upon the spins of the merging black holes. In Fig[\ref{fig:resedualGrowth}].we show the memory growth interval in two weeks interval of time with solid lines for different range of spin and total mass of the binary. The dashed line show the complete memory growth in growth in geometrical units. It can be seen the as the total mass of binary becomes larger the two weeks interval of time shrinks in geometrical units. We have chosen this two weeks interval of time such that the change in memory during this time interval is maximum. For the pulsar timing observation we compute the residuals during this two week interval of time following the method described in \cite{Pshirkov2010}. We show a figure similar to
+\begin{widetext}
 \begin{figure}
-	\includegraphics[width=3.5in]{../plots/MemoryGrowthtwoweeks.pdf}
-	\includegraphics[width=3.5in]{../plots/ResedualGrowthtwoweeks.pdf}
+	\includegraphics[width=3.5in]{../plots/PlotfromMathematicaData/MemoryGrowth2weeksGeoUnits.pdf}
 	\caption{The top figure the memory growth during two weeks interval of time with solid lines. The dashed line shows the complete memory growth. The dashed red line show the memory growth computed using PN}
 	\label{fig:resedualGrowth}
-\end{figure}
+\end{figure} 
+
 \begin{figure}
-	\includegraphics[width=3.5in]{../plots/Memory_Spin_vs_Mass.pdf}
-	\includegraphics[width=3.5in]{../plots/MemoryRes_Spin_vs_Mass.pdf}
+	\includegraphics[width=3.5in]{../plots/PlotfromMathematicaData/MemoryGrowth2weeksInDays10pow8MSun.pdf}
+	\includegraphics[width=3.5in]{../plots/PlotfromMathematicaData/MemoryGrowth2weeksInDays10pow10MSun.pdf}
+	\caption{The top figure the memory growth during two weeks interval of time with solid lines. The dashed line shows the complete memory growth. The dashed red line show the memory growth computed using PN}
+	\label{fig:resedualGrowth}
+\end{figure} 
+\end{widetext}
+
+\begin{widetext}
+\begin{figure}
+	\includegraphics[width=7.5in]{../plots/PlotfromMathematicaData/ResidualGrowth2weeksQuadFitInDays.pdf}
+	\caption{The top figure the memory growth during two weeks interval of time with solid lines. The dashed line shows the complete memory growth. The dashed red line show the memory growth computed using PN}
+	\label{fig:resedualG}
+\end{figure} 
+
+\begin{figure}
+	\includegraphics[width=7.5in]{../plots/PlotfromMathematicaData/ResidualGrowth2weeksDiffSpinsInDays.pdf}
+	\caption{The top figure the memory growth during two weeks interval of time with solid lines. The dashed line shows the complete memory growth. The dashed red line show the memory growth computed using PN}
+	\label{fig:resedualGrowth}
+\end{figure} 
+
+\begin{figure}
+	\includegraphics[width=3.5in]{../plots/PlotfromMathematicaData/MemoryResSpinvsMass14Days.pdf}
+	\includegraphics[width=3.5in]{../plots/PlotfromMathematicaData/MemoryResSpinvsMass1825Days.pdf}
 	\caption{The top figure shows the Christodolou memory growth during two weeks of observation time as a function of Mass and Spin magnitude $\chi$. The here in M time the mass of Sun. The bottom plot show a the rms timing residuals during two week period of time.}
 	\label{fig:MemoryMassVsSpin}
 \end{figure}
-\begin{figure}
-	\includegraphics[width=3.5in]{../plots/Memory_Spin_vs_Mass_tenyears.pdf}
-	\includegraphics[width=3.5in]{../plots/MemoryRes_Spin_vs_Mass_tenyears.pdf}
-	\caption{The top figure shows the Christodolou memory growth during ten years of observation time as a function of Mass and Spin magnitude $\chi$. The here in M time the mass of Sun. The bottom plot show a the rms timing residuals during ten years interval of time.}
-	\label{fig:MemoryMassVsSpin}
-\end{figure}
+\end{widetext}
 \section{CONCLUSIONS}
 Observation of Christodoulou memory would be an important test of general relativity in strong field regime. Effort to detect this memory effect in low frequency band from super massive black holes have been undertaken by pulsar timing array experiments \cite{Pshirkov2010}. In these experiment the spin effect have been neglected for modeling the signal. It is highly likely that super massive black holes have significant spin due to accretion of matter from surrounding. We have seen that the spin can significantly change memory amplitude as a result it can change the timing residuals. Hence it is important to consider the spin effect while modeling the signals. The important thing for pulsar timing measurements would be the amount of memory changes over a single two weeks period of time which is shown the figure \ref{fig:MemoryMassVsSpin} as function of total mass of the binary and the spin magnitude. For a given mass and over the allowed spin range the net change in the memory amplitude can be as big as a factor of 5 which would change the SNR, or the expected event rate within a given volume, by a factor of $5^{3}=125$
 
