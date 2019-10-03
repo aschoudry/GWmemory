@@ -49,16 +49,19 @@ time_Spin0p99_10Pow11MSun, hmem_Spin0p99_10Pow11MSun = np.loadtxt(file_location_
 time_Spin0p0_10Pow11MSun, hmem_Spin0p0_10Pow11MSun = np.loadtxt(file_location_hmemGeoUnits+filename_Spin0p0_10Pow11MSun, unpack=True)
 time_Spinm0p94_10Pow11MSun, hmem_Spinm0p94_10Pow11MSun = np.loadtxt(file_location_hmemGeoUnits+filename_Spinm0p94_10Pow11MSun, unpack=True)
 
+#Making plots
 
 fig= plt.figure()
 fontP = FontProperties()
+fontP.set_size('20.')
+legend_size = 2
 
-plt.plot(time_Spin0p99_10Pow8MSun, hmem_Spin0p99_10Pow8MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
-plt.plot(time_Spin0p0_10Pow8MSun, hmem_Spin0p0_10Pow8MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
-plt.plot(time_Spinm0p94_10Pow8MSun, hmem_Spinm0p94_10Pow8MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$')
+plt.plot(time_Spin0p99_10Pow8MSun, hmem_Spin0p99_10Pow8MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$', linewidth=2)
+plt.plot(time_Spin0p0_10Pow8MSun, hmem_Spin0p0_10Pow8MSun, '--', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$', linewidth=2)
+plt.plot(time_Spinm0p94_10Pow8MSun, hmem_Spinm0p94_10Pow8MSun,'-.', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$', linewidth=2)
 
-plt.xlabel(r'$t(days)$')
-plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
+plt.xlabel(r'$t(days)$', fontsize=18)
+plt.ylabel(r'$(1Gpc/D_{L})h^{(mem)}_{+}$', fontsize=18)
 #plt.xticks([-3000, -2000, -1000, 0])
 #plt.ylim(0, 0.1)
 plt.legend()
@@ -69,14 +72,16 @@ plt.show()
 
 fig= plt.figure()
 fontP = FontProperties()
+fontP.set_size('20.')
+legend_size = 2
 
-plt.plot(time_Spin0p99_10Pow10MSun, hmem_Spin0p99_10Pow10MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
-plt.plot(time_Spin0p0_10Pow10MSun, hmem_Spin0p0_10Pow10MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
-plt.plot(time_Spinm0p94_10Pow10MSun, hmem_Spinm0p94_10Pow10MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$')
+plt.plot(time_Spin0p99_10Pow11MSun, hmem_Spin0p99_10Pow11MSun, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$', linewidth=2)
+plt.plot(time_Spin0p0_10Pow11MSun, hmem_Spin0p0_10Pow11MSun, '--', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$', linewidth=2)
+plt.plot(time_Spinm0p94_10Pow11MSun, hmem_Spinm0p94_10Pow11MSun, '-.', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$', linewidth=2)
 
 
-plt.xlabel(r'$t(days)$')
-plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
+plt.xlabel(r'$t(days)$', fontsize=18)
+plt.ylabel(r'$(1Gpc/D_{L})h^{(mem)}_{+}$', fontsize=18)
 #plt.xticks([-3000, -2000, -1000, 0])
 #plt.ylim(0, 0.1)
 plt.legend()

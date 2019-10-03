@@ -60,110 +60,133 @@ legend_size = 5
 fig= plt.figure()
 fontP = FontProperties()
 fontP.set_size('5.0')
-plt.subplots_adjust(left=0.125, right=0.95, bottom=0.1, top=0.95, wspace= 0.2, hspace = 0.2)
+#plt.subplots_adjust(left=0.1, right=0.95, bottom=0.1, top=0.95, wspace= 0.2, hspace = 0.1)
 
-plt.subplot(2,2,1)
+#plt.subplot(2,2,1)
 
 plt.loglog(Load_data(0.99, 8.0, 14)[0], Load_data(0.99, 8.0, 14)[1], 'c--', alpha=0.7)
-plt.loglog(Load_data(0.0, 8.0, 14)[0], Load_data(0.0, 8.0, 14)[1], 'c',alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
+plt.loglog(Load_data(0.0, 8.0, 14)[0], Load_data(0.0, 8.0, 14)[1], 'c',alpha=0.7, label=r'$M=10 ^{8}\ M_\odot \ $')
 plt.loglog(Load_data(-0.94, 8.0, 14)[0], Load_data(-0.94, 8.0, 14)[1], 'c-.', alpha=0.7)
 
 plt.loglog(Load_data(0.99, 9.090910, 14)[0], Load_data(0.99, 9.090910, 14)[1], 'm--', alpha=0.7)
-plt.loglog(Load_data(0.0, 9.090910, 14)[0], Load_data(0.0, 9.090910, 14)[1],'m' ,alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
+plt.loglog(Load_data(0.0, 9.090910, 14)[0], Load_data(0.0, 9.090910, 14)[1],'m' ,alpha=0.7, label=r'$M=10 ^{9}\ M_\odot \ $')
 plt.loglog(Load_data(-0.94, 9.090910, 14)[0], Load_data(-0.94, 9.090910, 14)[1], 'm-.', alpha=0.7)
 
 
-plt.loglog(Load_data(0.99, 12.0, 14)[0], Load_data(0.99, 10.0, 14)[1], 'k--', alpha=0.7)
-plt.loglog(Load_data(0.0, 12.0, 14)[0], Load_data(0.0, 10.0, 14)[1],'k' ,alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = -0.94$')
-plt.loglog(Load_data(-0.94, 12.0, 14)[0], Load_data(-0.94, 10.0, 14)[1], 'k-.', alpha=0.7)
+plt.loglog(Load_data(0.99, 11.0909, 14)[0], Load_data(0.99, 11.0909, 14)[1], 'k--', alpha=0.7)
+plt.loglog(Load_data(0.0, 11.0909, 14)[0], Load_data(0.0, 11.0909, 14)[1],'k' ,alpha=0.7, label=r'$M=10 ^{11}\ M_\odot \ $')
+plt.loglog(Load_data(-0.94, 11.0909, 14)[0], Load_data(-0.94, 11.0909, 14)[1], 'k-.', alpha=0.7)
 
 
 
-plt.xlabel(r'$t$(days)')
-plt.ylabel(r'$Residuals$')
+plt.xlabel(r'$t$(days)', fontsize=18)
+plt.ylabel(r'$Residuals \, \ prefit$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
-#plt.yticks([2.5, 5])
-plt.ylim(pow(10, -24), pow(10, -8))
-plt.legend(loc='best', prop={'size':legend_size})
+plt.yticks([pow(10, -24), pow(10, -18), pow(10, -12)])
+#plt.ylim(pow(10, -24), pow(10, -8))
+plt.legend(loc='best', prop={'size':15})
 fig.tight_layout()
 
-plt.subplot(2,2,2)
+plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth2weeksDiffSpinsInDaysPreFit.pdf')
+plt.show()
+
+fig= plt.figure()
+fontP = FontProperties()
+fontP.set_size('5.0')
+
+#plt.subplot(2,2,2)
 plt.loglog(Load_data(0.99, 8.0, 1825)[0], Load_data(0.99, 8.0, 1825)[1], 'c--', alpha=0.7)
-plt.loglog(Load_data(0.0, 8.0, 1825)[0], Load_data(0.0, 8.0, 1825)[1],'c', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
+plt.loglog(Load_data(0.0, 8.0, 1825)[0], Load_data(0.0, 8.0, 1825)[1],'c', alpha=0.7, label=r'$M=10 ^{8}\ M_\odot \ $')
 plt.loglog(Load_data(-0.94, 8.0, 1825)[0], Load_data(-0.94, 8.0, 1825)[1], 'c-.', alpha=0.7)
 
 plt.loglog(Load_data(0.99, 9.090910, 1825)[0], Load_data(0.99, 9.090910, 1825)[1], 'm--', alpha=0.7)
-plt.loglog(Load_data(0.0, 9.090910, 1825)[0], Load_data(0.0, 9.090910, 1825)[1],'m' ,alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
+plt.loglog(Load_data(0.0, 9.090910, 1825)[0], Load_data(0.0, 9.090910, 1825)[1],'m' ,alpha=0.7, label=r'$M=10 ^{9}\ M_\odot \ $')
 plt.loglog(Load_data(-0.94, 9.090910, 1825)[0], Load_data(-0.94, 9.090910, 1825)[1], '-.', alpha=0.7)
 
 
-plt.loglog(Load_data(0.99, 12.0, 1825)[0], Load_data(0.99, 10.0, 1825)[1], 'k--', alpha=0.7)
-plt.loglog(Load_data(0.0, 12.0, 1825)[0], Load_data(0.0, 10.0, 1825)[1], 'k' ,alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = -0.94$')
-plt.loglog(Load_data(-0.94, 12.0, 1825)[0], Load_data(-0.94, 10.0, 1825)[1], 'k-.', alpha=0.7)
+plt.loglog(Load_data(0.99, 11.0909, 1825)[0], Load_data(0.99, 11.0909, 1825)[1], 'k--', alpha=0.7)
+plt.loglog(Load_data(0.0, 11.0909, 1825)[0], Load_data(0.0, 11.0909, 1825)[1], 'k' ,alpha=0.7, label=r'$M=10 ^{11}\ M_\odot \ $')
+plt.loglog(Load_data(-0.94, 11.0909, 1825)[0], Load_data(-0.94, 11.0909, 1825)[1], 'k-.', alpha=0.7)
 
 
 
-plt.xlabel(r'$t$(days)')
-plt.ylabel(r'$Residuals$')
+plt.xlabel(r'$t$(days)', fontsize=18)
+plt.ylabel(r'$Residuals \, \ postfit$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
-#plt.yticks([2.5, 5])
-plt.ylim(pow(10, -24), pow(10, -8))
-plt.legend(loc='best', prop={'size':legend_size})
+plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
+#plt.ylim(pow(10, -24), pow(10, -8))
+plt.legend(loc='best', prop={'size':15})
 fig.tight_layout()
+
+plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth5YearsDiffSpinsInDaysPrefit.pdf')
+plt.show()
 
 
 #plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth2weeksDiffSpinsInDays10pow8MSun.pdf')
 #plt.show()
+fig= plt.figure()
+fontP = FontProperties()
+fontP.set_size('5.0')
 
 
-plt.subplot(2,2,3)
+#plt.subplot(2,2,3)
 
-plt.loglog(Compute_residuals(0.99, 8.0, 14)[0], abs(Compute_residuals(0.99, 8.0, 14)[2]), 'c--')
-plt.loglog(Compute_residuals(-0.94, 8.0, 14)[0], abs(Compute_residuals(-0.94, 8.0, 14)[2]),'c',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
-plt.loglog(Compute_residuals(0.0, 8.0, 14)[0], abs(Compute_residuals(0.0, 8.0, 14)[2]), 'c-.')
+#plt.loglog(Compute_residuals(0.99, 8.0, 14)[0], abs(Compute_residuals(0.99, 8.0, 14)[2]), 'c--')
+plt.loglog(Compute_residuals(0.0, 8.0, 14)[0], abs(Compute_residuals(-0.94, 8.0, 14)[2]),'c', label=r'$M=10 ^{8}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 8.0, 14)[0], abs(Compute_residuals(0.0, 8.0, 14)[2]), 'c-.')
 
-plt.loglog(Compute_residuals(0.99, 9.090910, 14)[0], abs(Compute_residuals(0.99, 9.090910, 14)[2]), 'm--')
-plt.loglog(Compute_residuals(-0.94, 9.090910, 14)[0], abs(Compute_residuals(-0.94, 9.0909100, 14)[2]),'m',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
-plt.loglog(Compute_residuals(0.0, 9.090910, 14)[0], abs(Compute_residuals(0.0, 9.090910, 14)[2]), 'm-.')
+#plt.loglog(Compute_residuals(0.99, 9.090910, 14)[0], abs(Compute_residuals(0.99, 9.090910, 14)[2]), 'm--')
+plt.loglog(Compute_residuals(0.0, 9.090910, 14)[0], abs(Compute_residuals(-0.94, 9.090910, 14)[2]),'m', label=r'$M=10 ^{9}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 9.090910, 14)[0], abs(Compute_residuals(0.0, 9.090910, 14)[2]), 'm-.')
 
-plt.loglog(Compute_residuals(0.99, 12.0, 14)[0], abs(Compute_residuals(0.99, 12.0, 14)[2]), 'k--')
-plt.loglog(Compute_residuals(-0.94, 12.0, 14)[0], abs(Compute_residuals(-0.94, 12.0, 14)[2]),'k',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = -0.94$')
-plt.loglog(Compute_residuals(0.0, 12.0, 14)[0], abs(Compute_residuals(0.0, 12.0, 14)[2]), 'k-.')
+#plt.loglog(Compute_residuals(0.99, 11.0909, 14)[0], abs(Compute_residuals(0.99, 11.0909, 14)[2]), 'k--')
+plt.loglog(Compute_residuals(0.0, 11.0909, 14)[0], abs(Compute_residuals(-0.94, 11.0909, 14)[2]),'k', label=r'$M=10 ^{11}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 11.0909, 14)[0], abs(Compute_residuals(0.0, 11.0909, 14)[2]), 'k-.')
+
+plt.loglog(Compute_residuals(0.0, 12.0, 14)[0], abs(Compute_residuals(-0.94, 12.0, 14)[2]),'r', label=r'$M=10 ^{12}\ M_\odot \ $')
 
 
-plt.xlabel(r'$t$(days)')
-plt.ylabel(r'$Residuals$')
+plt.xlabel(r'$t$(days)', fontsize=18)
+plt.ylabel(r'$Residuals \, \ prefit$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
-#plt.ylim(0, 0.1)
-plt.legend(loc='best', prop={'size':legend_size})
+plt.yticks([pow(10, -22), pow(10, -19), pow(10, -16)])
+plt.legend(loc='best', prop={'size':15})
 fig.tight_layout()
 
 #fig= plt.figure()
 #fontP = FontProperties()
-
-plt.subplot(2,2,4)
-
-plt.loglog(Compute_residuals(0.99, 8.0, 1825)[0], abs(Compute_residuals(0.99, 8.0, 1825)[2]), 'c--')
-plt.loglog(Compute_residuals(-0.94, 8.0, 1825)[0], abs(Compute_residuals(-0.94, 8.0, 1825)[2]), 'c',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = 0.99$')
-plt.loglog(Compute_residuals(0.0, 8.0, 1825)[0], abs(Compute_residuals(0.0, 8.0, 1825)[2]), 'c-.')
-
-plt.loglog(Compute_residuals(0.99, 9.090910, 1825)[0], abs(Compute_residuals(0.99, 9.090910, 1825)[2]), 'm--')
-plt.loglog(Compute_residuals(-0.94, 9.090910, 1825)[0], abs(Compute_residuals(-0.94, 9.0909100, 1825)[2]),'m',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = 0.0$')
-plt.loglog(Compute_residuals(0.0, 9.090910, 1825)[0], abs(Compute_residuals(0.0, 9.090910, 1825)[2]), 'm-.')
-
-plt.loglog(Compute_residuals(0.99, 12.0, 1825)[0], abs(Compute_residuals(0.99, 12.0, 1825)[2]), 'k--')
-plt.loglog(Compute_residuals(-0.94, 12.0, 1825)[0], abs(Compute_residuals(-0.94, 12.0, 1825)[2]),'k',label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = -0.94$')
-plt.loglog(Compute_residuals(0.0, 12.0, 1825)[0], abs(Compute_residuals(0.0, 12.0, 1825)[2]), 'k-.')
+plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth2weeksDiffSpinsInDaysPostfit.pdf')
+plt.show()
 
 
-plt.xlabel(r'$t$(days)')
-plt.ylabel(r'$Residuals$')
+#plt.subplot(2,2,4)
+fig= plt.figure()
+fontP = FontProperties()
+fontP.set_size('5.0')
+
+#plt.loglog(Compute_residuals(0.99, 8.0, 1825)[0], abs(Compute_residuals(0.99, 8.0, 1825)[2]), 'c--')
+plt.loglog(Compute_residuals(0.0, 8.0, 1825)[0], abs(Compute_residuals(-0.94, 8.0, 1825)[2]), 'c', label=r'$M=10 ^{8}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 8.0, 1825)[0], abs(Compute_residuals(0.0, 8.0, 1825)[2]), 'c-.')
+
+#plt.loglog(Compute_residuals(0.99, 9.090910, 1825)[0], abs(Compute_residuals(0.99, 9.090910, 1825)[2]), 'm--')
+plt.loglog(Compute_residuals(0.0, 9.090910, 1825)[0], abs(Compute_residuals(-0.94, 9.0909100, 1825)[2]),'m', label=r'$M=10 ^{9}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 9.090910, 1825)[0], abs(Compute_residuals(0.0, 9.090910, 1825)[2]), 'm-.')
+
+#plt.loglog(Compute_residuals(0.99, 11.0909, 1825)[0], abs(Compute_residuals(0.99,11.0909, 1825)[2]), 'k--')
+plt.loglog(Compute_residuals(0.0, 11.0909, 1825)[0], abs(Compute_residuals(-0.94, 11.0909, 1825)[2]),'k', label=r'$M=10 ^{11}\ M_\odot \ $')
+#plt.loglog(Compute_residuals(-0.94, 11.0909, 1825)[0], abs(Compute_residuals(0.0, 11.0909, 1825)[2]), 'k-.')
+
+plt.loglog(Compute_residuals(0.0, 12.0, 1825)[0], abs(Compute_residuals(-0.94, 12.0, 1825)[2]),'r', label=r'$M=10 ^{12}\ M_\odot \ $')
+
+
+plt.xlabel(r'$t$(days)', fontsize=18)
+plt.ylabel(r'$Residuals \, \ postfit$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
-#plt.ylim(0, 0.1)
-plt.legend(loc='best', prop={'size':legend_size})
+plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
+plt.legend(loc='best', prop={'size':15})
 fig.tight_layout()
 
-plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth2weeksDiffSpinsInDays.pdf')
+plt.savefig('/home/aschoudhary/gravitational_wave_memory_project/plots/PlotfromMathematicaData/ResidualGrowth5YearsDiffSpinsInDaysPostfit.pdf')
 plt.show()
 
 #Make desity plot for memory growth
@@ -171,7 +194,7 @@ plt.show()
 
 #SpinVec = np.array([-0.94, -0.90, -0.80, -0.60, -0.43, -0.2, 0.0, 0.2, 0.6, 0.8, 0.99])
 SpinVec = np.array([0.99, 0.8, 0.6, 0.2, 0.0, -0.2, -0.43, -0.60, -0.80, -0.90, -0.94])
-Log10PowMSunVec = np.array([8.0, 8.18182, 8.36364, 8.54545, 8.72727, 8.90909, 9.09091, 9.27273, 9.45455, 9.63636, 9.81818, 10.0, 10.1818, 10.3636, 10.5455, 10.7273, 10.9091, 11.0909, 11.2727, 11.4545, 11.6364, 11.8182, 12.0])
+Log10PowMSunVec = np.array([8.0, 8.18182, 8.36364, 8.54545, 8.72727, 8.90909, 9.09091, 9.27273, 9.45455, 9.63636, 9.81818, 10.0, 10.1818, 10.3636, 10.5455, 10.7273, 10.9091,11.0909])
 
 #, 10.7273, 10.9091, 11.0909, 11.2727, 11.4545, 11.6364, 11.8182, 12.0
 '''
@@ -206,24 +229,31 @@ vmx14days=Reseduals_M_vs_Spin14days.max()
 vmn1825days=Reseduals_M_vs_Spin1825days.min()
 vmx1825days=Reseduals_M_vs_Spin1825days.max()
 
+fig= plt.figure()
+fontP = FontProperties()
+fontP.set_size('5.0')
 
 #fig, ax = plt.subplots()
 #plt.subplot(1,2,1)
-im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='bicubic', cmap=cm.RdYlGn, extent=[8, 12.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
+im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
 
-plt.xlabel('Log{(M)')
-plt.ylabel('Spin')
+plt.xlabel('Log{(M)', fontsize=18)
+plt.ylabel('Spin', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/PlotfromMathematicaData/MemoryResSpinvsMass14Days.pdf")
+
 plt.show()
+fig= plt.figure()
+fontP = FontProperties()
+fontP.set_size('5.0')
 
 #plt.subplot(1,2,2)
-im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.RdYlGn, extent=[8, 12.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
+im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
 
 
-plt.xlabel('Log{(M)')
-plt.ylabel('Spin')
+plt.xlabel('Log{(M)', fontsize=18)
+plt.ylabel('Spin', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/PlotfromMathematicaData/MemoryResSpinvsMass1825Days.pdf")

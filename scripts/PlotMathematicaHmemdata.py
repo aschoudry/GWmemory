@@ -62,12 +62,12 @@ fontP = FontProperties()
 
 plt.semilogy(time_Spin0p99, hmem_Spin0p99, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.99$')
 #plt.semilogy(time_Spin0p0, hmem_Spin0p0, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =0.0$')
-plt.semilogy(time_Spinm0p94, hmem_Spinm0p94, alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$')
+plt.semilogy(time_Spinm0p94, hmem_Spinm0p94, '--', alpha=0.7, label=r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N =-0.94$')
 
 
 plt.scatter([time_Spin0p99_10Pow8MSun[0], time_Spin0p99_10Pow8MSun[-1]], [hmem_Spin0p99_10Pow8MSun[0], hmem_Spin0p99_10Pow8MSun[-1]], marker='x', color='red', label=r'$M=10 ^{8}\ M_\odot \ $')
 plt.scatter([time_Spin0p99_10Pow9MSun[0], time_Spin0p99_10Pow9MSun[-1]], [hmem_Spin0p99_10Pow9MSun[0], hmem_Spin0p99_10Pow9MSun[-1]], marker='*', color='black', label=r'$M=10 ^{9}\ M_\odot \ $')
-plt.scatter([time_Spin0p99_10Pow10MSun[0], time_Spin0p99_10Pow10MSun[-1]], [hmem_Spin0p99_10Pow10MSun[0], hmem_Spin0p99_10Pow10MSun[-1]], marker='.', color='red', label=r'$M=10 ^{10}\ M_\odot \ $')
+plt.scatter([time_Spin0p99_10Pow11MSun[0], time_Spin0p99_10Pow11MSun[-1]], [hmem_Spin0p99_10Pow11MSun[0], hmem_Spin0p99_10Pow11MSun[-1]], marker='.', color='red', label=r'$M=10 ^{11}\ M_\odot \ $')
 
 #plt.scatter([time_Spin0p0_10Pow8MSun[0], time_Spin0p0_10Pow8MSun[-1]], [hmem_Spin0p0_10Pow8MSun[0], hmem_Spin0p0_10Pow8MSun[-1]], marker='x', color='red')
 #plt.scatter([time_Spin0p0_10Pow9MSun[0], time_Spin0p0_10Pow9MSun[-1]], [hmem_Spin0p0_10Pow9MSun[0], hmem_Spin0p0_10Pow9MSun[-1]], marker='*', color='black')
@@ -75,10 +75,10 @@ plt.scatter([time_Spin0p99_10Pow10MSun[0], time_Spin0p99_10Pow10MSun[-1]], [hmem
 
 plt.scatter([time_Spinm0p94_10Pow8MSun[0], time_Spinm0p94_10Pow8MSun[-1]], [hmem_Spinm0p94_10Pow8MSun[0], hmem_Spinm0p94_10Pow8MSun[-1]], marker='x', color='red')
 plt.scatter([time_Spinm0p94_10Pow9MSun[0], time_Spinm0p94_10Pow9MSun[-1]], [hmem_Spinm0p94_10Pow9MSun[0], hmem_Spinm0p94_10Pow9MSun[-1]], marker='*', color='black')
-plt.scatter([time_Spinm0p94_10Pow10MSun[0], time_Spinm0p94_10Pow10MSun[-1]], [hmem_Spinm0p94_10Pow10MSun[0], hmem_Spinm0p94_10Pow10MSun[-1]], marker='.', color='red')
+plt.scatter([time_Spinm0p94_10Pow11MSun[0], time_Spinm0p94_10Pow11MSun[-1]], [hmem_Spinm0p94_10Pow11MSun[0], hmem_Spinm0p94_10Pow11MSun[-1]], marker='.', color='red')
 
-plt.xlabel(r'$t/M$')
-plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$')
+plt.xlabel(r'$t/M$', fontsize=18)
+plt.ylabel(r'$(R/M)\,h^{(mem)}_{+}$', fontsize=18)
 plt.xticks([-3000, -2000, -1000, 0])
 plt.ylim(0, 0.1)
 plt.legend()
