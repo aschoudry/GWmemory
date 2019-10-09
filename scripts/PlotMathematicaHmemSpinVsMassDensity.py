@@ -79,8 +79,8 @@ plt.loglog(Load_data(-0.94, 11.0909, 14)[0], Load_data(-0.94, 11.0909, 14)[1], '
 
 
 
-plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$prefit \, \ Residuals$', fontsize=18)
+plt.xlabel('t(days)', fontsize=18)
+plt.ylabel('pre-fit Residuals', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -24), pow(10, -18), pow(10, -12)])
 #plt.ylim(pow(10, -24), pow(10, -8))
@@ -110,8 +110,8 @@ plt.loglog(Load_data(-0.94, 11.0909, 1825)[0], Load_data(-0.94, 11.0909, 1825)[1
 
 
 
-plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$postfit \, \ Residuals$', fontsize=18)
+plt.xlabel('t(days)', fontsize=18)
+plt.ylabel('post-fit Residuals', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
 #plt.ylim(pow(10, -24), pow(10, -8))
@@ -146,8 +146,8 @@ plt.loglog(Compute_residuals(0.0, 11.0909, 14)[0], abs(Compute_residuals(-0.94, 
 plt.loglog(Compute_residuals(0.0, 12.0, 14)[0], abs(Compute_residuals(-0.94, 12.0, 14)[2]),'r', label=r'$M=10 ^{12}\ M_\odot \ $')
 
 
-plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$prefit \, \ Residuals$', fontsize=18)
+plt.xlabel('t(days)', fontsize=18)
+plt.ylabel('pre-fit Residuals', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -22), pow(10, -19), pow(10, -16)])
 plt.legend(loc='best', prop={'size':15})
@@ -179,8 +179,8 @@ plt.loglog(Compute_residuals(0.0, 11.0909, 1825)[0], abs(Compute_residuals(-0.94
 plt.loglog(Compute_residuals(0.0, 12.0, 1825)[0], abs(Compute_residuals(-0.94, 12.0, 1825)[2]),'r', label=r'$M=10 ^{12}\ M_\odot \ $')
 
 
-plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$postfit \, \ Residuals$', fontsize=18)
+plt.xlabel('t(days)', fontsize=18)
+plt.ylabel('post-fit Residuals', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
 plt.legend(loc='best', prop={'size':15})
@@ -237,8 +237,8 @@ fontP.set_size('5.0')
 #plt.subplot(1,2,1)
 im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
 
-plt.xlabel('Log{(M)', fontsize=18)
-plt.ylabel('Spin', fontsize=18)
+plt.xlabel(r'$Log10{(M)}$', fontsize=18)
+plt.ylabel(r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/PlotfromMathematicaData/MemoryResSpinvsMass14Days.pdf")
@@ -252,8 +252,8 @@ fontP.set_size('5.0')
 im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
 
 
-plt.xlabel('Log{(M)', fontsize=18)
-plt.ylabel('Spin', fontsize=18)
+plt.xlabel(r'$Log10{(M)}$', fontsize=18)
+plt.ylabel(r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/PlotfromMathematicaData/MemoryResSpinvsMass1825Days.pdf")
@@ -261,7 +261,7 @@ plt.show()
 
 
 #Check why there are contours for high mass, high spin case
-
+'''
 file_location_forResiduals14Days = "../plots/PlotfromMathematicaData/ResidualGrowthPlots14Days/"
 file_location_forResiduals5Years = "../plots/PlotfromMathematicaData/ResidualGrowthPlots5Years/"
 
@@ -308,4 +308,4 @@ for i in range(len(SpinVec_v2)):
                 plt.savefig(file_location_forResiduals5Years+"ResM"+str(Log10PowMSunVec_v2[j]).replace('.', 'p')+"Spin"+str(SpinVec_v2[i]).replace('.', 'p')+".png")
                 plt.close()
                 #plt.show()
-
+'''
