@@ -70,9 +70,9 @@ fontP.set_size('5.0')
 
 #plt.subplot(2,2,2)
 
-plt.plot(time_Spin0p99_10Pow8MSun, hmem_Spin0p99_10Pow8MSun,'c', label='Residual', linewidth=2)
+plt.plot(time_Spin0p99_10Pow8MSun, hmem_Spin0p99_10Pow8MSun,'c', label='Pre-fit residual', linewidth=2)
 plt.plot(time_Spin0p99_10Pow8MSun, quadratic_fit_to_res0p99_10pow8, 'r--', label='Quadratic fit', linewidth=2)
-plt.plot(time_Spin0p99_10Pow8MSun, res0p99_10pow8_quadSubtract, 'm-.', label='Residual post quadratric subtraction', linewidth=2)
+plt.plot(time_Spin0p99_10Pow8MSun, res0p99_10pow8_quadSubtract, 'm-.', label='Post-fit residual', linewidth=2)
 
 plt.xlabel(r'$t$(days)', fontsize=18)
 plt.ylabel(r'$Residuals$', fontsize=18)
@@ -129,9 +129,9 @@ fontP.set_size('5.0')
 
 #plt.subplot(2,2,4)
 
-plt.plot(time_Spin0p99_10Pow10MSun, hmem_Spin0p99_10Pow10MSun, 'c', label='Residual', linewidth=2)
+plt.plot(time_Spin0p99_10Pow10MSun, hmem_Spin0p99_10Pow10MSun, 'c', label=' Pre-fit residual', linewidth=2)
 plt.plot(time_Spin0p99_10Pow10MSun, quadratic_fit_to_res0p99_10pow10, 'r--', label='Quadratic fit', linewidth=2)
-plt.plot(time_Spin0p99_10Pow10MSun, res0p99_10pow10_quadSubtract, 'm-.', label='Residual post quadratric subtraction', linewidth=2)
+plt.plot(time_Spin0p99_10Pow10MSun, res0p99_10pow10_quadSubtract, 'm-.', label='Post-fit residual ', linewidth=2)
 plt.xlabel(r'$t$(days)', fontsize=18)
 plt.ylabel(r'$Residuals$', fontsize=18)
 

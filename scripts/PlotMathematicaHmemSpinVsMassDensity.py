@@ -49,7 +49,7 @@ def Compute_residuals(Spin, Log_Mass, days):
     res_mean = np.sqrt(np.mean(res_quadSubtract**2))
 
 
-    return time, res, res_quadSubtract, res_mean
+    return time, res, res_quadSubtract, res_mean, quadratic_fit_to_res
 
 
 def Residual_growth14Days(Spin, Log_SolarMass):
@@ -80,7 +80,7 @@ plt.loglog(Load_data(-0.94, 11.0909, 14)[0], Load_data(-0.94, 11.0909, 14)[1], '
 
 
 plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$Residuals \, \ prefit$', fontsize=18)
+plt.ylabel(r'$prefit \, \ Residuals$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -24), pow(10, -18), pow(10, -12)])
 #plt.ylim(pow(10, -24), pow(10, -8))
@@ -111,7 +111,7 @@ plt.loglog(Load_data(-0.94, 11.0909, 1825)[0], Load_data(-0.94, 11.0909, 1825)[1
 
 
 plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$Residuals \, \ postfit$', fontsize=18)
+plt.ylabel(r'$postfit \, \ Residuals$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
 #plt.ylim(pow(10, -24), pow(10, -8))
@@ -147,7 +147,7 @@ plt.loglog(Compute_residuals(0.0, 12.0, 14)[0], abs(Compute_residuals(-0.94, 12.
 
 
 plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$Residuals \, \ prefit$', fontsize=18)
+plt.ylabel(r'$prefit \, \ Residuals$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -22), pow(10, -19), pow(10, -16)])
 plt.legend(loc='best', prop={'size':15})
@@ -180,7 +180,7 @@ plt.loglog(Compute_residuals(0.0, 12.0, 1825)[0], abs(Compute_residuals(-0.94, 1
 
 
 plt.xlabel(r'$t$(days)', fontsize=18)
-plt.ylabel(r'$Residuals \, \ postfit$', fontsize=18)
+plt.ylabel(r'$postfit \, \ Residuals$', fontsize=18)
 #plt.xticks([0, 5, 10, 15])
 plt.yticks([pow(10, -19), pow(10, -16), pow(10, -13), pow(10, -10)])
 plt.legend(loc='best', prop={'size':15})
@@ -258,4 +258,54 @@ plt.colorbar()
 fig.tight_layout()
 plt.savefig("../plots/PlotfromMathematicaData/MemoryResSpinvsMass1825Days.pdf")
 plt.show()
+
+
+#Check why there are contours for high mass, high spin case
+
+file_location_forResiduals14Days = "../plots/PlotfromMathematicaData/ResidualGrowthPlots14Days/"
+file_location_forResiduals5Years = "../plots/PlotfromMathematicaData/ResidualGrowthPlots5Years/"
+
+SpinVec_v2 = np.array([0.99, 0.8, 0.6, 0.2, 0.0, -0.2, -0.43, -0.60, -0.80, -0.90, -0.94])
+
+Log10PowMSunVec_v2 = np.array([8.0, 8.18182, 8.36364, 8.54545, 8.72727, 8.90909, 9.09091, 9.27273, 9.45455, 9.63636, 9.81818, 10.0, 10.1818, 10.3636, 10.5455, 10.7273, 10.9091,11.0909])
+
+
+for i in range(len(SpinVec_v2)):
+	for j in range(len(Log10PowMSunVec_v2)):
+		time  = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 14)[0]
+                res  = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 14)[1]
+                res_quadSubtract = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 14)[2]
+                quadSubtract = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 14)[4]
+
+                plt.title("$M=10 ^{"+str(Log10PowMSunVec_v2[j])+"}\ M_\odot \ \, \mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = \, $" +str(SpinVec_v2[i]))
+#                plt.plot(time, res, 'c', label="Res pre-fit")
+                plt.plot(time, res_quadSubtract, 'k--', label="Res post-fit")
+#                plt.plot(time, quadSubtract, 'r-.', label="Quad fit")
+                plt.xlabel('$t$(days)')
+                plt.ylabel(r'$Residuals$')
+                plt.legend()
+                fig.tight_layout()
+                plt.savefig(file_location_forResiduals14Days+"ResM"+str(Log10PowMSunVec_v2[j]).replace('.', 'p')+"Spin"+str(SpinVec_v2[i]).replace('.', 'p')+".png")
+                plt.close()
+                #plt.show()
+
+
+for i in range(len(SpinVec_v2)):
+	for j in range(len(Log10PowMSunVec_v2)):
+		time  = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 1825)[0]
+                res  = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 1825)[1]
+                res_quadSubtract = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 1825)[2]
+                quadSubtract = Compute_residuals(SpinVec_v2[i], Log10PowMSunVec_v2[j], 1825)[4]
+
+                plt.title("$M=10 ^{"+str(Log10PowMSunVec_v2[j])+"}\ M_\odot \ \, \mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N = \, $" +str(SpinVec_v2[i]))
+#                plt.plot(time, res, 'c', label="Res pre-fit")
+                plt.plot(time, res_quadSubtract, 'k--', label="Res post-fit")
+#                plt.plot(time, quadSubtract, 'r-.', label="Quad fit")
+                plt.xlabel('$t$(days)')
+                plt.ylabel(r'$Residuals$')
+                plt.legend()
+                fig.tight_layout()
+                plt.savefig(file_location_forResiduals5Years+"ResM"+str(Log10PowMSunVec_v2[j]).replace('.', 'p')+"Spin"+str(SpinVec_v2[i]).replace('.', 'p')+".png")
+                plt.close()
+                #plt.show()
 
