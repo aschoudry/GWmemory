@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import plotsettings
 from matplotlib.font_manager import FontProperties
-
+from scipy.signal import savgol_filter as sv
 
 #Load saved memory data from mathematica in geometric units
 
@@ -36,6 +36,7 @@ def Load_data(Spin, Log_Mass, days):
 def Compute_residuals(Spin, Log_Mass, days):
     time = Load_data(Spin, Log_Mass, days)[0]
     res = Load_data(Spin, Log_Mass, days)[1]
+    res = sv(res, 51, 3)
 
     res_quadfit = np.polyfit(time, res, 2)
 
@@ -235,9 +236,9 @@ fontP.set_size('5.0')
 
 #fig, ax = plt.subplots()
 #plt.subplot(1,2,1)
-im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
+im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='quadric', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
 
-plt.xlabel(r'$Log10{(M)}$', fontsize=18)
+plt.xlabel(r'$\log10{(M)}$', fontsize=18)
 plt.ylabel(r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
@@ -252,7 +253,7 @@ fontP.set_size('5.0')
 im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
 
 
-plt.xlabel(r'$Log10{(M)}$', fontsize=18)
+plt.xlabel(r'$\log10{(M)}$', fontsize=18)
 plt.ylabel(r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$', fontsize=18)
 plt.colorbar()
 fig.tight_layout()
