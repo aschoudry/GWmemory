@@ -236,7 +236,7 @@ fontP.set_size('5.0')
 
 #fig, ax = plt.subplots()
 #plt.subplot(1,2,1)
-im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='quadric', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
+im = plt.imshow(Reseduals_M_vs_Spin14days , interpolation='quadric', cmap=cm.jet, extent=[8, 11.0, -0.94, 0.99], vmin=vmn14days, vmax=vmx14days)
 
 plt.xlabel(r'$\log10{(M)}$', fontsize=18)
 plt.ylabel(r'$\mathbf{\chi}_{s} \cdot \hat{\mathbf{L}}_N$', fontsize=18)
@@ -250,7 +250,7 @@ fontP = FontProperties()
 fontP.set_size('5.0')
 
 #plt.subplot(1,2,2)
-im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.plasma, extent=[8, 11.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
+im = plt.imshow(Reseduals_M_vs_Spin1825days , interpolation='bicubic', cmap=cm.jet, extent=[8, 11.0, -0.94, 0.99], vmin=vmn1825days, vmax=vmx1825days)
 
 
 plt.xlabel(r'$\log10{(M)}$', fontsize=18)
